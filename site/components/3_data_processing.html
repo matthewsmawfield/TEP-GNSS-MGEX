@@ -1,0 +1,58 @@
+<h2>2. Data and Processing</h2>
+
+<h3>2.1 Data Source</h3>
+
+<p>
+All data are public and freely available from NASA CDDIS
+(<a href="https://cddis.nasa.gov">cddis.nasa.gov</a>) and the International
+GNSS Service (IGS). The analysis uses the Multi-GNSS Experiment (MGEX) combined
+receiver-clock product COD0MGXFIN produced by the Center for Orbit Determination
+in Europe (CODE), with the Wuhan (WUM) and CNES (GRG) MGEX products as fallbacks
+on the few days CODE is unavailable. These are daily clock (CLK) files at a
+5-minute sampling interval. Each file reports a single combined multi-GNSS
+receiver-clock estimate per station, derived by CODE from GPS, GLONASS, Galileo
+and BeiDou observations; the combined solution is the quantity analysed. No
+positioning is performed and no raw RINEX observation files are used.
+</p>
+
+<h3>2.2 Time Span and Selection</h3>
+
+<p>
+The analysis period is 2025-01-01 to 2026-05-01 (473 days with usable data),
+yielding approximately 16 months of held-out daily files. The window is chosen to
+be strictly disjoint from the data used in Papers 1–3, ensuring temporal
+independence. Receiver-clock offsets are extracted from the AR (receiver-clock)
+records of each CLK file for 256 globally distributed stations, converted to
+nanoseconds, and assembled into per-station daily time series.
+</p>
+
+<h3>2.3 A Single Combined Solution</h3>
+
+<p>
+Unlike Papers 1–3, which can isolate individual systems, the MGEX CLK product
+contains one combined receiver clock per station rather than per-constellation
+clocks. The four constellations therefore cannot be separated in this product,
+and the per-constellation results reported below are, by construction, identical;
+they are retained only for reporting compatibility with earlier papers. The
+independence offered here is temporal (a held-out epoch) and product-type (a
+combined multi-GNSS clock from a different analysis pipeline), not
+per-constellation.
+</p>
+
+<h3>2.4 Frozen Prediction Register</h3>
+
+<p>
+Before any data are inspected, the following predictions and tests are frozen
+and version-controlled. The correlation-length pass band reflects the shorter λ
+expected from the phase-alignment metric on combined multi-GNSS clocks.
+</p>
+
+<table>
+    <tr><th>Frozen prediction</th><th>Test</th><th>Pass criterion</th></tr>
+    <tr><td>λ in thousands of km</td><td>Fit C(r)=A exp(−r/λ)+C₀ on 40 log-spaced distance bins (50–13,000 km)</td><td>λ within 1,000–4,000 km with positive R²</td></tr>
+    <tr><td>EW > NS anisotropy</td><td>Azimuth-sector matched station pairs; compare EW vs NS correlation length</td><td>λ_EW/λ_NS &gt; 1.05 with bootstrap p &lt; 0.05</td></tr>
+    <tr><td>Orbital-velocity coupling</td><td>Monthly λ and EW/NS ratio vs Earth orbital speed</td><td>Significant correlation (p &lt; 0.05) after multiple-comparison correction</td></tr>
+    <tr><td>CMB-frame alignment</td><td>Full-sky anisotropy axis grid search (10° steps) with look-elsewhere correction</td><td>Best-fit axis within 30° of the CMB dipole, LEE p &lt; 0.05</td></tr>
+    <tr><td>Not ionospheric</td><td>Kp stratification and storm-day exclusion</td><td>Signal persists on geomagnetically quiet days</td></tr>
+    <tr><td>Not network geometry</td><td>Hemisphere-balanced and distance-matched station subsets</td><td>λ consistent across geometry subsets</td></tr>
+</table>

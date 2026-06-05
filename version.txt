@@ -1,0 +1,5 @@
+TEP-GNSS-MGEX v0.1 (Suva)
+Paper 4: Global Time Echoes IV
+Held-Out Multi-Constellation Replication in Public MGEX RINEX Data, 2025–2026
+Date: 2026-05-29
+Status: development

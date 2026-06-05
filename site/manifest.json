@@ -1,0 +1,16 @@
+{
+  "title": "Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026",
+  "version": "v0.1 (Suva)",
+  "paper": 4,
+  "sections": [
+    {"id": "abstract", "title": "Abstract", "file": "1_abstract.html", "order": 1},
+    {"id": "introduction", "title": "Introduction", "file": "2_introduction.html", "order": 2},
+    {"id": "data", "title": "Data & Processing", "file": "3_data_processing.html", "order": 3},
+    {"id": "methods", "title": "Methods", "file": "4_methods.html", "order": 4},
+    {"id": "results", "title": "Results", "file": "5_results.html", "order": 5},
+    {"id": "discussion", "title": "Discussion", "file": "6_discussion.html", "order": 6},
+    {"id": "conclusions", "title": "Conclusions", "file": "7_conclusions.html", "order": 7},
+    {"id": "data-availability", "title": "Data Availability", "file": "8_data_availability.html", "order": 8},
+    {"id": "references", "title": "References", "file": "9_references.html", "order": 9}
+  ]
+}

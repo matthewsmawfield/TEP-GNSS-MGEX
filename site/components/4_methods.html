@@ -1,0 +1,85 @@
+<h2>3. Methods</h2>
+
+<h3>3.1 Receiver-Clock Time Series</h3>
+
+<p>
+For each daily CLK file the AR records are parsed, which report the combined
+multi-GNSS receiver-clock offset for each station at the 5-minute sampling
+interval. The offsets are converted from seconds to nanoseconds and ordered in
+time, giving one clock time series per station per day. No positioning is
+performed and no coordinate residuals are computed; the receiver clock is the
+sole observable.
+</p>
+
+<h3>3.2 Spectral Pre-processing</h3>
+
+<p>
+Each daily series is linearly detrended to remove the dominant clock drift.
+Cross- and auto-spectra are estimated with Welch's method (Hann window,
+segment length up to 96 samples). Spectral estimates are restricted to the
+TEP-sensitive band [10 µHz, 500 µHz], corresponding to periods from about 28
+hours down to 33 minutes, which lies safely within the 5-minute Nyquist limit.
+</p>
+
+<h3>3.3 Phase-Coherent Correlation</h3>
+
+<p>
+For every station pair the magnitude-weighted circular mean is computed of the
+cross-spectral phase across the band. The phase-alignment metric is the cosine
+of this weighted mean phase, ranging from −1 (anti-phase) through 0 (random)
+to +1 (in-phase). This metric replaces the spectral-magnitude coherence used in
+earlier papers; it isolates the sign and stability of the inter-station phase
+relationship and is the quantity carried through all subsequent tests. Pairs are
+binned by great-circle distance into 40 logarithmically spaced bins from 50 km
+to 13,000 km, with a minimum of 10 pairs per bin.
+</p>
+
+<h3>3.4 Exponential Fitting</h3>
+
+<p>
+The distance-binned phase alignment is modelled as
+</p>
+
+<p style="text-align:center;">
+C(r) = A exp(−r / λ) + C₀,
+</p>
+
+<p>
+where A is the amplitude, λ is the correlation length, and C₀ is an incoherent
+offset. Fitting uses bounded non-linear least squares (Trust Region Reflective),
+weighting each bin by the inverse of its standard error of the mean
+(1/SEM, where SEM = σ_bin / sqrt(count)). Fit quality is
+quantified by R², and the uncertainty on λ is propagated from the covariance
+matrix.
+</p>
+
+<h3>3.5 Anisotropy, Orbital and Frame Tests</h3>
+
+<p>
+The EW > NS test fits λ separately in eight 45°-wide azimuth sectors and compares
+the mean of the east and west sectors with the mean of the north and south
+sectors. Because ionospheric decorrelation inverts the anisotropy at long
+baselines, a longitude-matched subset is also reported (station-pair longitude
+difference below 30°), which, following Paper 3, isolates pairs at similar local
+solar time. Significance and confidence intervals for the ratio are obtained from
+500 bootstrap resamples. The ratio is additionally reported in three distance
+strata (0–500, 500–1,000, &gt;1,000 km).
+</p>
+
+<p>
+The orbital-coupling test correlates the monthly λ and the monthly EW/NS ratio
+with the projection of Earth's orbital velocity onto the CMB dipole direction,
+computed from a sinusoidal annual model; the two correlations are
+Bonferroni-corrected. Because exponential-fit noise on short baselines can
+degrade these metrics, a supplementary PA-difference metric is also computed:
+the monthly mean EW minus NS phase alignment, which avoids fitting entirely and
+directly measures anisotropy strength. The CMB-frame test performs a full-sky
+grid search for the anisotropy axis on a 37 × 19 grid in right ascension and
+declination (10° steps), correlating the daily EW/NS ratio with the projection of
+Earth's orbital velocity onto each candidate axis, with a permutation null and a
+look-elsewhere correction factor of 50. Ionospheric controls stratify the fit by
+geomagnetic Kp index and exclude storm days; geometry controls repeat the fit on
+hemisphere-balanced and distance-matched subsets; and four null tests (temporal
+shuffle, spatial shuffle, phase randomisation, and solar-rotation reassignment)
+verify that the recovered structure vanishes under label permutation.
+</p>

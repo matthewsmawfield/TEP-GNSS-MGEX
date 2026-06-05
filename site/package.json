@@ -1,0 +1,42 @@
+{
+  "name": "tep-gnss-mgex-site",
+  "version": "0.1.0",
+  "description": "Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026",
+  "main": "index.html",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "python3 -m http.server 8000",
+    "build": "node build.js",
+    "build:dev": "npm run build && cd dist && python3 -m http.server 8350",
+    "build:markdown": "npm run build && node html-to-markdown.js",
+    "markdown": "node html-to-markdown.js",
+    "serve": "python3 -m http.server",
+    "serve:dist": "cd dist && python3 -m http.server 8351"
+  },
+  "keywords": [
+    "TEP",
+    "GNSS",
+    "MGEX",
+    "multi-GNSS",
+    "receiver clock",
+    "temporal equivalence principle",
+    "held-out replication",
+    "physics"
+  ],
+  "author": "Matthew Lukin Smawfield <matthew@mlsmawfield.com>",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matthewsmawfield/TEP-GNSS-MGEX.git"
+  },
+  "homepage": "https://matthewsmawfield.github.io/TEP-GNSS-MGEX/",
+  "devDependencies": {
+    "chokidar": "^4.0.3",
+    "live-server": "^1.2.2",
+    "nodemon": "^3.1.10"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "python": ">=3.10"
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026</title>
+    <meta name="description" content="Paper 4 of the Temporal Equivalence Principle (TEP) GNSS series. Strict held-out replication using the public MGEX combined multi-GNSS receiver-clock product (CODE COD0MGXFIN).">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Global Time Echoes IV</h1>
+            <p class="subtitle">Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026</p>
+            <p class="meta">Matthew Lukin Smawfield &middot; v0.1 (Suva) &middot; Preprint</p>
+        </div>
+    </header>
+
+    <main id="main-content" role="main">
+        <div id="loading">Loading manuscript...</div>
+        <div id="manuscript-content"></div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Licensed under CC-BY-4.0 &middot; <a href="https://github.com/matthewsmawfield/TEP-GNSS-MGEX">GitHub</a></p>
+        </div>
+    </footer>
+
+    <!-- Component Loading Script -->
+    <script>
+        (async function() {
+            const response = await fetch('manifest.json');
+            const manifest = await response.json();
+            const container = document.getElementById('manuscript-content');
+            document.getElementById('loading').style.display = 'none';
+
+            const sorted = manifest.sections.sort((a, b) => a.order - b.order);
+            for (const section of sorted) {
+                try {
+                    const res = await fetch('components/' + section.file);
+                    const html = await res.text();
+                    const el = document.createElement('section');
+                    el.id = section.id;
+                    el.className = 'manuscript-section';
+                    el.dataset.section = section.title;
+                    el.innerHTML = html;
+                    container.appendChild(el);
+                } catch (e) {
+                    console.warn('Failed to load section:', section.file);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

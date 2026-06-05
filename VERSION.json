@@ -1,0 +1,31 @@
+{
+  "project": "TEP-GNSS-MGEX",
+  "paper": 14,
+  "version": "0.1.0",
+  "codename": "Suva",
+  "description": "Held-Out Multi-Constellation Replication in Public MGEX RINEX Data",
+  "release_date": "2026-05-29",
+  "status": "development",
+  "methodology": {
+    "based_on": "TEP-GNSS-RINEX v0.5 (Kathmandu)",
+    "data_source": "Public MGEX RINEX 3/4 observation files + merged BRDC/MGEX broadcast ephemerides (NASA CDDIS / IGS)",
+    "constellations": ["GPS", "GLONASS", "Galileo", "BeiDou"],
+    "time_span": "2025-2026 (public daily 30 s network data)",
+    "key_innovation": "Strict held-out per-constellation replication with frozen predictions",
+    "processing": "Single Point Positioning (SPP) per constellation, iono-free L1/L2"
+  },
+  "dependencies": {
+    "python": ">=3.10",
+    "numpy": ">=1.24",
+    "pandas": ">=2.0",
+    "scipy": ">=1.11",
+    "matplotlib": ">=3.7",
+    "georinex": ">=1.16",
+    "hatanaka": ">=1.0"
+  },
+  "related_projects": {
+    "TEP-GNSS": "../TEP-GNSS",
+    "TEP-GNSS-II": "../TEP-GNSS-II",
+    "TEP-GNSS-RINEX": "../TEP-GNSS-RINEX"
+  }
+}
