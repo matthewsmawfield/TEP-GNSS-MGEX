@@ -37,9 +37,9 @@ def load_json(filename):
 
 
 def plot_correlation_length(constellations=None):
-    """Figure 1: Correlation length per constellation."""
+    """Figure 1: Correlation length."""
     data = load_json("step_2_1_correlation_length.json")
-    consts = constellations or list(CONSTELLATIONS.keys())
+    consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
     fig, ax = plt.subplots(figsize=(8, 5))
     lambdas = []
@@ -71,9 +71,9 @@ def plot_correlation_length(constellations=None):
 
 
 def plot_ew_ns_anisotropy(constellations=None):
-    """Figure 2: EW vs NS correlation length per constellation."""
+    """Figure 2: EW vs NS correlation length."""
     data = load_json("step_2_2_ew_ns_anisotropy.json")
-    consts = constellations or list(CONSTELLATIONS.keys())
+    consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
     fig, ax = plt.subplots(figsize=(8, 5))
     ew_vals = []
@@ -115,7 +115,7 @@ def plot_orbital_coupling(constellations=None):
       - PA_diff vs orbital speed (short-baseline robust supplementary metric)
     """
     data = load_json("step_2_3_orbital_coupling.json")
-    consts = constellations or list(CONSTELLATIONS.keys())
+    consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
     fig, ax = plt.subplots(figsize=(9, 5))
 
@@ -160,7 +160,7 @@ def plot_orbital_coupling(constellations=None):
 def plot_cmb_alignment(constellations=None):
     """Figure 4: CMB alignment angular separation."""
     data = load_json("step_2_4_cmb_alignment.json")
-    consts = constellations or list(CONSTELLATIONS.keys())
+    consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
     fig, ax = plt.subplots(figsize=(8, 5))
     labels = []
@@ -193,7 +193,7 @@ def plot_cmb_alignment(constellations=None):
 def plot_null_tests(constellations=None):
     """Figure 5: Null control test R² values."""
     data = load_json("step_2_7_null_tests.json")
-    consts = constellations or list(CONSTELLATIONS.keys())
+    consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
     fig, ax = plt.subplots(figsize=(10, 5))
     tests = ["temporal_shuffle", "spatial_shuffle", "phase_random", "solar_rotation"]

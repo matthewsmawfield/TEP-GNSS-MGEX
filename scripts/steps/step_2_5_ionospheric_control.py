@@ -37,7 +37,7 @@ def _fit_lambda(records):
     # Use phase_alignment (TEP signature metric) instead of coherence (isotropic amplitude)
     coh = np.array([r["phase_alignment"] for r in records])
     fit = fit_exponential_model(dist, coh, MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT)
-    return fit["correlation_length_km"] if fit and fit["success"] else None
+    return fit if fit and fit["success"] else None
 
 
 def _fit_lambda_by_kp(records, kp_map, kp_threshold):
@@ -69,8 +69,7 @@ class Step25IonosphericControl:
         pair_file = OUTPUTS_DIR / "step_2_0_mgex_pairs.json"
         if not pair_file.exists():
             print_status(f"Pair file not found: {pair_file}", "ERROR")
-            for c in CONSTELLATIONS:
-                results[c] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}
+            results["combined"] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}
             out_file = OUTPUTS_DIR / "step_2_5_ionospheric_control.json"
             with open(out_file, 'w') as f:
                 json.dump(results, f, indent=2)
@@ -80,8 +79,7 @@ class Step25IonosphericControl:
             records = json.load(f)
 
         if not records:
-            for c in CONSTELLATIONS:
-                results[c] = {"status": "no_data", "note": "Empty pair records"}
+            results["combined"] = {"status": "no_data", "note": "Empty pair records"}
             out_file = OUTPUTS_DIR / "step_2_5_ionospheric_control.json"
             with open(out_file, 'w') as f:
                 json.dump(results, f, indent=2)
@@ -100,33 +98,45 @@ class Step25IonosphericControl:
         print_status(f"  Kp coverage: {n_kp_matched}/{len(days)} days matched", "INFO" if has_kp else "WARNING")
 
         # Base lambda (all records)
-        base_lambda = _fit_lambda(records)
+        base_fit = _fit_lambda(records)
         n_total = len(records)
+        base_lambda = base_fit["correlation_length_km"] if base_fit else None
+        base_r2 = base_fit["r_squared"] if base_fit else None
         base_str = f"{base_lambda:.0f}" if base_lambda is not None else "N/A"
         print_status(f"  Base lambda (all records): {base_str} km (n={n_total})", "INFO" if base_lambda is not None else "WARNING")
 
-        for const_name in CONSTELLATIONS:
+        for const_name in ["combined"]:
             entry = {
                 "base_lambda_km": base_lambda,
+                "base_R2": base_r2,
                 "base_n_pairs": n_total,
                 "ionofree_lambda_km": base_lambda,  # MGEX CLK is iono-free by construction
                 "status": "success" if base_lambda is not None else "no_data",
             }
 
-            if has_kp and base_lambda is not None:
+            if has_kp and base_fit is not None:
                 # Quiet: Kp <= KP_QUIET (typically 2)
-                quiet_lambda, quiet_n = _fit_lambda_by_kp(records, kp_map, KP_QUIET)
+                quiet_fit, quiet_n = _fit_lambda_by_kp(records, kp_map, KP_QUIET)
+                quiet_lambda = quiet_fit["correlation_length_km"] if quiet_fit else None
+                quiet_r2 = quiet_fit["r_squared"] if quiet_fit else None
                 # Active: Kp >= KP_ACTIVE (typically 5)
-                active_lambda, active_n = _fit_lambda_by_kp_min(records, kp_map, KP_ACTIVE)
+                active_fit, active_n = _fit_lambda_by_kp_min(records, kp_map, KP_ACTIVE)
+                active_lambda = active_fit["correlation_length_km"] if active_fit else None
+                active_r2 = active_fit["r_squared"] if active_fit else None
                 # Storm-excluded: Kp < KP_ACTIVE
-                storm_excl_lambda, storm_n = _fit_lambda_excluding_storms(records, kp_map, KP_ACTIVE)
+                storm_excl_fit, storm_n = _fit_lambda_excluding_storms(records, kp_map, KP_ACTIVE)
+                storm_excl_lambda = storm_excl_fit["correlation_length_km"] if storm_excl_fit else None
+                storm_excl_r2 = storm_excl_fit["r_squared"] if storm_excl_fit else None
 
                 entry.update({
                     "quiet_kp_lambda_km": quiet_lambda,
+                    "quiet_kp_R2": quiet_r2,
                     "quiet_n_pairs": quiet_n,
                     "active_kp_lambda_km": active_lambda,
+                    "active_kp_R2": active_r2,
                     "active_n_pairs": active_n,
                     "storm_excluded_lambda_km": storm_excl_lambda,
+                    "storm_excluded_R2": storm_excl_r2,
                     "storm_excluded_n_pairs": storm_n,
                     "kp_quiet_threshold": KP_QUIET,
                     "kp_active_threshold": KP_ACTIVE,

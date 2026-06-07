@@ -1,7 +1,8 @@
 # Temporal Equivalence Principle: A Standard-Siren Test of Bi-Metric Gravitational-Wave Propagation
 **Matthew Lukin Smawfield**
 Version: v0.1 (Harare)
-First published: 29 May 2026
+First published: 7 June 2026
+DOI: 10.5281/zenodo.20572696
 
 ---
 
@@ -30,10 +31,10 @@ d_L^{(\text{TEP})}(z) = A(z) \, d_L^{\Lambda\text{CDM}}(z; H_0)
 where the redshift-dependent conformal factor is
 
 \begin{equation}
-A(z) = \exp\!\bigl[\beta\,\phi(z)\bigr], \qquad \phi(z) = \phi_0 (1+z)^n .
+A(z) = \exp\!\bigl[\beta_A\,\phi(z)/M_{\rm Pl}\bigr], \qquad \phi(z) = \phi_0 (1+z)^n .
 \end{equation}
 
-In the lab-fixed test, the parameters *φ*0 and *n* are not free: *φ*0 follows from the locked 2025 lab-scale convention (the NIST/BIPM *G* discrepancy, Paper 21), and *n* ≈ 1 follows from the matter-density scaling of the scalar field. The dimensionless conformal coupling is *β* = &minus;1, with sign fixed by the same convention used in Paper 11: the Cepheid period-contraction effect requires *βφ* < 0 in deep potentials, so with *φ*0 < 0 the conformal factor satisfies *A*(*z*) > 1 and the magnitude of the departure grows with redshift. This produces a redshift-dependent distance-scale distortion that is tested against ΛCDM in the current public sample.
+In the lab-fixed test, the parameters *φ*0 and *n* are not free: *φ*0 follows from the locked 2025 lab-scale convention (the NIST/BIPM *G* discrepancy, Paper 21), and *n* ≈ 1 follows from the matter-density scaling of the scalar field. The dimensionless conformal coupling is *βA* = &minus;1, with sign fixed by the same convention used in Paper 11: the Cepheid period-contraction effect requires *βAφ* < 0 in deep potentials, so with *φ*0 < 0 the conformal factor satisfies *A*(*z*) > 1 and the magnitude of the departure grows with redshift. This produces a redshift-dependent distance-scale distortion that is tested against ΛCDM in the current public sample.
 
 ## 1.3 This Work
 
@@ -75,7 +76,7 @@ To avoid the circularity problem that invalidates cosmological tests using GWOSC
 
 Bright sirens. Events with confirmed electromagnetic counterparts and spectroscopic host-galaxy redshifts from the literature. Only GW170817 satisfies this criterion in the current sample.
 
-Dark sirens. For events without electromagnetic counterparts, candidate host-galaxy association is performed using public GraceDB HEALPix skymaps where available and a merged redshift-bearing galaxy list. The baseline catalog is GLADE+ from VizieR VII/291; a deeper NED cone query around the highest-probability sky region adds literature redshift objects where available. Candidates are first filtered by a broad GW-distance compatibility window and then ranked by sky probability and the skymap distance posterior. Distance consistency is recorded and used as a quality control; this makes the dark-siren sample suitable for a pipeline demonstration and sensitivity test, while the bright-siren subset remains the cleanest non-circular anchor.
+Dark sirens. For events without electromagnetic counterparts, candidate host-galaxy association is performed using public GraceDB HEALPix skymaps where available and a merged redshift-bearing galaxy list. The baseline catalog is GLADE+ from VizieR VII/291 for z < 0.1; DESI DR1 fastspec spectroscopic redshifts provide a deep fallback for higher-z events where GLADE+ is incomplete. Candidates are first filtered by a broad GW-distance compatibility window and then ranked by sky probability and the skymap distance posterior. Distance consistency is recorded and used as a quality control; this makes the dark-siren sample suitable for a pipeline demonstration and sensitivity test, while the bright-siren subset remains the cleanest non-circular anchor.
 
 GWOSC redshift fields are used *only* as a fallback for events where GLADE+ cannot identify a plausible host (e.g., distance-inconsistent candidates or missing skymaps). This affects 59 of 83 events. The remaining 23 events have truly independent GLADE+ host-galaxy redshifts, and GW170817 provides the bright-siren anchor. Events using GWOSC fallback are explicitly tagged with `quality="fallback"` and can be filtered out in downstream analyses; the primary H0 fit uses the full sample for statistical power, with quality-tier subsamples reported for robustness checks.
 
@@ -87,7 +88,7 @@ The reproducible analysis pipeline is implemented in Python and executed sequent
 
 ## 4.2 GR Distance Extraction
 
-The standard General Relativity luminosity distance dL(GR) and its upper/lower uncertainties are extracted from the GWOSC JSON API for each filtered event. Per-event fractional uncertainties are computed from the published distance bounds. Independent redshifts are taken from step 02 (bright-siren spectroscopy + merged GLADE+/NED dark-siren Bayesian host association); GWOSC redshift fields are *never* used.
+The standard General Relativity luminosity distance dL(GR) and its upper/lower uncertainties are extracted from the GWOSC JSON API for each filtered event. Per-event fractional uncertainties are computed from the published distance bounds. Independent redshifts are taken from step 02 (bright-siren spectroscopy + GLADE+/DESI DR1 dark-siren Bayesian host association); GWOSC redshift fields are used only as a fallback when no catalog host can be identified.
 
 ## 4.3 TEP Distance Transformation
 
@@ -151,7 +152,7 @@ Figure 6. Robustness diagnostics for the lab-fixed TEP signal. Positive Δ&chi;&
 
 ## 5.5 Adversarial Controls
 
-The adversarial controls are intentionally harsher than the baseline fit. The locked sign of *φ*0 gives a tiny fit improvement (Δ&chi;&sup2; = +0.010) and shifts the inferred scale upward by 1.2 km/s/Mpc, the direction predicted by the bi-metric conformal factor with *&beta;* = &minus;1 and *&phi;*0 < 0; the wrong sign gives the opposite Hubble-scale direction but does not improve the fit. Zero coupling returns exactly to ΛCDM. Redshift shuffling destroys the event-distance pairing, while ΛCDM mock catalogs can reproduce a Δ&chi;&sup2; at least as large as observed with *p* = 0.121 and the observed Planck-alignment statistic with *p* = 0.580. Chronological splitting is mixed (early &minus;0.005, late +0.008), so the current sample does not yet reach discovery-level significance.
+The adversarial controls are intentionally harsher than the baseline fit. The locked sign of *φ*0 gives a tiny fit improvement (Δ&chi;&sup2; = +0.010) and shifts the inferred scale upward by 1.2 km/s/Mpc, the direction predicted by the bi-metric conformal factor with *&beta;A* = &minus;1 and *&phi;*0 < 0; the wrong sign gives the opposite Hubble-scale direction but does not improve the fit. Zero coupling returns exactly to ΛCDM. Redshift shuffling destroys the event-distance pairing, while ΛCDM mock catalogs can reproduce a Δ&chi;&sup2; at least as large as observed with *p* = 0.121 and the observed Planck-alignment statistic with *p* = 0.580. Chronological splitting is mixed (early &minus;0.005, late +0.008), so the current sample does not yet reach discovery-level significance.
 
 ![Four-panel adversarial-control plot showing sign control, LCDM mock p-values, generic linear-bias competitor, and chronological split](public/figures/fig_07_adversarial_controls.png)
 
@@ -211,7 +212,7 @@ All data used in this analysis are publicly available and reproducibly downloade
 
 Synthetic catalogs appear only in the Step 08 sensitivity-calibration diagnostic, where mock distances are generated from the real event redshift and uncertainty structure to estimate false-positive and recovery rates. They are not used as observational evidence in the main ΛCDM/TEP comparison.
 
-**Data sources:**
+*Data sources:*
 
 - GWOSC combined catalogs: GWTC-1-confident, GWTC-2, GWTC-2.1-confident, GWTC-3-confident, GWTC-4.0, GWTC-4.1, O4 Discovery Papers, GWTC-5.0 — gwosc.org
 
@@ -219,15 +220,18 @@ Synthetic catalogs appear only in the Step 08 sensitivity-calibration diagnostic
 
 - GLADE+ Galaxy Catalog (VizieR VII/291): glade.plus
 
+- DESI DR1 fastspec spectroscopic redshift catalog (HEALPix tiles): data.desi.lbl.gov
+
 - NASA/IPAC Extragalactic Database redshift-bearing objects: ned.ipac.caltech.edu
 
-**Pipeline steps (11 sequential stages):**
+*Pipeline steps (11 sequential stages):*
 
 | Step | Script | Description |
 | --- | --- | --- |
 | 00 | `step_00_download_gwtc5_catalog.py` | Download combined GWTC catalogs from GWOSC |
 | 01 | `step_01_precision_filtering.py` | Filter events by SNR > 12 and high confidence |
-| 02 | `step_02_independent_redshifts.py` | Build independent-redshift dataset (bright + GLADE+/NED dark sirens) |
+| 01b | `step_01b_download_desi.py` | Download DESI DR1 fastspec HEALPix tiles for deep galaxy redshifts (optional, large download) |
+| 02 | `step_02_independent_redshifts.py` | Build independent-redshift dataset (bright + GLADE+/DESI DR1 dark sirens) |
 | 03 | `step_03_compute_dl_gr.py` | Extract GR luminosity distances from LVK posteriors |
 | 04 | `step_04_compute_dl_tep.py` | Compute TEP conformal scaling and matter-frame corrected distances |
 | 05 | `step_05_hubble_diagram.py` | Construct Hubble diagram data |

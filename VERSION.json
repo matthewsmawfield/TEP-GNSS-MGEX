@@ -3,16 +3,17 @@
   "paper": 14,
   "version": "0.1.0",
   "codename": "Suva",
-  "description": "Held-Out Multi-Constellation Replication in Public MGEX RINEX Data",
-  "release_date": "2026-05-29",
-  "status": "development",
+  "description": "Multi-Constellation Analysis of Public MGEX Clock Data",
+  "release_date": "2026-06-07",
+  "doi": "10.5281/zenodo.20572727",
+  "status": "preprint",
   "methodology": {
-    "based_on": "TEP-GNSS-RINEX v0.5 (Kathmandu)",
-    "data_source": "Public MGEX RINEX 3/4 observation files + merged BRDC/MGEX broadcast ephemerides (NASA CDDIS / IGS)",
+    "based_on": "TEP-GNSS-RINEX v0.6 (Kathmandu)",
+    "data_source": "Public MGEX combined CLK files (COD0MGXFIN from CODE, with WUM/GRG fallbacks) from NASA CDDIS",
     "constellations": ["GPS", "GLONASS", "Galileo", "BeiDou"],
-    "time_span": "2025-2026 (public daily 30 s network data)",
-    "key_innovation": "Strict held-out per-constellation replication with frozen predictions",
-    "processing": "Single Point Positioning (SPP) per constellation, iono-free L1/L2"
+    "time_span": "2025-01-01 to 2026-05-01 (473 days, 5-minute sampling)",
+    "key_innovation": "Independent product and epoch analysis of MGEX combined receiver-clock solution",
+    "processing": "Receiver-clock offset extraction from AR records, phase-alignment spectral analysis, no positioning"
   },
   "dependencies": {
     "python": ">=3.10",

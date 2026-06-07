@@ -1,6 +1,6 @@
 # Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies
 **Matthew Lukin Smawfield**  
-Version: v0.4 (Kos)  
+Version: v0.5 (Kos)  
 First published: 13 March 2026 · Last updated: 29 April 2026  
 DOI: 10.5281/zenodo.19000827
 
@@ -409,14 +409,14 @@ time.
 
 ##### 2.3.2.2 Screening and Scale Separation
 
-For a representative bare coupling $\beta \approx 0.8$, the bare
+For a representative bare coupling $\beta_A \approx 0.8$, the bare
 Brans-Dicke parameter would be $\omega_{\rm BD} = 1/(2\beta^2) - 1/2 \approx
 0.28$ — roughly five orders of magnitude below the Cassini bound
 ($\omega_{\rm BD} > 40{,}000$; Bertotti et al. 2003). This large
 pre-screening discrepancy illustrates the central logic of the TEP
 framework: any underlying bare coupling is strong, but in dense environments the scalar
 field gradient (Temporal Shear) flattens continuously, suppressing the
-effective coupling to $\kappa_{\rm gal} \ll \beta$ and yielding
+effective coupling to $\kappa_{\rm gal} \ll \beta_A$ and yielding
 $\omega_{\rm BD}^{\rm eff} > 10^6$. On cosmological scales, the Compton
 wavelength $\lambda_C \sim 1$ Mpc yields Yukawa suppression $\beta_{\rm
 eff}(R_8) \approx 0.002$ on $\sigma_8$ scales—well below the Planck bound.
@@ -843,7 +843,7 @@ A further complication is that the strongest mass-proxy objection becomes self-d
 
 ### 3.5 Screening Signatures
 
-A distinctive feature of the TEP framework — one that distinguishes it from any smooth mass-dependent function — is the screening prediction: above a Temporal Topology saturation density $\rho_T \approx 20$ g/cm³, the scalar field is suppressed and $\Gamma_t \to 1$. Paper 11 (TEP-COS) established an effective kinematic screening threshold at $\sigma > 165$ km/s from globular cluster pulsar timing. At high redshift, this threshold shifts to higher halo mass. Screening is tested by comparing age ratios (MWA/$t_{\rm cosmic}$) across mass bins:
+A distinctive feature of the TEP framework — one that distinguishes it from any smooth mass-dependent function — is the screening prediction: above a Temporal Topology saturation scale $\rho_T \approx 20$ g/cm³, the scalar field is suppressed and $\Gamma_t \to 1$. Paper 11 (TEP-COS) established an effective kinematic screening threshold at $\sigma > 165$ km/s from globular cluster pulsar timing. At high redshift, this threshold shifts to higher halo mass. Screening is tested by comparing age ratios (MWA/$t_{\rm cosmic}$) across mass bins:
 
 
 
@@ -4171,7 +4171,7 @@ Smawfield, M. L. (2026). *The Cepheid Bias: Resolving the Hubble Tension*. Prepr
 
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies*. Preprint v0.4 (Kos). Zenodo. DOI: 10.5281/zenodo.19000827 (Paper 12 — this work)
 
-Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.3 (Kilifi). Zenodo. DOI: 10.5281/zenodo.19102061 (Paper 13)
+Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.4 (Kilifi). Zenodo. DOI: 10.5281/zenodo.19102061 (Paper 13)
 
 Song, M., et al. 2016, ApJ, 825, 5. *The Evolution of the Galaxy Stellar Mass Function at z = 4–8.*
 
@@ -4292,7 +4292,7 @@ trace of the matter stress-energy tensor in the Jordan frame.
 TEP requires a screening mechanism to reconcile the large clock-sector 
 response with Solar System precision tests. In the Jakarta v0.8 
 framework, this is achieved through Temporal Shear: the 
-suppression of field gradients in high-density environments. 
+suppression of field gradients in dense environments. 
 Phenomenologically, the screening is characterized by a 
 density-dependent saturation profile:
 
@@ -4728,7 +4728,7 @@ screening length associated with $\rho_T$.
 Screening arises when the scalar field configuration around a massive
 body saturates, suppressing the effective fifth force. The
 characteristic screening radius for a source of mass $M$ embedded in a
-medium with saturation density $\rho_T$ is the Temporal Topology radius:
+medium with saturation scale $\rho_T$ is the Temporal Topology radius:
 
 
 
@@ -5131,7 +5131,7 @@ energy density is negligible at $z > 100$.
 
 To provide a physical foundation for the screening threshold observed in
 resolved core analysis, the Temporal Topology radius is derived from the
-saturation density $\rho_T$. This addresses the concern that the
+saturation scale $\rho_T$. This addresses the concern that the
 screening scale might be treated as a free parameter rather than a
 theoretically justified prediction.
 
@@ -5140,7 +5140,7 @@ theoretically justified prediction.
 ##### A.1.10.1 Theoretical Derivation
 
 
-For a scalar field with saturation density $\rho_T$, the Temporal Topology radius
+For a scalar field with saturation scale $\rho_T$, the Temporal Topology radius
 around a mass $M$ is:
 
 
@@ -5282,7 +5282,7 @@ Table A7: Candidate Screening Mechanisms
 
 **What the data constrain.** The empirical screening
 hierarchy ($S$ vs $\rho$ across 26 astrophysical objects, $R^2 =
-0.9999$) validates the existence of a single saturation density $\rho_T
+0.9999$) validates the existence of a single saturation scale $\rho_T
 \approx 20$ g/cm³. However, the observed $S \propto \rho^{1/3}$ scaling
 is a geometric identity given the definitions $S \equiv
 R_T/R_{\text{phys}}$ and $R_T \propto M^{1/3}$; it
@@ -5335,7 +5335,7 @@ hierarchy. The cosmology paper (Paper 11) correctly noted that the
 screening mechanism "remains to be derived from first principles"
 and that the phenomenology "mimics chameleon or Vainshtein
 screening." This agnostic position is adopted here: the robust
-empirical finding is the saturation density $\rho_T \approx 20$
+empirical finding is the saturation scale $\rho_T \approx 20$
 g/cm³ and the resulting screening hierarchy, not the specific
 Lagrangian realization. Distinguishing between the two candidate
 mechanisms is an important target for future precision tests in the
@@ -5660,7 +5660,7 @@ of Temporal Topology. Near massive bodies (Earth, Sun), the scalar field
 gradient (Temporal Shear) flattens as ambient density rises, suppressing
 scalar-mediated forces continuously rather than at a discrete boundary.
 Although the mean solar density ($\rho_\odot \sim 1.4$ g/cm³) is below
-the core saturation density $\rho_T \approx 20$ g/cm³, the Sun's deep
+the core saturation scale $\rho_T \approx 20$ g/cm³, the Sun's deep
 Newtonian potential ($\Phi_N \sim 10^{-6}$) ensures that the field
 gradient vanishes in the interior, with only a narrow outer region
 contributing to the scalar force. The effective coupling is suppressed
@@ -5690,7 +5690,7 @@ Precision tests using binary pulsars (e.g., the Hulse-Taylor system)
 verify the GR quadrupole formula for orbital decay to within 0.1%. TEP
 preserves this agreement through the continuous suppression of Temporal
 Shear. Neutron stars are objects of extreme density ($\rho \sim 10^{14}$
-g/cm³), orders of magnitude above the critical saturation density
+g/cm³), orders of magnitude above the critical saturation scale
 $\rho_T \approx 20$ g/cm³ (Paper 6). Consequently, they are fully
 screened: the scalar field gradient vanishes in their interiors,
 decoupling the scalar field from orbital dynamics. This ensures that

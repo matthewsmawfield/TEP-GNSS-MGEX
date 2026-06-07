@@ -68,6 +68,7 @@ async function buildStaticSite() {
         // Copy public assets
         const publicDir = path.join(__dirname, 'public');
         if (fs.existsSync(publicDir)) {
+            const distPublicDir = path.join(distDir, 'public');
             const copyRecursive = (src, dest) => {
                 if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
                 for (const entry of fs.readdirSync(src)) {
@@ -80,8 +81,55 @@ async function buildStaticSite() {
                     }
                 }
             };
-            copyRecursive(publicDir, distDir);
-            console.log('📁 Copied public assets to dist/');
+            copyRecursive(publicDir, distPublicDir);
+            console.log('📁 Copied public assets to dist/public/');
+        }
+
+        // Copy styles directory
+        const stylesDir = path.join(__dirname, 'styles');
+        if (fs.existsSync(stylesDir)) {
+            const copyRecursive = (src, dest) => {
+                if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+                for (const entry of fs.readdirSync(src)) {
+                    const srcPath = path.join(src, entry);
+                    const destPath = path.join(dest, entry);
+                    if (fs.statSync(srcPath).isDirectory()) {
+                        copyRecursive(srcPath, destPath);
+                    } else {
+                        fs.copyFileSync(srcPath, destPath);
+                    }
+                }
+            };
+            copyRecursive(stylesDir, distDir);
+            console.log('📁 Copied styles to dist/');
+        }
+
+        // Copy manifest.json for component reference / web app manifest
+        const manifestSrc = path.join(__dirname, 'manifest.json');
+        if (fs.existsSync(manifestSrc)) {
+            fs.copyFileSync(manifestSrc, path.join(distDir, 'manifest.json'));
+            console.log('📁 Copied manifest.json to dist/');
+        }
+
+        // Copy robots.txt to dist root for SEO
+        const robotsSrc = path.join(__dirname, 'public', 'robots.txt');
+        if (fs.existsSync(robotsSrc)) {
+            fs.copyFileSync(robotsSrc, path.join(distDir, 'robots.txt'));
+            console.log('📁 Copied robots.txt to dist/');
+        }
+
+        // Copy sitemap.xml to dist root for SEO
+        const sitemapSrc = path.join(__dirname, 'sitemap.xml');
+        if (fs.existsSync(sitemapSrc)) {
+            fs.copyFileSync(sitemapSrc, path.join(distDir, 'sitemap.xml'));
+            console.log('📁 Copied sitemap.xml to dist/');
+        }
+
+        // Copy .nojekyll to dist root for GitHub Pages
+        const nojekyllSrc = path.join(__dirname, '.nojekyll');
+        if (fs.existsSync(nojekyllSrc)) {
+            fs.copyFileSync(nojekyllSrc, path.join(distDir, '.nojekyll'));
+            console.log('📁 Copied .nojekyll to dist/');
         }
 
         console.log('\n🎉 Build complete!');

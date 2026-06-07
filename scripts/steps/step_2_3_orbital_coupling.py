@@ -78,7 +78,7 @@ class Step23OrbitalCoupling:
     def run(self):
         print_status("Step 2.3: Orbital-Velocity Coupling", "INFO")
         results = {}
-        for const_name in CONSTELLATIONS:
+        for const_name in ["combined"]:
             pair_file = OUTPUTS_DIR / "step_2_0_mgex_pairs.json"
             if not pair_file.exists():
                 results[const_name] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}

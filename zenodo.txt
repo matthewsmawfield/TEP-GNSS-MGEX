@@ -1,42 +1,13 @@
-Zenodo Deposit Information
-==========================
-Project: TEP-GNSS-MGEX
-Paper: 4
-Version: v0.1 (Suva)
-Title: Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026
-DOI: 10.5281/zenodo.xxxxxxxx (placeholder)
+Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026
 
-Description:
-This deposit contains the complete analysis pipeline, raw results, and
-manuscript source for Paper 4 of the Temporal Equivalence Principle (TEP)
-GNSS series. The paper presents a strict held-out replication test using
-the public MGEX combined multi-GNSS receiver-clock product (CODE COD0MGXFIN)
-from NASA CDDIS / IGS for 2025–2026. The product provides a single combined
-receiver-clock solution per station; per-constellation separation is not
-possible from these files. All six predictions were frozen before the
-held-out data were inspected.
+The Temporal Equivalence Principle (TEP) predicts correlated phase-coherent disturbances in GNSS timekeeping with a spatial correlation length of order thousands of kilometres, an east–west anisotropy exceeding the north–south counterpart, coupling to Earth orbital velocity, and a preferred axis near the CMB rest frame. Papers 1 and 2 established these signatures in GPS-only precise point positioning (PPP) products from three analysis centres spanning 2000–2025, and Paper 3 reproduced them in raw RINEX single-point positioning (SPP), demonstrating independence from analysis-centre orbit and clock models. This paper presents an analysis of an independent data product: the public MGEX combined multi-GNSS receiver-clock solution (CODE COD0MGXFIN) distributed by NASA CDDIS, for the window 2025-01-01 to 2026-05-01. Receiver-clock offsets for 256 globally distributed stations are read directly from the daily 5-minute CLK files; no positioning is performed. Because MGEX clock files contain a single combined multi-GNSS solution per station, this test provides product-type independence and uses a largely held-out 2025–2026 epoch relative to Papers 1–3, rather than providing per-constellation independence, which requires raw per-system processing and is not available from this combined-clock product. The analysis evaluates the same signatures examined in earlier papers: correlation length, azimuthal anisotropy, orbital-velocity coupling, CMB-frame alignment, ionospheric independence, and geometric robustness. The isotropic correlation length is λ = 1396 ± 90 km (R² = 0.486, 1.75 million pairs), shorter than the 3,000–5,000 km reported for GPS PPP and consistent with the different metric and combined-clock product. The signal persists on geomagnetically quiet days (Kp ≤ 2) and appears to strengthen during active conditions (Kp ≥ 5, smaller sample); all four null controls collapse to negligible structure (R² ≈ 0). The full-range anisotropy is modest (ratio 1.23, p = 0.48) but a suggestive east–west excess emerges in the longitude-matched subset (ratio 2.28, pair-bootstrap p = 0.002, 95% CI [1.20, 2.69]; spatially-clustered resampling p = 0.244, 95% CI [0.16, 14.12]). The primary monthly λ and EW/NS orbital-coupling tests are not significant. A supplementary short-baseline phase-alignment metric suggestively recovers orbital-velocity modulation (r = −0.670, p = 0.017). The CMB-frame test detects a significant anisotropy axis (LEE p < 0.0001) at RA = 60°, Dec = −60° that lies 92° from the CMB dipole, more consistent with ionospheric or product-geometry contamination than with stable CMB-frame alignment. A product-limited satellite-clock analysis using SP3 orbit geometry finds the exponential model actively rejected (R² < 0), consistent with the single-reference-time nature of the MGEX combined solution.
 
-Abstract:
-The Temporal Equivalence Principle (TEP) predicts correlated phase-coherent
-disturbances in GNSS timekeeping with a spatial correlation length of order
-thousands of kilometres, an east–west anisotropy exceeding the north–south
-counterpart, coupling to Earth orbital velocity, and a preferred axis near the
-CMB rest frame. Papers 1–3 established these signatures in GPS-only precise point
-positioning (PPP) products and raw RINEX observations. This paper presents a
-held-out replication using the public MGEX combined multi-GNSS receiver-clock
-product (CODE COD0MGXFIN) from NASA CDDIS / IGS for 2025–2026. Receiver-clock
-offsets for 332 globally distributed stations are read directly from the daily
-5-minute CLK files; no positioning is performed. Four of the five evaluated
-signatures are recovered: λ = 2429 ± 323 km (R² = 0.501, 2.79 million pairs);
-EW/NS anisotropy emerges in the longitude-matched subset (ratio 5.28, p < 0.001);
-a supplementary PA-difference metric recovers orbital-velocity coupling (r = −0.672,
-p = 0.017); and the signal persists on geomagnetically quiet days and passes all
-four null tests. The CMB-frame test detects a significant anisotropy axis
-(LEE p < 0.0001) at RA = 10°, Dec = −30° whose antipode lies 43° from the CMB
-dipole, consistent with an ionospheric origin.
+Keywords: Temporal Equivalence Principle, Temporal Shear, Temporal Topology, proper time, conformal metric, disformal metric, synchronization holonomy, clock-sector gravity, scalar-tensor theory, GNSS, MGEX, GPS, Galileo, BeiDou, GLONASS, multi-GNSS, receiver clock, phase coherence, correlation length, anisotropy, orbital velocity, ionosphere, CMB
 
-Files:
-- scripts/ : Python analysis pipeline
-- site/    : Manuscript source (HTML components)
-- results/ : JSON outputs and figure PNGs
-- data/    : Provenance and metadata (raw MGEX CLK files gitignored)
+DOI: 10.5281/zenodo.20572727
+
+Website: https://mlsmawfield.com/tep/gnss-mgex
+Repository: https://github.com/matthewsmawfield/TEP-GNSS-MGEX
+
+Open Science Statement:
+This work is a preprint and is open to community review, ideas, and collaboration. All analysis code, data, and manuscripts are open source and available at https://github.com/matthewsmawfield/TEP-GNSS-MGEX. Feedback and contributions to further test these results are welcome.

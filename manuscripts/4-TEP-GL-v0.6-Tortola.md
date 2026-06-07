@@ -1,4 +1,4 @@
-# Temporal-Spatial Coupling in Gravitational Lensing
+# Temporal-Spatial Coupling in Gravitational Lensing: A Reinterpretation of Dark Matter Observations
 **Matthew Lukin Smawfield**
 Version: v0.6 (Tortola)
 05 June 2026
@@ -871,7 +871,7 @@ $\mathcal{L}_\phi = -\frac{1}{2}(\partial \phi)^2 -
 T$
 
 where \(\Lambda\) is the strong coupling scale and \(T\) is the trace of the
-energy-momentum tensor. In high-density environments (Solar System), the
+energy-momentum tensor. In dense environments (Solar System), the
 non-linear term \(\frac{1}{\Lambda^3}(\partial \phi)^2 \square \phi\)
 dominates, suppressing the spatial gradients of \(\phi\)—the
 *Temporal Shear*—and restoring General Relativity to high precision.
@@ -1713,7 +1713,7 @@ Smawfield, M. L. (2026). *The Cepheid Bias: Resolving the Hubble Tension*. Prepr
 
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies*. Preprint v0.4 (Kos). Zenodo. DOI: [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827) (Paper 12)
 
-Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.3 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
+Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.4 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
 
 Tie, S. S., & Kochanek, C. S. 2018, *MNRAS*, 473, 80
 (arXiv:1707.01908)

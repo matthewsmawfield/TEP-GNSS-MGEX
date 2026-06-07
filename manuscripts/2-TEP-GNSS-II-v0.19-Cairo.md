@@ -1,4 +1,4 @@
-# Global Time Echoes: 25-Year Analysis of CODE Precise Clock
+# Global Time Echoes: 25-Year Analysis of CODE Precise Clock Products
 **Matthew Lukin Smawfield**
 Version: v0.19 (Cairo)
 First published: 3 November 2025 · Last updated: 4 June 2026
@@ -4099,7 +4099,7 @@ Smawfield, M. L. (2025). *What Do Precision Tests of General Relativity Actually
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: Suppressed Density Scaling in Globular Cluster Pulsars*. Preprint v0.6 (Caracas). Zenodo. DOI: [10.5281/zenodo.18165798](https://doi.org/10.5281/zenodo.18165798) (Paper 10)
 Smawfield, M. L. (2026). *The Cepheid Bias: Resolving the Hubble Tension*. Preprint v0.6 (Kingston upon Hull). Zenodo. DOI: [10.5281/zenodo.18209702](https://doi.org/10.5281/zenodo.18209702) (Paper 11)
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies*. Preprint v0.4 (Kos). Zenodo. DOI: [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827) (Paper 12)
-Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.3 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
+Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.4 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
 Teunissen, P. J., & Montenbruck, O. (Eds.). (2017). *Springer Handbook of Global Navigation Satellite Systems*. Springer International Publishing.
 Villiger, A., Dach, R., Prange, L., et al. (2019). A flexible strategy for handling the datum and initial bias in GNSS clock estimation. *Journal of Geodesy*, 93, 1773–1786.
 Dach, R., Schaer, S., Arnold, D., Brockmann, E., Kalarus, M., Lasser, M., Stebler, P., & Jäggi, A. (2024). CODE final product series for the IGS. Astronomical Institute, University of Bern. DOI: [10.48350/197025](https://doi.org/10.48350/197025).

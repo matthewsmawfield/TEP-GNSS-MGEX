@@ -1,16 +1,20 @@
 {
-  "title": "Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026",
+  "title": "Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026",
   "version": "v0.1 (Suva)",
-  "paper": 4,
+  "author": "Matthew Lukin Smawfield",
+  "date": "2026-06-07",
+  "doi": "10.5281/zenodo.20572727",
+  "paper": 14,
   "sections": [
     {"id": "abstract", "title": "Abstract", "file": "1_abstract.html", "order": 1},
-    {"id": "introduction", "title": "Introduction", "file": "2_introduction.html", "order": 2},
-    {"id": "data", "title": "Data & Processing", "file": "3_data_processing.html", "order": 3},
-    {"id": "methods", "title": "Methods", "file": "4_methods.html", "order": 4},
-    {"id": "results", "title": "Results", "file": "5_results.html", "order": 5},
-    {"id": "discussion", "title": "Discussion", "file": "6_discussion.html", "order": 6},
-    {"id": "conclusions", "title": "Conclusions", "file": "7_conclusions.html", "order": 7},
-    {"id": "data-availability", "title": "Data Availability", "file": "8_data_availability.html", "order": 8},
-    {"id": "references", "title": "References", "file": "9_references.html", "order": 9}
+    {"id": "introduction", "title": "1. Introduction", "file": "2_introduction.html", "order": 2},
+    {"id": "data", "title": "2. Data and Product Scope", "file": "3_data_processing.html", "order": 3},
+    {"id": "methods", "title": "3. Methods", "file": "4_methods.html", "order": 4},
+    {"id": "results", "title": "4. Results", "file": "5_results.html", "order": 5},
+    {"id": "discussion", "title": "5. Discussion", "file": "6_discussion.html", "order": 6},
+    {"id": "conclusions", "title": "6. Conclusions", "file": "7_conclusions.html", "order": 7},
+    {"id": "data-availability", "title": "7. Data and Code Availability", "file": "8_data_availability.html", "order": 8},
+    {"id": "references", "title": "8. References", "file": "9_references.html", "order": 9},
+    {"id": "reproducibility", "title": "9. Reproducibility Statement", "file": "10_reproducibility.html", "order": 10}
   ]
 }

@@ -2,57 +2,64 @@
 
 <p>
 The analysis comprises 1,753,922 station pairs drawn from 256 stations over 473
-held-out days. Because the MGEX product is a single combined solution, the
-results are reported once rather than per constellation. Six predictions were
-frozen before inspection; five are evaluated as TEP signatures (the sixth,
-geometry robustness, is a control test). Four of the five evaluated signatures
-are recovered: the correlation length, the anisotropy in the
-longitude-matched subset, the orbital-velocity coupling via the supplementary
-PA-difference metric, and the ionospheric persistence. The CMB-frame test detects
-a significant anisotropy axis that lies 92° from the CMB dipole. The
-summary verdict is four passes of five.
+days. Because the MGEX product is a single combined solution, the
+results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, CMB-frame alignment, and ionospheric/geometric robustness controls. The correlation length, anisotropy in the longitude-matched
+subset, and ionospheric persistence are observed. Orbital-velocity
+modulation is not recovered by the primary monthly λ or EW/NS metrics, but is recovered by the supplementary PA-difference metric. The CMB-frame test detects
+a significant anisotropy axis that lies 92° from the CMB dipole.
 </p>
 
 <h3>4.1 Correlation Length</h3>
 
 <p>
-The isotropic fit gives a well-constrained correlation length within the frozen
-range.
+The isotropic fit gives a well-constrained correlation length.
 </p>
 
 <table>
-    <tr><th>λ (km)</th><th>σ_λ (km)</th><th>A</th><th>C₀</th><th>R²</th><th>Pairs</th><th>In range?</th></tr>
-    <tr><td>1396</td><td>90</td><td>1.097</td><td>−0.053</td><td>0.486</td><td>1,753,922</td><td>Yes (1,000–4,000 km)</td></tr>
+    <thead>
+        <tr><th scope="col">$$\lambda$$ (km)</th><th scope="col">$$\sigma_\lambda$$ (km)</th><th scope="col">A</th><th scope="col">C₀</th><th scope="col">R²</th><th scope="col">Pairs</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>1396</td><td>90</td><td>1.097</td><td>−0.053</td><td>0.486</td><td>1,753,922</td></tr>
+    </tbody>
 </table>
 
 <p>
 This λ is shorter than the 3,000–5,000 km reported for GPS PPP in Papers 1–2,
 consistent with the change to the phase-alignment metric and the combined
-multi-GNSS clock product.
+multi-GNSS clock product. The quoted λ uncertainty is the formal covariance-based fit uncertainty for the binned exponential model and does not include all sources of network, product, or model-selection uncertainty.
 </p>
 
 <h3>4.2 EW / NS Anisotropy</h3>
 
 <p>
 The unfiltered full-range ratio is modestly east–west dominated (ratio 1.23)
-but does not reach significance under the honest station-clustered bootstrap
-(p = 0.48). The predicted east–west excess emerges once pairs are
+but does not reach significance under the station-clustered bootstrap
+(p = 0.48). A suggestive east–west excess emerges once pairs are
 matched in longitude (ratio 2.28, pair-bootstrap p = 0.002), though the
 significance weakens under spatial-clustered resampling (95% CI [0.16, 14.12],
 p = 0.244). The 500–1,000 km stratum also shows the expected excess.
 </p>
 
 <table>
-    <tr><th>Subset</th><th>λ_EW (km)</th><th>λ_NS (km)</th><th>Ratio</th><th>95% CI</th><th>p</th></tr>
-    <tr><td>Full range</td><td>1625</td><td>1317</td><td>1.23</td><td>[0.16, 3.31] (station-boot)</td><td>0.48</td></tr>
-    <tr><td>Longitude-matched (&lt;30°)</td><td>2798</td><td>1226</td><td>2.28</td><td>[1.20, 2.69] (pair-boot)</td><td>0.002</td></tr>
+    <thead>
+        <tr><th scope="col">Subset</th><th scope="col">$$\lambda_{EW}$$ (km)</th><th scope="col">$$\lambda_{NS}$$ (km)</th><th scope="col">Ratio</th><th scope="col">95% CI</th><th scope="col">p</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Full range</td><td>1625</td><td>1317</td><td>1.23</td><td>[0.16, 3.31] (station-boot)</td><td>0.48</td></tr>
+        <tr><td>Longitude-matched (&lt;30°)</td><td>2798</td><td>1226</td><td>2.28</td><td>[1.20, 2.69] (pair-boot)</td><td>0.002</td></tr>
+    </tbody>
 </table>
 
 <table>
-    <tr><th>Distance stratum</th><th>EW/NS ratio</th></tr>
-    <tr><td>0–500 km</td><td>0.67</td></tr>
-    <tr><td>500–1,000 km</td><td>1.44</td></tr>
-    <tr><td>&gt;1,000 km</td><td>0.80</td></tr>
+    <thead>
+        <tr><th scope="col">Distance stratum</th><th scope="col">EW/NS ratio</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>0–500 km</td><td>0.67</td></tr>
+        <tr><td>500–1,000 km</td><td>1.44</td></tr>
+        <tr><td>&gt;1,000 km</td><td>0.80</td></tr>
+    </tbody>
 </table>
 
 <h3>4.3 Orbital-Velocity Coupling</h3>
@@ -64,20 +71,21 @@ p &gt; 0.5 for both). These metrics are degraded by the exponential-fit noise on
 short baselines. A supplementary PA-difference metric (monthly mean EW − NS
 phase alignment, which avoids exponential fitting) recovers a negative
 correlation with orbital speed (r = −0.670, p = 0.017) and with the velocity
-projection onto the CMB dipole (r = −0.770, p = 0.003). The PA-difference
-correlation is reported as a supplementary signature because it was added
-after the frozen prediction register was locked, but it is the physically
-appropriate test for this dataset.
+projection onto the CMB dipole (r = −0.770, p = 0.003).
 </p>
 
 <table>
-    <tr><th>Quantity</th><th>r</th><th>p (raw)</th><th>p (Bonferroni)</th><th>Significant?</th></tr>
-    <tr><td>λ vs speed</td><td>−0.47</td><td>0.126</td><td>0.252</td><td>No</td></tr>
-    <tr><td>EW/NS ratio vs speed</td><td>0.27</td><td>0.392</td><td>0.785</td><td>No</td></tr>
-    <tr><td>λ vs v_proj</td><td>−0.16</td><td>0.609</td><td>1.00</td><td>No</td></tr>
-    <tr><td>EW/NS ratio vs v_proj</td><td>0.17</td><td>0.598</td><td>1.00</td><td>No</td></tr>
-    <tr><td>PA_diff vs speed</td><td>−0.67</td><td>0.017</td><td>—</td><td>Yes</td></tr>
-    <tr><td>PA_diff vs v_proj</td><td>−0.77</td><td>0.003</td><td>—</td><td>Yes</td></tr>
+    <thead>
+        <tr><th scope="col">Quantity</th><th scope="col">r</th><th scope="col">p (raw)</th><th scope="col">p (corr.)</th><th scope="col">Interpretation</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>λ vs speed</td><td>−0.47</td><td>0.126</td><td>0.252</td><td>Primary: not significant</td></tr>
+        <tr><td>EW/NS ratio vs speed</td><td>0.27</td><td>0.392</td><td>0.785</td><td>Primary: not significant</td></tr>
+        <tr><td>λ vs v_proj</td><td>−0.16</td><td>0.609</td><td>1.00</td><td>Primary: not significant</td></tr>
+        <tr><td>EW/NS ratio vs v_proj</td><td>0.17</td><td>0.598</td><td>1.00</td><td>Primary: not significant</td></tr>
+        <tr><td>PA_diff vs speed</td><td>−0.67</td><td>0.017</td><td>—</td><td>Supplementary: significant</td></tr>
+        <tr><td>PA_diff vs v_proj</td><td>−0.77</td><td>0.003</td><td>—</td><td>Supplementary: significant</td></tr>
+    </tbody>
 </table>
 
 <h3>4.4 CMB-Frame Alignment</h3>
@@ -89,51 +97,66 @@ The axis is significant (LEE p &lt; 0.0001), so the data do contain a
 preferred anisotropy axis, but it points away from the CMB direction.
 Widening the azimuth sectors from 45° to 60° increases day inclusion from 298 to
 300 and shifts the best-fit to RA = 140°, Dec = −60°, leaving the CMB
-separation at 57° (or 123° from the antipodal direction). This is consistent
-with an ionospheric origin for the anisotropy rather than a TEP/CMB-frame
+separation at 57° (or 123° from the antipodal direction). This is more consistent
+with ionospheric or product-geometry contamination than with a stable TEP/CMB-frame
 effect. The result is sensitive to sector width: 56% of pairs fall outside the
 45° EW/NS sectors and are discarded from the daily ratio computation.
 </p>
 
 <table>
-    <tr><th>Sector width</th><th>Best-fit RA (°)</th><th>Best-fit Dec (°)</th><th>Δθ_CMB (°)</th><th>Aligned?</th></tr>
-    <tr><td>45°</td><td>60</td><td>−60</td><td>92.3</td><td>No</td></tr>
-    <tr><td>60°</td><td>140</td><td>−60</td><td>56.8 (123.2 antipode)</td><td>No</td></tr>
+    <thead>
+        <tr><th scope="col">Sector width</th><th scope="col">Best-fit RA (°)</th><th scope="col">Best-fit Dec (°)</th><th scope="col">r</th><th scope="col">Δθ_CMB (°)</th><th scope="col">Aligned?</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>45°</td><td>60</td><td>−60</td><td>+0.161</td><td>92.3</td><td>No</td></tr>
+        <tr><td>60°</td><td>140</td><td>−60</td><td>−0.283</td><td>56.8 (123.2 antipode)</td><td>No</td></tr>
+    </tbody>
 </table>
 
 <h3>4.5 Ionospheric and Geometry Controls</h3>
 
 <p>
-The correlation length persists on geomagnetically quiet days, and the
-distance-matched subset reproduces the full-network λ, indicating the signal is
-neither an ionospheric artefact nor a product of network geometry. Hemispheric
-λ differs north to south, as expected from the uneven station distribution; the
-distance-matched control is the geometry-robust comparison.
+The correlation length persists on geomagnetically quiet days ($$\lambda = 1356$$ km,
+Kp ≤ 2, 688,537 pairs). Active days (Kp ≥ 5, 39,000 pairs) give a longer
+$$\lambda = 1943$$ km; the smaller sample increases the variance and the value awaits confirmation with additional active-period data. The distance-matched subset
+yields a comparable $$\lambda = 1847$$ km (R² = 0.677), indicating the signal is not a
+product of network geometry. Hemispheric $$\lambda$$ differs north to south, as expected
+from the uneven station distribution; the distance-matched control is the
+geometry-robust comparison.
 </p>
 
 <table>
-    <tr><th>Control</th><th>λ (km)</th><th>R²</th></tr>
-    <tr><td>Base (all days)</td><td>1396</td><td>0.486</td></tr>
-    <tr><td>Quiet days (Kp ≤ 2)</td><td>1356</td><td>—</td></tr>
-    <tr><td>Active days (Kp ≥ 5)</td><td>1943</td><td>—</td></tr>
-    <tr><td>Storm-excluded (Kp &lt; 5)</td><td>1395</td><td>—</td></tr>
-    <tr><td>Distance-matched</td><td>1847</td><td>0.677</td></tr>
-    <tr><td>Northern hemisphere</td><td>1026</td><td>0.480</td></tr>
-    <tr><td>Southern hemisphere</td><td>2330</td><td>0.418</td></tr>
+    <thead>
+        <tr><th scope="col">Control</th><th scope="col">$$\lambda$$ (km)</th><th scope="col">R²</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Base (all days)</td><td>1396</td><td>0.486</td></tr>
+        <tr><td>Quiet days (Kp ≤ 2)</td><td>1356</td><td>0.534</td></tr>
+        <tr><td>Active days (Kp ≥ 5)</td><td>1943</td><td>0.367</td></tr>
+        <tr><td>Storm-excluded (Kp &lt; 5)</td><td>1395</td><td>0.496</td></tr>
+        <tr><td>Distance-matched</td><td>1847</td><td>0.677</td></tr>
+        <tr><td>Northern hemisphere</td><td>1026</td><td>0.480</td></tr>
+        <tr><td>Southern hemisphere</td><td>2330</td><td>0.418</td></tr>
+    </tbody>
 </table>
 
 <h3>4.6 Null Tests</h3>
 
 <p>
-All four null controls collapse the fit to negligible structure (R² ≈ 0),
+Null tests were run using the same MGEX combined-clock phase-alignment pipeline.
+In all four cases the fitted distance-decay structure collapsed to R² ≈ 0,
 confirming that the recovered correlation length depends on the true temporal,
-spatial and phase information.
+spatial and phase information. Fitted λ values under null conditions are not interpreted because the exponential model has no explanatory power when R² ≈ 0.
 </p>
 
 <table>
-    <tr><th>Null</th><th>λ (km)</th><th>R²</th><th>Passes?</th></tr>
-    <tr><td>Temporal shuffle</td><td>1140</td><td>−0.028</td><td>Yes</td></tr>
-    <tr><td>Spatial shuffle</td><td>10,068</td><td>−0.003</td><td>Yes</td></tr>
-    <tr><td>Phase randomisation</td><td>26,000</td><td>−0.002</td><td>Yes</td></tr>
-    <tr><td>Solar-rotation reassignment</td><td>26,000</td><td>−0.086</td><td>Yes</td></tr>
+    <thead>
+        <tr><th scope="col">Null</th><th scope="col">Distance-decay structure</th><th scope="col">R²</th><th scope="col">Passes?</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Temporal shuffle</td><td>collapsed</td><td>−0.028</td><td>Yes</td></tr>
+        <tr><td>Spatial shuffle</td><td>collapsed</td><td>−0.003</td><td>Yes</td></tr>
+        <tr><td>Phase randomisation</td><td>collapsed</td><td>−0.002</td><td>Yes</td></tr>
+        <tr><td>Solar-rotation reassignment</td><td>collapsed</td><td>−0.086</td><td>Yes</td></tr>
+    </tbody>
 </table>

@@ -1,0 +1,66 @@
+{
+  "source": "NASA CDDIS / IGS MGEX",
+  "base_url": "https://cddis.nasa.gov/archive/gnss/products",
+  "start_date": "2025-01-01T00:00:00",
+  "end_date": "2026-05-01T00:00:00",
+  "n_days_requested": 486,
+  "clk_ac_priority": [
+    "CODE MGEX",
+    "Wuhan MGEX",
+    "CNES MGEX",
+    "CODE OPS"
+  ],
+  "sp3_ac_priority": [
+    "CODE MGEX",
+    "Wuhan MGEX",
+    "CODE MGEX (15m)"
+  ],
+  "auth_method": "netrc",
+  "auth_user": "matthewsmawfield123",
+  "clk_results": {
+    "2025": {
+      "downloaded": 365,
+      "failed": 0,
+      "by_ac": {
+        "COD": 351,
+        "WUM": 12,
+        "GRG": 2
+      }
+    },
+    "2026": {
+      "downloaded": 121,
+      "failed": 0,
+      "by_ac": {
+        "COD": 121
+      }
+    }
+  },
+  "sp3_results": {
+    "2025": {
+      "downloaded": 364,
+      "failed": 1,
+      "by_ac": {
+        "COD": 351,
+        "WUM": 13
+      }
+    },
+    "2026": {
+      "downloaded": 121,
+      "failed": 0,
+      "by_ac": {
+        "COD": 121
+      }
+    }
+  },
+  "clk_ac_breakdown": {
+    "COD": 472,
+    "WUM": 12,
+    "GRG": 2
+  },
+  "sp3_ac_breakdown": {
+    "COD": 472,
+    "WUM": 13
+  },
+  "hash_registry": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/data/external/file_hashes.json",
+  "downloaded_at": "2026-06-07T18:06:08.220120+00:00"
+}

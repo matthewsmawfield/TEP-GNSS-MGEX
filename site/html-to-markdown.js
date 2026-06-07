@@ -35,13 +35,13 @@ class HTMLToMarkdownConverter {
         });
         
         // Convert manuscript sections to proper markdown structure FIRST
-        html = html.replace(/<div[^>]*class=["'][^"']*manuscript-section[^"']*["'][^>]*data-section=["']([^"']*)["'][^>]*>/gi, '\n\n## $1\n\n');
+        html = html.replace(/<(?:div|section)[^>]*class=["'][^"']*manuscript-section[^"']*["'][^>]*data-section=["']([^"']*)["'][^>]*>/gi, '\n\n## $1\n\n');
         
         // Convert headers
         html = html.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '\n# $1\n\n');
-        html = html.replace(/<h2[^>]*>(.*?)<\/h2>/gi, '\n## $2\n\n');
-        html = html.replace(/<h3[^>]*>(.*?)<\/h3>/gi, '\n### $3\n\n');
-        html = html.replace(/<h4[^>]*>(.*?)<\/h4>/gi, '\n#### $4\n\n');
+        html = html.replace(/<h2[^>]*>(.*?)<\/h2>/gi, '\n## $1\n\n');
+        html = html.replace(/<h3[^>]*>(.*?)<\/h3>/gi, '\n### $1\n\n');
+        html = html.replace(/<h4[^>]*>(.*?)<\/h4>/gi, '\n#### $1\n\n');
         
         // Convert paragraphs
         html = html.replace(/<p[^>]*>(.*?)<\/p>/gi, '$1\n\n');
@@ -168,7 +168,7 @@ class HTMLToMarkdownConverter {
      */
     extractMetadata(html) {
         const titleMatch = html.match(/<title[^>]*>(.*?)<\/title>/i);
-        const title = titleMatch ? titleMatch[1] : 'Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026';
+        const title = titleMatch ? titleMatch[1] : 'Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026';
         
         const authorMatch = html.match(/<meta[^>]*name=["']author["'][^>]*content=["']([^"']*)["']/i);
         const author = authorMatch ? authorMatch[1] : 'Matthew Lukin Smawfield';
@@ -180,10 +180,10 @@ class HTMLToMarkdownConverter {
             .trim() : 'v0.1 (Suva)';
         
         const dateMatch = html.match(/<div[^>]*class=["'][^"']*date[^"']*["'][^>]*>(.*?)<\/div>/i);
-        const date = dateMatch ? dateMatch[1].replace(/<[^>]+>/g, '').trim() : 'First published: 29 May 2026';
+        const date = dateMatch ? dateMatch[1].replace(/<[^>]+>/g, '').trim() : 'First published: 7 June 2026';
         
         const doiMatch = html.match(/DOI:\s*<a[^>]*href=["']([^"']*)["'][^>]*>(.*?)<\/a>/i);
-        const doi = doiMatch ? doiMatch[2] : '10.5281/zenodo.17127229';
+        const doi = doiMatch ? doiMatch[2] : '10.5281/zenodo.20572727';
         
         return { title, author, version, date, doi };
     }
@@ -317,7 +317,7 @@ ${cleanedContent}
 
 ---
 
-*This document was automatically generated from the TEP-GNSS-MGEX research site. For the interactive version with figures and enhanced formatting, visit: https://matthewsmawfield.github.io/TEP-GNSS-MGEX/*
+*This document was automatically generated from the TEP-GNSS-MGEX research site. For the interactive version with figures and enhanced formatting, visit: https://mlsmawfield.com/tep/gnss-mgex/*
 
 *Source code and data available at: https://github.com/matthewsmawfield/TEP-GNSS-MGEX*
 `;

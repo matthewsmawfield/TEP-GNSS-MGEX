@@ -24,9 +24,9 @@ scalar-field calculations across the corpus.
 
 import numpy as np
 from . import constants as tep_const
+from .screening import screening_factor
 
 RHO_C = tep_const.RHO_C
-screening_factor = tep_const.screening_factor
 
 # Lab-scale coupling constants (from TEP-NIST Paper 21)
 ALPHA_LOG = tep_const.ALPHA_LOG

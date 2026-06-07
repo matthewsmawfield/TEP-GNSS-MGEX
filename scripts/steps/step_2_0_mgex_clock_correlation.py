@@ -162,8 +162,7 @@ class Step20MGEXClockCorrelation:
         out_file = OUTPUTS_DIR / "step_2_0_pair_coherences.json"
         n_stations = len(station_coords)
         with open(out_file, "w") as f:
-            json.dump({c: {"status": "success", "n_pairs": len(pair_records), "n_stations": n_stations}
-                       for c in CONSTELLATIONS}, f, indent=2)
+            json.dump({"combined": {"status": "success", "n_pairs": len(pair_records), "n_stations": n_stations}}, f, indent=2)
 
         print_status(f"Pair coherence: {len(pair_records)} records written ({n_stations} stations)", "INFO")
         return {"status": "success", "results": str(out_file), "n_pairs": len(pair_records), "n_stations": n_stations}

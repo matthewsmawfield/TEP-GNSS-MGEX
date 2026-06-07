@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """TEP-GNSS-MGEX Analysis Pipeline Master Script
 ===============================================
-Orchestrates the full held-out multi-constellation replication pipeline.
+Orchestrates the full multi-constellation analysis pipeline.
 
 Usage:
     python scripts/run_all.py
@@ -115,7 +115,7 @@ def run_pipeline(args: argparse.Namespace) -> dict:
 
     print_status("=" * 70, "TITLE")
     print_status("TEP-GNSS-MGEX ANALYSIS PIPELINE", "TITLE")
-    print_status("Paper 4: Held-Out Multi-Constellation Replication (Suva)", "TITLE")
+    print_status("Paper 14: Multi-Constellation Analysis (Suva)", "TITLE")
     print_status("=" * 70, "TITLE")
     print_status(f"Project Root: {PROJECT_ROOT}", "INFO")
     print_status(f"Started: {datetime.now(timezone.utc).isoformat()}", "INFO")
@@ -219,7 +219,7 @@ def run_pipeline(args: argparse.Namespace) -> dict:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="TEP-GNSS-MGEX Pipeline - Held-Out Multi-Constellation Replication",
+        description="TEP-GNSS-MGEX Pipeline - Multi-Constellation Analysis",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Pipeline Steps:

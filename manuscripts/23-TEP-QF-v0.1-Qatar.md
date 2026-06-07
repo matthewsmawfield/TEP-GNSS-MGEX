@@ -2,7 +2,7 @@
 **Matthew Lukin Smawfield**
 Version: v0.1 (Qatar)
 First published: 1 June 2026 · Last updated: 1 June 2026
-DOI: 10.5281/zenodo.xxxxxxxx (placeholder - to be assigned at first public release)
+DOI: 10.5281/zenodo.20572698
 
 ---
 
@@ -30,21 +30,21 @@ The Temporal Equivalence Principle goes further. It treats proper time not merel
 
 When a dynamical, density-dependent temporal landscape is forced into the framework of a fixed background metric, the theory must invent compensating structures to account for the discrepancy:
 
-- **Wavefunction collapse:** The sudden, non-unitary reduction of the quantum state upon measurement may reflect the inability of a fixed-background formalism to accommodate the geometric interaction between a probe and the local temporal shear field. In a dynamical proper-time geometry, the measurement process is reinterpreted as the equilibration of probe and system to a shared temporal contour: as the probe approaches the interaction region, the joint shear field relaxes to a common isochronous manifold. The apparent collapse is not a discontinuous jump but the geometric relaxation of two initially independent temporal topologies to a single synchronised phase. The fluid dynamics of the temporal shear field conserve geometric stress; what standard quantum mechanics records as projection onto an eigenstate is, in the TEP framework, the settling of the combined system onto a contour of constant proper-time phase. A rigorous derivation of this correspondence from the full TEP field equations, including the non-linear disformal sector, is beyond the scope of this paper and is addressed in TEP-KIN (Paper 25).
+- *Wavefunction collapse:* The sudden, non-unitary reduction of the quantum state upon measurement may reflect the inability of a fixed-background formalism to accommodate the geometric interaction between a probe and the local temporal shear field. In a dynamical proper-time geometry, the measurement process is reinterpreted as the equilibration of probe and system to a shared temporal contour: as the probe approaches the interaction region, the joint shear field relaxes to a common isochronous manifold. The apparent collapse is not a discontinuous jump but the geometric relaxation of two initially independent temporal topologies to a single synchronised phase. The fluid dynamics of the temporal shear field conserve geometric stress; what standard quantum mechanics records as projection onto an eigenstate is, in the TEP framework, the settling of the combined system onto a contour of constant proper-time phase. A rigorous derivation of this correspondence from the full TEP field equations, including the non-linear disformal sector, is beyond the scope of this paper and is addressed in TEP-KIN (Paper 25).
 
-- **Intrinsic spin:** In standard quantum mechanics, spin-1/2 is described by an abstract SU(2) representation without reference to spatial extent. In the TEP framework, spin-1/2 is the temporal-orientation holonomy of a localized topological charge — a geometric, not algebraic, property.
+- *Intrinsic spin:* In standard quantum mechanics, spin-1/2 is described by an abstract SU(2) representation without reference to spatial extent. In the TEP framework, spin-1/2 is the temporal-orientation holonomy of a localized topological charge — a geometric, not algebraic, property.
 
-- **Antimatter as separate field:** The Dirac equation's negative-energy solutions are reinterpreted as a separate particle species. In the TEP framework, antimatter is the reversed proper-time phase orientation on the second sheet of the two-sheeted temporal manifold.
+- *Antimatter as separate field:* The Dirac equation's negative-energy solutions are reinterpreted as a separate particle species. In the TEP framework, antimatter is the reversed proper-time phase orientation on the second sheet of the two-sheeted temporal manifold.
 
-- **Virtual particles as force carriers:** The exchange of momentum between particles across empty space is modeled by the emission and absorption of unobservable virtual bosons. In the TEP framework, forces may be reinterpreted as routed through the continuous geometry of the disformally tilted light cone. The derivation of the Maxwell equations and full quantum electrodynamic interactions from the TEP disformal geometry is not provided in this paper; it is addressed in TEP-SPIN (Paper 24).
+- *Virtual particles as force carriers:* The exchange of momentum between particles across empty space is modeled by the emission and absorption of unobservable virtual bosons. In the TEP framework, forces may be reinterpreted as routed through the continuous geometry of the disformally tilted light cone. The derivation of the Maxwell equations and full quantum electrodynamic interactions from the TEP disformal geometry is not provided in this paper; it is addressed in TEP-SPIN (Paper 24).
 
 ### 1.3 The Temporal Equivalence Principle
 
-The Temporal Equivalence Principle (TEP) treats proper time as a dynamical scalar field *φ* governed by a conformal–disformal metric (Jakarta v0.9). Matter clocks tick at rates set by the conformal factor *A(φ) = exp(β φ / M_{Pl})*. The critical saturation density *ρ_{c} ≈ 20 g/cm^{3}* (derived as the macroscopic temporal saturation limit ρ_{T} in TEP-UCD, Paper 6, New Delhi, and cross-validated across compact-object and galactic scales) is the Temporal Topology saturation scale at which screening effects saturate; it is a property of the theory's non-linear regime and not a binary threshold. In the screened limit, where the local interaction energy density substantially exceeds *ρ_{c}*, the locally observable Temporal Shear is suppressed, *A(φ) → 1*, and standard physics is recovered. In the unscreened regime, the full geometric structure of the Temporal Topology is manifest. The disformal coupling *B(φ)* controls the tilting of the light cone by the temporal gradient; in the screened limit the observable disformal response is suppressed and interactions become isotropic.
+The Temporal Equivalence Principle (TEP) treats proper time as a dynamical scalar field *φ* governed by a conformal–disformal metric (Jakarta v0.9). Matter clocks tick at rates set by the conformal factor *A(φ) = exp(β_{A} φ / M_{Pl})*. The critical saturation scale *ρ_{c} ≈ 20 g/cm^{3}* (derived as the macroscopic temporal saturation limit ρ_{T} in TEP-UCD, Paper 6, New Delhi, and cross-validated across compact-object and galactic scales) is the Temporal Topology saturation scale at which screening effects saturate; it is a property of the theory's non-linear regime and not a binary threshold. In the screened limit, where the local interaction energy density substantially exceeds *ρ_{c}*, the locally observable Temporal Shear is suppressed, *A(φ) → 1*, and standard physics is recovered. In the unscreened regime, the full geometric structure of the Temporal Topology is manifest. The disformal coupling *B(φ)* controls the tilting of the light cone by the temporal gradient; in the screened limit the observable disformal response is suppressed and interactions become isotropic.
 
 What "local density" means in this context requires clarification. The saturation scale *ρ_{c}* characterizes the energy density of the local temporal-field configuration, not merely the ambient matter density of the laboratory environment. High-energy particle collisions (e.g., TeV-scale interactions) produce local energy densities of order *10^{24} g/cm^{3}*, vastly exceeding *ρ_{c}* and placing such processes deep in the screened limit. Even in an evacuated chamber, the interaction region of a scattering event carries an energy density far above the saturation scale. Thus standard QFT remains valid for all currently accessible particle-physics experiments, while low-energy, long-baseline interferometry in ultra-low-density environments may probe the unscreened regime.
 
-The foundational geometric framework of TEP was established in the original theory paper (Smawfield 2026, v0.9 Jakarta, DOI: 10.5281/zenodo.16921911), which introduced the full disformal metric *g̃_{μν} = A^{2}(φ) g_{μν} + B(φ) ∇_{μ}φ ∇_{ν}φ* with *A(φ) = exp(β φ / M_{Pl})*, demonstrated local Lorentz invariance as a theorem, and introduced the sector ontology of Temporal Topology (spatial/covariance structure of *ln A(φ)*), Temporal Shear (*Σ_{μ} = ∇_{μ} ln A*), and the saturation density *ρ_{c}*. This paper works in the conformal limit *B(φ) = 0* and adopts the foundational convention throughout: the symbol *A(φ)* denotes the original conformal factor of the Jakarta theory, so the causal matter metric reads *g̃_{μν} = A^{2}(φ) g_{μν}*. The screened limit *A(φ) → 1* recovers the standard Minkowski background; the singular limit *A(φ) → ∞*, reached as *φ → +∞* (for *β > 0*), marks the topological defects identified in Section 4. The conformal limit suffices for the quantum-field subsumption derivation because the disformal sector contributes only higher-order corrections to the tangent-space degradation. The full disformal structure becomes essential for cosmological synchronization holonomy and multi-messenger tests, addressed in companion papers.
+The foundational geometric framework of TEP was established in the original theory paper (Smawfield 2026, v0.9 Jakarta, DOI: 10.5281/zenodo.16921911), which introduced the full disformal metric *g̃_{μν} = A^{2}(φ) g_{μν} + B(φ) ∇_{μ}φ ∇_{ν}φ* with *A(φ) = exp(β_{A} φ / M_{Pl})*, demonstrated local Lorentz invariance as a theorem, and introduced the sector ontology of Temporal Topology (spatial/covariance structure of *ln A(φ)*), Temporal Shear (*Σ_{μ} = ∇_{μ} ln A*), and the saturation scale *ρ_{c}*. This paper works in the conformal limit *B(φ) = 0* and adopts the foundational convention throughout: the symbol *A(φ)* denotes the original conformal factor of the Jakarta theory, so the causal matter metric reads *g̃_{μν} = A^{2}(φ) g_{μν}*. The screened limit *A(φ) → 1* recovers the standard Minkowski background; the singular limit *A(φ) → ∞*, reached as *φ → +∞* (for *β_{A} > 0*), marks the topological defects identified in Section 4. The conformal limit suffices for the quantum-field subsumption derivation because the disformal sector contributes only higher-order corrections to the tangent-space degradation. The full disformal structure becomes essential for cosmological synchronization holonomy and multi-messenger tests, addressed in companion papers.
 
 Companion papers in this series develop TEP across a wide range of mass densities, from subatomic scales (TEP-SPIN) through laboratory interferometry (TEP-KIN) to cosmological distances (TEP-C0). This paper addresses the quantum regime directly, arguing that standard QFT is the flat-frame, isochronous tangent limit of a deeper dynamical proper-time geometry.
 
@@ -178,9 +178,9 @@ where *∇_{μ}* is the spin-covariant derivative, incorporating the spin connec
 
 The flattening conditions. The standard Dirac equation *(iγ^{μ}∂_{μ} − m) ψ = 0* makes two critical assumptions that are never stated explicitly:
 
-- **The temporal shear vanishes:** *Σ_{μ} = ∇_{μ} ln A(φ) = 0*. This means the conformal factor is constant, and the causal metric is identical to the observed metric.
+- *The temporal shear vanishes:* *Σ_{μ} = ∇_{μ} ln A(φ) = 0*. This means the conformal factor is constant, and the causal metric is identical to the observed metric.
 
-- **The observable disformal response is suppressed:** *B(φ)(∇φ)² → 0*. This means the light-cone tilt becomes phenomenologically negligible, and all interactions are effectively isotropic in the screened regime.
+- *The observable disformal response is suppressed:* *B(φ)(∇φ)² → 0*. This means the light-cone tilt becomes phenomenologically negligible, and all interactions are effectively isotropic in the screened regime.
 
 When these two conditions are imposed, the causal metric *g̃_{μν}* reduces to the Minkowski metric *η_{μν}*, the tetrad field becomes the identity, and the spin-covariant derivative reduces to the ordinary partial derivative. The full geometric Dirac operator:
 
@@ -220,13 +220,13 @@ The Dirac equation is thus *subsumed* by the TEP framework: it is recovered as t
 
 In the TEP framework, spin-1/2 arises as temporal-orientation holonomy of topological charge defects in the temporal field. In standard quantum mechanics, spin-1/2 is described by an abstract SU(2) representation without reference to spatial extent. The SU(2) spinor encodes angular momentum *ℏ/2* algebraically, not as a physical rotation in space.
 
-In the TEP framework, spin is reinterpreted as temporal-orientation holonomy. A fermion is not a point particle with intrinsic angular momentum — it is a localized topological charge in the temporal landscape. The charge core is a topological defect where the scalar field diverges, *φ → +∞* (for *β > 0*), driving the conformal factor to its singular limit *A(φ) → ∞*. At this singularity *ln A(φ)* is multi-valued. Away from the core, the temporal shear *Σ_{μ} = ∇_{μ} ln A(φ)* is a smooth gradient; the integral of a gradient around any closed loop in a simply connected region is zero, consistent with the original TEP theory, which assumes the smooth exponential *A(φ) = exp(β φ / M_{Pl})* everywhere. The non-zero holonomy arises exclusively from circulation around the singular core, where Stokes' theorem does not apply. The topological charge is therefore an *extension* of the smooth TEP framework into the topological defect regime, not a consequence of the smooth field equations alone.
+In the TEP framework, spin is reinterpreted as temporal-orientation holonomy. A fermion is not a point particle with intrinsic angular momentum — it is a localized topological charge in the temporal landscape. The charge core is a topological defect where the scalar field diverges, *φ → +∞* (for *β_{A} > 0*), driving the conformal factor to its singular limit *A(φ) → ∞*. At this singularity *ln A(φ)* is multi-valued. Away from the core, the temporal shear *Σ_{μ} = ∇_{μ} ln A(φ)* is a smooth gradient; the integral of a gradient around any closed loop in a simply connected region is zero, consistent with the original TEP theory, which assumes the smooth exponential *A(φ) = exp(β_{A} φ / M_{Pl})* everywhere. The non-zero holonomy arises exclusively from circulation around the singular core, where Stokes' theorem does not apply. The topological charge is therefore an *extension* of the smooth TEP framework into the topological defect regime, not a consequence of the smooth field equations alone.
 
 The "spin-1/2" property emerges because a closed loop encircling the charge core accumulates a phase of *±4π*, corresponding to the single-valuedness requirement of the proper-time oscillator. A rotation of *2π* would leave the phase field double-valued (*e^{i2π/2} = −1*), which is forbidden for a scalar phase; the minimal closed loop returning the phase to its original value therefore carries *4π* of accumulated phase. This is the geometric origin of fermionic statistics: the phase field is single-valued only after a *4π* circuit, exactly as spin-1/2 requires. The connection to the standard spin-statistics theorem — that half-integer spin implies fermionic exchange symmetry — is recovered because the topological charge carries the minimal half-integer holonomy of the temporal orientation bundle. The two "spins" are the two possible orientations of the topological charge relative to the local matter-clock congruence:
 
-- **Spin up:** The topological charge rotates in the same sense as the local temporal shear circulation.
+- *Spin up:* The topological charge rotates in the same sense as the local temporal shear circulation.
 
-- **Spin down:** The topological charge rotates in the opposite sense.
+- *Spin down:* The topological charge rotates in the opposite sense.
 
 The spinor algebra SU(2) is not an abstract symmetry group but the local holonomy group of the temporal field's orientation bundle. The Pauli matrices *σ_{i}* are the generators of infinitesimal rotations in this orientation bundle, not in physical space.
 
@@ -240,7 +240,7 @@ In standard quantum mechanics, antimatter is introduced as a separate field of p
 
 In the TEP framework, antimatter is not a separate field or opposite charge — it is the reversed proper-time phase orientation relative to the local matter-clock congruence. Where a particle's phase advances as *+τ̃* along the future-directed light cone, its antiparticle advances as *−τ̃* along the past-directed cone.
 
-This reversal is a *geometric*, not algebraic, operation. It arises naturally from the two-sheeted structure of the proper-time manifold, where the "other sheet" corresponds to reversed phase orientation. The two-sheeted topology is a global property of the temporal manifold and is independent of the local density. The critical saturation density *ρ_{c} ≈ 20 g/cm^{3}* is the Temporal Topology saturation scale at which screening effects saturate; it does not act as a boundary between the sheets. In the screened limit, where the local interaction energy density substantially exceeds *ρ_{c}*, the observable temporal shear is suppressed and the phase-orientation distinction becomes unresolvable at the measurement scale, recovering the standard CPT-symmetric effective theory.
+This reversal is a *geometric*, not algebraic, operation. It arises naturally from the two-sheeted structure of the proper-time manifold, where the "other sheet" corresponds to reversed phase orientation. The two-sheeted topology is a global property of the temporal manifold and is independent of the local density. The critical saturation scale *ρ_{c} ≈ 20 g/cm^{3}* is the Temporal Topology saturation scale at which screening effects saturate; it does not act as a boundary between the sheets. In the screened limit, where the local interaction energy density substantially exceeds *ρ_{c}*, the observable temporal shear is suppressed and the phase-orientation distinction becomes unresolvable at the measurement scale, recovering the standard CPT-symmetric effective theory.
 
 Crucially, CPT symmetry is *preserved locally*. The local CPT theorem remains valid at every point in spacetime: a full rotation in the local orientation bundle (C × P × T) returns the system to its original state. Charge conjugation C is realised as a local reflection in the orientation bundle (reversing the direction of proper-time phase accumulation), not as a global sheet transition. The global topology of the temporal manifold is two-sheeted: a particle and its antiparticle reside on opposite sheets, but this separation is a consequence of the global boundary conditions, not of the local C operation itself. This suggests a possible topological origin for the observed matter-antimatter asymmetry: rather than requiring a symmetry-breaking event in the early universe, the dominance of matter may reflect the global topology of the temporal manifold, which may favor one sheet over the other in certain density regimes. A quantitative prediction of the baryon-to-photon ratio from this topological bias is an active research direction within the TEP framework.
 
@@ -248,11 +248,11 @@ Crucially, CPT symmetry is *preserved locally*. The local CPT theorem remains va
 
 Charge conjugation (C), parity (P), and time reversal (T) are unified as orientation operations on the two-sheeted temporal manifold:
 
-- **C (Charge conjugation):** Local reflection in the orientation bundle — maps particle to antiparticle by reversing phase orientation.
+- *C (Charge conjugation):* Local reflection in the orientation bundle — maps particle to antiparticle by reversing phase orientation.
 
-- **P (Parity):** Spatial reflection — reverses the handedness of the topological charge in the temporal landscape.
+- *P (Parity):* Spatial reflection — reverses the handedness of the topological charge in the temporal landscape.
 
-- **T (Time reversal):** Phase reversal — reverses the direction of proper-time accumulation, mapping future-directed phase transport to past-directed. It belongs to the same orientation-bundle sector as charge conjugation but is a distinct operation in the product group C × P × T.
+- *T (Time reversal):* Phase reversal — reverses the direction of proper-time accumulation, mapping future-directed phase transport to past-directed. It belongs to the same orientation-bundle sector as charge conjugation but is a distinct operation in the product group C × P × T.
 
 The CPT theorem, a central result in quantum field theory, is reinterpreted geometrically: a full rotation in the orientation bundle (C × P × T) returns the system to its original state. In standard QFT, the theorem is derived rigorously from Lorentz invariance, locality, and the spin-statistics connection (Lüders-Pauli, Jost). The TEP framework recovers this derivation and reveals its geometric origin: the theorem is manifest as the orientability of the temporal manifold.
 
@@ -260,7 +260,7 @@ The CPT theorem, a central result in quantum field theory, is reinterpreted geom
 
 The TEP framework makes concrete, falsifiable predictions that distinguish it from standard QFT. In the unscreened regime, where the local interaction energy density is well below the saturation scale *ρ_{c}*, the conformal factor *A(φ)* deviates from unity. While high-energy particle collisions (TeV-scale, with characteristic local energy densities of order *10^{24} g/cm^{3}*) are deep in the screened limit, low-energy, long-baseline atomic interferometry in ultra-high-vacuum environments may probe the unscreened regime.
 
-Order-of-magnitude estimate: For a conformal factor *A(φ) = exp(β φ / M_{Pl})*, the fractional mass shift in a region of ambient density *ρ* below the saturation scale is parametrically *δm/m ~ (1 − A) &sim; β φ / M_{Pl}*. The scalar field *φ* scales with the local energy density; in the linear regime well below *ρ_{c}*, *φ / M_{Pl} ~ ρ / ρ_{c}*. For an ultra-high-vacuum environment with *ρ ~ 10^{−15} g/cm^{3}* and *ρ_{c} ~ 20 g/cm^{3}*, the ratio is *ρ / ρ_{c} ~ 5 × 10^{−17}*. With a coupling *β ~ O(1)*, the predicted fractional mass shift is:
+Order-of-magnitude estimate: For a conformal factor *A(φ) = exp(β_{A} φ / M_{Pl})*, the fractional mass shift in a region of ambient density *ρ* below the saturation scale is parametrically *δm/m ~ (1 − A) &sim; β_{A} φ / M_{Pl}*. The scalar field *φ* scales with the local energy density; in the linear regime well below *ρ_{c}*, *φ / M_{Pl} ~ ρ / ρ_{c}*. For an ultra-high-vacuum environment with *ρ ~ 10^{−15} g/cm^{3}* and *ρ_{c} ~ 20 g/cm^{3}*, the ratio is *ρ / ρ_{c} ~ 5 × 10^{−17}*. With a coupling *β_{A} ~ O(1)*, the predicted fractional mass shift is:
 
 δm/m ~ 5 × 10^{−17}
 
@@ -276,9 +276,9 @@ The TEP framework offers a geometric reinterpretation. Dirac was attempting to d
 
 The four components of the Dirac spinor correspond to:
 
-- **Upper two components:** Particle with spin up/down relative to the local temporal shear circulation.
+- *Upper two components:* Particle with spin up/down relative to the local temporal shear circulation.
 
-- **Lower two components:** Antiparticle with reversed proper-time phase orientation (the "negative-energy" solutions).
+- *Lower two components:* Antiparticle with reversed proper-time phase orientation (the "negative-energy" solutions).
 
 In the TEP framework, these are not components of an abstract internal vector space. They are the four possible combinations of (topological charge orientation) × (phase direction) on the two-sheeted temporal manifold. The Clifford algebra is not an abstract symmetry; it is the local algebra of frame rotations in the temporal orientation bundle. The gamma matrices are not fundamental operators; they are the generators of infinitesimal rotations in the proper-time phase frame. Dirac's spinor was an effective mathematical workaround for a geometric structure that physics had not yet developed.
 
@@ -288,15 +288,15 @@ This reinterpretation is not a dismissal of Dirac's work; it is an elevation. Th
 
 This paper recovers five foundational results that subsume standard Quantum Field Theory within the Temporal Equivalence Principle:
 
-- **The phase action** *S = −mc^{2} ∫ dτ̃* is the primitive geometric driver, with mass appearing as the parameter governing the oscillator frequency *ω_{0} = mc^{2} / ℏ*, modulated by the conformal factor in the causal matter metric *g̃_{μν}*.
+- *The phase action* *S = −mc^{2} ∫ dτ̃* is the primitive geometric driver, with mass appearing as the parameter governing the oscillator frequency *ω_{0} = mc^{2} / ℏ*, modulated by the conformal factor in the causal matter metric *g̃_{μν}*.
 
-- **The Klein-Gordon equation** *(□̃ + m^{2}c^{2} / ℏ^{2}) Ψ = 0* is derived from the minimal geometric Lagrangian in the causal metric and verified via WKB / eikonal expansion; its eikonal limit recovers the *g̃*-Hamilton-Jacobi equation, not via operator substitution.
+- *The Klein-Gordon equation* *(□̃ + m^{2}c^{2} / ℏ^{2}) Ψ = 0* is derived from the minimal geometric Lagrangian in the causal metric and verified via WKB / eikonal expansion; its eikonal limit recovers the *g̃*-Hamilton-Jacobi equation, not via operator substitution.
 
-- **The Dirac operator** *iγ^{μ}∂_{μ} − m* is recovered as the local Clifford/tetrad representation in the isochronous background. It emerges as the limiting case of the geometric operator when temporal shear *Σ_{μ}* and disformal coupling *B(φ)* are negligible.
+- *The Dirac operator* *iγ^{μ}∂_{μ} − m* is recovered as the local Clifford/tetrad representation in the isochronous background. It emerges as the limiting case of the geometric operator when temporal shear *Σ_{μ}* and disformal coupling *B(φ)* are negligible.
 
-- **Spin and antimatter** are reinterpreted as geometric orientations on the two-sheeted proper-time manifold, not intrinsic quantum properties. Antimatter is the reversed proper-time phase orientation on the second sheet; CPT is preserved locally while the global two-sheeted topology isolates matter and antimatter topologically.
+- *Spin and antimatter* are reinterpreted as geometric orientations on the two-sheeted proper-time manifold, not intrinsic quantum properties. Antimatter is the reversed proper-time phase orientation on the second sheet; CPT is preserved locally while the global two-sheeted topology isolates matter and antimatter topologically.
 
-- **The spinor** is reinterpreted geometrically: Dirac's 1928 spinor encoded temporal-orientation holonomy without access to a dynamical proper-time geometry.
+- *The spinor* is reinterpreted geometrically: Dirac's 1928 spinor encoded temporal-orientation holonomy without access to a dynamical proper-time geometry.
 
 These results provide the quantum-foundation layer for the full TEP framework. All tensor-algebraic derivations have been verified symbolically using SymPy; the audit log is available in `results/sympy_audit.log`. The companion papers develop the implications for subatomic structure (TEP-SPIN), interaction kinematics (TEP-KIN), and cosmological synthesis (TEP-C0).
 
@@ -366,7 +366,7 @@ The temporal field carries an orientation bundle with structure group *O(1,3)*. 
 
 ∮_{C} Σ_{μ} dx^{μ} = ∮_{C} d(ln A) = 0
 
-for any contractible loop in a simply connected region where *A(φ)* is smooth and single-valued, as established in the original TEP theory, which assumes the exponential form *A(φ) = exp(β φ / M_{Pl})* everywhere. Non-zero holonomy arises only when the loop encircles a charge core where the scalar field diverges and *A(φ)* approaches its singular limit *A → ∞*. At such a singularity, *ln A(φ)* is multi-valued and the integral computes the winding number:
+for any contractible loop in a simply connected region where *A(φ)* is smooth and single-valued, as established in the original TEP theory, which assumes the exponential form *A(φ) = exp(β_{A} φ / M_{Pl})* everywhere. Non-zero holonomy arises only when the loop encircles a charge core where the scalar field diverges and *A(φ)* approaches its singular limit *A → ∞*. At such a singularity, *ln A(φ)* is multi-valued and the integral computes the winding number:
 
 Δφ = ∮_{C} Σ_{μ} dx^{μ} = n · 4π, n ∈ ℤ
 
@@ -375,3 +375,25 @@ Single-valuedness of the phase field *Ψ = exp(iS/ℏ)* requires that *S/ℏ* ch
 ### A.5 SymPy Audit Environment
 
 The symbolic derivations were executed in a reproducible Python environment with the following pinned dependencies: Python 3.11, SymPy 1.12, NumPy 1.26, and SciPy 1.11. The three primary derivation scripts — `derive_klein_gordon.py`, `derive_dirac_subsumption.py`, and `derive_spin_holonomy.py` — are located in `scripts/derivations/`. Each script performs the following symbolic assertions: (i) Clifford algebra closure for the rescaled Dirac matrices; (ii) tetrad identity *g_{μν} = e^{a}_{μ} e^{b}_{ν} η_{ab}* under conformal rescaling; (iii) spin-connection vanishing in the flat-frame limit *Σ_{μ} = 0*; and (iv) operator collapse from the curved-space Dirac operator to the standard flat-space form. To reproduce the audit independently, run `python scripts/derivations/derive_dirac_subsumption.py` from the repository root; the script self-validates each assertion and writes the step-by-step log to `results/sympy_audit.log`.
+
+
+## 9. Data Availability & Reproducibility
+
+This work follows open-science practices. All theoretical derivations and numerical results are fully reproducible using the documented code.
+
+
+### Repository and Code
+
+GitHub Repository: github.com/matthewsmawfield/TEP-QF
+
+The repository contains the analytical derivations and numerical verification scripts for the TEP quantum-field framework, Dirac-operator anomaly, and spin–antimatter coupling.
+
+
+### Repository Structure
+
+TEP-QF/ ├── data/ │ ├── cobaya/ # Cobaya MCMC chains │ └── hi_class/ # TEP-CLASS implementation ├── scripts/ │ └── steps/ # Analysis pipeline steps ├── core/ # TEP shared constants and parameters ├── site/ │ └── components/ # Manuscript HTML sections ├── requirements.txt ├── CITATION.bib └── README.md ### Software Environment Key packages: NumPy, SciPy, SymPy, Matplotlib. The scripts have been tested on Python 3.10+.
+
+
+### License
+
+All code and manuscripts are released under CC-BY-4.0.

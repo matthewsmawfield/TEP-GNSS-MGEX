@@ -1,13 +1,11 @@
 <h2>5. Discussion</h2>
 
 <p>
-The held-out MGEX combined-clock product recovers four of the five evaluated
-TEP signatures. The correlation length, λ = 1396 ± 90 km, falls within the
-frozen range and survives the ionospheric and geometry controls and all four
-null tests, while collapsing to negligible structure under label permutation.
-That an independent analysis centre, an independent multi-GNSS product, and a
-held-out epoch return a correlation length of the predicted order is the central
-positive result of this paper. The value is shorter than the 3,000–5,000 km of
+The MGEX combined-clock product shows a correlation length of λ = 1396 ± 90 km,
+which survives the ionospheric and geometry controls and all four null tests,
+while collapsing to negligible structure under label permutation. That a
+CODE MGEX combined-clock product, distinct from the GPS PPP products analysed earlier, returns a correlation length of the same order as earlier papers is the
+central positive result of this analysis. The value is shorter than the 3,000–5,000 km of
 the GPS PPP analyses; this is attributed to the phase-alignment metric and the
 combined-clock product rather than to a change in the underlying scale, but the
 earlier interpretation is not adjusted on the strength of a single product.
@@ -16,25 +14,25 @@ earlier interpretation is not adjusted on the strength of a single product.
 <p>
 The anisotropy result requires candour. The full-range east–west correlation
 length modestly exceeds the north–south value (ratio 1.23), but the difference is
-not significant under the honest station-clustered bootstrap (p = 0.48). The
-predicted east–west excess is evident once pairs are matched in longitude
-(ratio 2.28, pair-bootstrap p = 0.002, 95% CI [1.20, 2.69]), though the
-significance weakens under spatial-clustered resampling (95% CI [0.16, 14.12],
-p = 0.244). The dependence of the conclusion on a subset and on the
-resampling model is a limitation, and the non-significant
-full-range ratio is reported alongside the longitude-matched result. The
+not significant under the station-clustered bootstrap (p = 0.48). The
+longitude-matched subset shows a large EW/NS ratio under pair bootstrap
+(ratio 2.28, p = 0.002, 95% CI [1.20, 2.69]), but the effect is not significant
+under spatial-clustered resampling (95% CI [0.16, 14.12], p = 0.244). We
+therefore treat the MGEX anisotropy result as suggestive rather than
+confirmatory. The non-significant full-range ratio is reported alongside the
+longitude-matched result for completeness. The
 orbital-velocity coupling is not recovered by the traditional monthly λ or EW/NS
 ratio metrics when tested against either scalar speed or the velocity-vector
 projection onto the CMB dipole (Bonferroni p &gt; 0.5). These metrics are
 degraded by the exponential-fit noise that plagues short-baseline datasets.
-A supplementary PA-difference metric (monthly mean EW − NS phase alignment,
-which avoids exponential fitting entirely) recovers a negative correlation
-with orbital speed (r = −0.670, p = 0.017) and with the velocity projection
-onto the CMB dipole (r = −0.770, p = 0.003). Because this metric was added
-after the frozen prediction register was locked, it is reported as a
-supplementary signature rather than a primary frozen prediction, but it is the
-physically appropriate test for this dataset and it restores the orbital-coupling
-signature that the traditional metrics lose to baseline limitations.
+The PA-difference metric — monthly mean EW minus NS
+phase alignment, which avoids exponential fitting — is used because the
+~16-month data window provides too few monthly points for stable λ-versus-speed
+regression. It recovers a negative correlation with orbital speed
+(r = −0.670, p = 0.017) and with the velocity projection onto the CMB dipole
+(r = −0.770, p = 0.003). The traditional monthly λ and EW/NS ratio remain the standard for longer time
+series; here they are inconclusive (Bonferroni p &gt; 0.5), consistent with the
+limited temporal leverage. Because the PA-difference metric was adopted only after the primary λ and EW/NS tests returned null, the coupling it recovers is suggestive and requires independent replication before it can be treated as confirmatory.
 </p>
 
 <p>
@@ -42,32 +40,40 @@ The CMB-frame test detects a significant anisotropy axis (LEE p &lt;
 0.0001) at RA = 60°, Dec = −60° (antipode RA = 240°, Dec = 60°), but the
 closer pole lies 92° from the CMB dipole. This is not a null result in the
 sense of "no preferred axis"; rather, the data contain an anisotropy that
-points elsewhere. The most likely cause is ionospheric contamination of the
-daily EW/NS ratio: the axis direction is consistent with known
-ionospheric/geomagnetic orientations rather than the CMB rest frame. Widening
+points elsewhere. The data favour ionospheric contamination of the
+daily EW/NS ratio: the axis direction and sector-width instability are more consistent with ionospheric or product-geometry contamination than with a stable CMB-frame alignment. Widening
 the azimuth sectors to 60° shifts the best-fit to RA = 140°, Dec = −60° and
-leaves the CMB separation at 57° (or 123° from the antipodal direction), still
-far from alignment. This misalignment is reported without qualification; it
+reverses the correlation sign (r = −0.283 versus +0.161 for 45°), leaving the
+CMB separation at 57° (or 123° from the antipodal direction). The sign reversal
+indicates that the anisotropy pattern is unstable with respect to sector
+definition. This misalignment is reported without qualification; it
 bounds the strength of any CMB-frame claim that can be made from this product and
 epoch, and it favours an ionospheric interpretation of the anisotropy.
+The permutation null evaluates significance at the direction that maximises
+observed correlation, with a look-elsewhere factor of 50 as an approximation;
+it does not re-run the full grid search on each permutation, so the reported
+LEE p-value is a lower bound on the true family-wise error.
 </p>
 
 <p>
 A satellite-clock analogue was also attempted using SP3 orbit geometry, but the
 MGEX combined solution estimates all satellite clocks relative to a single
 reference time scale; after per-epoch common-mode removal the residuals are
-dominated by estimation noise and no spatial correlation is detected (R² < 0
-for all four constellations, e.g. GPS R² = −0.38). This null
-is consistent with the product architecture and does not exclude a physical
-effect, but it bounds what can be inferred about satellite-clock TEP effects
-from this product alone.
+dominated by estimation noise and the exponential model is actively rejected
+(R² &lt; 0, e.g. GPS R² = −0.38), which is stronger
+evidence of no correlation than R² ≈ 0. This null is consistent with the product
+architecture and does not exclude a physical effect, but it bounds what can
+be inferred about satellite-clock TEP effects from this product alone.
+</p>
 
-The principal limitation is structural. The MGEX clock files provide one
-combined multi-GNSS solution per station, so this paper cannot deliver the
-per-constellation independence that its earlier framing envisaged; the four
-constellations are not separable in this product. Genuine per-system replication
+<p>
+The structural constraint is that the MGEX clock files provide one
+combined multi-GNSS solution per station. Per-constellation independence,
+which the earlier framing envisaged, is not achievable with this product
+because the four constellations are not separable in the MGEX combined
+solution. Genuine per-system replication
 remains the domain of raw observation processing, which the data volume places
-outside the present scope and which Paper 3 already addresses in the GPS case.
-What this paper adds is independence of epoch and of data product, and within
+outside the present scope.
+What this paper adds is product-type independence and a largely held-out epoch, and within
 those bounds the core correlation-length signature replicates.
 </p>

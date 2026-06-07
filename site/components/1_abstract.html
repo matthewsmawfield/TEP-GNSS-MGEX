@@ -10,45 +10,32 @@ and Paper 3 reproduced them in raw RINEX single-point positioning (SPP),
 demonstrating independence from analysis-centre orbit and clock models.
 </p>
 <p>
-This paper presents a held-out replication using a deliberately independent data
+This paper presents an analysis of an independent data
 product: the public MGEX combined multi-GNSS receiver-clock solution (CODE
-COD0MGXFIN) distributed by NASA CDDIS, for the held-out window 2025-01-01 to
+COD0MGXFIN) distributed by NASA CDDIS, for the window 2025-01-01 to
 2026-05-01. Receiver-clock offsets for 256 globally distributed stations are
 read directly from the daily 5-minute CLK files; no positioning is performed.
 Because MGEX clock files contain a single combined multi-GNSS solution per
-station, this test provides temporal and product-type independence from
-Papers 1–3 rather than per-constellation independence, which those papers
-already address. All six predictions—correlation length, azimuthal anisotropy,
-orbital-velocity coupling, CMB-frame alignment, ionospheric independence, and
-geometric robustness—were frozen before the held-out data were inspected.
+station, this test provides product-type independence and uses a largely held-out
+2025–2026 epoch relative to Papers 1–3, rather than providing per-constellation independence, which requires raw per-system processing and is not available from this combined-clock product.
 </p>
 <p>
-Four of the five evaluated signatures are recovered. The isotropic correlation
-length is λ = 1396 ± 90 km (R² = 0.486, 1.75 million pairs), shorter than the
-3,000–5,000 km reported for GPS PPP and consistent with the different metric and
-combined-clock product. The signal persists on geomagnetically quiet days and all
-four null controls collapse to negligible structure (R² ≈ 0). The full-range anisotropy
-is modest (ratio 1.23, p = 0.48) but the predicted east–west excess emerges
-in the longitude-matched subset (ratio 2.28, pair-bootstrap p = 0.002). The traditional
-monthly λ and EW/NS ratio do not correlate with orbital velocity (Bonferroni
-p &gt; 0.5), but a supplementary PA-difference metric that avoids exponential-fit
-noise recovers coupling (r = −0.670, p = 0.017). The CMB-frame test
-detects a significant anisotropy axis (LEE p &lt; 0.0001) at RA = 60°,
-Dec = −60° that lies 92° from the CMB dipole, consistent with an
-ionospheric origin. A supplementary satellite-clock analysis using SP3 orbit
-geometry finds no detectable spatial correlation, consistent with the
-single-reference-time nature of the MGEX combined solution.
+The analysis evaluates the same signatures examined in earlier papers:
+correlation length, azimuthal anisotropy, orbital-velocity coupling,
+CMB-frame alignment, ionospheric independence, and geometric robustness.
+The isotropic correlation length is $$\lambda = 1396 \pm 90$$ km (R² = 0.486, 1.75 million pairs),
+shorter than the 3,000–5,000 km reported for GPS PPP and consistent with the
+different metric and combined-clock product. The signal persists on
+geomagnetically quiet days (Kp ≤ 2) and appears to strengthen during active conditions
+(Kp ≥ 5, smaller sample); all four null controls collapse to negligible
+structure (R² ≈ 0). The full-range anisotropy is modest (ratio 1.23, p = 0.48)
+but a suggestive east–west excess emerges in the longitude-matched subset (ratio 2.28,
+pair-bootstrap p = 0.002, 95% CI [1.20, 2.69]; spatially-clustered resampling
+p = 0.244, 95% CI [0.16, 14.12]). The primary monthly $$\lambda$$ and EW/NS orbital-coupling tests are not significant. A supplementary short-baseline phase-alignment metric suggestively recovers orbital-velocity modulation (r = −0.670, p = 0.017). The CMB-frame test detects a significant anisotropy
+axis (LEE p &lt; 0.0001) at RA = 60°, Dec = −60° that lies 92° from the CMB dipole,
+more consistent with ionospheric or product-geometry contamination than with stable CMB-frame alignment. A product-limited satellite-clock analysis
+using SP3 orbit geometry finds the exponential model actively rejected
+(R² &lt; 0), consistent with the single-reference-time
+nature of the MGEX combined solution.
 </p>
-</div>
-
-<div class="frozen-predictions">
-<strong>Frozen predictions and outcomes (MGEX combined-clock product, held out):</strong>
-<ul>
-    <li><strong>Correlation length:</strong> λ in the thousands-of-km range — recovered, λ = 1396 ± 90 km (R² = 0.486).</li>
-    <li><strong>Anisotropy:</strong> EW > NS — full-range ratio 1.23 (p = 0.48, not significant under station-clustered bootstrap); longitude-matched subset ratio 2.28 (pair-bootstrap p = 0.002, station-clustered p = 0.244).</li>
-    <li><strong>Orbital coupling:</strong> monthly λ and EW/NS ratio vs Earth orbital velocity — not recovered via traditional metrics (Bonferroni p &gt; 0.5); supplementary PA-difference metric recovers coupling (r = −0.670, p = 0.017).</li>
-    <li><strong>CMB alignment:</strong> full-sky axis scan with look-elsewhere correction — anisotropy axis detected (LEE p &lt; 0.0001) at RA = 60°, Dec = −60° that lies 92° from the CMB dipole, consistent with an ionospheric rather than TEP origin.</li>
-    <li><strong>Ionospheric independence:</strong> Kp stratification and storm-day exclusion — signal persists on quiet days.</li>
-    <li><strong>Geometry robustness:</strong> hemisphere-balanced and distance-matched subsets — λ stable under distance matching.</li>
-</ul>
 </div>

@@ -34,7 +34,7 @@ MIN_STATION_STD_NS = 1.0      # flat-line threshold for clocks held constant by 
 # Satellite separation upper bound (antipodal MEO/GEO satellites can reach ~40 000 km)
 MAX_SATELLITE_DISTANCE_KM = 50000
 
-# Constellation definitions for held-out pipelines
+# Constellation definitions for MGEX pipelines
 CONSTELLATIONS = {
     "GPS": {"sys": "G", "freqs": ["L1", "L2"], "orbital_radius_km": 20200},
     "GLONASS": {"sys": "R", "freqs": ["L1", "L2"], "orbital_radius_km": 19100},
@@ -138,9 +138,8 @@ COORD_MM_THRESHOLD_METRES = 100_000_000
 # Null-test R² threshold (structure is "negligible" below this)
 NULL_TEST_R2_THRESHOLD = 0.3
 
-# Held-out MGEX analysis window (YYYY, M, D). Deliberately disjoint from the
+# MGEX analysis window (YYYY, M, D). Deliberately disjoint from the
 # original TEP-GNSS-RINEX training period. Extend END forward only as newly
-# finalized CLK products become available; do NOT extend backward (would break
-# the held-out design).
+# finalized CLK products become available; do NOT extend backward.
 DATA_START = (2025, 1, 1)
 DATA_END = (2026, 5, 1)

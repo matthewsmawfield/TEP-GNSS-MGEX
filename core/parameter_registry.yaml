@@ -4,7 +4,7 @@
 # When updated in the main TEP repo, run scripts/bump_papers.py to propagate.
 
 schema_version: 1
-last_updated: "2026-06-05"
+last_updated: "2026-06-06"
 
 parameter_classes:
   fundamental: "Axiomatic or theoretically fixed parameter; changes would alter the framework itself."
@@ -26,7 +26,7 @@ parameters:
 
   - symbol: "rho_c"
     latex: "\\rho_c"
-    meaning: "Temporal Topology saturation proximity scale (observationally proxied by density)"
+    meaning: "Temporal Topology saturation scale (observationally proxied by density)"
     value: 20.0
     units: "g cm^{-3}"
     class: "calibrated"
@@ -42,7 +42,7 @@ parameters:
     class: "calibrated"
     first_paper: 1
     used_in: [1, 2, 3, 6, 14, 17, 21]
-    description: "Characteristic scale over which the scalar field remains correlated. Long-duration multi-center GNSS analysis yields ~4200 km (canonical). MGEX held-out verification (Paper 14) yields ~1396 km and is not interchangeable with this baseline. Lab-scale crustal value is LAB_COHERENCE_LENGTH_M = 50 km."
+    description: "Canonical terrestrial correlation length for all forward analysis (NIST FEM, rho_c chain, etc.). From 25-year multi-center GNSS (Papers 1–2/6). Paper 14 MGEX held-out verification (~1 yr, lambda ~1396 km) confirms the signal but is not adopted for dimensional normalization. Lab-scale crustal value is LAB_COHERENCE_LENGTH_M = 50 km."
 
   - symbol: "alpha_log"
     latex: "\\alpha_{\\log}"

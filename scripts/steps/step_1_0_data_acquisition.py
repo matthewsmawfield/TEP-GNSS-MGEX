@@ -63,7 +63,7 @@ _hash_lock = threading.Lock()
 # ---------------------------------------------------------------------------
 CDDIS_BASE = "https://cddis.nasa.gov/archive/gnss/products"
 
-# Analysis window: held-out, configured in config.py (DATA_START/DATA_END).
+# Analysis window, configured in config.py (DATA_START/DATA_END).
 # Deliberately disjoint from the original TEP-GNSS-RINEX training period.
 START_DATE = datetime(*DATA_START)
 END_DATE = datetime(*DATA_END)

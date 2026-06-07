@@ -1,4 +1,4 @@
-# Global Time Echoes: Distance-Structured Correlations in GNSS
+# Global Time Echoes: Distance-Structured Correlations in GNSS Clocks
 **Matthew Lukin Smawfield**
 Version: v0.26 (Jaipur)
 05 June 2026
@@ -5389,7 +5389,7 @@ Smawfield, M. L. (2025). *What Do Precision Tests of General Relativity Actually
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: Suppressed Density Scaling in Globular Cluster Pulsars*. Preprint v0.6 (Caracas). Zenodo. DOI: [10.5281/zenodo.18165798](https://doi.org/10.5281/zenodo.18165798) (Paper 10)
 Smawfield, M. L. (2026). *The Cepheid Bias: Resolving the Hubble Tension*. Preprint v0.6 (Kingston upon Hull). Zenodo. DOI: [10.5281/zenodo.18209702](https://doi.org/10.5281/zenodo.18209702) (Paper 11)
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies*. Preprint v0.4 (Kos). Zenodo. DOI: [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827) (Paper 12)
-Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.3 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
+Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.4 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
 Takamoto, M., et al. (2020). Test of general relativity by a pair of transportable optical lattice clocks. *Nature Photonics*, 14(7), 411-415.
 Touboul, P., et al. (2017). MICROSCOPE mission: first results of a space test of the equivalence principle. *Physical Review Letters*, 119(23), 231101.
 Uzan, J. P. (2003). The fundamental constants and their variation: observational and theoretical status. *Reviews of Modern Physics*, 75(2), 403.
@@ -5494,7 +5494,7 @@ Fernández, M. A. (2016). Geodetic and Time Reference Frames for ESA's Navigatio
 **BibTeX:**
 @misc{Smawfield_TEP_GNSS_2025,
 author       = {Matthew Lukin Smawfield},
-title        = {Global Time Echoes: Distance-Structured Correlations in GNSS
+title        = {Global Time Echoes: Distance-Structured Correlations in GNSS Clocks
 Clocks (v0.25 Jaipur)},
 year         = {2025},
 publisher    = {Zenodo},

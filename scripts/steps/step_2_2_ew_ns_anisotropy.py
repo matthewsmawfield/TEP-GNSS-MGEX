@@ -280,11 +280,8 @@ class Step22EWNSAnisotropy:
         print_status("Step 2.2: EW/NS Anisotropy", "INFO")
         import copy
         results = {}
-        _cached = None  # MGEX is a single solution; compute once, replicate across constellations
-        for const_name in CONSTELLATIONS:
-            if _cached is not None:
-                results[const_name] = copy.deepcopy(_cached)
-                continue
+        # MGEX is a single solution; compute once
+        for const_name in ["combined"]:
             pair_file = OUTPUTS_DIR / "step_2_0_mgex_pairs.json"
             if not pair_file.exists():
                 results[const_name] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}
@@ -557,7 +554,6 @@ class Step22EWNSAnisotropy:
                 "status": "success",
                 "replicated": bool(effect_size_met and significance_met)
             }
-            _cached = results[const_name]
             rep_str = "REPLICATED" if (effect_size_met and significance_met) else "NOT_REPLICATED"
             print_status(
                 f"    {const_name}: λ_EW={ew_lambda:.0f}km, λ_NS={ns_lambda:.0f}km, "

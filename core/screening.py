@@ -5,7 +5,13 @@ TEP Screening Module
 
 Version: TEP v0.9 (Jakarta)
 
-Density-dependent screening functions for the Temporal Equivalence Principle.
+Environment-dependent Temporal Shear suppression for the Temporal Equivalence Principle.
+
+Screening is the continuous suppression of locally observable Temporal Shear,
+Sigma_mu^obs = S_Sigma(E) Sigma_mu, where E includes density, potential, source
+structure, boundary conditions, and measurement channel. The functions here
+provide domain-appropriate parameterizations of the underlying operator; they
+are transfer models, not separate fundamental laws.
 
 All TEP papers should import from this module to ensure consistent screening
 models across the corpus.
@@ -17,7 +23,7 @@ from . import constants as tep_const
 RHO_C = tep_const.RHO_C
 
 
-def universal_screening_function(rho, rho_threshold, n=2.0, invert=False):
+def universal_screening_function(rho, rho_scale, n=2.0, invert=False):
     """
     Universal TEP density screening function.
 
@@ -25,22 +31,22 @@ def universal_screening_function(rho, rho_threshold, n=2.0, invert=False):
     ----------
     rho : float or ndarray
         Local matter density.
-    rho_threshold : float
-        Transition density threshold (same units as rho).
+    rho_scale : float
+        Transition density scale (same units as rho).
     n : float
         Steepness of the power-law transition. Default is 2.0.
     invert : bool
-        If False (default): factor = 1 / [1 + (rho/rho_threshold)^n].
+        If False (default): factor = 1 / [1 + (rho/rho_scale)^n].
         Used for source and cosmology screening (suppressed at high density).
 
-        If True: factor = 1 / [1 + (rho_threshold/rho)^n].
+        If True: factor = 1 / [1 + (rho_scale/rho)^n].
         Used for chameleon coupling screening (suppressed at low density).
     """
     rho = np.asarray(rho, dtype=float)
     if invert:
-        ratio = rho_threshold / rho
+        ratio = rho_scale / rho
     else:
-        ratio = rho / rho_threshold
+        ratio = rho / rho_scale
     return 1.0 / (1.0 + ratio ** n)
 
 

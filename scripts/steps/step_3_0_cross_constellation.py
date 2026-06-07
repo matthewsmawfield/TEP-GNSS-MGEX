@@ -60,8 +60,8 @@ class Step30CrossConstellation:
         iono = _load_json("step_2_5_ionospheric_control.json")
         sat = _load_json("step_2_8_satellite_clock_analysis.json")
 
-        # Use GPS entry as the representative MGEX result (all are identical)
-        rep = "GPS"
+        # MGEX is a single combined solution
+        rep = "combined"
 
         # --- Correlation length check ---
         lambda_in_range = False

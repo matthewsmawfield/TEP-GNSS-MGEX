@@ -1,6 +1,6 @@
 <h2>3. Methods</h2>
 
-<h3>3.1 Receiver-Clock Time Series</h3>
+<h3>3.1 Receiver-Clock Extraction</h3>
 
 <p>
 For each daily CLK file the AR records are parsed, which report the combined
@@ -17,11 +17,15 @@ sole observable.
 Each daily series is linearly detrended to remove the dominant clock drift.
 Cross- and auto-spectra are estimated with Welch's method (Hann window,
 segment length up to 96 samples). Spectral estimates are restricted to the
-TEP-sensitive band [10 µHz, 500 µHz], corresponding to periods from about 28
-hours down to 33 minutes, which lies safely within the 5-minute Nyquist limit.
+nominal TEP-sensitive band [10 µHz, 500 µHz], but with the daily Welch
+segmentation used here the effective lowest non-zero resolved frequency is set
+by the segment length, approximately 35 µHz for 96 five-minute samples. The
+practical analysed band is therefore approximately 35–500 µHz, corresponding to
+periods from about 8 hours down to 33 minutes, which lies safely within the
+5-minute Nyquist limit.
 </p>
 
-<h3>3.3 Phase-Coherent Correlation</h3>
+<h3>3.3 Spectral Phase-Alignment Metric</h3>
 
 <p>
 For every station pair the magnitude-weighted circular mean is computed of the
@@ -34,15 +38,15 @@ binned by great-circle distance into 40 logarithmically spaced bins from 50 km
 to 13,000 km, with a minimum of 10 pairs per bin.
 </p>
 
-<h3>3.4 Exponential Fitting</h3>
+<h3>3.4 Correlation-Length Model</h3>
 
 <p>
 The distance-binned phase alignment is modelled as
 </p>
 
-<p style="text-align:center;">
-C(r) = A exp(−r / λ) + C₀,
-</p>
+<div class="equation">
+$$C(r) = A \exp(-r / \lambda) + C_0 \tag{1}$$
+</div>
 
 <p>
 where A is the amplitude, λ is the correlation length, and C₀ is an incoherent
@@ -53,7 +57,7 @@ quantified by R², and the uncertainty on λ is propagated from the covariance
 matrix.
 </p>
 
-<h3>3.5 Anisotropy, Orbital and Frame Tests</h3>
+<h3>3.5 Anisotropy, Orbital, CMB, Ionospheric, and Null Tests</h3>
 
 <p>
 The EW > NS test fits λ separately in eight 45°-wide azimuth sectors and compares
@@ -62,7 +66,7 @@ sectors. Because ionospheric decorrelation inverts the anisotropy at long
 baselines, a longitude-matched subset is also reported (station-pair longitude
 difference below 30°), which, following Paper 3, isolates pairs at similar local
 solar time. Significance and confidence intervals for the ratio are obtained from
-500 bootstrap resamples. The ratio is additionally reported in three distance
+500 bootstrap resamples. For anisotropy, pair-bootstrap results are reported as sensitivity tests, while station/spatially-clustered resampling is treated as the more conservative inference because station pairs are not independent. The ratio is additionally reported in three distance
 strata (0–500, 500–1,000, &gt;1,000 km).
 </p>
 

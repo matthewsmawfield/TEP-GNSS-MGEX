@@ -1,8 +1,4 @@
 # Data files (large)
-data/
-results/outputs/
-results/figures/*.png
-results/figures/*.pdf
 data/raw/*.crx
 data/raw/*.rnx
 data/raw/*.gz
@@ -31,16 +27,11 @@ ENV/
 .ipynb_checkpoints/
 *.ipynb
 
-# Results (can be regenerated)
-results/outputs/*.json
-results/figures/*.png
-results/figures/*.pdf
-logs/*.log
-
 # IDE
 .vscode/
 .idea/
 .windsurf/
+.devin/
 *.swp
 *.swo
 *~
@@ -60,4 +51,3 @@ site/package-lock.json
 *.temp
 .cache/
 
-.devin

@@ -21,6 +21,9 @@ from pathlib import Path
 import argparse
 import tempfile
 
+# Add current directory to path for local imports
+sys.path.insert(0, str(Path(__file__).parent))
+
 from compress_pdf import compress_pdf as _compress_pdf
 
 try:
@@ -41,7 +44,7 @@ def _extract_yaml_value(content, key):
 
 def parse_citation_cff():
     """Parse CITATION.cff for PDF metadata."""
-    base_dir = Path(__file__).parent.parent
+    base_dir = Path(__file__).parent.parent.parent
     citation_file = base_dir / 'CITATION.cff'
 
     if not citation_file.exists():
@@ -89,7 +92,11 @@ def parse_citation_cff():
             ]
 
         return data
-    except Exception:
+    except Exception as e:
+        import sys
+        print(f"Error parsing CITATION.cff: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
         return None
 
 
@@ -116,7 +123,7 @@ def build_metadata(cff_data):
         codename = ''
 
     date = cff_data.get('date-released', '')
-    if date:
+    if date and isinstance(date, str):
         date_pdf = date.replace('-', ':')
     else:
         date_pdf = ''

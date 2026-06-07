@@ -34,8 +34,7 @@ class Step21CorrelationLength:
         pair_file = OUTPUTS_DIR / "step_2_0_mgex_pairs.json"
         if not pair_file.exists():
             print_status(f"Pair file not found: {pair_file}", "ERROR")
-            for const_name in CONSTELLATIONS:
-                results[const_name] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}
+            results["combined"] = {"status": "no_data", "note": f"Pair file not found: {pair_file}"}
             out_file = OUTPUTS_DIR / "step_2_1_correlation_length.json"
             with open(out_file, 'w') as f:
                 json.dump(results, f, indent=2)
@@ -45,8 +44,7 @@ class Step21CorrelationLength:
             records = json.load(f)
         if not records:
             print_status("Empty pair records", "WARNING")
-            for const_name in CONSTELLATIONS:
-                results[const_name] = {"status": "no_data", "note": "Empty pair records"}
+            results["combined"] = {"status": "no_data", "note": "Empty pair records"}
             out_file = OUTPUTS_DIR / "step_2_1_correlation_length.json"
             with open(out_file, 'w') as f:
                 json.dump(results, f, indent=2)
@@ -57,32 +55,32 @@ class Step21CorrelationLength:
         # coherence (mean spectral magnitude) is isotropic and lacks directional phase structure.
         coherences = np.array([r["phase_alignment"] for r in records])
 
-        for const_name in CONSTELLATIONS:
-            print_status(f"  Fitting {const_name}...", "INFO")
+        const_name = "combined"
+        print_status(f"  Fitting {const_name}...", "INFO")
 
-            fit = fit_exponential_model(
-                distances, coherences,
-                MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT
-            )
+        fit = fit_exponential_model(
+            distances, coherences,
+            MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT
+        )
 
-            if fit and fit["success"]:
-                results[const_name] = {
-                    "lambda_km": fit["correlation_length_km"],
-                    "lambda_err_km": fit["correlation_length_err_km"],
-                    "A": fit["amplitude"],
-                    "C0": fit["offset"],
-                    "R2": fit["r_squared"],
-                    "status": "success",
-                    "in_range": bool(LAMBDA_MIN_KM <= fit["correlation_length_km"] <= LAMBDA_MAX_KM),
-                    "n_pairs": len(records)
-                }
-                print_status(f"    {const_name}: λ = {fit['correlation_length_km']:.0f} ± {fit['correlation_length_err_km']:.0f} km, R² = {fit['r_squared']:.3f}", "INFO")
-            else:
-                results[const_name] = {
-                    "status": "fit_failed",
-                    "note": "Exponential fit did not converge",
-                    "n_pairs": len(records)
-                }
+        if fit and fit["success"]:
+            results[const_name] = {
+                "lambda_km": fit["correlation_length_km"],
+                "lambda_err_km": fit["correlation_length_err_km"],
+                "A": fit["amplitude"],
+                "C0": fit["offset"],
+                "R2": fit["r_squared"],
+                "status": "success",
+                "in_range": bool(LAMBDA_MIN_KM <= fit["correlation_length_km"] <= LAMBDA_MAX_KM),
+                "n_pairs": len(records)
+            }
+            print_status(f"    {const_name}: λ = {fit['correlation_length_km']:.0f} ± {fit['correlation_length_err_km']:.0f} km, R² = {fit['r_squared']:.3f}", "INFO")
+        else:
+            results[const_name] = {
+                "status": "fit_failed",
+                "note": "Exponential fit did not converge",
+                "n_pairs": len(records)
+            }
 
         out_file = OUTPUTS_DIR / "step_2_1_correlation_length.json"
         with open(out_file, 'w') as f:

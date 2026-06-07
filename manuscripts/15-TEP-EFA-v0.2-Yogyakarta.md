@@ -1,7 +1,7 @@
 # Temporal Equivalence Principle: Temporal Shear in the Earth Flyby Anomaly
 **Matthew Lukin Smawfield**
-Version: v0.1 (Yogyakarta)
-First published: 7 June 2026
+Version: v0.2 (Yogyakarta)
+First published: 5 June 2026
 DOI: 10.5281/zenodo.19454863
 
 ---
@@ -26,7 +26,7 @@ The Equivalence Principle (EP) is a cornerstone of general relativity, stating t
 
 - *Proper time* ($\tau$) is the time measured by a clock following a specific trajectory through the causal metric.
 
-- *Temporal Topology* refers to the spatial structure of the field $\phi$, which exhibits continuous suppression in high-density environments.
+- *Temporal Topology* refers to the spatial structure of the field $\phi$, which exhibits continuous suppression in dense environments.
 
 - *Temporal Shear* ($\Sigma_\mu = \nabla_\mu \ln A = (\beta_A/M_{\rm Pl})\nabla_\mu\phi$) is the gradient of the conformal factor, which generates the observed scalar force.
 
@@ -567,7 +567,7 @@ A Debye-like plasma attenuation ansatz is used as a phenomenological proxy for i
 \begin{equation}
 S_{\rm plasma} = \exp\left(-\frac{n_e}{n_{\rm ref}}\right)\end{equation}
 
-where $n_e$ is the electron density in cm$^{-3}$ and $n_{\rm ref} = 10^4$ cm$^{-3}$ is a reference density. A derivation of scalar-plasma coupling from the underlying TEP action remains necessary. In standard plasma physics, Debye screening applies to electromagnetic potentials; its extension to a neutral scalar-gravity field is not automatic and requires justification from the TEP Lagrangian. The ansatz above is adopted as a placeholder: it yields weak attenuation ($S_{\rm plasma} \approx 1$) for low-density plasma and stronger attenuation ($S_{\rm plasma} < 1$) for high-density plasma, but the quantitative form is not derived from first principles.
+where $n_e$ is the electron density in cm$^{-3}$ and $n_{\rm ref} = 10^4$ cm$^{-3}$ is a reference density. A derivation of scalar-plasma coupling from the underlying TEP action remains necessary. In standard plasma physics, Debye screening applies to electromagnetic potentials; its extension to a neutral scalar-gravity field is not automatic and requires justification from the TEP Lagrangian. The ansatz above is adopted as a placeholder: it yields weak attenuation ($S_{\rm plasma} \approx 1$) for low-density plasma and stronger attenuation ($S_{\rm plasma} < 1$) for dense plasma, but the quantitative form is not derived from first principles.
 
 Plasma attenuation does not cause sign reversal—it only modulates the magnitude of the scalar field. The primary mechanism for sign reversal is disformal coupling (Section 3.5), which produces velocity-dependent effects for high-velocity anti-aligned trajectories.
 
@@ -1492,7 +1492,7 @@ The TEP Temporal Topology model relies on several explicit assumptions that defi
 
 Assumption 1: Scalar-tensor gravity framework. The model assumes a conformally coupled scalar field $\phi$ with potential $V(\phi) = \Lambda^{4+n}/\phi^n$. This is a well-motivated class of modified gravity theories with extensive theoretical literature (Khoury & Weltman, 2004; Mota & Shaw, 2007). Alternative functional forms would yield different predictions.
 
-Assumption 2: Geometric screening via Temporal Shear suppression. This mechanism requires that Earth develops a continuous spatial profile (Temporal Topology) where the scalar field gradient is suppressed in high-density regions. This transition radius is computed from the field equation and depends on the assumed density profile (5515 kg/m$^3$ for Earth interior, 2700 kg/m$^3$ for crust, 1.225 kg/m$^3$ for atmosphere). Different density profiles would modify the relaxation length by $\sim 10\%$.
+Assumption 2: Geometric screening via Temporal Shear suppression. This mechanism requires that Earth develops a continuous spatial profile (Temporal Topology) where the scalar field gradient is suppressed in dense regions. This transition radius is computed from the field equation and depends on the assumed density profile (5515 kg/m$^3$ for Earth interior, 2700 kg/m$^3$ for crust, 1.225 kg/m$^3$ for atmosphere). Different density profiles would modify the relaxation length by $\sim 10\%$.
 
 Assumption 3: Instantaneous coupling. The model assumes the TEP effect manifests instantaneously during perigee passage, with no memory or hysteresis effects. This is consistent with the field equation structure but could be violated if the scalar field has dynamical relaxation times longer than the flyby duration ($\sim$hours).
 

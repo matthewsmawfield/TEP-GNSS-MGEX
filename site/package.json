@@ -1,7 +1,7 @@
 {
   "name": "tep-gnss-mgex-site",
   "version": "0.1.0",
-  "description": "Global Time Echoes IV: Held-Out Replication in the Public MGEX Combined Multi-GNSS Clock Product, 2025–2026",
+  "description": "Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026",
   "main": "index.html",
   "scripts": {
     "dev": "node dev-server.js",
@@ -20,8 +20,23 @@
     "multi-GNSS",
     "receiver clock",
     "temporal equivalence principle",
-    "held-out replication",
-    "physics"
+    "physics",
+    "correlation length",
+    "anisotropy",
+    "orbital velocity",
+    "ionosphere",
+    "phase coherence",
+    "proper time",
+    "conformal metric",
+    "disformal metric",
+    "synchronization holonomy",
+    "clock-sector gravity",
+    "scalar-tensor theory",
+    "CMB",
+    "GPS",
+    "Galileo",
+    "BeiDou",
+    "GLONASS"
   ],
   "author": "Matthew Lukin Smawfield <matthew@mlsmawfield.com>",
   "license": "CC-BY-4.0",
@@ -29,7 +44,7 @@
     "type": "git",
     "url": "https://github.com/matthewsmawfield/TEP-GNSS-MGEX.git"
   },
-  "homepage": "https://matthewsmawfield.github.io/TEP-GNSS-MGEX/",
+  "homepage": "https://mlsmawfield.com/tep/gnss-mgex/",
   "devDependencies": {
     "chokidar": "^4.0.3",
     "live-server": "^1.2.2",

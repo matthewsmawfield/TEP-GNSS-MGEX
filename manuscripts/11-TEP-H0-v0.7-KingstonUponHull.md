@@ -54,9 +54,9 @@ fitted response coefficient is stable and removes the residual environmental
 trend in held-out hosts. A differential analysis within M31 yields an
 "Inner Fainter" signal in HST photometry. Within the TEP v0.8 framework,
 this sign is consistent with continuous shear suppression: the
-high-density M31 bulge experiences progressive attenuation of Temporal
+dense M31 bulge experiences progressive attenuation of Temporal
 Shear (suppression factor $S \approx 0.05$ at $R < 1$ kpc), while the
-lower-density SN Ia host disks remain in the active-shear regime
+more dilute SN Ia host disks remain in the active-shear regime
 ($\langle S \rangle = 0.946$). On this interpretation, the M31 signal
 marks the empirical mapping of a continuous environmental shear-suppression profile across a single galaxy.
 
@@ -136,7 +136,7 @@ shear-suppression factor $S(\rho) \in [0,1]$, with $S(\rho) = [1 +
 (\rho/\rho_{\rm half})^2]^{-1}$ where $\rho_{\rm half} \approx
 0.5\,M_\odot/\text{pc}^3$ is the galactic half-suppression density. The
 associated series-level saturation scale is denoted $\rho_{\rm T}$,
-the Temporal Topology saturation density. It is not used here as a binary
+the Temporal Topology saturation scale. It is not used here as a binary
 local-density switch; local suppression depends on environmental state,
 source screening, and the active Temporal Shear sector.
 The galactic-scale $\rho_{\rm half}$ emerges from SPARC rotation-curve
@@ -351,7 +351,7 @@ where $\rho_{\rm half} \approx 0.5 \, M_\odot/\text{pc}^3$ is the galactic
 half-suppression density and the exponent $n=2$ controls the steepness of
 the transition. $S = 1$ corresponds to fully active shear (unsuppressed),
 while $S \rightarrow 0$ indicates deep suppression in dense environments.
-The Temporal Topology saturation density $\rho_{\rm T}$ (Paper 6) remains
+The Temporal Topology saturation scale $\rho_{\rm T}$ (Paper 6) remains
 the series-level saturation scale; $\rho_{\rm half}$ is its
 galactic-scale manifestation derived from SPARC rotation-curve
 normalizations.
@@ -596,11 +596,11 @@ med} \approx 90$ km/s) reveals the following structure:
 | High Potential | 14 | 90–223 km/s | $72.45 \pm 2.32$ |
 | Difference | $+4.63$ km/s/Mpc |  |  |
 
-The $4.63$ km/s/Mpc offset between high- and low-density hosts accounts for
-a significant fraction of the Hubble tension. Notably, the low-density
+The $4.63$ km/s/Mpc offset between dense and dilute hosts accounts for
+a significant fraction of the Hubble tension. Notably, the dilute
 subsample yields $H_0 = 67.82 \pm 1.62$ km/s/Mpc—consistent with Planck
 ($67.4 \pm 0.5$ km/s/Mpc) within $1\sigma$. The tension is driven primarily
-by the high-density hosts.
+by the dense hosts.
 
 This pattern is consistent with TEP predictions for the active-shear regime
 (Paper 10). Low-$\sigma$ hosts have shallow potentials similar to the MW/LMC
@@ -1615,7 +1615,7 @@ Environmental scaling provides a consistency check. Globular clusters
 have characteristic densities $\rho_{\rm GC} \sim 10^{-18}$ g/cm³,
 while SN Ia host disks have $\rho_{\rm disk} \sim 10^{-23}$ g/cm³.
 Both environments are deeply unscreened compared to the Temporal
-Topology saturation density ($\rho_{\rm T}$), so the suppression
+Topology saturation scale ($\rho_{\rm T}$), so the suppression
 factor $S(\rho) \approx 1$ for both. The expected ratio of response
 coefficients is therefore unity to within the $\pm 0.4$ dex range
 allowed by the respective environment variations—consistent with the
@@ -1851,7 +1851,7 @@ environment and its continuous modulation of Temporal Shear. This
 requires distinguishing two density scales discussed in Paper 6:
 
 Universal Critical Density ($\rho_{\rm T}$):
-The series-level saturation density of the scalar sector.
+The series-level saturation scale of the scalar sector.
 
 Half-Suppression Density ($\rho_{\rm half} \approx 0.5 \,
 M_\odot/\text{pc}^3$):
@@ -1881,7 +1881,7 @@ standard-clock behavior and appears fainter.
 Is the half-suppression density $\rho_{\rm half}$ tuned to fit M31?
 No—it is derived independently from the SPARC rotation curve
 database (Paper 6) as the galactic-scale manifestation of the
-series-level saturation density $\rho_{\rm T}$. The galaxy
+series-level saturation scale $\rho_{\rm T}$. The galaxy
 scaling $R_{\rm DM} \propto M^{1/3}$ normalizes to $\rho_{\rm half}
 \approx 0.5\,M_\odot/\text{pc}^3$. This independent scale is
 explicitly compared to the study environments:
@@ -2251,7 +2251,7 @@ Smawfield, M. L. (2026). *The Cepheid Bias: Resolving the Hubble Tension*. Prepr
 
 Smawfield, M. L. (2026). *Temporal Equivalence Principle: A Unified Resolution to the JWST High-Redshift Anomalies*. Preprint v0.4 (Kos). Zenodo. DOI: [10.5281/zenodo.19000827](https://doi.org/10.5281/zenodo.19000827) (Paper 12)
 
-Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.3 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
+Smawfield, M. L. (2026). *Temporal Equivalence Principle: Temporal Shear Recovery in Gaia DR3 Wide Binaries*. Preprint v0.4 (Kilifi). Zenodo. DOI: [10.5281/zenodo.19102061](https://doi.org/10.5281/zenodo.19102061) (Paper 13)
 
 #### JWST Distance Ladder Studies
 
@@ -2383,5 +2383,5 @@ assumed here.
 This study adopts the Jakarta v0.8 response-coefficient nomenclature. The
 mechanism previously referred to as "Temporal Shear" (v0.5) is now
 standardized as Temporal Shear, referring to the
-gradient-based suppression of scalar field activity in high-density
+gradient-based suppression of scalar field activity in dense
 environments.
