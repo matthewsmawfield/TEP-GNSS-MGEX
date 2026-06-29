@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.tag_check.outputs.deploy }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -23,6 +25,7 @@ jobs:
           cd site
           npm run build
       - name: Upload artifact
+        if: steps.tag_check.outputs.deploy == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
