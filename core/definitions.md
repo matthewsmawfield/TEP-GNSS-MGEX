@@ -34,11 +34,13 @@ The spatial profile and coherence structure of the scalar field $\phi$ (equivale
 
 ### A.5 Screening
 
-Screening is the continuous suppression of the locally observable Temporal Shear/source-charge sector, expressed through the conformal factor $\ln A(\phi)$, its gradient $\Sigma_\mu$, and its covariance $C_A$ (compactly denoted $\Theta$, $C_\Theta$ where convenient). It is not a binary on/off switch but a smooth, environment-dependent suppression governed by the operator
+Screening is the continuous suppression of the locally observable Temporal Shear/source-charge sector, expressed through the conformal factor $\ln A(\phi)$, its gradient $\Sigma_\mu$, and its covariance $C_A$. It is not a binary on/off switch but a smooth, environment-dependent suppression governed by the operator
 
 $$\Sigma_\mu^{\text{obs}} = \mathcal S_\Sigma(\mathcal E) \, \Sigma_\mu,$$
 
 where $\mathcal E = \{\rho, \Phi/c^2, \text{source structure}, \text{ambient environment}, \text{boundary conditions}, z, \text{measurement channel}\}$. The screening factor $\mathcal S_\Sigma$ is not a density threshold; it is a smooth suppression of the locally active shear.
+
+Quantities such as $\rho_T$, $R_T(M)$, $S_\oplus(r)$, compactness $\Phi/c^2$, local stellar density, geometric coherence length, and channel-specific response coefficients are domain-specific projections of $\mathcal E$, not independent screening mechanisms and not interchangeable universal thresholds. Each is an observational transfer model that parameterizes the same underlying operator in a regime-appropriate form.
 
 The saturation scale $\rho_T \approx 20$ g/cm$^3$ is the characteristic scale at which Temporal Topology effects saturate. It is **not** a local on/off condition of the form $\rho > \rho_T \Rightarrow$ GR and $\rho < \rho_T \Rightarrow$ active TEP. Rather, it is the scale at which the non-linear Temporal Topology response saturates. The subatomic core density ($\rho_{\text{core}} \sim 10^4$ g/cm$^3$, Paper 24), the macroscopic many-body suppression scale ($\rho_c \approx 20$ g/cm$^3$, Paper 21), and the galactic transition density ($\rho_{\text{half}} \approx 0.5 \, M_\odot/\text{pc}^3$, Paper 26) are different effective projections of the same non-linear Temporal Topology response. The first-principles transfer relation between them remains an open derivation.
 
@@ -60,6 +62,24 @@ The following canonical definitions are provided so that every paper in the TEP 
 | LHC / quantum | channel-specific response $\kappa_{\text{LHC}}$ | topological charge form factor | 20 |
 
 Each entry uses a domain-appropriate parameterization of the same underlying operator $\mathcal S_\Sigma(\mathcal E)$. The LHC entry is explicitly marked as probing a channel-specific response under high-energy momentum transfer, not the macroscopic bulk-density screening that governs astrophysical and cosmological observables.
+
+#### A.5.2 Screening Scales and Symbols
+
+The following table lists the canonical screening-related symbols used across the TEP corpus, their meanings, and the papers in which they appear. This is provided to prevent symbol collisions and scale misattribution (e.g., $R_s$ for wide binaries vs $R_{\rm sol}$ for pulsar companion saturation).
+
+| Symbol | Meaning | Defined in | Typical value / formula | Used in |
+|---|---|---|---|---|
+| $\rho_T$ | Temporal Topology saturation scale | Paper 6 | $\approx 20$ g/cm$^3$ | Papers 6, 10, 11, 13, 17, 21 |
+| $\rho_{\rm half}$ | Galactic stellar half-suppression density | Paper 11 | $\approx 0.5\,M_\odot/\text{pc}^3 \approx 3\times10^{-23}$ g/cm$^3$ | Paper 11 ($S(\rho_*)$ for Cepheids) |
+| $\rho_c$ | Macroscopic many-body suppression scale | Paper 21 | $\approx 20$ g/cm$^3$ (equivalent to $\rho_T$) | Paper 21 |
+| $R_T$ | Geometric saturation radius | Paper 6 | $\left(3M / 4\pi\rho_T\right)^{1/3}$ | Papers 6, 13 |
+| $R_s$ | Effective screening radius (wide binaries) | Paper 13 | $\left(3M / 4\pi\epsilon_{\rm env}\rho_T\right)^{1/3}$ | Paper 13 |
+| $R_{\rm sol}$ | Companion saturation radius (pulsars) | Paper 10 | $\sim$ companion orbital scale | Paper 10 |
+| $\lambda_T$ | GNSS correlation length / relaxation scale | Papers 1–3 | $\sim 4{,}200$ km | Papers 1–3, 4, 14 |
+| $\rho_{\rm amb}$ | Ambient halo density | Context-dependent | $\sim 10^{-18}$ g/cm$^3$ (GC halo) | Papers 10, 11, 13 |
+| $\rho_*$ | Local stellar mass density | Context-dependent | $\sim 0.5\,M_\odot/\text{pc}^3$ (galactic disk) | Paper 11 |
+
+Key distinction: $\rho_{\rm half}$ is a **local stellar density** parameter for the continuous suppression factor $S(\rho_*)$ in galactic disks (Paper 11), not an ambient halo density. Globular clusters are active not because $\rho_{\rm amb} \ll \rho_{\rm half}$ but because their internal potential structure permits gradient coherence on scales larger than the cluster size. Conversely, $\rho_T \approx 20$ g/cm$^3$ is the asymptotic saturation scale of the conformal-factor sector; systems with $\rho \gg \rho_T$ (e.g., Solar System interiors) are in the saturated/GR-recovered regime.
 
 ### A.6 Observable Response Coefficient
 

@@ -3,7 +3,7 @@
 TEP Conformal Scaling
 =====================
 
-Version: TEP v0.9 (Jakarta)
+Version: TEP v0.10 (Jakarta)
 
 Computes the conformal factor A(phi), Temporal Shear Sigma_mu,
 and effective gravitational coupling from the scalar field profile phi.
@@ -48,7 +48,15 @@ def conformal_factor(phi, beta_A=BETA_A):
     phi_arr = _as_numeric_array(phi, "phi")
     if not np.isfinite(beta_A):
         raise ValueError("beta_A must be finite")
-    factor = np.exp(beta_A * phi_arr)
+    exponent = beta_A * phi_arr
+    max_exp = 700.0  # exp(±700) ≈ 10^±304, near float64 limits
+    if np.any(np.abs(exponent) > max_exp):
+        bad = np.abs(exponent) > max_exp
+        raise ValueError(
+            f"Conformal factor exponent exceeds float64 range: |beta_A*phi| = "
+            f"{np.max(np.abs(exponent[bad])):.2e} > {max_exp}"
+        )
+    factor = np.exp(exponent)
     return _return_scalar_if_scalar(phi, factor)
 
 
