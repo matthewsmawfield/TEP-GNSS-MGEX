@@ -1,6 +1,13 @@
-TEP-GNSS-MGEX v0.1 (Suva)
-Paper 14: Global Time Echoes
-Multi-Constellation Analysis of Public MGEX Clock Data, 2025–2026
-DOI: 10.5281/zenodo.20572727
-Date: 2026-06-07
-Status: preprint
+v0.2 (Suva) — 16 September 2026 — Expanded dataset, sensitivity analyses, and editorial pass
+
+- Dataset expanded: 256 → 418 stations, 462 usable days; all results recomputed (1.83 million pair-day observations)
+- Correlation length revised upward: λ = 1396 ± 90 km → 1862 ± 112 km (R² = 0.699)
+- New §3.6 sensitivity analysis: λ stable across 50–2,000 km baseline cutoffs
+- EW/NS anisotropy reclassified as not robust under conservative analysis choices
+- Chronological monthly binning restored: January 2025 through April 2026 are 16 distinct observations; the one-day May fragment is excluded
+- Orbital PA-difference association: r = −0.716 with speed (p = 0.0018) and r = −0.767 with CMB-projected velocity (p = 0.0005); exploratory within MGEX, corroborative with earlier TEP-GNSS papers
+- CMB projection consistent; 3-D axis not identifiable: grid maximum RA = 230°, Dec = +60°, 82.7° from the dipole; within-grid permutation p = 0.005
+- Null tests: solar-rotation null fails under primary parameters (bin artifact); all four pass under robust analysis
+- New analyses: satellite-clock negative control (step 2.8), cross-constellation replication verdict (step 3.0), §9 Reproducibility Statement
+- Framing: recast as product-type independence stress test; impersonal voice; exploratory results explicitly labelled
+- Editorial pass: truncated sentences repaired, coefficient and preregistration terminology corrected, §6 rewritten corroboration-led

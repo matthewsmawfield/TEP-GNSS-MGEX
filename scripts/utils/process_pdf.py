@@ -159,7 +159,8 @@ def build_metadata(cff_data):
 
     metadata['XMP-dc:Creator'] = author_name
     metadata['XMP-dc:Title'] = title
-    metadata['XMP-dc:Description'] = abstract[:500] if abstract else ''
+    metadata['XMP-dc:Description'] = abstract[:500].rsplit(' ', 1)[0] if abstract else ''
+    metadata['XMP-dc:Subject'] = keywords
     metadata['XMP-dc:Rights'] = license_str
     metadata['XMP-dc:Publisher'] = 'Zenodo'
     metadata['XMP-dc:Type'] = 'Preprint'
@@ -201,6 +202,13 @@ def embed_metadata(pdf_path, metadata):
     cmd = ['exiftool']
     for key, value in metadata.items():
         cmd.extend([f'-{key}={value}'])
+    # Writing the Info Author/Creator/Subject tags also appends entries to the
+    # corresponding XMP-dc list properties; clear and re-set them last so each
+    # holds a single value.
+    for list_tag in ('XMP-dc:Creator', 'XMP-dc:Subject', 'XMP-dc:Description'):
+        value = metadata.get(list_tag)
+        if value:
+            cmd.extend([f'-{list_tag}=', f'-{list_tag}={value}'])
     cmd.extend(['-overwrite_original', pdf_path])
     try:
         subprocess.run(cmd, check=True, capture_output=True)

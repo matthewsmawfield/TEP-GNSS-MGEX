@@ -110,7 +110,8 @@ class Step30CrossConstellation:
         # (p < 0.05) in either signature — not merely that the step produced a value.
         # Accept EITHER scalar speed (original Paper 1-3 methodology) OR velocity
         # projection (audit addition).
-        orbital_ok = False
+        orbital_confirmatory = False
+        orbital_exploratory = False
         orbital_lambda_r = None
         orbital_lambda_p = None
         orbital_ratio_r = None
@@ -143,8 +144,10 @@ class Step30CrossConstellation:
             vproj_ratio_sig = orbital_vproj_ratio_p is not None and orbital_vproj_ratio_p < SIGNIFICANCE_ALPHA
             pa_diff_sig = orbital_pa_diff_p is not None and orbital_pa_diff_p < SIGNIFICANCE_ALPHA
             pa_diff_vproj_sig = orbital_pa_diff_vproj_p is not None and orbital_pa_diff_vproj_p < SIGNIFICANCE_ALPHA
-            orbital_ok = bool(lambda_sig or ratio_sig or vproj_lambda_sig or vproj_ratio_sig or
-                             pa_diff_sig or pa_diff_vproj_sig)
+            orbital_confirmatory = bool(
+                lambda_sig or ratio_sig or vproj_lambda_sig or vproj_ratio_sig
+            )
+            orbital_exploratory = bool(pa_diff_sig or pa_diff_vproj_sig)
             print_status(
                 f"  Orbital: λ-speed r={_fmt(orbital_lambda_r, '.3f')} "
                 f"(p={_fmt(orbital_lambda_p, '.4f')}), "
@@ -152,29 +155,31 @@ class Step30CrossConstellation:
                 f"(p={_fmt(orbital_ratio_p, '.4f')}), "
                 f"PA_diff-speed r={_fmt(orbital_pa_diff_r, '.3f')} "
                 f"(p={_fmt(orbital_pa_diff_p, '.4f')}) "
-                f"[{'PASS' if orbital_ok else 'FAIL'}]",
-                "SUCCESS" if orbital_ok else "WARNING"
+                f"[{'CONFIRMATORY PASS' if orbital_confirmatory else ('EXPLORATORY SIGNAL' if orbital_exploratory else 'FAIL')}]",
+                "SUCCESS" if orbital_confirmatory else "WARNING"
             )
         elif rep in orbital and orbital[rep].get("status") == "insufficient_data":
-            orbital_ok = False  # Expected for short datasets
+            orbital_confirmatory = False
             print_status("  Orbital: insufficient data [FAIL]", "WARNING")
         else:
             print_status("  Orbital: no data [FAIL]", "WARNING")
 
-        # --- CMB alignment check ---
-        cmb_aligned = False
+        # --- CMB projection consistency (3-D sky axis is not identifiable) ---
+        cmb_projection_consistent = False
+        cmb_axis_identifiable = False
         cmb_sep = None
         cmb_axis_detected = False
         cmb_lee_p = None
         if rep in cmb and cmb[rep].get("status") == "success":
-            cmb_aligned = bool(cmb[rep].get("aligned", False))
+            cmb_projection_consistent = bool(cmb[rep].get("cmb_projection_consistent", False))
+            cmb_axis_identifiable = bool(cmb[rep].get("grid_axis_identifiable", False) and cmb[rep].get("aligned", False))
             cmb_sep = cmb[rep].get("angular_separation_to_cmb_deg")
             cmb_axis_detected = bool(cmb[rep].get("lee_corrected_p_value", 1.0) < SIGNIFICANCE_ALPHA)
             cmb_lee_p = cmb[rep].get("lee_corrected_p_value")
         print_status(
             f"  CMB: sep={_fmt(cmb_sep, '.1f')}deg, LEE p={_fmt(cmb_lee_p, '.4f')} "
-            f"[{'PASS' if cmb_aligned else 'FAIL'}]",
-            "SUCCESS" if cmb_aligned else "WARNING"
+            f"[{'PROJECTION CONSISTENT' if cmb_projection_consistent else 'NO PROJECTION SIGNAL'}]",
+            "SUCCESS" if cmb_projection_consistent else "WARNING"
         )
 
         # --- Ionospheric persistence ---
@@ -214,18 +219,18 @@ class Step30CrossConstellation:
                     )
 
         # --- Overall verdict ---
-        # For MGEX, the key question is: does the single solution replicate TEP?
-        # Anisotropy passes via pair-bootstrap (p=0.004); orbital coupling passes
-        # via the supplementary PA-difference metric (r=-0.670, p=0.017).
-        # CMB alignment is a genuine non-replication (best-fit axis lies
-        # 92° from the CMB dipole).
-        # Verdict: lambda, anisotropy, orbital coupling, iono persistence = 4/5.
+        # The primary MGEX checks are correlation scale, ionospheric persistence,
+        # directional anisotropy, the pre-specified orbital estimators, and CMB
+        # CMB projection consistency; the 3-D axis-identifiability result is
+        # retained separately. The PA-difference result is retained separately as an
+        # exploratory, cross-product-correlative finding rather than scored as a
+        # confirmatory replication.
         checks = {
             "lambda_in_range": lambda_in_range,
             "ionospheric_persistence": iono_persist,
             "anisotropy_replicated": aniso_replicated,
-            "orbital_coupling_detected": orbital_ok,
-            "cmb_aligned": cmb_aligned,
+            "orbital_coupling_confirmatory": orbital_confirmatory,
+            "cmb_projection_consistent": cmb_projection_consistent,
         }
         n_pass = sum(checks.values())
         n_total = len(checks)
@@ -261,9 +266,11 @@ class Step30CrossConstellation:
                 "orbital_pa_diff_vs_speed_r": orbital_pa_diff_r,
                 "orbital_pa_diff_vs_speed_p": orbital_pa_diff_p,
                 "orbital_pa_diff_vs_vproj_p": orbital_pa_diff_vproj_p,
-                "orbital_coupling_detected": orbital_ok,
+                "orbital_coupling_confirmatory": orbital_confirmatory,
+                "orbital_coupling_exploratory": orbital_exploratory,
                 "cmb_separation_deg": cmb_sep,
-                "cmb_aligned": cmb_aligned,
+                "cmb_projection_consistent": cmb_projection_consistent,
+                "cmb_axis_identifiable": cmb_axis_identifiable,
                 "cmb_axis_detected": cmb_axis_detected,
                 "cmb_lee_p_value": cmb_lee_p,
                 "ionospheric_persistence": iono_persist,

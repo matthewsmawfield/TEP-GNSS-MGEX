@@ -1,0 +1,78 @@
+{
+  "mgex_note": "MGEX is a single multi-GNSS clock solution; all constellations share identical data.",
+  "representative_constellation": "combined",
+  "single_solution_checks": {
+    "lambda_in_range": true,
+    "ionospheric_persistence": true,
+    "anisotropy_replicated": false,
+    "orbital_coupling_confirmatory": false,
+    "cmb_projection_consistent": true
+  },
+  "checks_passed": 3,
+  "checks_total": 5,
+  "summary": {
+    "lambda_km": 1861.6264165604869,
+    "lambda_in_range": true,
+    "ew_ns_ratio": 1.2911340077570819,
+    "anisotropy_replicated": false,
+    "lon_diff_filtered_ratio": 1.3209588007738553,
+    "orbital_lambda_vs_speed_r": -0.1597742644612844,
+    "orbital_lambda_vs_speed_p": 1.0,
+    "orbital_ew_ns_ratio_vs_speed_r": 0.13799137038728196,
+    "orbital_ew_ns_ratio_vs_speed_p": 1.0,
+    "orbital_lambda_vs_vproj_p": 1.0,
+    "orbital_ew_ns_ratio_vs_vproj_p": 1.0,
+    "orbital_pa_diff_vs_speed_r": -0.7159599563798874,
+    "orbital_pa_diff_vs_speed_p": 0.001812887193122917,
+    "orbital_pa_diff_vs_vproj_p": 0.000519175363917378,
+    "orbital_coupling_confirmatory": false,
+    "orbital_coupling_exploratory": true,
+    "cmb_separation_deg": 82.70458940690735,
+    "cmb_projection_consistent": true,
+    "cmb_axis_identifiable": false,
+    "cmb_axis_detected": true,
+    "cmb_lee_p_value": 0.004975124378109453,
+    "ionospheric_persistence": true,
+    "satellite_clock_analysis": {
+      "GPS": {
+        "lambda_km": 99999.99999999997,
+        "lambda_err_km": 402076.96909172577,
+        "r_squared": 0.1273791766113892,
+        "n_pairs": 206545,
+        "n_bins": null,
+        "boundary_convergence": true
+      },
+      "GLONASS": {
+        "lambda_km": 6028.276731138836,
+        "lambda_err_km": 7636.430451357458,
+        "r_squared": -0.7730970519539295,
+        "n_pairs": 96705,
+        "n_bins": null,
+        "boundary_convergence": false
+      },
+      "Galileo": {
+        "lambda_km": 99916.41773457752,
+        "lambda_err_km": 0.0,
+        "r_squared": -0.07256281407601217,
+        "n_pairs": 141831,
+        "n_bins": null,
+        "boundary_convergence": true
+      },
+      "BeiDou": {
+        "lambda_km": 59736.03640511659,
+        "lambda_err_km": 364561.58279256825,
+        "r_squared": -0.3831025208761878,
+        "n_pairs": 211603,
+        "n_bins": null,
+        "boundary_convergence": false
+      }
+    }
+  },
+  "overall_replication_verdict": "partial_or_null",
+  "constellations": [
+    "GPS",
+    "GLONASS",
+    "Galileo",
+    "BeiDou"
+  ]
+}

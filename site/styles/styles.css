@@ -72,8 +72,7 @@ header {
     font-weight: bold;
 }
 
-.title,
-h1 {
+.title {
     font-size: 24px;
     font-weight: bold;
     margin: 0 0 10px;
@@ -109,9 +108,15 @@ h1 {
 .version-info {
     font-size: 14px;
     color: var(--gray-purple);
+    margin-bottom: 5px;
 }
 
-h2 {
+.doi .pdf-link { display: inline-flex; align-items: center; margin-left: 8px; color: var(--gray-purple); opacity: 0.8; }
+.doi .pdf-link:hover { color: var(--purple-dark); opacity: 1; text-decoration: none; }
+.doi .pdf-link svg { width: 14px; height: 14px; vertical-align: middle; }
+.doi svg { width: 14px; height: 14px; vertical-align: middle; margin-left: 8px; }
+
+h1 {
     font-size: 20px;
     font-weight: bold;
     margin-top: 40px;
@@ -121,11 +126,31 @@ h2 {
     padding-bottom: 5px;
 }
 
-h3 {
+header .title { border-bottom: none; padding-bottom: 0; }
+
+.manuscript-section > h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--purple-deep);
+    border-bottom: 1px solid var(--purple-mid);
+    padding-bottom: 5px;
+}
+
+h2 {
     font-size: 18px;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 15px;
+    color: var(--purple-deep);
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
     color: var(--purple-deep);
 }
 
@@ -143,13 +168,11 @@ p {
 }
 
 .abstract {
-    background: linear-gradient(135deg, rgba(61, 30, 94, 0.05) 0%, rgba(61, 30, 94, 0.02) 100%);
-    padding: 25px;
-    margin: 40px 0;
-    border-left: 5px solid var(--gold-accent);
-    border-radius: 4px;
+    background-color: rgba(61, 30, 94, 0.04);
+    padding: 20px;
+    margin: 30px 0;
+    border-left: 4px solid var(--purple-dark);
     font-style: italic;
-    box-shadow: inset 0 0 20px rgba(61, 30, 94, 0.02);
 }
 
 .abstract h2 {
@@ -166,32 +189,16 @@ p {
     font-size: 14px;
 }
 
-.equation,
-p:has(> mjx-container) {
+.equation, pre.equation {
     text-align: center;
     margin: 20px 0;
     padding: 10px;
+    overflow-x: visible;
     max-width: 100%;
-    max-height: none;
-    height: auto;
-    overflow: visible !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
-    background-color: rgba(89, 89, 90, 0.03);
+    box-sizing: border-box;
+    background-color: rgba(61, 30, 94, 0.03);
     border-radius: 4px;
-    display: block;
-}
-
-mjx-container,
-mjx-math,
-mjx-container > *,
-mjx-math > * {
-    overflow: visible !important;
-    max-width: 100% !important;
-    max-height: none !important;
-    height: auto !important;
-    overflow-x: visible !important;
-    overflow-y: visible !important;
+    font-family: 'Courier New', monospace;
 }
 
 .key-concept,
@@ -200,12 +207,11 @@ mjx-math > * {
 .conclusion-box,
 .key-finding,
 .critical-analysis {
-    background-color: var(--gray-light);
+    background-color: rgba(61, 30, 94, 0.04);
     border: 1px solid var(--purple-mid);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 30px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
 }
 
 .key-finding,
@@ -244,49 +250,29 @@ mjx-math > * {
 }
 
 blockquote {
-    background-color: rgba(61, 30, 94, 0.04);
-    border-left: 4px solid var(--purple-accent);
-    padding: 15px 20px;
     margin: 20px 0;
+    padding: 15px 20px;
+    border-left: 4px solid var(--purple-accent);
     font-style: italic;
 }
 
-.figure-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 18px;
-    margin: 25px 0;
-}
-
 figure {
-    margin: 0;
-    background-color: #fff;
-    border: 1px solid var(--purple-mid);
-    border-radius: 8px;
-    padding: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-figure:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    margin: 25px 0;
+    text-align: center;
 }
 
 figure img {
-    display: block;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 4px;
 }
 
 figcaption {
-    color: var(--gray-purple);
-    font-size: 13px;
-    line-height: 1.4;
     margin-top: 10px;
-    border-top: 1px solid var(--gray-light);
-    padding-top: 8px;
+    font-size: 13px;
+    color: var(--gray-purple);
+    font-style: italic;
+    text-align: justify;
 }
 
 ul,
@@ -324,6 +310,19 @@ table th {
     font-weight: bold;
 }
 
+tr:nth-child(even),
+.data-table tr:nth-child(even) {
+    background-color: rgba(61, 30, 94, 0.03);
+}
+
+.table-caption {
+    font-size: 0.9em;
+    color: var(--gray-purple);
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
 .references {
     font-size: 14px;
     margin-top: 0;
@@ -347,11 +346,133 @@ pre {
     font-family: "Courier New", Courier, monospace;
 }
 
+code {
+    background-color: rgba(61, 30, 94, 0.06);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+pre code {
+    display: block;
+    padding: 15px;
+    overflow-x: auto;
+}
+
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-x: auto;
     max-width: 100%;
+}
+
+.theorem, .principle, .key-concept {
+    background-color: rgba(61, 30, 94, 0.04);
+    border: 1px solid var(--purple-mid);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.theorem h3, .principle h3, .theorem h4, .principle h4, .key-concept h4 {
+    margin-top: 0;
+    color: var(--purple-dark);
+}
+
+.proof {
+    font-style: italic;
+    margin-left: 20px;
+    color: var(--gray-purple);
+}
+
+.experimental-section {
+    background-color: rgba(61, 30, 94, 0.03);
+    border: 1px solid var(--purple-mid);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.experimental-section h1:first-of-type, .experimental-section h2:first-of-type, .experimental-section h3:first-of-type {
+    margin-top: 4px;
+}
+
+.key-insight {
+    background-color: rgba(155, 123, 201, 0.08);
+    border: 1px solid rgba(155, 123, 201, 0.4);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.key-insight h4 {
+    margin-top: 0;
+    color: var(--purple-dark);
+}
+
+.key-quote {
+    background-color: rgba(61, 30, 94, 0.04);
+    border-left: 4px solid var(--purple-accent);
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.key-quote blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+.key-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    color: var(--gray-purple);
+    font-size: 14px;
+}
+
+.validation-box {
+    background-color: rgba(155, 123, 201, 0.08);
+    border: 1px solid rgba(155, 123, 201, 0.4);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.warning-box {
+    background-color: rgba(138, 122, 154, 0.08);
+    border: 1px solid rgba(138, 122, 154, 0.4);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.significance {
+    background-color: rgba(61, 30, 94, 0.06);
+    border: 1px solid var(--purple-mid);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.error-budget {
+    font-family: 'Courier New', monospace;
+    background-color: rgba(61, 30, 94, 0.03);
+    padding: 10px;
+    border-radius: 3px;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.MathJax {
+    font-size: 1.1em !important;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--gray-purple);
+    font-style: italic;
 }
 
 .component-error {
@@ -411,11 +532,13 @@ pre {
         margin-bottom: 40px;
         page-break-after: avoid;
     }
-    .abstract, .theorem, .principle {
+    .theorem, .principle {
         break-inside: avoid;
         page-break-inside: avoid;
     }
     .abstract {
+        break-inside: auto;
+        page-break-inside: auto;
         page-break-before: avoid;
     }
 }

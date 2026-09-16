@@ -158,7 +158,7 @@ def plot_orbital_coupling(constellations=None):
 
 
 def plot_cmb_alignment(constellations=None):
-    """Figure 4: CMB alignment angular separation."""
+    """Figure 4: CMB-projection geometry and nominal angular separation."""
     data = load_json("step_2_4_cmb_alignment.json")
     consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
@@ -177,11 +177,11 @@ def plot_cmb_alignment(constellations=None):
         ax.set_xticks(x)
         ax.set_xticklabels(labels)
         ax.set_ylabel("Angular separation from CMB dipole (°)")
-        ax.set_title("Figure 4: CMB-frame alignment")
+        ax.set_title("Figure 4: CMB-projection geometry")
         ax.legend()
     else:
         ax.text(0.5, 0.5, "No data available\nRun step 2.4 first", ha="center", va="center", transform=ax.transAxes)
-        ax.set_title("Figure 4: CMB-frame alignment (pending)")
+        ax.set_title("Figure 4: CMB-projection geometry (pending)")
 
     fig.tight_layout()
     out_path = FIGURES_DIR / "fig_4_cmb_alignment.png"
@@ -238,13 +238,13 @@ def plot_cross_constellation():
 
     fig, ax = plt.subplots(figsize=(8, 5))
     checks = data.get("single_solution_checks", {})
-    categories = ["λ in range", "Iono persist", "Anisotropy", "Orbital", "CMB aligned"]
+    categories = ["λ in range", "Iono persist", "Anisotropy", "Orbital (confirm.)", "CMB projection"]
     values = [
         1 if checks.get("lambda_in_range") else 0,
         1 if checks.get("ionospheric_persistence") else 0,
         1 if checks.get("anisotropy_replicated") else 0,
-        1 if checks.get("orbital_coupling_detected") else 0,
-        1 if checks.get("cmb_aligned") else 0,
+        1 if checks.get("orbital_coupling_confirmatory") else 0,
+        1 if checks.get("cmb_projection_consistent") else 0,
     ]
     colors = ["#27ae60" if v else "#c0392b" for v in values]
     ax.bar(range(len(categories)), values, color=colors, alpha=0.8)

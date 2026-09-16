@@ -1,0 +1,16 @@
+{
+  "combined": {
+    "northern_hemisphere_lambda_km": 1365.015440293404,
+    "northern_hemisphere_R2": 0.6776909156735003,
+    "southern_hemisphere_lambda_km": 2353.050233657442,
+    "southern_hemisphere_R2": 0.03803861176027301,
+    "northern_hemisphere_balanced_lambda_km": 1381.9480275797098,
+    "northern_hemisphere_balanced_R2": 0.7523407319400733,
+    "southern_hemisphere_balanced_lambda_km": 2353.050233657442,
+    "southern_hemisphere_balanced_R2": 0.03803861176027301,
+    "distance_matched_lambda_km": 1889.2708912657827,
+    "distance_matched_R2": 0.5986493669170923,
+    "status": "success",
+    "n_pairs": 1827555
+  }
+}

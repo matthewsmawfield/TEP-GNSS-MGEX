@@ -1,20 +1,39 @@
 <h2>6. Conclusions</h2>
 
 <p>
-An analysis of Temporal Equivalence Principle signatures has been carried out using the public MGEX combined multi-GNSS receiver-clock
-product (CODE COD0MGXFIN) over 2025-01-01 to 2026-05-01, using a data product independent of the GPS PPP family and a largely held-out epoch. The primary positive result is a reproducible receiver-clock correlation length, λ = 1396 ± 90 km, R² = 0.486, which persists under ionospheric and geometry controls and collapses under four null tests.
+This product-type independence stress test uses the CODE COD0MGXFIN combined
+multi-GNSS receiver-clock product from 2025-01-01 to 2026-05-01. Its principal
+result is a distance-dependent correlation scale of $$\lambda = 1862 \pm 112$$
+km (R² = 0.699), stable across the tested baseline cutoffs and present on quiet
+geomagnetic days. This is cross-product corroboration of a spatial structure at
+the thousands-of-kilometres scale reported in the earlier TEP-GNSS papers,
+while remaining subject to the different metric and combined-clock product
+construction.
 </p>
 
 <p>
-Directional signatures are more mixed. The longitude-matched anisotropy is suggestive but not significant under spatial-clustered resampling. Orbital-velocity modulation is recovered only post-hoc with a short-baseline-robust PA-difference metric and requires independent replication. The CMB-frame test detects a significant anisotropy axis, but it lies 92° from the CMB dipole, favouring ionospheric or product-geometry contamination over a stable CMB-frame alignment. A satellite-clock analysis finds the exponential model actively rejected (R² &lt; 0), consistent with the single-reference-time nature of the MGEX combined solution.
+The secondary results are deliberately qualified. Standard anisotropy and
+primary orbital metrics are not robust in this short MGEX interval. A
+model-free PA-difference statistic has strong associations with orbital speed
+(r = −0.716, p = 0.0018) and CMB-projected orbital velocity (r = −0.767,
+p = 0.0005) across 16 chronological months. Because those signs were
+anticipated by previous TEP-GNSS work, the result is corroborative across
+products; because this operationalisation was selected after primary MGEX fits
+were unstable, it remains exploratory within this study and needs a
+prospective, longer-baseline replication.
 </p>
 
 <p>
-The independence offered by this analysis is of epoch and of data product, not of constellation:
-the MGEX clock product is a single combined solution, so the four systems cannot
-be separated, and per-constellation replication remains the province of
-raw-observation processing addressed elsewhere in the series. Within those
-bounds, the robust observation of the core correlation length in an independent product and largely held-out epoch, together with suggestive longitude-matched anisotropy and supplementary PA-difference orbital modulation, provides additional context for the earlier
-results. The analysis pipeline and data-provenance records are
-open-source and reproducible at the project repository.
+The CMB-projected orbital association is likewise consistent: the direct
+monthly CMB projection has r = −0.733, while the weighted PA-difference test
+has r = −0.767 (p = 0.0005). The grid’s nominal RA = 230°, Dec = +60° maximum
+is 82.7° from the CMB dipole, but this is not contrary evidence because orbital
+velocity constrains only an axis’s ecliptic-plane projection. The grid cannot
+uniquely localize a three-dimensional sky direction; its within-grid
+permutation statistic (plus-one p = 0.005 from 200 shuffles) measures annual
+directional structure. The satellite-clock analysis is limited by the combined
+product’s shared reference time and does not recover an exponential signal. The
+next decisive test is a preregistered chronological analysis over multiple
+annual cycles, reporting an identifiable plane-projected direction or using
+non-coplanar velocity information.
 </p>

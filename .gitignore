@@ -2,11 +2,15 @@
 data/raw/*.crx
 data/raw/*.rnx
 data/raw/*.gz
+data/raw/clk/
+data/raw/sp3/
 data/raw/nav/*.gz
 data/raw/nav/*.rnx
 data/raw/nav/*.p*
 data/external/*.zip
 data/external/*.tar*
+results/outputs/step_2_0_mgex_pairs.json
+results/outputs/step_2_8_satellite_pairs.json
 *.h5
 *.hdf5
 *.nc
@@ -51,3 +55,5 @@ site/package-lock.json
 *.temp
 .cache/
 
+
+manuscripts/

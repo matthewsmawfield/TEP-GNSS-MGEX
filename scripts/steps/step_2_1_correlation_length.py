@@ -17,7 +17,7 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.config import (
     OUTPUTS_DIR, FIGURES_DIR, LOGS_DIR, CONSTELLATIONS,
     MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT,
-    LAMBDA_MIN_KM, LAMBDA_MAX_KM
+    LAMBDA_MIN_KM, LAMBDA_MAX_KM, SENSITIVITY_MIN_DISTANCES
 )
 from scripts.utils.coherence import fit_exponential_model
 
@@ -64,17 +64,38 @@ class Step21CorrelationLength:
         )
 
         if fit and fit["success"]:
+            # Sensitivity analysis: λ at multiple minimum distances
+            sensitivity = {}
+            for min_d in SENSITIVITY_MIN_DISTANCES:
+                s_fit = fit_exponential_model(
+                    distances, coherences,
+                    min_d, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT
+                )
+                if s_fit and s_fit.get("success"):
+                    sensitivity[f"min_{min_d}km"] = {
+                        "lambda_km": s_fit["correlation_length_km"],
+                        "lambda_err_km": s_fit["correlation_length_err_km"],
+                        "R2": s_fit["r_squared"],
+                        "min_distance_km": min_d,
+                    }
             results[const_name] = {
                 "lambda_km": fit["correlation_length_km"],
                 "lambda_err_km": fit["correlation_length_err_km"],
                 "A": fit["amplitude"],
                 "C0": fit["offset"],
                 "R2": fit["r_squared"],
+                "sensitivity_analysis": sensitivity,
                 "status": "success",
                 "in_range": bool(LAMBDA_MIN_KM <= fit["correlation_length_km"] <= LAMBDA_MAX_KM),
                 "n_pairs": len(records)
             }
             print_status(f"    {const_name}: λ = {fit['correlation_length_km']:.0f} ± {fit['correlation_length_err_km']:.0f} km, R² = {fit['r_squared']:.3f}", "INFO")
+            print_status(f"    Sensitivity (λ vs min distance):", "INFO")
+            for key, vals in sensitivity.items():
+                print_status(
+                    f"      {key}: λ={vals['lambda_km']:.0f} km, R²={vals['R2']:.3f}",
+                    "INFO"
+                )
         else:
             results[const_name] = {
                 "status": "fit_failed",

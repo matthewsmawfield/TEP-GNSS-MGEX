@@ -11,6 +11,9 @@ performed and no coordinate residuals are computed; the receiver clock is the
 sole observable.
 </p>
 
+<!-- include: screening_projection_notice.html -->
+
+
 <h3>3.2 Spectral Pre-processing</h3>
 
 <p>
@@ -28,12 +31,14 @@ periods from about 8 hours down to 33 minutes, which lies safely within the
 <h3>3.3 Spectral Phase-Alignment Metric</h3>
 
 <p>
-For every station pair the magnitude-weighted circular mean is computed of the
-cross-spectral phase across the band. The phase-alignment metric is the cosine
-of this weighted mean phase, ranging from −1 (anti-phase) through 0 (random)
-to +1 (in-phase). This metric replaces the spectral-magnitude coherence used in
-earlier papers; it isolates the sign and stability of the inter-station phase
-relationship and is the quantity carried through all subsequent tests. Pairs are
+For every station pair, the magnitude-weighted circular mean of the
+cross-spectral phase is computed across the selected frequency band. The
+phase-alignment index is the cosine of the weighted mean phase, ranging from
+−1 (anti-phase) to +1 (in-phase). It measures signed mean phase-offset
+alignment, not phase concentration; the latter requires the magnitude of the
+complex resultant. The established phase-alignment statistic is retained
+consistently with the earlier GNSS analyses, and is the quantity carried
+through all subsequent tests. Pairs are
 binned by great-circle distance into 40 logarithmically spaced bins from 50 km
 to 13,000 km, with a minimum of 10 pairs per bin.
 </p>
@@ -75,15 +80,53 @@ The orbital-coupling test correlates the monthly λ and the monthly EW/NS ratio
 with the projection of Earth's orbital velocity onto the CMB dipole direction,
 computed from a sinusoidal annual model; the two correlations are
 Bonferroni-corrected. Because exponential-fit noise on short baselines can
-degrade these metrics, a supplementary PA-difference metric is also computed:
-the monthly mean EW minus NS phase alignment, which avoids fitting entirely and
-directly measures anisotropy strength. The CMB-frame test performs a full-sky
+degrade these metrics, an exploratory PA-difference metric is also computed:
+the monthly mean EW minus NS phase alignment, which avoids fitting entirely
+and directly measures anisotropy strength. The physical hypothesis and sign
+were motivated by earlier TEP-GNSS analyses, but this operationalisation was
+selected after the primary MGEX estimators proved unstable; it is therefore
+exploratory within MGEX and excluded from confirmatory family-wise inference.
+Months are retained chronologically (YYYY-MM) and a partial trailing month is
+excluded. The CMB-frame test performs a full-sky
 grid search for the anisotropy axis on a 37 × 19 grid in right ascension and
-declination (10° steps), correlating the daily EW/NS ratio with the projection of
-Earth's orbital velocity onto each candidate axis, with a permutation null and a
-look-elsewhere correction factor of 50. Ionospheric controls stratify the fit by
+declination (10° steps), correlating the monthly EW−NS phase-alignment
+difference with the projection of Earth's orbital velocity onto each candidate
+axis. The difference metric is used in place of the EW/NS ratio because
+phase alignment ranges from −1 to +1, making the ratio unstable when the NS
+mean is near zero; the difference is bounded and requires no sign-based
+selection filter. Monthly aggregation reduces daily noise, while the daily
+analysis is retained as a supplementary diagnostic. The grid search tracks both
+the most positive and most negative correlation extrema. Because orbital
+velocity samples essentially the ecliptic plane, the scan is interpreted as a
+test of a plane-projected annual predictor, not as a unique three-dimensional
+axis localization; a nominal sky-angle threshold is reported descriptively
+only. A permutation null performs a complete grid search over all 703
+directions for each of 200 permutations, accounting for the look-elsewhere
+effect directly. Ionospheric controls stratify the fit by
 geomagnetic Kp index and exclude storm days; geometry controls repeat the fit on
 hemisphere-balanced and distance-matched subsets; and four null tests (temporal
 shuffle, spatial shuffle, phase randomisation, and solar-rotation reassignment)
-verify that the recovered structure vanishes under label permutation.
+test whether the recovered structure vanishes under label permutation.
+</p>
+
+<h3>3.6 Sensitivity and Robustness Analysis</h3>
+
+<p>
+Because the 418-station network contains dense regional clusters that
+disproportionately populate short baselines, a sensitivity analysis is
+performed to verify that the reported results are not artifacts of
+short-baseline fitting noise. For each primary result the analysis is
+repeated at five minimum-baseline cutoffs (50, 200, 500, 1,000, and
+2,000 km), tabulating the correlation length, anisotropy ratio, and
+CMB correlation as functions of the cutoff. A robust supplementary
+analysis uses a 500-km minimum baseline and a 50-pair minimum bin
+count, eliminating bins with fewer than 50 pairs where small-sample
+fluctuations can produce extreme coherence means. For the anisotropy
+ratio a station-declustered point estimate is also computed, weighting
+each pair by the inverse square root of the product of its two
+endpoints' pair counts so that stations in dense clusters do not
+dominate the exponential fit. The robust null tests apply the same
+elevated thresholds to all four shuffle controls. These sensitivity
+analyses do not replace the pre-specified primary analysis but provide
+a conservative supplementary assessment of each result's stability.
 </p>

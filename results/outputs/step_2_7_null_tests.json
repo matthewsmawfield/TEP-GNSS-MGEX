@@ -1,0 +1,54 @@
+{
+  "combined": {
+    "temporal_shuffle": {
+      "lambda_km": 242.65117672733857,
+      "R2": -0.3433599119226982,
+      "null_pass": true
+    },
+    "spatial_shuffle": {
+      "lambda_km": 25999.999999999643,
+      "R2": -0.0004781568832628036,
+      "null_pass": true
+    },
+    "phase_random": {
+      "lambda_km": 1453.9441536360603,
+      "R2": -0.0013527849661862934,
+      "null_pass": true
+    },
+    "solar_rotation": {
+      "lambda_km": 80.32680338762476,
+      "R2": 0.4987154397099428,
+      "null_pass": false
+    },
+    "null_tests_passed": 3,
+    "total_null_tests": 4,
+    "robust": {
+      "temporal_shuffle": {
+        "lambda_km": 12411.549747142839,
+        "R2": -0.011364506490161741,
+        "null_pass": true
+      },
+      "spatial_shuffle": {
+        "lambda_km": 25999.999999999996,
+        "R2": 0.02826041097547438,
+        "null_pass": true
+      },
+      "phase_random": {
+        "lambda_km": 594.7797002985022,
+        "R2": 0.12160681375211457,
+        "null_pass": true
+      },
+      "solar_rotation": {
+        "lambda_km": 500.0000000518346,
+        "R2": 0.010117060213249096,
+        "null_pass": true
+      },
+      "null_tests_passed": 4,
+      "total_null_tests": 4,
+      "min_distance_km": 500,
+      "min_bin_count": 50
+    },
+    "status": "success",
+    "n_pairs": 1827555
+  }
+}

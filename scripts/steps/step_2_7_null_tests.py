@@ -17,7 +17,8 @@ from scripts.utils.logger import TEPLogger, set_step_logger, print_status
 from scripts.utils.config import (
     OUTPUTS_DIR, LOGS_DIR, CONSTELLATIONS,
     MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT,
-    NULL_TEST_R2_THRESHOLD, SIGNIFICANCE_ALPHA, NULL_TEST_SEED
+    NULL_TEST_R2_THRESHOLD, SIGNIFICANCE_ALPHA, NULL_TEST_SEED,
+    ROBUST_MIN_DISTANCE_KM, ROBUST_MIN_BIN_COUNT
 )
 from scripts.utils.coherence import fit_exponential_model
 from scripts.utils.geospatial import _sector_mask
@@ -57,6 +58,11 @@ class Step27NullTests:
                 fit = fit_exponential_model(
                     dist_arr, coh_arr, MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT
                 )
+                # Robust version: eliminates short-baseline bins with <50 pairs
+                fit_robust = fit_exponential_model(
+                    dist_arr, coh_arr,
+                    ROBUST_MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, ROBUST_MIN_BIN_COUNT
+                )
                 if fit and fit.get("success"):
                     null_pass = fit["r_squared"] < NULL_TEST_R2_THRESHOLD
                     status = "PASS" if null_pass else "FAIL"
@@ -66,22 +72,30 @@ class Step27NullTests:
                     )
                 else:
                     print_status(f"    {label}: no fit (null_pass=True)", "INFO")
-                return fit
+                if fit_robust and fit_robust.get("success"):
+                    robust_pass = fit_robust["r_squared"] < NULL_TEST_R2_THRESHOLD
+                    robust_status = "PASS" if robust_pass else "FAIL"
+                    print_status(
+                        f"    {label} (robust): λ={fit_robust['correlation_length_km']:.0f}km, "
+                        f"R²={fit_robust['r_squared']:.3f} [{robust_status}]",
+                        "INFO" if robust_pass else "WARNING"
+                    )
+                return fit, fit_robust
 
             # Temporal shuffle: randomize phase_alignment values independently of distance
             coh_temporal = rng.permutation(coh)
-            fit_temporal = _run_null("Temporal shuffle", dist, coh_temporal)
+            fit_temporal, fit_temporal_r = _run_null("Temporal shuffle", dist, coh_temporal)
 
             # Spatial shuffle: randomize distances independently of phase_alignment
             dist_spatial = rng.permutation(dist)
-            fit_spatial = _run_null("Spatial shuffle", dist_spatial, coh)
+            fit_spatial, fit_spatial_r = _run_null("Spatial shuffle", dist_spatial, coh)
 
             # Phase randomization: randomize the sign of each phase_alignment value.
             # This is equivalent to adding either 0 or π to each pair's phase angle,
             # which properly destroys coherent phase structure while preserving the
             # marginal amplitude distribution.
             coh_phase = coh * np.where(rng.random(len(coh)) < 0.5, -1, 1)
-            fit_phase = _run_null("Phase randomization", dist, coh_phase)
+            fit_phase, fit_phase_r = _run_null("Phase randomization", dist, coh_phase)
 
             # Solar rotation test: rotate azimuth by 90° then shuffle values
             # between EW sectors (E+W) and all remaining pairs.  If the
@@ -99,7 +113,7 @@ class Step27NullTests:
             coh_solar = np.empty_like(coh)
             coh_solar[ew_mask_rot] = coh_shuffled[:n_ew_rot]
             coh_solar[non_ew_mask_rot] = coh_shuffled[n_ew_rot:]
-            fit_solar = _run_null("Solar rotation null", dist, coh_solar)
+            fit_solar, fit_solar_r = _run_null("Solar rotation null", dist, coh_solar)
 
             def _extract(fit):
                 return {
@@ -114,6 +128,12 @@ class Step27NullTests:
                 _extract(fit_phase)["null_pass"],
                 _extract(fit_solar)["null_pass"],
             ])
+            n_pass_robust = sum([
+                _extract(fit_temporal_r)["null_pass"],
+                _extract(fit_spatial_r)["null_pass"],
+                _extract(fit_phase_r)["null_pass"],
+                _extract(fit_solar_r)["null_pass"],
+            ])
             results[const_name] = {
                 "temporal_shuffle": _extract(fit_temporal),
                 "spatial_shuffle": _extract(fit_spatial),
@@ -121,12 +141,23 @@ class Step27NullTests:
                 "solar_rotation": _extract(fit_solar),
                 "null_tests_passed": n_pass,
                 "total_null_tests": 4,
+                "robust": {
+                    "temporal_shuffle": _extract(fit_temporal_r),
+                    "spatial_shuffle": _extract(fit_spatial_r),
+                    "phase_random": _extract(fit_phase_r),
+                    "solar_rotation": _extract(fit_solar_r),
+                    "null_tests_passed": n_pass_robust,
+                    "total_null_tests": 4,
+                    "min_distance_km": ROBUST_MIN_DISTANCE_KM,
+                    "min_bin_count": ROBUST_MIN_BIN_COUNT,
+                },
                 "status": "success",
                 "n_pairs": len(records)
             }
             print_status(
-                f"    {const_name}: {n_pass}/4 null tests passed",
-                "SUCCESS" if n_pass == 4 else "WARNING"
+                f"    {const_name}: {n_pass}/4 null tests passed (primary), "
+                f"{n_pass_robust}/4 (robust)",
+                "SUCCESS" if n_pass == 4 and n_pass_robust == 4 else "WARNING"
             )
 
         out_file = OUTPUTS_DIR / "step_2_7_null_tests.json"

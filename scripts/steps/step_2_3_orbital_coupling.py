@@ -21,7 +21,7 @@ from scripts.utils.config import (
     OUTPUTS_DIR, LOGS_DIR, CONSTELLATIONS, N_ORBITAL_TESTS,
     CMB_DIPOLE_RA_DEG, CMB_DIPOLE_DEC_DEG, SIGNIFICANCE_ALPHA,
     MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT,
-    MIN_PAIRS_FIT, MIN_MONTHLY_RECORDS
+    MIN_PAIRS_FIT, MIN_MONTHLY_RECORDS, MIN_DAYS_PER_MONTH
 )
 from scripts.utils.coherence import fit_exponential_model
 from scripts.utils.geospatial import _sector_mask, _earth_orbital_velocity_equatorial
@@ -32,12 +32,12 @@ set_step_logger(logger)
 
 
 def _month_from_day_key(day_key):
-    """Convert YYYYDOY string to month integer (1-12)."""
+    """Convert YYYYDOY to a chronological YYYY-MM calendar-month key."""
     try:
         year = int(day_key[:4])
         doy = int(day_key[4:])
         dt = datetime(year, 1, 1) + timedelta(days=doy - 1)
-        return dt.month
+        return dt.strftime("%Y-%m")
     except Exception:
         return None
 
@@ -52,23 +52,30 @@ def _direction_unit_vector(ra_deg, dec_deg):
     ])
 
 
-def earth_orbital_speed_kms(month):
+def _month_midpoint(month_key):
+    """Return the 15th day for a YYYY-MM key."""
+    year, month = map(int, month_key.split("-"))
+    return datetime(year, month, 15)
+
+
+def earth_orbital_speed_kms(month_key):
     """Approximate Earth orbital speed variation by month (sinusoidal model).
     Kept for backward compatibility; the pipeline now uses velocity projection.
     Peak ~30.3 km/s in January, minimum ~29.3 km/s in July.
     """
+    month = _month_midpoint(month_key).month
     return 29.78 + 0.5 * np.cos(2 * np.pi * (month - 1) / 12)
 
 
-def _monthly_velocity_projection(month, cmb_ra=167.0, cmb_dec=-7.0):
+def _monthly_velocity_projection(month_key, cmb_ra=167.0, cmb_dec=-7.0):
     """Earth orbital velocity projected onto the CMB dipole direction (km/s).
 
     Positive when Earth moves toward the CMB dipole; negative when moving away.
     The TEP prediction is that the anisotropy correlates with this projection,
     not with scalar speed.
     """
-    # Representative DOY for each month (15th of month)
-    doy = int((datetime(2000, month, 15) - datetime(2000, 1, 1)).days + 1)
+    # Use the midpoint of the actual calendar month.
+    doy = _month_midpoint(month_key).timetuple().tm_yday
     v_orb = _earth_orbital_velocity_equatorial(doy)
     n_cmb = _direction_unit_vector(cmb_ra, cmb_dec)
     return float(np.dot(v_orb, n_cmb))
@@ -93,7 +100,8 @@ class Step23OrbitalCoupling:
 
             print_status(f"  {const_name}: {len(records)} records loaded", "INFO")
 
-            # Group records by month (from day_key YYYYDOY)
+            # Group records by chronological calendar month (YYYY-MM), never
+            # pooling the same month from different years.
             month_records = {}
             for r in records:
                 month = _month_from_day_key(r.get("day", ""))
@@ -114,7 +122,8 @@ class Step23OrbitalCoupling:
 
             for m in sorted(month_records.keys()):
                 recs = month_records[m]
-                if len(recs) < MIN_MONTHLY_RECORDS:
+                n_days = len({r.get("day") for r in recs if r.get("day")})
+                if len(recs) < MIN_MONTHLY_RECORDS or n_days < MIN_DAYS_PER_MONTH:
                     continue
                 dist = np.array([r["distance_km"] for r in recs])
                 coh = np.array([r["phase_alignment"] for r in recs])
@@ -157,7 +166,7 @@ class Step23OrbitalCoupling:
                     ratio_str = f"{ratio:.2f}" if np.isfinite(ratio) else "N/A"
                     pa_diff_str = f"{pa_diff:.4f}" if np.isfinite(pa_diff) else "N/A"
                     print_status(
-                        f"    Month {m:02d}: λ={fit['correlation_length_km']:.0f}km, "
+                        f"    Month {m}: λ={fit['correlation_length_km']:.0f}km, "
                         f"EW/NS ratio={ratio_str}, PA_diff={pa_diff_str}, "
                         f"speed={speed_scalar:.2f}km/s, v_proj={v_proj:+.2f}km/s",
                         "INFO"
@@ -216,15 +225,17 @@ class Step23OrbitalCoupling:
                     "pa_diff_vs_vproj_r": float(r_pa_p),
                     "pa_diff_vs_vproj_p": float(p_pa_p),
                     "n_tests_corrected": N_ORBITAL_TESTS,
-                    "significant_after_correction": bool(
-                        (n_valid >= 3 and (p_lambda_s_bonf < SIGNIFICANCE_ALPHA or p_ratio_s_bonf < SIGNIFICANCE_ALPHA or
-                                           p_lambda_p_bonf < SIGNIFICANCE_ALPHA or p_ratio_p_bonf < SIGNIFICANCE_ALPHA)) or
-                        (n_valid_pa >= 3 and (p_pa_s < SIGNIFICANCE_ALPHA or p_pa_p < SIGNIFICANCE_ALPHA))
+                    "primary_significant_after_correction": bool(
+                        n_valid >= 3 and (p_lambda_s_bonf < SIGNIFICANCE_ALPHA or p_ratio_s_bonf < SIGNIFICANCE_ALPHA or
+                                          p_lambda_p_bonf < SIGNIFICANCE_ALPHA or p_ratio_p_bonf < SIGNIFICANCE_ALPHA)
+                    ),
+                    "exploratory_pa_diff_significant": bool(
+                        n_valid_pa >= 3 and (p_pa_s < SIGNIFICANCE_ALPHA or p_pa_p < SIGNIFICANCE_ALPHA)
                     ),
                     "status": "success",
                     "n_months": int(np.sum(valid)),
                     "n_months_pa_diff": int(np.sum(valid_pa)),
-                    "months": [int(m) for m in months]
+                    "months": months
                 }
                 print_status(
                     f"    {const_name}: λ–speed r={r_lambda_s:.3f} (p={p_lambda_s:.3f}, bonf={p_lambda_s_bonf:.3f}), "

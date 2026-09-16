@@ -1,0 +1,157 @@
+{
+  "combined": {
+    "best_fit_ra_deg": 230.0,
+    "best_fit_dec_deg": 60.0,
+    "best_correlation_r": -0.7453117374592942,
+    "angular_separation_to_cmb_deg": 82.70458940690735,
+    "raw_p_value": 0.004975124378109453,
+    "lee_corrected_p_value": 0.004975124378109453,
+    "status": "success",
+    "aligned": false,
+    "grid_axis_identifiable": false,
+    "cmb_projection_consistent": true,
+    "n_days": 462,
+    "n_months": 16,
+    "n_pairs": 1827555,
+    "metric": "ew_ns_difference",
+    "sector_sensitivity": {
+      "width_45deg": {
+        "status": "success",
+        "metric": "ew_ns_difference",
+        "monthly": {
+          "n_months": 16,
+          "direct_cmb_r": -0.7333555751772511,
+          "direct_cmb_n": 16,
+          "best_fit_ra_deg": 230.0,
+          "best_fit_dec_deg": 60.0,
+          "best_correlation_r": -0.7453117374592942,
+          "angular_separation_to_cmb_deg": 82.70458940690735,
+          "max_pos_ra_deg": 50.0,
+          "max_pos_dec_deg": -60.0,
+          "max_pos_r": 0.7453117374592941,
+          "max_pos_sep_deg": 97.29541059309265,
+          "max_neg_ra_deg": 230.0,
+          "max_neg_dec_deg": 60.0,
+          "max_neg_r": -0.7453117374592942,
+          "max_neg_sep_deg": 82.70458940690735,
+          "raw_p_value": 0.004975124378109453,
+          "lee_corrected_p_value": 0.004975124378109453,
+          "null_r_mean": 0.3204303294700777,
+          "null_r_std": 0.1598453953162879,
+          "aligned": false,
+          "grid_axis_identifiable": false,
+          "cmb_projection_consistent": true
+        },
+        "daily": {
+          "n_days": 462,
+          "direct_cmb_r": -0.49479049400584907,
+          "direct_cmb_n": 462,
+          "best_fit_ra_deg": 230.0,
+          "best_fit_dec_deg": 60.0,
+          "best_correlation_r": -0.5048254887838342,
+          "angular_separation_to_cmb_deg": 82.70458940690735,
+          "max_pos_ra_deg": 50.0,
+          "max_pos_dec_deg": -60.0,
+          "max_pos_r": 0.5048254887838343,
+          "max_pos_sep_deg": 97.29541059309265,
+          "max_neg_ra_deg": 230.0,
+          "max_neg_dec_deg": 60.0,
+          "max_neg_r": -0.5048254887838342,
+          "max_neg_sep_deg": 82.70458940690735
+        },
+        "aligned": false,
+        "grid_axis_identifiable": false,
+        "cmb_projection_consistent": true,
+        "angular_separation_to_cmb_deg": 82.70458940690735,
+        "best_correlation_r": -0.7453117374592942,
+        "raw_p_value": 0.004975124378109453,
+        "lee_corrected_p_value": 0.004975124378109453,
+        "n_days": 462,
+        "n_months": 16,
+        "excluded_pairs_pct": 56.40519710761098
+      },
+      "width_60deg": {
+        "status": "success",
+        "metric": "ew_ns_difference",
+        "monthly": {
+          "n_months": 16,
+          "direct_cmb_r": -0.7781999349793942,
+          "direct_cmb_n": 16,
+          "best_fit_ra_deg": 230.0,
+          "best_fit_dec_deg": 60.0,
+          "best_correlation_r": -0.7909065935872358,
+          "angular_separation_to_cmb_deg": 82.70458940690735,
+          "max_pos_ra_deg": 50.0,
+          "max_pos_dec_deg": -60.0,
+          "max_pos_r": 0.7909065935872358,
+          "max_pos_sep_deg": 97.29541059309265,
+          "max_neg_ra_deg": 230.0,
+          "max_neg_dec_deg": 60.0,
+          "max_neg_r": -0.7909065935872358,
+          "max_neg_sep_deg": 82.70458940690735,
+          "raw_p_value": 0.004975124378109453,
+          "lee_corrected_p_value": 0.004975124378109453,
+          "null_r_mean": 0.32205010890289104,
+          "null_r_std": 0.15856374324041356,
+          "aligned": false,
+          "grid_axis_identifiable": false,
+          "cmb_projection_consistent": true
+        },
+        "daily": {
+          "n_days": 462,
+          "direct_cmb_r": -0.5455125018089703,
+          "direct_cmb_n": 462,
+          "best_fit_ra_deg": 230.0,
+          "best_fit_dec_deg": 60.0,
+          "best_correlation_r": -0.556493668150488,
+          "angular_separation_to_cmb_deg": 82.70458940690735,
+          "max_pos_ra_deg": 50.0,
+          "max_pos_dec_deg": -60.0,
+          "max_pos_r": 0.556493668150488,
+          "max_pos_sep_deg": 97.29541059309265,
+          "max_neg_ra_deg": 230.0,
+          "max_neg_dec_deg": 60.0,
+          "max_neg_r": -0.556493668150488,
+          "max_neg_sep_deg": 82.70458940690735
+        },
+        "aligned": false,
+        "grid_axis_identifiable": false,
+        "cmb_projection_consistent": true,
+        "angular_separation_to_cmb_deg": 82.70458940690735,
+        "best_correlation_r": -0.7909065935872358,
+        "raw_p_value": 0.004975124378109453,
+        "lee_corrected_p_value": 0.004975124378109453,
+        "n_days": 462,
+        "n_months": 16,
+        "excluded_pairs_pct": 38.10878468773854
+      }
+    },
+    "pa_difference_sensitivity": {
+      "min_50km": {
+        "min_distance_km": 50,
+        "n_months": 16,
+        "direct_cmb_r": -0.7333555751772511
+      },
+      "min_200km": {
+        "min_distance_km": 200,
+        "n_months": 16,
+        "direct_cmb_r": -0.7309005819527736
+      },
+      "min_500km": {
+        "min_distance_km": 500,
+        "n_months": 16,
+        "direct_cmb_r": -0.730213771217384
+      },
+      "min_1000km": {
+        "min_distance_km": 1000,
+        "n_months": 16,
+        "direct_cmb_r": -0.7227110492329867
+      },
+      "min_2000km": {
+        "min_distance_km": 2000,
+        "n_months": 16,
+        "direct_cmb_r": -0.6967522255534302
+      }
+    }
+  }
+}

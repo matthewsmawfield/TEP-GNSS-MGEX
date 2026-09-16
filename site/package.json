@@ -1,7 +1,7 @@
 {
   "name": "tep-gnss-mgex-site",
-  "version": "0.1.0",
-  "description": "Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026",
+  "version": "0.2.0",
+  "description": "Global Time Echoes: MGEX Multi-GNSS Clock Stress Test, 2025–2026",
   "main": "index.html",
   "scripts": {
     "dev": "node dev-server.js",

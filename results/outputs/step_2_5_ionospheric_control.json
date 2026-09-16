@@ -1,0 +1,23 @@
+{
+  "combined": {
+    "base_lambda_km": 1861.6264165604869,
+    "base_R2": 0.6989570008927708,
+    "base_n_pairs": 1827555,
+    "ionofree_lambda_km": 1861.6264165604869,
+    "status": "success",
+    "quiet_kp_lambda_km": 1708.1711780483204,
+    "quiet_kp_R2": 0.7431790207443857,
+    "quiet_n_pairs": 712186,
+    "active_kp_lambda_km": 1931.0600880297127,
+    "active_kp_R2": 0.2947615851414459,
+    "active_n_pairs": 39093,
+    "storm_excluded_lambda_km": 1858.2284243018169,
+    "storm_excluded_R2": 0.7046351431218703,
+    "storm_excluded_n_pairs": 1788462,
+    "kp_quiet_threshold": 2,
+    "kp_active_threshold": 5,
+    "kp_coverage_days": 462,
+    "total_days": 462,
+    "quiet_persistence": true
+  }
+}

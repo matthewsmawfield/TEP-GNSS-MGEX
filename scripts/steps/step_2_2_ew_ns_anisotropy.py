@@ -44,7 +44,8 @@ from scripts.utils.config import (
     OUTPUTS_DIR, LOGS_DIR, DATA_DIR, CONSTELLATIONS, MIN_ANISOTROPY_RATIO,
     MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT, N_BOOTSTRAP,
     MIN_PAIRS_FIT, MIN_PAIRS_ANALYSIS, MIN_PAIRS_BOOTSTRAP, SIGNIFICANCE_ALPHA,
-    SECTOR_WIDTH_DEG, LON_DIFF_THRESHOLD_DEG, BOOTSTRAP_SEED
+    SECTOR_WIDTH_DEG, LON_DIFF_THRESHOLD_DEG, BOOTSTRAP_SEED,
+    ROBUST_MIN_DISTANCE_KM, ROBUST_MIN_BIN_COUNT, SENSITIVITY_MIN_DISTANCES
 )
 from scripts.utils.coherence import fit_exponential_model
 from scripts.utils.geospatial import _sector_mask
@@ -273,6 +274,145 @@ def _longitude_stratified(dist, coh, az, lon_diff, sector_names, sector_centers,
             "n_pairs": int(np.sum(m)),
         }
     return out
+
+
+def _sensitivity_analysis(dist, coh, az, sector_centers, sector_names,
+                          ew_sectors, ns_sectors):
+    """Tabulate the EW/NS ratio as a function of minimum baseline length.
+
+    This demonstrates whether the anisotropy is a robust feature of the
+    data or an artifact of short-baseline fitting noise.  At each minimum
+    distance the exponential fit is re-run for all four cardinal sectors
+    and the ratio is recomputed.
+    """
+    out = {}
+    for min_d in SENSITIVITY_MIN_DISTANCES:
+        ew_lambdas = []
+        ns_lambdas = []
+        sector_lams = {}
+        for sector, center in zip(sector_names, sector_centers):
+            mask = _sector_mask(az, center, width=SECTOR_WIDTH_DEG) & (dist >= min_d)
+            if np.sum(mask) < MIN_PAIRS_FIT:
+                continue
+            fit = fit_exponential_model(
+                dist[mask], coh[mask],
+                min_d, MAX_DISTANCE_KM, N_BINS, MIN_BIN_COUNT
+            )
+            if fit and fit.get('success'):
+                sector_lams[sector] = float(fit['correlation_length_km'])
+                if sector in ew_sectors:
+                    ew_lambdas.append(float(fit['correlation_length_km']))
+                elif sector in ns_sectors:
+                    ns_lambdas.append(float(fit['correlation_length_km']))
+        if len(ew_lambdas) >= 1 and len(ns_lambdas) >= 1:
+            ns_mean = np.mean(ns_lambdas)
+            ratio = float(np.mean(ew_lambdas) / ns_mean) if ns_mean > 0 else None
+            out[f"min_{min_d}km"] = {
+                "min_distance_km": min_d,
+                "ratio": ratio,
+                "ew_lambda_km": float(np.mean(ew_lambdas)),
+                "ns_lambda_km": float(ns_mean),
+                "sector_lambdas": sector_lams,
+            }
+        else:
+            out[f"min_{min_d}km"] = {
+                "min_distance_km": min_d,
+                "status": "insufficient_sectors"
+            }
+    return out
+
+
+def _declustered_ratio(dist, coh, az, s1_idx, s2_idx, n_stations,
+                      sector_centers, sector_names, ew_sectors, ns_sectors):
+    """Station-declustered point estimate of the EW/NS ratio.
+
+    Each pair is weighted by 1/sqrt(n_pairs_sta1 * n_pairs_sta2) so that
+    stations in dense regional clusters do not dominate the exponential
+    fit.  This is the standard geodetic de-clustering correction applied
+    to the point estimate (not just the bootstrap).
+    """
+    from collections import Counter
+    counts = Counter()
+    for i in range(len(s1_idx)):
+        counts[s1_idx[i]] += 1
+        counts[s2_idx[i]] += 1
+    weights = np.array([
+        1.0 / np.sqrt(counts[s1_idx[i]] * counts[s2_idx[i]])
+        for i in range(len(s1_idx))
+    ])
+
+    ew_lambdas = []
+    ns_lambdas = []
+    sector_lams = {}
+    # Use a lower bin-count threshold for weighted fits: the de-clustering
+    # weights are O(1/sqrt(n)), so the summed weight per bin is much
+    # smaller than the pair count.  A threshold of 0.1 ensures all bins
+    # with non-trivial weight are included.
+    decluster_min_count = 0.1
+    for sector, center in zip(sector_names, sector_centers):
+        mask = _sector_mask(az, center, width=SECTOR_WIDTH_DEG)
+        if np.sum(mask) < MIN_PAIRS_FIT:
+            continue
+        lam = _fit_lambda_weighted(
+            dist[mask], coh[mask], weights[mask],
+            MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, decluster_min_count
+        )
+        if lam is not None:
+            sector_lams[sector] = lam
+            if sector in ew_sectors:
+                ew_lambdas.append(lam)
+            elif sector in ns_sectors:
+                ns_lambdas.append(lam)
+    if len(ew_lambdas) >= 1 and len(ns_lambdas) >= 1:
+        ns_mean = np.mean(ns_lambdas)
+        ratio = float(np.mean(ew_lambdas) / ns_mean) if ns_mean > 0 else None
+        return {
+            "ratio": ratio,
+            "ew_lambda_km": float(np.mean(ew_lambdas)),
+            "ns_lambda_km": float(ns_mean),
+            "sector_lambdas": sector_lams,
+            "method": "station_declustered",
+        }
+    return {"status": "insufficient_sectors"}
+
+
+def _robust_ratio(dist, coh, az, sector_centers, sector_names,
+                  ew_sectors, ns_sectors):
+    """Robust EW/NS ratio using conservative minimum distance and bin count.
+
+    Uses ROBUST_MIN_DISTANCE_KM (500 km) and ROBUST_MIN_BIN_COUNT (50)
+    to eliminate short-baseline fitting noise.  This is a supplementary
+    analysis reported alongside the primary pre-specified result.
+    """
+    ew_lambdas = []
+    ns_lambdas = []
+    sector_lams = {}
+    for sector, center in zip(sector_names, sector_centers):
+        mask = _sector_mask(az, center, width=SECTOR_WIDTH_DEG) & (dist >= ROBUST_MIN_DISTANCE_KM)
+        if np.sum(mask) < MIN_PAIRS_FIT:
+            continue
+        fit = fit_exponential_model(
+            dist[mask], coh[mask],
+            ROBUST_MIN_DISTANCE_KM, MAX_DISTANCE_KM, N_BINS, ROBUST_MIN_BIN_COUNT
+        )
+        if fit and fit.get('success'):
+            sector_lams[sector] = float(fit['correlation_length_km'])
+            if sector in ew_sectors:
+                ew_lambdas.append(float(fit['correlation_length_km']))
+            elif sector in ns_sectors:
+                ns_lambdas.append(float(fit['correlation_length_km']))
+    if len(ew_lambdas) >= 1 and len(ns_lambdas) >= 1:
+        ns_mean = np.mean(ns_lambdas)
+        ratio = float(np.mean(ew_lambdas) / ns_mean) if ns_mean > 0 else None
+        return {
+            "ratio": ratio,
+            "ew_lambda_km": float(np.mean(ew_lambdas)),
+            "ns_lambda_km": float(ns_mean),
+            "sector_lambdas": sector_lams,
+            "min_distance_km": ROBUST_MIN_DISTANCE_KM,
+            "min_bin_count": ROBUST_MIN_BIN_COUNT,
+        }
+    return {"status": "insufficient_sectors"}
 
 
 class Step22EWNSAnisotropy:
@@ -529,6 +669,45 @@ class Step22EWNSAnisotropy:
                 ew_sectors, ns_sectors
             )
 
+            # Sensitivity analysis: ratio vs minimum baseline length
+            sensitivity = _sensitivity_analysis(
+                dist, coh, az, sector_centers, sector_names,
+                ew_sectors, ns_sectors
+            )
+            print_status(f"    Sensitivity analysis (ratio vs min distance):", "INFO")
+            for key, vals in sensitivity.items():
+                if "ratio" in vals:
+                    print_status(
+                        f"      {key}: ratio={vals['ratio']:.3f} "
+                        f"(λ_EW={vals['ew_lambda_km']:.0f}, λ_NS={vals['ns_lambda_km']:.0f})",
+                        "INFO"
+                    )
+
+            # Station-declustered point estimate
+            declustered = _declustered_ratio(
+                dist, coh, az, s1_idx, s2_idx, n_stations,
+                sector_centers, sector_names, ew_sectors, ns_sectors
+            )
+            if "ratio" in declustered:
+                print_status(
+                    f"    De-clustered: ratio={declustered['ratio']:.3f} "
+                    f"(λ_EW={declustered['ew_lambda_km']:.0f}, λ_NS={declustered['ns_lambda_km']:.0f})",
+                    "INFO"
+                )
+
+            # Robust analysis (min=500 km, min_bin_count=50)
+            robust = _robust_ratio(
+                dist, coh, az, sector_centers, sector_names,
+                ew_sectors, ns_sectors
+            )
+            if "ratio" in robust:
+                print_status(
+                    f"    Robust (min={ROBUST_MIN_DISTANCE_KM}km, min_bin={ROBUST_MIN_BIN_COUNT}): "
+                    f"ratio={robust['ratio']:.3f} "
+                    f"(λ_EW={robust['ew_lambda_km']:.0f}, λ_NS={robust['ns_lambda_km']:.0f})",
+                    "INFO"
+                )
+
             effect_size_met = ratio is not None and ratio >= MIN_ANISOTROPY_RATIO
             significance_met = p_value < SIGNIFICANCE_ALPHA
 
@@ -544,6 +723,9 @@ class Step22EWNSAnisotropy:
                 "lon_diff_filtered": ld_result,
                 "longitude_stratified": lon_strat,
                 "azimuthal_profile": az_profile,
+                "sensitivity_analysis": sensitivity,
+                "declustered_estimate": declustered,
+                "robust_estimate": robust,
                 "bootstrap_full_range": main_boot,
                 "bootstrap_full_range_clustered": main_boot_c,
                 "n_pairs": int(len(coh)),

@@ -12,9 +12,8 @@
     <!-- Primary Meta Tags -->
     <meta name="title" content="Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026">
     <meta name="description" content="Paper 14 of the Temporal Equivalence Principle (TEP) GNSS series. Analysis of the public MGEX combined multi-GNSS receiver-clock product (CODE COD0MGXFIN).">
-    <meta name="keywords" content="Temporal Equivalence Principle, Temporal Shear, Temporal Topology, proper time, conformal metric, disformal metric, synchronization holonomy, clock-sector gravity, scalar-tensor theory, GNSS, MGEX, GPS, Galileo, BeiDou, GLONASS, multi-GNSS, receiver clock, phase coherence, correlation length, anisotropy, orbital velocity, ionosphere, CMB">
     <meta name="author" content="Matthew Lukin Smawfield">
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="robots" content="index, follow" />
     <meta name="language" content="English">
     <meta name="subject" content="Physics">
     <meta name="coverage" content="Worldwide">
@@ -58,8 +57,8 @@
     <meta name="citation_language" content="en">
     <meta name="citation_journal_title" content="Preprint">
     <meta name="citation_technical_report_institution" content="Independent Research">
-    <meta name="citation_doi" content="10.5281/zenodo.20572727">
-    <meta name="citation_pdf_url" content="https://mlsmawfield.com/tep/gnss-mgex/public/docs/14-TEP-GNSS-MGEX-v0.1-Suva.pdf">
+    <meta name="citation_doi" content="10.5281/zenodo.20572726">
+    <meta name="citation_pdf_url" content="https://mlsmawfield.com/tep/gnss-mgex/public/docs/14-TEP-GNSS-MGEX-v0.2-Suva.pdf">
     <meta name="citation_subject" content="Physics">
     <meta name="citation_subject" content="Geodesy">
 
@@ -75,7 +74,7 @@
     <meta name="dc.identifier" content="https://mlsmawfield.com/tep/gnss-mgex/">
     <meta name="dc.language" content="en">
     <meta name="dc.rights" content="Creative Commons Attribution 4.0 International License">
-    <meta name="dc.relation" content="https://doi.org/10.5281/zenodo.20572727">
+    <meta name="dc.relation" content="https://doi.org/10.5281/zenodo.20572726">
     <meta name="dc.relation.ispartof" content="TEP Research Series">
     <meta name="dc.coverage" content="World">
     <meta name="dc.contributor" content="Smawfield, Matthew Lukin">
@@ -89,9 +88,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="public/favicon.ico">
     <link rel="icon" type="image/x-icon" href="public/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon.png">
     <link rel="icon" type="image/svg+xml" href="public/favicon.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="192x192" href="public/android-chrome-192x192.png">
     <link rel="apple-touch-icon" sizes="512x512" href="public/android-chrome-512x512.png">
     <link rel="manifest" href="manifest.json">
@@ -163,8 +160,13 @@
                 line-height: 1.4;
             }
             .no-print { display: none !important; }
-            .abstract, .theorem, .principle {
+            .theorem, .principle {
                 break-inside: avoid;
+            }
+            .abstract {
+                break-inside: auto;
+                page-break-inside: auto;
+                page-break-before: avoid;
             }
         }
     </style>
@@ -174,10 +176,14 @@
         <img src="public/image.webp" alt="MGEX Multi-GNSS Clock Replication" class="header-image">
         <h1 class="title">Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026</h1>
         <div class="author">Matthew Lukin Smawfield</div>
-        <div class="version">Version: v0.1 (Suva)</div>
-        <div class="date">First published: 7 June 2026</div>
-        <div class="doi">DOI: <a href="https://doi.org/10.5281/zenodo.20572727" target="_blank" rel="noopener noreferrer">10.5281/zenodo.20572727</a></div>
-        <div class="doi">Code Availability: <a href="https://github.com/matthewsmawfield/TEP-GNSS-MGEX" target="_blank" rel="noopener noreferrer">github.com/matthewsmawfield/TEP-GNSS-MGEX</a></div>
+        <div class="version">Version: v0.2 (Suva)</div>
+        <div class="date">First published: 7 June 2026 · Last updated: 16 September 2026</div>
+        <div class="doi">DOI: <a href="https://doi.org/10.5281/zenodo.20572726" target="_blank">10.5281/zenodo.20572726</a><a class="pdf-link no-print" href="public/docs/14-TEP-GNSS-MGEX-v0.2-Suva.pdf" aria-label="Download PDF (v0.2)" title="Download PDF (v0.2)">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
+        </a></div>
+        <div class="doi">Code Availability: <a href="https://github.com/matthewsmawfield/TEP-GNSS-MGEX" target="_blank">github.com/matthewsmawfield/TEP-GNSS-MGEX</a></div>
     </header>
 
     <main id="main-content" role="main">

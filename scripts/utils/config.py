@@ -43,7 +43,7 @@ CONSTELLATIONS = {
 }
 
 # CMB dipole direction (Planck 2018, J2000)
-CMB_DIPOLE_RA_DEG = 167.0
+CMB_DIPOLE_RA_DEG = 167.94
 CMB_DIPOLE_DEC_DEG = -7.0
 CMB_DIPOLE_SPEED_KM_S = 369.0
 
@@ -57,7 +57,9 @@ IONO_PERSISTENCE_THRESHOLD = 0.3
 # Look-elsewhere correction factor for full-sky scan
 LOOK_ELSEWHERE_FACTOR = 50
 
-# CMB alignment angular threshold (degrees)
+# Legacy descriptive sky-angle threshold (degrees). Earth-orbital velocity
+# constrains only an ecliptic-plane projection, so this is not an identifiable
+# full three-dimensional alignment criterion.
 CMB_ALIGNMENT_THRESHOLD_DEG = 30
 
 # Significance threshold for all hypothesis tests
@@ -123,6 +125,10 @@ CMB_SECTOR_WIDTHS = [45, 60]
 # Minimum days with valid ratios for CMB analysis
 MIN_DAYS_CMB = 5
 
+# Require comparable temporal support for each monthly estimate.  This retains
+# complete calendar months and excludes the one-day trailing fragment at DATA_END.
+MIN_DAYS_PER_MONTH = 20
+
 # Hemisphere-balancing strata count for geometry control
 HEMISPHERE_STRATA_N = 10
 
@@ -137,6 +143,20 @@ COORD_MM_THRESHOLD_METRES = 100_000_000
 
 # Null-test R² threshold (structure is "negligible" below this)
 NULL_TEST_R2_THRESHOLD = 0.3
+
+# Robust analysis parameters for sensitivity checks.
+# The primary analysis uses MIN_DISTANCE_KM / MIN_BIN_COUNT above.
+# These parameters define a conservative supplementary analysis
+# that eliminates short-baseline fitting noise (bins with <50 pairs
+# at <500 km can produce extreme coherence means by chance).
+ROBUST_MIN_DISTANCE_KM = 500
+ROBUST_MIN_BIN_COUNT = 50
+
+# Sensitivity-analysis distance grid (km).  Used by step_2_2 to
+# tabulate the EW/NS ratio as a function of minimum baseline length,
+# demonstrating robustness (or fragility) of the anisotropy to the
+# short-baseline cutoff.
+SENSITIVITY_MIN_DISTANCES = [50, 200, 500, 1000, 2000]
 
 # MGEX analysis window (YYYY, M, D). Deliberately disjoint from the
 # original TEP-GNSS-RINEX training period. Extend END forward only as newly

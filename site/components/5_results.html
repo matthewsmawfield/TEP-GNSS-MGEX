@@ -1,12 +1,9 @@
 <h2>4. Results</h2>
 
 <p>
-The analysis comprises 1,753,922 station pairs drawn from 256 stations over 473
-days. Because the MGEX product is a single combined solution, the
-results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, CMB-frame alignment, and ionospheric/geometric robustness controls. The correlation length, anisotropy in the longitude-matched
-subset, and ionospheric persistence are observed. Orbital-velocity
-modulation is not recovered by the primary monthly λ or EW/NS metrics, but is recovered by the supplementary PA-difference metric. The CMB-frame test detects
-a significant anisotropy axis that lies 92° from the CMB dipole.
+The analysis comprises 1,827,555 station-pair-day observations drawn from a network
+of 418 stations over 462 usable days. Because the MGEX product is a single combined solution, the
+results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, CMB-frame alignment, and ionospheric/geometric robustness controls. The correlation length and ionospheric persistence are observed; the longitude-matched anisotropy is not robust under spatially clustered resampling. The primary pre-specified monthly λ and EW/NS orbital metrics are null (Bonferroni p > 0.5). A model-free PA-difference metric (mean EW minus NS phase alignment) gives a strong orbital association across 16 chronological full months, but it is exploratory within this MGEX study because it was adopted after the primary fits proved unstable. The direct CMB-projected association is consistent with that signal. The full-sky scan detects directional modulation, but orbital velocity constrains only a plane-projected direction, so its nominal sky axis is not uniquely localizable.
 </p>
 
 <h3>4.1 Correlation Length</h3>
@@ -17,28 +14,49 @@ The isotropic fit gives a well-constrained correlation length.
 
 <table>
     <thead>
-        <tr><th scope="col">$$\lambda$$ (km)</th><th scope="col">$$\sigma_\lambda$$ (km)</th><th scope="col">A</th><th scope="col">C₀</th><th scope="col">R²</th><th scope="col">Pairs</th></tr>
+        <tr><th scope="col">$$\lambda$$ (km)</th><th scope="col">$$\sigma_\lambda$$ (km)</th><th scope="col">A</th><th scope="col">C₀</th><th scope="col">R²</th><th scope="col">Pair-day observations</th></tr>
     </thead>
     <tbody>
-        <tr><td>1396</td><td>90</td><td>1.097</td><td>−0.053</td><td>0.486</td><td>1,753,922</td></tr>
+        <tr><td>1862</td><td>112</td><td>0.827</td><td>−0.065</td><td>0.699</td><td>1,827,555</td></tr>
     </tbody>
 </table>
 
 <p>
 This λ is shorter than the 3,000–5,000 km reported for GPS PPP in Papers 1–2,
 consistent with the change to the phase-alignment metric and the combined
-multi-GNSS clock product. The quoted λ uncertainty is the formal covariance-based fit uncertainty for the binned exponential model and does not include all sources of network, product, or model-selection uncertainty.
+multi-GNSS clock product. The quoted λ uncertainty is the formal covariance-based fit uncertainty for the binned exponential model and does not include all sources of network, product, or model-selection uncertainty. A sensitivity analysis demonstrates that the correlation length is stable across minimum-baseline cutoffs from 50 to 2,000 km, with fit quality improving substantially as the shortest baselines are excluded (R² = 0.699 at 50 km to approximately 0.92).
+</p>
+
+<table>
+    <thead>
+        <tr><th scope="col">Min. baseline (km)</th><th scope="col">$$\lambda$$ (km)</th><th scope="col">R²</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>50 (primary)</td><td>1862</td><td>0.699</td></tr>
+        <tr><td>200</td><td>1893</td><td>0.791</td></tr>
+        <tr><td>500</td><td>1819</td><td>0.848</td></tr>
+        <tr><td>1000</td><td>1850</td><td>0.917</td></tr>
+        <tr><td>2000</td><td>2000</td><td>0.912</td></tr>
+    </tbody>
+</table>
+
+<p>
+The correlation length varies by less than 8% across the full range of
+cutoffs ($$\lambda$$ = 1,819–2,000 km), while R² improves from 0.70 to
+0.92. The stability of the fitted correlation length across these cutoffs
+demonstrates that the recovered distance-decay scale is not driven solely by
+the shortest-baseline bins.
 </p>
 
 <h3>4.2 EW / NS Anisotropy</h3>
 
 <p>
-The unfiltered full-range ratio is modestly east–west dominated (ratio 1.23)
+The unfiltered full-range ratio is modestly east–west dominated (ratio 1.29)
 but does not reach significance under the station-clustered bootstrap
-(p = 0.48). A suggestive east–west excess emerges once pairs are
-matched in longitude (ratio 2.28, pair-bootstrap p = 0.002), though the
-significance weakens under spatial-clustered resampling (95% CI [0.16, 14.12],
-p = 0.244). The 500–1,000 km stratum also shows the expected excess.
+(p = 0.49). A suggestive east–west excess emerges once pairs are
+matched in longitude (fitted ratio 1.32, bootstrap mean 1.71, pair-bootstrap p = 0.058), though the
+significance dissolves under spatial-clustered resampling (95% CI [0.17, 13.28],
+p = 0.214). The 500–1,000 km stratum also shows the expected excess.
 </p>
 
 <table>
@@ -46,8 +64,8 @@ p = 0.244). The 500–1,000 km stratum also shows the expected excess.
         <tr><th scope="col">Subset</th><th scope="col">$$\lambda_{EW}$$ (km)</th><th scope="col">$$\lambda_{NS}$$ (km)</th><th scope="col">Ratio</th><th scope="col">95% CI</th><th scope="col">p</th></tr>
     </thead>
     <tbody>
-        <tr><td>Full range</td><td>1625</td><td>1317</td><td>1.23</td><td>[0.16, 3.31] (station-boot)</td><td>0.48</td></tr>
-        <tr><td>Longitude-matched (&lt;30°)</td><td>2798</td><td>1226</td><td>2.28</td><td>[1.20, 2.69] (pair-boot)</td><td>0.002</td></tr>
+        <tr><td>Full range</td><td>1810</td><td>1402</td><td>1.29</td><td>[0.18, 2.60] (station-boot)</td><td>0.49</td></tr>
+        <tr><td>Longitude-matched (&lt;30°)</td><td>1753</td><td>1327</td><td>1.32</td><td>[0.91, 2.65] (pair-boot, mean 1.71)</td><td>0.058</td></tr>
     </tbody>
 </table>
 
@@ -56,9 +74,34 @@ p = 0.244). The 500–1,000 km stratum also shows the expected excess.
         <tr><th scope="col">Distance stratum</th><th scope="col">EW/NS ratio</th></tr>
     </thead>
     <tbody>
-        <tr><td>0–500 km</td><td>0.67</td></tr>
-        <tr><td>500–1,000 km</td><td>1.44</td></tr>
-        <tr><td>&gt;1,000 km</td><td>0.80</td></tr>
+        <tr><td>0–500 km</td><td>0.73</td></tr>
+        <tr><td>500–1,000 km</td><td>1.38</td></tr>
+        <tr><td>&gt;1,000 km</td><td>0.82</td></tr>
+    </tbody>
+</table>
+
+<p>
+A sensitivity analysis reveals that the directional ratio is fragile
+under conservative analysis choices. The ratio declines from 1.29 at
+the primary 50-km cutoff to 1.08 at 500 km and 0.89 at 1,000 km, with
+station de-clustering yielding a ratio of 0.99. The anisotropy is
+therefore classified as not robust; the directional signal is
+interpreted as null in the combined MGEX product, consistent with the
+non-significant station-clustered bootstrap (p = 0.49).
+</p>
+
+<table>
+    <thead>
+        <tr><th scope="col">Analysis</th><th scope="col">$$\lambda_{EW}$$ (km)</th><th scope="col">$$\lambda_{NS}$$ (km)</th><th scope="col">Ratio</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Primary (min 50 km)</td><td>1810</td><td>1402</td><td>1.29</td></tr>
+        <tr><td>Min 200 km</td><td>2098</td><td>1384</td><td>1.52</td></tr>
+        <tr><td>Min 500 km</td><td>1880</td><td>1734</td><td>1.08</td></tr>
+        <tr><td>Min 1000 km</td><td>2211</td><td>2479</td><td>0.89</td></tr>
+        <tr><td>Min 2000 km</td><td>2496</td><td>2671</td><td>0.93</td></tr>
+        <tr><td>Station de-clustered</td><td>—</td><td>—</td><td>0.99</td></tr>
+        <tr><td>Robust (min 500 km, bin 50)</td><td>1878</td><td>1733</td><td>1.08</td></tr>
     </tbody>
 </table>
 
@@ -67,11 +110,22 @@ p = 0.244). The 500–1,000 km stratum also shows the expected excess.
 <p>
 The traditional monthly λ and EW/NS ratio do not correlate significantly with
 Earth's orbital speed or its projection onto the CMB dipole (Bonferroni
-p &gt; 0.5 for both). These metrics are degraded by the exponential-fit noise on
-short baselines. A supplementary PA-difference metric (monthly mean EW − NS
-phase alignment, which avoids exponential fitting) recovers a negative
-correlation with orbital speed (r = −0.670, p = 0.017) and with the velocity
-projection onto the CMB dipole (r = −0.770, p = 0.003).
+p > 0.5 for both). These primary pre-specified metrics are degraded by
+exponential-fit parameter degeneracy on the short 16-month baseline, where
+bounded non-linear least squares fitting of $A \exp(-r/\lambda) + C_0$
+suffers from severe variance inflation with too few monthly points.
+The monthly means retain January 2025 through April 2026 as 16 separate
+chronological observations; the one-day May fragment is excluded. A model-free
+PA-difference metric (monthly mean EW − NS phase alignment) avoids exponential
+fitting and has a negative association with orbital speed (r = −0.716,
+p = 0.0018) and with the velocity projection onto the CMB dipole (r = −0.767,
+p = 0.0005). The physical hypothesis and expected sign were motivated by the
+earlier TEP-GNSS papers, which reported comparable orbital associations; this
+is therefore corroborative across products. It remains exploratory within the
+MGEX analysis because this particular operationalisation was selected after
+the primary λ and EW/NS estimators proved unstable. It is not included in the
+family-wise correction applied to confirmatory tests and should be tested
+prospectively in a longer MGEX series.
 </p>
 
 <table>
@@ -79,47 +133,81 @@ projection onto the CMB dipole (r = −0.770, p = 0.003).
         <tr><th scope="col">Quantity</th><th scope="col">r</th><th scope="col">p (raw)</th><th scope="col">p (corr.)</th><th scope="col">Interpretation</th></tr>
     </thead>
     <tbody>
-        <tr><td>λ vs speed</td><td>−0.47</td><td>0.126</td><td>0.252</td><td>Primary: not significant</td></tr>
-        <tr><td>EW/NS ratio vs speed</td><td>0.27</td><td>0.392</td><td>0.785</td><td>Primary: not significant</td></tr>
-        <tr><td>λ vs v_proj</td><td>−0.16</td><td>0.609</td><td>1.00</td><td>Primary: not significant</td></tr>
-        <tr><td>EW/NS ratio vs v_proj</td><td>0.17</td><td>0.598</td><td>1.00</td><td>Primary: not significant</td></tr>
-        <tr><td>PA_diff vs speed</td><td>−0.67</td><td>0.017</td><td>—</td><td>Supplementary: significant</td></tr>
-        <tr><td>PA_diff vs v_proj</td><td>−0.77</td><td>0.003</td><td>—</td><td>Supplementary: significant</td></tr>
+        <tr><td>λ vs speed</td><td>−0.16</td><td>0.554</td><td>1.000</td><td>Primary (pre-specified): not significant</td></tr>
+        <tr><td>EW/NS ratio vs speed</td><td>0.14</td><td>0.610</td><td>1.000</td><td>Primary (pre-specified): not significant</td></tr>
+        <tr><td>λ vs v_proj</td><td>−0.05</td><td>0.850</td><td>1.000</td><td>Primary (pre-specified): not significant</td></tr>
+        <tr><td>EW/NS ratio vs v_proj</td><td>−0.03</td><td>0.911</td><td>1.000</td><td>Primary (pre-specified): not significant</td></tr>
+        <tr><td>PA_diff vs speed</td><td>−0.716</td><td>0.0018</td><td>—</td><td>Exploratory within MGEX; corroborative across products</td></tr>
+        <tr><td>PA_diff vs v_proj</td><td>−0.767</td><td>0.0005</td><td>—</td><td>Exploratory within MGEX; corroborative across products</td></tr>
     </tbody>
 </table>
 
 <h3>4.4 CMB-Frame Alignment</h3>
 
 <p>
-The best-fit anisotropy axis is RA = 60°, Dec = −60° (r = 0.161), with its
-antipode at RA = 240°, Dec = 60°. The closer pole lies 92° from the CMB dipole.
-The axis is significant (LEE p &lt; 0.0001), so the data do contain a
-preferred anisotropy axis, but it points away from the CMB direction.
-Widening the azimuth sectors from 45° to 60° increases day inclusion from 298 to
-300 and shifts the best-fit to RA = 140°, Dec = −60°, leaving the CMB
-separation at 57° (or 123° from the antipodal direction). This is more consistent
-with ionospheric or product-geometry contamination than with a stable TEP/CMB-frame
-effect. The result is sensitive to sector width: 56% of pairs fall outside the
-45° EW/NS sectors and are discarded from the daily ratio computation.
+The CMB analysis uses the same PA-difference observable as Section 4.3 and is
+therefore a directional characterization, not an independent test. With 16
+chronological full-month observations, the direct CMB-projection correlation is
+r = −0.733, computed from daily EW−NS differences averaged equally within
+each calendar month. This differs from the −0.767 result in Section 4.3,
+which averages all pair observations within each month (so months are
+pair-count weighted) before correlating PA difference with the CMB-projected
+velocity. The latter is the stronger weighted PA-difference result (p = 0.0005).
+A 37 × 19 scan gives a nominal maximum
+at RA = 230°, Dec = +60° (r = −0.745), 82.7° from the CMB dipole. This apparent
+angular discrepancy cannot reject CMB consistency: Earth’s orbital velocity
+samples essentially one plane, so the scan identifies only a direction’s
+projection onto that plane, not its full three-dimensional vector. The CMB and
+nominal maximum projections correlate at r = 0.984, and 61 of 703 grid
+directions have |r| at least as large as the direct CMB value. The 30°
+three-dimensional threshold is consequently not an identifiable test in this
+geometry. The grid detects directional annual modulation (plus-one permutation
+p = 0.005 from 200 complete-grid shuffles), while the pre-specified CMB
+projection remains compatible with it. Widening sectors to 60° gives r =
+−0.791 at another member of the same projection-degenerate family. The short
+series further limits precision, so this is corroborative CMB consistency, not
+a unique sky-axis localization.
 </p>
 
 <table>
     <thead>
-        <tr><th scope="col">Sector width</th><th scope="col">Best-fit RA (°)</th><th scope="col">Best-fit Dec (°)</th><th scope="col">r</th><th scope="col">Δθ_CMB (°)</th><th scope="col">Aligned?</th></tr>
+        <tr><th scope="col">Min. baseline (km)</th><th scope="col">Direct r(CMB)</th><th scope="col">Months</th></tr>
     </thead>
     <tbody>
-        <tr><td>45°</td><td>60</td><td>−60</td><td>+0.161</td><td>92.3</td><td>No</td></tr>
-        <tr><td>60°</td><td>140</td><td>−60</td><td>−0.283</td><td>56.8 (123.2 antipode)</td><td>No</td></tr>
+        <tr><td>50 (primary)</td><td>−0.733</td><td>16</td></tr>
+        <tr><td>200</td><td>−0.731</td><td>16</td></tr>
+        <tr><td>500</td><td>−0.730</td><td>16</td></tr>
+        <tr><td>1000</td><td>−0.723</td><td>16</td></tr>
+        <tr><td>2000</td><td>−0.697</td><td>16</td></tr>
+    </tbody>
+</table>
+
+<p>
+The daily EW−NS difference, retained as a supplementary diagnostic, gives a
+direct CMB correlation of r = −0.495 (n = 462). Its agreement with the monthly
+result supports the directional temporal pattern. Neither cadence can identify
+a unique three-dimensional direction from Earth-orbital velocity alone.
+</p>
+
+<table>
+    <thead>
+        <tr><th scope="col">Cadence</th><th scope="col">Sector width</th><th scope="col">Nominal RA (°)</th><th scope="col">Nominal Dec (°)</th><th scope="col">r</th><th scope="col">Δθ_CMB (°)</th><th scope="col">p (perm.)</th><th scope="col">Interpretation</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>Monthly</td><td>45°</td><td>230</td><td>60</td><td>−0.745</td><td>82.7</td><td>0.005</td><td>Axis not uniquely identifiable; CMB projection consistent</td></tr>
+        <tr><td>Monthly</td><td>60°</td><td>230</td><td>60</td><td>−0.791</td><td>82.7</td><td>0.005</td><td>Axis not uniquely identifiable; CMB projection consistent</td></tr>
+        <tr><td>Daily</td><td>45°</td><td>230</td><td>60</td><td>−0.505</td><td>82.7</td><td>—</td><td>Axis not uniquely identifiable</td></tr>
     </tbody>
 </table>
 
 <h3>4.5 Ionospheric and Geometry Controls</h3>
 
 <p>
-The correlation length persists on geomagnetically quiet days ($$\lambda = 1356$$ km,
-Kp ≤ 2, 688,537 pairs). Active days (Kp ≥ 5, 39,000 pairs) give a longer
-$$\lambda = 1943$$ km; the smaller sample increases the variance and the value awaits confirmation with additional active-period data. The distance-matched subset
-yields a comparable $$\lambda = 1847$$ km (R² = 0.677), indicating the signal is not a
+The correlation length persists on geomagnetically quiet days ($$\lambda = 1708$$ km,
+Kp ≤ 2, 712,186 pairs, R² = 0.743). Active days (Kp ≥ 5, 39,093 pairs) give a longer
+$$\lambda = 1931$$ km (R² = 0.295); the smaller sample increases the variance and the value awaits confirmation with additional active-period data. Storm-excluded days (Kp &lt; 5) give
+$$\lambda = 1858$$ km (R² = 0.705, 1,788,462 pairs), consistent with the base value. The distance-matched subset
+yields a comparable $$\lambda = 1889$$ km (R² = 0.599), indicating the signal is not a
 product of network geometry. Hemispheric $$\lambda$$ differs north to south, as expected
 from the uneven station distribution; the distance-matched control is the
 geometry-robust comparison.
@@ -130,13 +218,13 @@ geometry-robust comparison.
         <tr><th scope="col">Control</th><th scope="col">$$\lambda$$ (km)</th><th scope="col">R²</th></tr>
     </thead>
     <tbody>
-        <tr><td>Base (all days)</td><td>1396</td><td>0.486</td></tr>
-        <tr><td>Quiet days (Kp ≤ 2)</td><td>1356</td><td>0.534</td></tr>
-        <tr><td>Active days (Kp ≥ 5)</td><td>1943</td><td>0.367</td></tr>
-        <tr><td>Storm-excluded (Kp &lt; 5)</td><td>1395</td><td>0.496</td></tr>
-        <tr><td>Distance-matched</td><td>1847</td><td>0.677</td></tr>
-        <tr><td>Northern hemisphere</td><td>1026</td><td>0.480</td></tr>
-        <tr><td>Southern hemisphere</td><td>2330</td><td>0.418</td></tr>
+        <tr><td>Base (all days)</td><td>1862</td><td>0.699</td></tr>
+        <tr><td>Quiet days (Kp ≤ 2)</td><td>1708</td><td>0.743</td></tr>
+        <tr><td>Active days (Kp ≥ 5)</td><td>1931</td><td>0.295</td></tr>
+        <tr><td>Storm-excluded (Kp &lt; 5)</td><td>1858</td><td>0.705</td></tr>
+        <tr><td>Distance-matched</td><td>1889</td><td>0.599</td></tr>
+        <tr><td>Northern hemisphere</td><td>1365</td><td>0.678</td></tr>
+        <tr><td>Southern hemisphere</td><td>2353</td><td>0.038</td></tr>
     </tbody>
 </table>
 
@@ -144,19 +232,36 @@ geometry-robust comparison.
 
 <p>
 Null tests were run using the same MGEX combined-clock phase-alignment pipeline.
-In all four cases the fitted distance-decay structure collapsed to R² ≈ 0,
-confirming that the recovered correlation length depends on the true temporal,
-spatial and phase information. Fitted λ values under null conditions are not interpreted because the exponential model has no explanatory power when R² ≈ 0.
+Three of the four nulls (temporal shuffle, spatial shuffle, and phase
+randomisation) collapsed to R² ≤ 0, confirming that the recovered correlation
+length depends on the true temporal, spatial and phase information. The
+solar-rotation reassignment null, however, retains R² = 0.50 under the
+primary parameters. A sensitivity analysis attributes this to a small-sample
+bin artifact: short-baseline bins at 100–115 km (40 pairs) and 132–152 km
+(23 pairs) receive extreme coherence values (0.29 and 0.21) under the
+specific shuffle sequence, producing a spurious short-baseline spike that
+the exponential fit interprets as structure. Under a robust analysis (minimum baseline 500 km, minimum bin
+count 50) all four nulls give R² ≤ 0.122, confirming that the
+distance-decay structure depends on the true temporal, spatial, and phase
+information and is not a solar-period artifact.
 </p>
 
 <table>
     <thead>
-        <tr><th scope="col">Null</th><th scope="col">Distance-decay structure</th><th scope="col">R²</th><th scope="col">Passes?</th></tr>
+        <tr><th scope="col">Null</th><th scope="col">R² (primary)</th><th scope="col">Passes?</th><th scope="col">R² (robust)</th><th scope="col">Passes?</th></tr>
     </thead>
     <tbody>
-        <tr><td>Temporal shuffle</td><td>collapsed</td><td>−0.028</td><td>Yes</td></tr>
-        <tr><td>Spatial shuffle</td><td>collapsed</td><td>−0.003</td><td>Yes</td></tr>
-        <tr><td>Phase randomisation</td><td>collapsed</td><td>−0.002</td><td>Yes</td></tr>
-        <tr><td>Solar-rotation reassignment</td><td>collapsed</td><td>−0.086</td><td>Yes</td></tr>
+        <tr><td>Temporal shuffle</td><td>−0.343</td><td>Yes</td><td>−0.011</td><td>Yes</td></tr>
+        <tr><td>Spatial shuffle</td><td>−0.000</td><td>Yes</td><td>0.028</td><td>Yes</td></tr>
+        <tr><td>Phase randomisation</td><td>−0.001</td><td>Yes</td><td>0.122</td><td>Yes</td></tr>
+        <tr><td>Solar-rotation reassignment</td><td>0.499</td><td>No</td><td>0.010</td><td>Yes</td></tr>
     </tbody>
 </table>
+
+<p>
+The robust analysis (minimum baseline 500 km, minimum bin count 50)
+eliminates the small-sample bin artifact that caused the solar-rotation
+null to fail under the primary parameters. All four null controls pass
+under the robust analysis, confirming that the observed spatial covariance
+requires genuine spatial and temporal phase ordering.
+</p>

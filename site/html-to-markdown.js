@@ -93,11 +93,31 @@ class HTMLToMarkdownConverter {
         });
         
         // Remove remaining HTML tags
+        // Preserve sub/sup tags before generic stripping
+        const subTags = [];
+        html = html.replace(/<sub>(.*?)<\/sub>/gi, (match, inner) => {
+            subTags.push(inner);
+            return `__SUB_${subTags.length - 1}__`;
+        });
+        const supTags = [];
+        html = html.replace(/<sup>(.*?)<\/sup>/gi, (match, inner) => {
+            supTags.push(inner);
+            return `__SUP_${supTags.length - 1}__`;
+        });
+
         html = html.replace(/<[^>]+>/g, '');
         
         // Restore MathJax expressions
         mathExpressions.forEach((expr, index) => {
             html = html.replace(`__MATH_EXPRESSION_${index}__`, expr);
+        });
+
+        // Restore sub/sup tags
+        subTags.forEach((inner, index) => {
+            html = html.replace(`__SUB_${index}__`, `<sub>${inner}</sub>`);
+        });
+        supTags.forEach((inner, index) => {
+            html = html.replace(`__SUP_${index}__`, `<sup>${inner}</sup>`);
         });
         
         // Decode HTML entities
@@ -177,13 +197,13 @@ class HTMLToMarkdownConverter {
         const version = versionMatch ? versionMatch[1]
             .replace(/<[^>]+>/g, '')
             .replace(/^Version:\s*/i, '')
-            .trim() : 'v0.1 (Suva)';
+            .trim() : 'v0.2 (Suva)';
         
         const dateMatch = html.match(/<div[^>]*class=["'][^"']*date[^"']*["'][^>]*>(.*?)<\/div>/i);
         const date = dateMatch ? dateMatch[1].replace(/<[^>]+>/g, '').trim() : 'First published: 7 June 2026';
         
         const doiMatch = html.match(/DOI:\s*<a[^>]*href=["']([^"']*)["'][^>]*>(.*?)<\/a>/i);
-        const doi = doiMatch ? doiMatch[2] : '10.5281/zenodo.20572727';
+        const doi = doiMatch ? doiMatch[2] : '10.5281/zenodo.20572726';
         
         return { title, author, version, date, doi };
     }
@@ -223,14 +243,14 @@ class HTMLToMarkdownConverter {
             if (fs.existsSync(versionPath)) {
                 const versionData = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
                 return {
-                    version: versionData.version || '0.1.0',
+                    version: versionData.version || '0.2.0',
                     codename: versionData.codename || 'Suva'
                 };
             }
         } catch (e) {
             console.warn('⚠️  Could not read VERSION.json, using defaults');
         }
-        return { version: '0.1.0', codename: 'Suva' };
+        return { version: '0.2.0', codename: 'Suva' };
     }
 
     /**

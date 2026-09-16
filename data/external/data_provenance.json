@@ -16,22 +16,23 @@
     "CODE MGEX (15m)"
   ],
   "auth_method": "netrc",
-  "auth_user": "matthewsmawfield123",
   "clk_results": {
     "2025": {
       "downloaded": 365,
       "failed": 0,
       "by_ac": {
-        "COD": 351,
-        "WUM": 12,
-        "GRG": 2
+        "WUM": 19,
+        "GRG": 3,
+        "COD": 343
       }
     },
     "2026": {
       "downloaded": 121,
       "failed": 0,
       "by_ac": {
-        "COD": 121
+        "COD": 114,
+        "GRG": 6,
+        "WUM": 1
       }
     }
   },
@@ -53,14 +54,14 @@
     }
   },
   "clk_ac_breakdown": {
-    "COD": 472,
-    "WUM": 12,
-    "GRG": 2
+    "WUM": 20,
+    "GRG": 9,
+    "COD": 457
   },
   "sp3_ac_breakdown": {
     "COD": 472,
     "WUM": 13
   },
-  "hash_registry": "/Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/data/external/file_hashes.json",
-  "downloaded_at": "2026-06-07T18:06:08.220120+00:00"
+  "hash_registry": "data/external/file_hashes.json",
+  "downloaded_at": "2026-09-13T21:08:06.736059+00:00"
 }

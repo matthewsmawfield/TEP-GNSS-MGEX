@@ -1,18 +1,24 @@
 {
   "project": "TEP-GNSS-MGEX",
   "paper": 14,
-  "version": "0.1.0",
+  "version": "0.2",
   "codename": "Suva",
   "description": "Multi-Constellation Analysis of Public MGEX Clock Data",
-  "release_date": "2026-06-07",
-  "doi": "10.5281/zenodo.20572727",
+  "release_date": "2026-09-16",
+  "date": "2026-09-16",
+  "doi": "10.5281/zenodo.20572726",
   "status": "preprint",
   "methodology": {
     "based_on": "TEP-GNSS-RINEX v0.6 (Kathmandu)",
     "data_source": "Public MGEX combined CLK files (COD0MGXFIN from CODE, with WUM/GRG fallbacks) from NASA CDDIS",
-    "constellations": ["GPS", "GLONASS", "Galileo", "BeiDou"],
-    "time_span": "2025-01-01 to 2026-05-01 (473 days, 5-minute sampling)",
-    "key_innovation": "Independent product and epoch analysis of MGEX combined receiver-clock solution",
+    "constellations": [
+      "GPS",
+      "GLONASS",
+      "Galileo",
+      "BeiDou"
+    ],
+    "time_span": "2025-01-01 to 2026-05-01 (462 days, 5-minute sampling)",
+    "key_innovation": "Product-type and held-out-epoch analysis of an MGEX combined receiver-clock solution",
     "processing": "Receiver-clock offset extraction from AR records, phase-alignment spectral analysis, no positioning"
   },
   "dependencies": {
@@ -28,5 +34,6 @@
     "TEP-GNSS": "../TEP-GNSS",
     "TEP-GNSS-II": "../TEP-GNSS-II",
     "TEP-GNSS-RINEX": "../TEP-GNSS-RINEX"
-  }
+  },
+  "previous_version": "0.1"
 }

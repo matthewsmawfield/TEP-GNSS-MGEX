@@ -13,8 +13,10 @@ License: CC-BY-4.0
 
 import urllib.request
 import urllib.error
+import http.client
 import ssl
 import json
+import subprocess
 from datetime import datetime, date
 from pathlib import Path
 
@@ -45,44 +47,67 @@ def fetch_kp_gfz(start_date: date, end_date: date) -> dict:
     print_status(f"Fetching Kp from GFZ Potsdam ({start_date} to {end_date})...", "INFO")
 
     kp_map = {}
+    content_lines = None
+
+    # Primary: curl (handles large files more robustly than urllib)
     try:
-        ctx = ssl.create_default_context()
-        with urllib.request.urlopen(url, context=ctx, timeout=60) as resp:
-            content = resp.read().decode("utf-8").splitlines()
-
-        # GFZ format: YYYY MM DD hh.h hh._m days days_m Kp ap D
-        # Kp is at index 7 (0-based), ap at index 8. 8 intervals/day.
-        # Missing data indicated by -1.000 for Kp.
-        daily_kp = {}
-        for line in content:
-            if line.startswith("#") or not line.strip():
-                continue
-            parts = line.split()
-            if len(parts) < 10:
-                continue
-            try:
-                year = int(parts[0])
-                month = int(parts[1])
-                day = int(parts[2])
-                kp_val = float(parts[7])
-                if kp_val < 0:  # missing data flag
-                    continue
-                dt = date(year, month, day)
-                if start_date <= dt <= end_date:
-                    dk = _date_to_day_key(dt)
-                    daily_kp.setdefault(dk, []).append(kp_val)
-            except (ValueError, IndexError):
-                continue
-
-        for dk, vals in daily_kp.items():
-            kp_map[dk] = round(sum(vals) / len(vals), 1)
-
-        print_status(f"GFZ Kp: {len(kp_map)} days fetched", "SUCCESS")
-        return kp_map
-
+        result = subprocess.run(
+            ["curl", "-sL", "--max-time", "180", url],
+            capture_output=True, text=True, timeout=200
+        )
+        if result.returncode == 0 and result.stdout:
+            content_lines = result.stdout.splitlines()
+            print_status(f"GFZ: curl fetch succeeded ({len(content_lines)} lines)", "INFO")
     except Exception as e:
-        print_status(f"GFZ Kp fetch failed: {e}", "WARNING")
+        print_status(f"GFZ curl fetch failed: {e}", "WARNING")
+
+    # Fallback: urllib with IncompleteRead handling
+    if content_lines is None:
+        try:
+            ctx = ssl.create_default_context()
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            try:
+                with urllib.request.urlopen(req, context=ctx, timeout=120) as resp:
+                    content = resp.read().decode("utf-8")
+            except http.client.IncompleteRead as e:
+                content = e.partial.decode("utf-8")
+                print_status(f"GFZ: partial read ({len(content)} chars), using available data", "WARNING")
+            content_lines = content.splitlines()
+        except Exception as e:
+            print_status(f"GFZ urllib fallback failed: {e}", "WARNING")
+
+    if content_lines is None:
         return {}
+
+    # GFZ format: YYYY MM DD hh.h hh._m days days_m Kp ap D
+    # Kp is at index 7 (0-based), ap at index 8. 8 intervals/day.
+    # Missing data indicated by -1.000 for Kp.
+    daily_kp = {}
+    for line in content_lines:
+        if line.startswith("#") or not line.strip():
+            continue
+        parts = line.split()
+        if len(parts) < 10:
+            continue
+        try:
+            year = int(parts[0])
+            month = int(parts[1])
+            day = int(parts[2])
+            kp_val = float(parts[7])
+            if kp_val < 0:  # missing data flag
+                continue
+            dt = date(year, month, day)
+            if start_date <= dt <= end_date:
+                dk = _date_to_day_key(dt)
+                daily_kp.setdefault(dk, []).append(kp_val)
+        except (ValueError, IndexError):
+            continue
+
+    for dk, vals in daily_kp.items():
+        kp_map[dk] = round(sum(vals) / len(vals), 1)
+
+    print_status(f"GFZ Kp: {len(kp_map)} days fetched", "SUCCESS")
+    return kp_map
 
 
 def fetch_kp_noaa(start_date: date, end_date: date) -> dict:

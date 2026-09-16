@@ -1,0 +1,18 @@
+[00:37:15] [INFO] Step 2.3: Orbital-Velocity Coupling
+[00:37:18] [INFO]   combined: 1827555 records loaded
+[00:37:18] [INFO]   combined: 12 months with data
+[00:37:19] [INFO]     Month 01: λ=1965km, EW/NS ratio=1.10, PA_diff=-0.0734, speed=30.28km/s, v_proj=+24.54km/s
+[00:37:19] [INFO]     Month 02: λ=1613km, EW/NS ratio=1.38, PA_diff=-0.0990, speed=30.21km/s, v_proj=+12.59km/s
+[00:37:19] [INFO]     Month 03: λ=1373km, EW/NS ratio=0.91, PA_diff=-0.0825, speed=30.03km/s, v_proj=-1.73km/s
+[00:37:19] [INFO]     Month 04: λ=1738km, EW/NS ratio=1.64, PA_diff=-0.0306, speed=29.78km/s, v_proj=-16.25km/s
+[00:37:19] [INFO]     Month 05: λ=1529km, EW/NS ratio=0.94, PA_diff=0.0217, speed=29.53km/s, v_proj=-25.86km/s
+[00:37:19] [INFO]     Month 06: λ=2079km, EW/NS ratio=0.52, PA_diff=0.0500, speed=29.35km/s, v_proj=-28.67km/s
+[00:37:19] [INFO]     Month 07: λ=1440km, EW/NS ratio=1.10, PA_diff=0.0398, speed=29.28km/s, v_proj=-23.92km/s
+[00:37:19] [INFO]     Month 08: λ=2497km, EW/NS ratio=0.06, PA_diff=0.0179, speed=29.35km/s, v_proj=-12.56km/s
+[00:37:19] [INFO]     Month 09: λ=1607km, EW/NS ratio=1.37, PA_diff=-0.0459, speed=29.53km/s, v_proj=+2.40km/s
+[00:37:19] [INFO]     Month 10: λ=1726km, EW/NS ratio=1.20, PA_diff=-0.1593, speed=29.78km/s, v_proj=+16.52km/s
+[00:37:19] [INFO]     Month 11: λ=1868km, EW/NS ratio=1.14, PA_diff=-0.1222, speed=30.03km/s, v_proj=+26.75km/s
+[00:37:19] [INFO]     Month 12: λ=1452km, EW/NS ratio=0.85, PA_diff=-0.0329, speed=30.21km/s, v_proj=+29.59km/s
+[00:37:19] [INFO]   combined: 12 valid monthly fits, 12 valid PA_diff values
+[00:37:19] [INFO]     combined: λ–speed r=-0.279 (p=0.380, bonf=0.760), ratio–speed r=0.382 (p=0.220, bonf=0.440) | λ–v_proj r=-0.100 (p=0.757, bonf=1.000), ratio–v_proj r=0.256 (p=0.422, bonf=0.843) | PA_diff–speed r=-0.694 (p=0.0123), PA_diff–v_proj r=-0.784 (p=0.0026)
+[00:37:19] [INFO] Orbital coupling results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_3_orbital_coupling.json

@@ -1,0 +1,74 @@
+{
+  "GPS": {
+    "status": "success",
+    "lambda_km": 99999.99999999997,
+    "lambda_err_km": 402076.96909172577,
+    "amplitude": 0.3600288667246195,
+    "offset": 0.333985586193001,
+    "r_squared": 0.1273791766113892,
+    "n_pairs": 206545,
+    "boundary_convergence": true,
+    "fit": {
+      "amplitude": 0.3600288667246195,
+      "correlation_length_km": 99999.99999999997,
+      "correlation_length_err_km": 402076.96909172577,
+      "offset": 0.333985586193001,
+      "r_squared": 0.1273791766113892,
+      "success": true
+    }
+  },
+  "GLONASS": {
+    "status": "success",
+    "lambda_km": 6028.276731138836,
+    "lambda_err_km": 7636.430451357458,
+    "amplitude": 0.20384924191449352,
+    "offset": 0.8733534583431057,
+    "r_squared": -0.7730970519539295,
+    "n_pairs": 96705,
+    "boundary_convergence": false,
+    "fit": {
+      "amplitude": 0.20384924191449352,
+      "correlation_length_km": 6028.276731138836,
+      "correlation_length_err_km": 7636.430451357458,
+      "offset": 0.8733534583431057,
+      "r_squared": -0.7730970519539295,
+      "success": true
+    }
+  },
+  "Galileo": {
+    "status": "success",
+    "lambda_km": 99916.41773457752,
+    "lambda_err_km": 0.0,
+    "amplitude": 1.5452511282256505e-12,
+    "offset": 0.5987118527720834,
+    "r_squared": -0.07256281407601217,
+    "n_pairs": 141831,
+    "boundary_convergence": true,
+    "fit": {
+      "amplitude": 1.5452511282256505e-12,
+      "correlation_length_km": 99916.41773457752,
+      "correlation_length_err_km": 0.0,
+      "offset": 0.5987118527720834,
+      "r_squared": -0.07256281407601217,
+      "success": true
+    }
+  },
+  "BeiDou": {
+    "status": "success",
+    "lambda_km": 59736.03640511659,
+    "lambda_err_km": 364561.58279256825,
+    "amplitude": 0.0798045499075639,
+    "offset": 0.7859078439654099,
+    "r_squared": -0.3831025208761878,
+    "n_pairs": 211603,
+    "boundary_convergence": false,
+    "fit": {
+      "amplitude": 0.0798045499075639,
+      "correlation_length_km": 59736.03640511659,
+      "correlation_length_err_km": 364561.58279256825,
+      "offset": 0.7859078439654099,
+      "r_squared": -0.3831025208761878,
+      "success": true
+    }
+  }
+}

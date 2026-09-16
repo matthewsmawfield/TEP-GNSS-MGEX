@@ -8,8 +8,8 @@ All data are public and freely available from NASA CDDIS
 GNSS Service (IGS). The analysis uses the Multi-GNSS Experiment (MGEX) combined
 receiver-clock product COD0MGXFIN produced by the Center for Orbit Determination
 in Europe (CODE), with the Wuhan (WUM) and CNES (GRG) MGEX products as fallbacks
-on the few days CODE is unavailable (WUM 12 days, GRG 2 days out of 486 calendar
-days in the window, i.e. ≈3 % fallback usage). These are daily clock (CLK) files at a
+on the few days CODE is unavailable (WUM 20 days, GRG 9 days out of 486 calendar
+days in the window, i.e. ≈6 % fallback usage). These are daily clock (CLK) files at a
 5-minute sampling interval. Each file reports a single combined multi-GNSS
 receiver-clock estimate per station, derived by CODE from GPS, GLONASS, Galileo
 and BeiDou observations; the combined solution is the quantity analysed. No
@@ -19,11 +19,11 @@ positioning is performed and no raw RINEX observation files are used.
 <h3>2.2 Analysis Window and Station Set</h3>
 
 <p>
-The analysis period is 2025-01-01 to 2026-05-01 (473 days with usable data out of 486 calendar days in the window),
+The analysis period is 2025-01-01 to 2026-05-01 (462 days with usable data out of 486 calendar days in the window),
 yielding approximately 16 months of daily files. The window is chosen to
 provide a largely held-out 2025–2026 epoch, though it is not fully temporally
 disjoint from Papers 1–2, which span 2000–2025. Receiver-clock offsets are extracted from the AR (receiver-clock)
-records of each CLK file for 256 globally distributed stations, converted to
+records of each CLK file for 418 globally distributed stations, converted to
 nanoseconds, and assembled into per-station daily time series.
 </p>
 
