@@ -1,0 +1,12 @@
+[10:02:40] [INFO] Step 3.3: Atmospheric-Channel Within-Product Control
+[10:02:40] [INFO]   Station latitudes: 513 (NH 341, SH 172)
+[10:02:42] [INFO]   Loaded 1827555 pair-day records
+[10:02:43] [INFO]   Classes: intra-NH 850240, intra-SH 322247, cross-hemisphere 655068
+[10:02:43] [INFO]     intra_NH: n=850240, lambda=1308 km, R2=0.653
+[10:02:43] [INFO]     intra_SH: n=322247, lambda=2437 km, R2=0.032
+[10:02:43] [INFO]     cross_hemi: n=655068, lambda=2101 km, R2=0.769
+[10:02:43] [INFO]     Long-distance (d>4000 km): same-band mean PA=-0.0957 (n=217430), diff-band mean PA=-0.0261 (n=899956), delta=-0.0697
+[10:02:43] [INFO]     Same-band d>8000 km cell: mean PA=-0.1180 (n=107013)
+[10:02:43] [SUCCESS]   Results saved to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_3_atmospheric_control.json
+[10:02:43] [SUCCESS] 
+Step 14 completed in 3.5s

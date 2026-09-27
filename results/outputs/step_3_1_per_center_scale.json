@@ -1,0 +1,615 @@
+{
+  "span_test": {
+    "status": "success",
+    "windows": {
+      "2025_Q1": {
+        "lambda_km": 1346.6647358270984,
+        "lambda_err_km": 95.92417564986381,
+        "R2": 0.6852486906257538,
+        "n_pairs": 266136
+      },
+      "2025_Q2": {
+        "lambda_km": 1049.5482799368021,
+        "lambda_err_km": 91.18648556736117,
+        "R2": -0.17976854850134782,
+        "n_pairs": 318400
+      },
+      "2025_Q3": {
+        "lambda_km": 1805.4651097702504,
+        "lambda_err_km": 226.73529209647631,
+        "R2": 0.017568770216607743,
+        "n_pairs": 347361
+      },
+      "2025_Q4": {
+        "lambda_km": 1599.35938133672,
+        "lambda_err_km": 98.97949468675148,
+        "R2": 0.5783474864467396,
+        "n_pairs": 330812
+      },
+      "2025_full": {
+        "lambda_km": 1319.943895307021,
+        "lambda_err_km": 85.05496075071146,
+        "R2": 0.3128557673316221,
+        "n_pairs": 1262709
+      },
+      "2026": {
+        "lambda_km": 1935.4802667285783,
+        "lambda_err_km": 110.51671286924146,
+        "R2": 0.7972970648731896,
+        "n_pairs": 564846
+      },
+      "all": {
+        "lambda_km": 1861.6264165604869,
+        "lambda_err_km": 111.74636818701192,
+        "R2": 0.6989570008927708,
+        "n_pairs": 1827555
+      }
+    },
+    "note": "phase_alignment metric, MIN_BIN_COUNT=10"
+  },
+  "per_center_pooled": {
+    "GRG": {
+      "status": "success",
+      "n_pairs": 80000,
+      "lambda_km": 3009.779339010814,
+      "lambda_err_km": 675.2752980724338,
+      "R2": 0.34015443610279494,
+      "amplitude": 0.2726720899800548,
+      "offset": -0.0059584331925507045
+    },
+    "WUM": {
+      "status": "insufficient",
+      "n_pairs": 0
+    },
+    "COD": {
+      "status": "success",
+      "n_pairs": 143938,
+      "lambda_km": 3133.844056155955,
+      "lambda_err_km": 498.58957327848964,
+      "R2": 0.3422741857386695,
+      "amplitude": 0.3509848904553467,
+      "offset": -0.02922539421121299
+    },
+    "COD_on_GRG_days": {
+      "status": "success",
+      "n_pairs": 99938,
+      "lambda_km": 3527.4329972096866,
+      "lambda_err_km": 577.8013623910048,
+      "R2": 0.4117847262558527,
+      "amplitude": 0.3001677117044559,
+      "offset": -0.02598778735850868
+    },
+    "COD_vs_GRG_indep": {
+      "status": "success",
+      "n_pairs": 43971,
+      "lambda_km": 2743.657571041541,
+      "lambda_err_km": 704.9734855010178,
+      "R2": 0.24354951406539627,
+      "amplitude": 0.23145984350060783,
+      "offset": 0.009915863148884702
+    },
+    "GRG_indep": {
+      "status": "success",
+      "n_pairs": 44000,
+      "lambda_km": 1933.1065529579596,
+      "lambda_err_km": 357.3479514830004,
+      "R2": 0.5794706837211757,
+      "amplitude": 0.3813599364600534,
+      "offset": 0.008923412630148312
+    }
+  },
+  "per_center_days": {
+    "2025001": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 121,
+        "npz_same_product": false
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 184
+      }
+    },
+    "2025002": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 130
+      }
+    },
+    "2025003": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 133
+      }
+    },
+    "2025004": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025012": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025013": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025014": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025015": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025016": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025017": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025018": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025054": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 120,
+        "npz_same_product": null
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025055": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 124
+      }
+    },
+    "2025056": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 127
+      }
+    },
+    "2025057": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 124
+      }
+    },
+    "2025059": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 118,
+        "npz_same_product": null
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 120
+      }
+    },
+    "2025060": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 121,
+        "npz_same_product": null
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025061": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 123,
+        "npz_same_product": null
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 131
+      }
+    },
+    "2025063": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 129,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 124
+      }
+    },
+    "2025064": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 124,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 125
+      }
+    },
+    "2025065": {
+      "GRG": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025067": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 124
+      }
+    },
+    "2025068": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 123
+      }
+    },
+    "2025069": {
+      "GRG": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 129
+      }
+    },
+    "2025070": {
+      "GRG": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 129
+      }
+    },
+    "2025073": {
+      "GRG": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025074": {
+      "GRG": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 127
+      }
+    },
+    "2025079": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 125,
+        "npz_same_product": true
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025080": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 120,
+        "npz_same_product": true
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 126
+      }
+    },
+    "2025081": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 124
+      }
+    },
+    "2025082": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 132
+      }
+    },
+    "2025138": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 130,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 130
+      }
+    },
+    "2025139": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025140": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 128,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 129
+      }
+    },
+    "2025141": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025142": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025143": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2025144": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      }
+    },
+    "2026002": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 120,
+        "npz_same_product": true
+      },
+      "COD": {
+        "n_pairs": 3967,
+        "n_stations": 323
+      }
+    },
+    "2026003": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 124,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 185
+      }
+    },
+    "2026004": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 124,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 188
+      }
+    },
+    "2026005": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 125,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 189
+      }
+    },
+    "2026100": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 130,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 133
+      }
+    },
+    "2026102": {
+      "WUM": {
+        "n_pairs": 0,
+        "n_stations": 0,
+        "npz_same_product": null
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 131
+      }
+    },
+    "2026104": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 124,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 3971,
+        "n_stations": 330
+      }
+    },
+    "2026106": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 123,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 186
+      }
+    },
+    "2026108": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 125,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 190
+      }
+    },
+    "2026109": {
+      "GRG": {
+        "n_pairs": 4000,
+        "n_stations": 122,
+        "npz_same_product": false
+      },
+      "COD": {
+        "n_pairs": 4000,
+        "n_stations": 188
+      }
+    }
+  },
+  "same_product_days_excluded": 3,
+  "verdict": "The pre-registered discriminator runs as follows on the retained archive.  (1) Span dependence is confirmed as a dominant systematic: the same estimator on the same product returns lambda from ~1,050 to ~1,935 km across quarterly windows (R2 ranging -0.18 to 0.80), so the 1-year MGEX headline 1,396 km is an unstable estimate of a window-dependent scale, not a product-fixed value.  (2) On strictly matched days with same-product fallbacks excluded by detrended-residual comparison (3 days identified, plus undetermined days conservatively excluded), two independent processing chains with different constellation weightings and software (COD/GPSEST vs GRG/GINS) return pooled lambda = 2744 km (COD, n=43971) and 1933 km (GRG, n=44000) \u2014 the same order and sign, ~30% apart, both above the 1-year headline \u2014 demonstrating the recovered scale is a property of the data, not of one center's processing, and that the 1,396-vs-4,200 km tension is dominated by sampling instability rather than a physical product split.  On all 36 archived dual-center days the COD pool gives 3134 km (n=143938).  (3) A literal per-constellation station-clock split is structurally impossible: MGEX station clocks are single combined-solution parameters (one AR series per station), and the WUM archive carries satellite records only.  The space-segment channel was already excluded by Step 2.8 \u2014 within-constellation satellite-clock coherence shows no distance-decaying structure for any constellation (fits at the 1e5 km boundary or ill-conditioned), so the station-clock scale is not inherited from satellite-clock spatial correlation.  Consequence for Paper 6 issue 6-7: the rho_T anchor should carry an epoch/window systematic of order 30-40% (the observed window scatter), not the 12% inter-center figure, and the Level-1/2/3 hierarchy does not need to absorb a product-level falsification \u2014 the held-out scale is reproducible across independent centers."
+}

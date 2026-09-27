@@ -36,7 +36,12 @@ cross-spectral phase is computed across the selected frequency band. The
 phase-alignment index is the cosine of the weighted mean phase, ranging from
 −1 (anti-phase) to +1 (in-phase). It measures signed mean phase-offset
 alignment, not phase concentration; the latter requires the magnitude of the
-complex resultant. The established phase-alignment statistic is retained
+complex resultant. The index is bounded and saturating — it reports the
+directional dominance of the in-phase component of the band-integrated
+cross-spectrum rather than the correlated-power fraction — so its fitted
+exponential amplitude is a phase-direction measure, not a calibrated
+coupling, and is decomposed against a linear coherence estimator in §4.5b.
+The established phase-alignment statistic is retained
 consistently with the earlier GNSS analyses, and is the quantity carried
 through all subsequent tests. Pairs are
 binned by great-circle distance into 40 logarithmically spaced bins from 50 km
@@ -59,7 +64,18 @@ offset. Fitting uses bounded non-linear least squares (Trust Region Reflective),
 weighting each bin by the inverse of its standard error of the mean
 (1/SEM, where SEM = σ_bin / sqrt(count)). Fit quality is
 quantified by R², and the uncertainty on λ is propagated from the covariance
-matrix.
+matrix. Because pair-day records share stations within each day and
+orbit/product states across consecutive days, the formal covariance error is
+supplemented by cluster-robust resampling of whole epochs: a day-block
+bootstrap, a calendar-month-block bootstrap, and a leave-one-month-out
+jackknife, each refitting Eq. (1) on the resampled record pool. The choice of
+morphology is likewise tested rather than assumed: on identical bins and
+weights the exponential is compared by AIC against a stretched exponential
+with free exponent, the algebraic family A/[1+(r/r_t)^k]+C₀ with free k
+and at the derived Paper-0 pairwise exponents k = 4 and k = 4/3, and a
+Gaussian. Sensitivity rows at raised minimum-baseline cutoffs are flagged
+when the fitted λ contacts the lower parameter bound (which equals the
+cutoff), since a boundary-pinned value is not an interior measurement.
 </p>
 
 <h3>3.5 Anisotropy, Orbital, CMB, Ionospheric, and Null Tests</h3>
@@ -86,6 +102,23 @@ and directly measures anisotropy strength. The physical hypothesis and sign
 were motivated by earlier TEP-GNSS analyses, but this operationalisation was
 selected after the primary MGEX estimators proved unstable; it is therefore
 exploratory within MGEX and excluded from confirmatory family-wise inference.
+Because the 16-month series is short and its monthly values are plausibly
+autocorrelated, the nominal Gaussian p-values for the exploratory
+PA-difference associations are accompanied by four robustness diagnostics
+computed in the same step: an effective-degrees-of-freedom correction from
+the residual lag-1 autocorrelation (n_eff = n(1−ρ̂)/(1+ρ̂), t-test on
+n_eff−2), a Monte-Carlo ensemble of AR(1) surrogates matched to the observed
+residual autocorrelation, a phase-preserving circular-shift permutation of
+the monthly series against the fixed periodic predictor (resolution floor
+1/n), and a leave-one-month-out correlation range testing whether a single
+phase alignment dominates. Two operational-asymmetry controls further price
+the vulnerability of the raw EW − NS contrast to unequal east/west station
+populations: a composition-matched difference computed as the equal-weight
+mean of cell-level EW − NS contrasts over (distance × |midpoint-latitude|)
+cells, and a uniformly-tracked-station subset restricted to pairs whose two
+endpoints both sit above the median pair-day participation count; each
+variant is correlated with the same two predictors under the same
+diagnostics.
 Months are retained chronologically (YYYY-MM) and a partial trailing month is
 excluded. The CMB-frame test performs a full-sky
 grid search for the anisotropy axis on a 37 × 19 grid in right ascension and
@@ -104,7 +137,10 @@ only. A permutation null performs a complete grid search over all 703
 directions for each of 200 permutations, accounting for the look-elsewhere
 effect directly. Ionospheric controls stratify the fit by
 geomagnetic Kp index and exclude storm days; geometry controls repeat the fit on
-hemisphere-balanced and distance-matched subsets; and four null tests (temporal
+hemisphere-balanced and distance-matched subsets; a forward-modelled
+product-error kernel tests the shared satellite-error projection channel
+directly; hemisphere-class and latitude-band within-product partitions test
+the weather-organized atmospheric channel; and four null tests (temporal
 shuffle, spatial shuffle, phase randomisation, and solar-rotation reassignment)
 test whether the recovered structure vanishes under label permutation.
 </p>

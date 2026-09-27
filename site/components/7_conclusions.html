@@ -3,12 +3,23 @@
 <p>
 This product-type independence stress test uses the CODE COD0MGXFIN combined
 multi-GNSS receiver-clock product from 2025-01-01 to 2026-05-01. Its principal
-result is a distance-dependent correlation scale of $$\lambda = 1862 \pm 112$$
-km (R² = 0.699), stable across the tested baseline cutoffs and present on quiet
-geomagnetic days. This is cross-product corroboration of a spatial structure at
+result is a distance-dependent correlation scale of $$\lambda = 1862$$
+km (R² = 0.699; formal within-fit σ = ±112 km, cluster-robust
+σ = ±155 km from month-block epoch resampling), stable across the tested
+baseline cutoffs and present on quiet
+geomagnetic days, with epoch- and product-level scale systematics of ~30–40%
+reported alongside the statistical error. Under the primary short-baseline parameters the
+solar-rotation reassignment null retains R² = 0.50, traced to a small-sample
+bin artifact at 100–152 km; the robust analysis (minimum baseline 500 km,
+minimum bin 50) passes all four null controls and is reported as the clean
+result, with the fitted scale essentially unchanged (1,819 km). This is cross-product corroboration of a spatial structure at
 the thousands-of-kilometres scale reported in the earlier TEP-GNSS papers,
 while remaining subject to the different metric and combined-clock product
-construction.
+construction. The fitted scale is a product-dependent phenomenological
+observable — the transfer map from the microscopic screening operator
+$\mathcal{S}_\Sigma(\mathcal{E})$ to $\lambda$ remains to be derived — so
+the result is reported as corroboration of the TEP scale, not as a
+parameter-level prediction test.
 </p>
 
 <p>
@@ -32,7 +43,10 @@ velocity constrains only an axis’s ecliptic-plane projection. The grid cannot
 uniquely localize a three-dimensional sky direction; its within-grid
 permutation statistic (plus-one p = 0.005 from 200 shuffles) measures annual
 directional structure. The satellite-clock analysis is limited by the combined
-product’s shared reference time and does not recover an exponential signal. The
+product’s shared reference time and does not recover an exponential signal; the
+MGEX product therefore cannot test the satellite-clock channel at all, and a
+per-constellation solution with independently estimated satellite clocks would
+be required for that test. The
 next decisive test is a preregistered chronological analysis over multiple
 annual cycles, reporting an identifiable plane-projected direction or using
 non-coplanar velocity information.

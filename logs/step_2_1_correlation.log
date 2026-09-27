@@ -1,0 +1,49 @@
+[17:18:10] [INFO] Step 2.1: Correlation Length Fitting
+[17:18:13] [INFO]   Fitting combined...
+[17:18:14] [INFO]     Computing cluster-robust λ uncertainty (day/month block bootstrap, month jackknife)...
+[17:18:15] [INFO]       day_block_bootstrap: σ_λ = 86 km (n_fits=300)
+[17:18:15] [INFO]       month_block_bootstrap: σ_λ = 155 km (n_fits=300)
+[17:18:15] [INFO]       month_jackknife: σ_λ = 94 km (n_fits=17)
+[17:18:15] [INFO]     combined: λ = 1862 ± 112 km, R² = 0.699
+[17:18:15] [INFO]     Sensitivity (λ vs min distance):
+[17:18:15] [INFO]       min_50km: λ=1862 km, R²=0.699
+[17:18:15] [INFO]       min_200km: λ=1893 km, R²=0.791
+[17:18:15] [INFO]       min_500km: λ=1819 km, R²=0.848
+[17:18:15] [INFO]       min_1000km: λ=1850 km, R²=0.917
+[17:18:15] [INFO]       min_2000km: λ=2000 km, R²=0.912
+[17:18:15] [INFO] Correlation length results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_1_correlation_length.json
+[17:19:19] [INFO] Step 2.1: Correlation Length Fitting
+[17:19:21] [INFO]   Fitting combined...
+[17:19:22] [INFO]     Computing cluster-robust λ uncertainty (day/month block bootstrap, month jackknife)...
+[17:19:23] [INFO]       day_block_bootstrap: σ_λ = 86 km (n_fits=300)
+[17:19:23] [INFO]       month_block_bootstrap: σ_λ = 155 km (n_fits=300)
+[17:19:23] [INFO]       month_jackknife: σ_λ = 94 km (n_fits=17)
+[17:19:23] [INFO]     combined: λ = 1862 ± 112 km, R² = 0.699
+[17:19:23] [INFO]     Sensitivity (λ vs min distance):
+[17:19:23] [INFO]       min_50km: λ=1862 km, R²=0.699
+[17:19:23] [INFO]       min_200km: λ=1893 km, R²=0.791
+[17:19:23] [INFO]       min_500km: λ=1819 km, R²=0.848
+[17:19:23] [INFO]       min_1000km: λ=1850 km, R²=0.917
+[17:19:23] [INFO]       min_2000km: λ=2000 km, R²=0.912
+[17:19:23] [INFO] Correlation length results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_1_correlation_length.json
+[17:59:38] [INFO] Step 2.1: Correlation Length Fitting
+[17:59:40] [INFO]   Fitting combined...
+[17:59:41] [INFO]     Computing cluster-robust λ uncertainty (day/month block bootstrap, month jackknife)...
+[17:59:42] [INFO]       day_block_bootstrap: σ_λ = 86 km (n_fits=300)
+[17:59:42] [INFO]       month_block_bootstrap: σ_λ = 155 km (n_fits=300)
+[17:59:42] [INFO]       month_jackknife: σ_λ = 94 km (n_fits=17)
+[17:59:42] [INFO]       morphology[exponential]: chi2=1658.7 dof=33 AIC=1664.7 R2=0.699 params={'A': 0.8272643235119875, 'lambda_km': 1861.626417561128, 'C0': -0.06496849062450646}
+[17:59:42] [INFO]       morphology[stretched_exponential]: chi2=1657.2 dof=32 AIC=1665.2 R2=0.692 params={'A': 0.8418903247770274, 'lambda_km': 1825.2314804300515, 'stretch_b': 0.9776492516579729, 'C0': -0.06567834204485809}
+[17:59:42] [INFO]       morphology[algebraic_free_k]: chi2=1885.8 dof=32 AIC=1893.8 R2=0.728 params={'A': 0.748629184378536, 'r_t_km': 1590.4859841044436, 'k': 1.780347770776382, 'C0': -0.08993271618145306}
+[17:59:42] [INFO]       morphology[algebraic_k4]: chi2=4203.0 dof=33 AIC=4209.0 R2=0.694 params={'A': 0.5026939104655453, 'r_t_km': 2285.2234846035135, 'C0': -0.05253802450095067}
+[17:59:42] [INFO]       morphology[algebraic_k43]: chi2=2119.1 dof=33 AIC=2125.1 R2=0.649 params={'A': 0.9150212009479752, 'r_t_km': 1248.94478434017, 'C0': -0.11934826813007976}
+[17:59:42] [INFO]       morphology[gaussian]: chi2=3349.2 dof=33 AIC=3355.2 R2=0.730 params={'A': 0.5456657699977367, 'lambda_km': 2665.449362161143, 'C0': -0.0518681410650836}
+[17:59:42] [INFO]       morphology AIC winner: exponential
+[17:59:42] [INFO]     combined: λ = 1862 ± 112 km, R² = 0.699
+[17:59:42] [INFO]     Sensitivity (λ vs min distance):
+[17:59:42] [INFO]       min_50km: λ=1862 km, R²=0.699
+[17:59:42] [INFO]       min_200km: λ=1893 km, R²=0.791
+[17:59:42] [INFO]       min_500km: λ=1819 km, R²=0.848
+[17:59:42] [INFO]       min_1000km: λ=1850 km, R²=0.917
+[17:59:42] [INFO]       min_2000km: λ=2000 km, R²=0.912
+[17:59:42] [INFO] Correlation length results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_1_correlation_length.json

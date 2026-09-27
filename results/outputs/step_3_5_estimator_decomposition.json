@@ -1,0 +1,412 @@
+{
+  "step": "3_5_estimator_decomposition",
+  "purpose": "Isolate estimator-conditioning contributions (Welch segment length / band floor, per-epoch common-mode removal) to the fitted correlation length on identical real MGEX station-days; includes a GRG native-cadence frequency-axis diagnostic.",
+  "configs": {
+    "mgex_canonical": {
+      "common_mode_removed": true,
+      "nperseg": 96,
+      "f_lo_hz": 1e-05,
+      "f_hi_hz": 0.0005
+    },
+    "mgex_no_cm": {
+      "common_mode_removed": false,
+      "nperseg": 96,
+      "f_lo_hz": 1e-05,
+      "f_hi_hz": 0.0005
+    },
+    "fullday_cm_fullband": {
+      "common_mode_removed": true,
+      "nperseg": "min(1024,T)",
+      "f_lo_hz": 1e-05,
+      "f_hi_hz": 0.0005
+    },
+    "fullday_nocm_fullband": {
+      "common_mode_removed": false,
+      "nperseg": "min(1024,T)",
+      "f_lo_hz": 1e-05,
+      "f_hi_hz": 0.0005
+    },
+    "fullday_cm_35uhz": {
+      "common_mode_removed": true,
+      "nperseg": "min(1024,T)",
+      "f_lo_hz": 3.472222222222222e-05,
+      "f_hi_hz": 0.0005
+    },
+    "fullday_nocm_35uhz": {
+      "common_mode_removed": false,
+      "nperseg": "min(1024,T)",
+      "f_lo_hz": 3.472222222222222e-05,
+      "f_hi_hz": 0.0005
+    }
+  },
+  "day_sample": {
+    "cod_files_every": 8,
+    "cod_days_used": 56,
+    "grg_days_used": 2
+  },
+  "pooled_fits": {
+    "mgex_canonical": {
+      "lambda_km": 1285.3537650108988,
+      "lambda_err_km": 79.84786966805206,
+      "amplitude": 1.1807588913459948,
+      "offset": -0.055638679702835606,
+      "r_squared": 0.3178146866555488,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 233.41282453272234,
+        "ci95_km": [
+          1180.8909051169412,
+          1925.6197366500987
+        ],
+        "median_km": 1301.5529479576971,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    },
+    "mgex_no_cm": {
+      "lambda_km": 1368.3095241611884,
+      "lambda_err_km": 86.53574183268307,
+      "amplitude": 1.1145389033989141,
+      "offset": -0.00156002414737339,
+      "r_squared": 0.3042560601041079,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 198.42713252522216,
+        "ci95_km": [
+          1280.7363294602635,
+          1936.164995459718
+        ],
+        "median_km": 1375.6514930092007,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    },
+    "fullday_cm_fullband": {
+      "lambda_km": 1363.4328848809394,
+      "lambda_err_km": 99.10856342406827,
+      "amplitude": 1.0787263071136552,
+      "offset": -0.05470175235353026,
+      "r_squared": 0.41281468232605956,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 157.79213998747076,
+        "ci95_km": [
+          1211.1456186672456,
+          1831.5857359222114
+        ],
+        "median_km": 1365.5704707024054,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    },
+    "fullday_nocm_fullband": {
+      "lambda_km": 1598.351976719386,
+      "lambda_err_km": 126.96264579508438,
+      "amplitude": 0.9565343256950122,
+      "offset": -0.019997288372223868,
+      "r_squared": 0.5640845431000123,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 214.45771336562495,
+        "ci95_km": [
+          1280.439192158267,
+          2132.6761962374067
+        ],
+        "median_km": 1591.7593450709949,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    },
+    "fullday_cm_35uhz": {
+      "lambda_km": 1045.2322998490413,
+      "lambda_err_km": 83.9512970456827,
+      "amplitude": 1.0998350776932753,
+      "offset": -0.026812178656524733,
+      "r_squared": 0.16175864826626496,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 164.92312366029805,
+        "ci95_km": [
+          923.253417527743,
+          1507.8527023766305
+        ],
+        "median_km": 1071.5840498848343,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    },
+    "fullday_nocm_35uhz": {
+      "lambda_km": 1048.6673162308696,
+      "lambda_err_km": 79.00997095332576,
+      "amplitude": 1.0727251424790731,
+      "offset": 0.01749437145089452,
+      "r_squared": 0.1059149001847467,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "bootstrap": {
+        "sigma_lambda_km": 188.46140004477726,
+        "ci95_km": [
+          955.5776941083914,
+          1577.6730988745812
+        ],
+        "median_km": 1062.610909084286,
+        "n_boot_used": 200
+      },
+      "n_days": 58
+    }
+  },
+  "per_band_lambda": {
+    "fullday_cm": {
+      "10-20": {
+        "lambda_km": 1424.3636523917332,
+        "lambda_err_km": 138.71428143106453,
+        "amplitude": 0.9060211016343102,
+        "offset": -0.042360113018404366,
+        "r_squared": 0.5825607348057434,
+        "n_bins_used": 31,
+        "n_pairs": 205526,
+        "n_days": 56
+      },
+      "20-30": {
+        "lambda_km": 1697.0719155221195,
+        "lambda_err_km": 170.95088692611253,
+        "amplitude": 0.7504980847642098,
+        "offset": -0.049809446012470594,
+        "r_squared": 0.6078711919735786,
+        "n_bins_used": 31,
+        "n_pairs": 179190,
+        "n_days": 49
+      },
+      "30-40": {
+        "lambda_km": 1454.8444302948917,
+        "lambda_err_km": 136.56297229763163,
+        "amplitude": 0.6544011652251887,
+        "offset": -0.03853596675045967,
+        "r_squared": 0.6501395383571402,
+        "n_bins_used": 31,
+        "n_pairs": 147018,
+        "n_days": 40
+      },
+      "50-75": {
+        "lambda_km": 1032.8265955227785,
+        "lambda_err_km": 129.53868444067217,
+        "amplitude": 0.69404173711741,
+        "offset": -0.014626369679563269,
+        "r_squared": 0.34488914952545124,
+        "n_bins_used": 31,
+        "n_pairs": 208705,
+        "n_days": 57
+      },
+      "75-100": {
+        "lambda_km": 865.8512744166893,
+        "lambda_err_km": 110.75370097977883,
+        "amplitude": 0.5909459692541194,
+        "offset": -0.001530734050837134,
+        "r_squared": 0.49537491734305994,
+        "n_bins_used": 31,
+        "n_pairs": 207833,
+        "n_days": 57
+      },
+      "100-200": {
+        "lambda_km": 650.2908977582815,
+        "lambda_err_km": 72.29763218425258,
+        "amplitude": 1.0127977100294465,
+        "offset": 0.01791876850031867,
+        "r_squared": 0.29627987644097253,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "200-350": {
+        "lambda_km": 537.4963384472138,
+        "lambda_err_km": 78.77756668642627,
+        "amplitude": 0.8751044756373336,
+        "offset": 0.04543583947512995,
+        "r_squared": 0.38923659662423804,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "350-500": {
+        "lambda_km": 961.5606326949039,
+        "lambda_err_km": 185.1616494579536,
+        "amplitude": 0.29886902753980815,
+        "offset": 0.0709417374227901,
+        "r_squared": 0.41861012512074525,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "40-50": {
+        "lambda_km": 1384.3317871812953,
+        "lambda_err_km": 161.10203200464343,
+        "amplitude": 0.5910499704963339,
+        "offset": -0.028104110539745757,
+        "r_squared": 0.45545171864719736,
+        "n_bins_used": 30,
+        "n_pairs": 132999,
+        "n_days": 37
+      }
+    },
+    "fullday_nocm": {
+      "10-20": {
+        "lambda_km": 1756.3369079680378,
+        "lambda_err_km": 185.0479221039937,
+        "amplitude": 0.7889451889410014,
+        "offset": -0.033092397687772064,
+        "r_squared": 0.6565651901367164,
+        "n_bins_used": 31,
+        "n_pairs": 205526,
+        "n_days": 56
+      },
+      "20-30": {
+        "lambda_km": 1995.2616599460098,
+        "lambda_err_km": 223.85641348729138,
+        "amplitude": 0.704154187646509,
+        "offset": -0.028226005368438466,
+        "r_squared": 0.5943049768950479,
+        "n_bins_used": 31,
+        "n_pairs": 179190,
+        "n_days": 49
+      },
+      "30-40": {
+        "lambda_km": 1360.1763870384211,
+        "lambda_err_km": 126.80353210858522,
+        "amplitude": 0.6426468071765485,
+        "offset": -0.0014953299517097899,
+        "r_squared": 0.6547459638256808,
+        "n_bins_used": 31,
+        "n_pairs": 147018,
+        "n_days": 40
+      },
+      "50-75": {
+        "lambda_km": 1015.1876027911097,
+        "lambda_err_km": 118.4862641809126,
+        "amplitude": 0.6885168700176924,
+        "offset": 0.015374590966938455,
+        "r_squared": 0.38741383478528735,
+        "n_bins_used": 31,
+        "n_pairs": 208705,
+        "n_days": 57
+      },
+      "75-100": {
+        "lambda_km": 804.7421952187811,
+        "lambda_err_km": 95.14830810142603,
+        "amplitude": 0.6359317287720075,
+        "offset": 0.006189557864912075,
+        "r_squared": 0.5444901015531036,
+        "n_bins_used": 31,
+        "n_pairs": 207833,
+        "n_days": 57
+      },
+      "100-200": {
+        "lambda_km": 801.0504513420077,
+        "lambda_err_km": 90.59680529844726,
+        "amplitude": 0.8035671398644056,
+        "offset": 0.0030978144929272983,
+        "r_squared": 0.49836860167395647,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "200-350": {
+        "lambda_km": 618.2789264208401,
+        "lambda_err_km": 87.98329641343297,
+        "amplitude": 0.7985548156996043,
+        "offset": 0.006435044775119595,
+        "r_squared": 0.47210837291531116,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "350-500": {
+        "lambda_km": 1190.7152303133184,
+        "lambda_err_km": 208.97793515353678,
+        "amplitude": 0.256529661364327,
+        "offset": 0.004539404228693338,
+        "r_squared": 0.4208422330328294,
+        "n_bins_used": 31,
+        "n_pairs": 211012,
+        "n_days": 58
+      },
+      "40-50": {
+        "lambda_km": 1470.8466513712133,
+        "lambda_err_km": 161.50639586580445,
+        "amplitude": 0.5872480568595195,
+        "offset": 0.014444932461653568,
+        "r_squared": 0.5482878007562377,
+        "n_bins_used": 30,
+        "n_pairs": 132999,
+        "n_days": 37
+      }
+    }
+  },
+  "grg_cadence_diagnostic": {
+    "native_cfgfs_cm": {
+      "lambda_km": 2718.619509584981,
+      "r_squared": 0.5559448594472635,
+      "n_pairs": 11554,
+      "n_days": 5
+    },
+    "native_truefs_cm": {
+      "lambda_km": 2663.67457387853,
+      "r_squared": 0.16181119220843476,
+      "n_pairs": 11554,
+      "n_days": 5
+    },
+    "decim_cfgfs_cm": {
+      "lambda_km": 962.2784932276418,
+      "r_squared": 0.603698268937489,
+      "n_pairs": 5486,
+      "n_days": 2
+    },
+    "pair_aligned_5min": {
+      "lambda_km": 2400.00267368213,
+      "r_squared": 0.144510744749753,
+      "n_pairs": 51107,
+      "n_days": 9
+    }
+  },
+  "grg_cadence_pooled_impact": {
+    "as_published": {
+      "lambda_km": 1271.3995321092414,
+      "lambda_err_km": 81.03495727404945,
+      "amplitude": 1.1790859289140163,
+      "offset": -0.053057339898173864,
+      "r_squared": 0.23990074872065925,
+      "n_bins_used": 31,
+      "n_pairs": 217080,
+      "n_days": 61
+    },
+    "cadence_fixed": {
+      "lambda_km": 1285.3537650108988,
+      "lambda_err_km": 79.84786966805206,
+      "amplitude": 1.1807588913459948,
+      "offset": -0.055638679702835606,
+      "r_squared": 0.3178146866555488,
+      "n_bins_used": 31,
+      "n_pairs": 211012,
+      "n_days": 58
+    }
+  },
+  "vectorized_path_validation": {
+    "checked_pairs": 598,
+    "max_abs_diff": 2.6645352591003757e-15,
+    "pearson_r": 1.0
+  },
+  "reference_values": {
+    "mgex_canonical_pooled_lambda_km": 1861.6,
+    "igs_final_family_lambda_km": [
+      3329.8,
+      3394.6,
+      3763.6,
+      4548.6
+    ],
+    "r_t_earth_paper6_km": 4150.0
+  }
+}

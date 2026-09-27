@@ -192,7 +192,8 @@ def _predicted_anisotropy(obs_values, day_keys, ra_bg, dec_bg):
     return float(r), len(pred)
 
 
-def _grid_search_signed(obs_values, day_keys, ra_grid, dec_grid, cmb_ra, cmb_dec):
+def _grid_search_signed(obs_values, day_keys, ra_grid, dec_grid, cmb_ra, cmb_dec,
+                        ref_abs_r=None):
     """Grid-search background direction, tracking both max +r and max −r.
 
     The aligned direction is the negative-correlation extremum (min r),
@@ -202,12 +203,16 @@ def _grid_search_signed(obs_values, day_keys, ra_grid, dec_grid, cmb_ra, cmb_dec
     selection of whichever extremum is geometrically closer to the CMB.
 
     Both extrema and their CMB separations are returned for reporting.
+    When ``ref_abs_r`` is given (e.g. |r| at the physical CMB direction),
+    the count of grid directions with |r| >= ref_abs_r is also returned —
+    the projection-degeneracy statistic quoted in the manuscript.
 
     Returns: dict with keys:
         best_ra, best_dec, best_r, best_r_abs, angular_separation_to_cmb_deg,
         max_pos_ra, max_pos_dec, max_pos_r, max_pos_sep_deg,
         max_neg_ra, max_neg_dec, max_neg_r, max_neg_sep_deg,
-        aligned_ra, aligned_dec, aligned_r, aligned_sep_deg
+        aligned_ra, aligned_dec, aligned_r, aligned_sep_deg,
+        n_directions_total, n_directions_ge_ref
     """
     best_r_abs = -np.inf
     best_r = None
@@ -216,10 +221,15 @@ def _grid_search_signed(obs_values, day_keys, ra_grid, dec_grid, cmb_ra, cmb_dec
     max_ra = max_dec = None
     min_r = np.inf
     min_ra = min_dec = None
+    n_total = 0
+    n_ge_ref = 0
 
     for ra in ra_grid:
         for dec in dec_grid:
             r, _ = _predicted_anisotropy(obs_values, day_keys, ra, dec)
+            n_total += 1
+            if ref_abs_r is not None and abs(r) >= ref_abs_r:
+                n_ge_ref += 1
             if abs(r) > best_r_abs:
                 best_r_abs = abs(r)
                 best_r = r
@@ -262,7 +272,36 @@ def _grid_search_signed(obs_values, day_keys, ra_grid, dec_grid, cmb_ra, cmb_dec
         "aligned_dec": align_dec,
         "aligned_r": float(align_r),
         "aligned_sep_deg": float(align_sep),
+        "n_directions_total": int(n_total),
+        "n_directions_ge_ref": int(n_ge_ref),
     }
+
+
+def _projection_series_correlation(day_keys, ra1, dec1, ra2, dec2):
+    """Pearson r between the orbital-velocity projections of two directions.
+
+    Quantifies the projection degeneracy directly: two sky directions can be
+    far apart on the celestial sphere yet produce nearly identical
+    v_orb · n sequences over the sampled orbital arc.  Used to show that the
+    nominal grid maximum and the CMB dipole are members of the same
+    projection-degenerate family.
+    """
+    n1 = _direction_unit_vector(ra1, dec1)
+    n2 = _direction_unit_vector(ra2, dec2)
+    p1, p2 = [], []
+    for day in day_keys:
+        try:
+            doy = int(day[4:]) if len(day) >= 7 else int(day[-3:])
+        except (ValueError, IndexError):
+            continue
+        v = _earth_orbital_velocity_equatorial(doy)
+        p1.append(float(np.dot(v, n1)))
+        p2.append(float(np.dot(v, n2)))
+    p1, p2 = np.array(p1), np.array(p2)
+    if len(p1) < 5 or np.std(p1) < 1e-12 or np.std(p2) < 1e-12:
+        return 0.0, len(p1)
+    r, _ = stats.pearsonr(p1, p2)
+    return float(r), len(p1)
 
 
 class Step24CMBAlignment:
@@ -338,15 +377,26 @@ class Step24CMBAlignment:
                         monthly_keys.append(key)
                     monthly_keys = sorted(monthly_keys)
 
-                    gs_month = _grid_search_signed(
-                        monthly_obs, monthly_keys, ra_grid, dec_grid,
-                        CMB_DIPOLE_RA_DEG, CMB_DIPOLE_DEC_DEG
-                    )
-
-                    # Direct correlation at CMB dipole
+                    # Direct correlation at CMB dipole (computed first: it is
+                    # the reference for the projection-degeneracy grid count).
                     r_cmb_month, n_cmb_month = _predicted_anisotropy(
                         monthly_obs, monthly_keys,
                         CMB_DIPOLE_RA_DEG, CMB_DIPOLE_DEC_DEG
+                    )
+
+                    gs_month = _grid_search_signed(
+                        monthly_obs, monthly_keys, ra_grid, dec_grid,
+                        CMB_DIPOLE_RA_DEG, CMB_DIPOLE_DEC_DEG,
+                        ref_abs_r=abs(r_cmb_month)
+                    )
+
+                    # Correlation between the CMB-direction and grid-maximum
+                    # orbital-velocity projections over the sampled months:
+                    # quantifies the plane-projection degeneracy directly.
+                    proj_corr_cmb_vs_best, _ = _projection_series_correlation(
+                        monthly_keys,
+                        CMB_DIPOLE_RA_DEG, CMB_DIPOLE_DEC_DEG,
+                        gs_month["aligned_ra"], gs_month["aligned_dec"]
                     )
                     print_status(
                         f"      Monthly: direct r(CMB)={r_cmb_month:.3f} (n={n_cmb_month}), "
@@ -411,6 +461,9 @@ class Step24CMBAlignment:
                         "lee_corrected_p_value": float(lee_p_month),
                         "null_r_mean": null_r_mean_m,
                         "null_r_std": null_r_std_m,
+                        "grid_directions_total": gs_month["n_directions_total"],
+                        "grid_directions_ge_direct_cmb": gs_month["n_directions_ge_ref"],
+                        "projection_corr_cmb_vs_best": float(proj_corr_cmb_vs_best),
                         # Kept for backward compatibility only: a sky-angle
                         # threshold cannot adjudicate alignment from coplanar
                         # orbital-velocity data.
@@ -486,6 +539,9 @@ class Step24CMBAlignment:
                     "best_correlation_r": float(primary_r),
                     "raw_p_value": float(primary_p),
                     "lee_corrected_p_value": float(primary_p),
+                    "grid_directions_total": monthly_results.get("grid_directions_total"),
+                    "grid_directions_ge_direct_cmb": monthly_results.get("grid_directions_ge_direct_cmb"),
+                    "projection_corr_cmb_vs_best": monthly_results.get("projection_corr_cmb_vs_best"),
                     "n_days": n_days,
                     "n_months": n_months,
                     "excluded_pairs_pct": excluded_pct,
@@ -553,6 +609,9 @@ class Step24CMBAlignment:
                     "aligned": primary.get("aligned"),
                     "grid_axis_identifiable": primary.get("grid_axis_identifiable", False),
                     "cmb_projection_consistent": primary.get("cmb_projection_consistent", False),
+                    "grid_directions_total": primary.get("grid_directions_total"),
+                    "grid_directions_ge_direct_cmb": primary.get("grid_directions_ge_direct_cmb"),
+                    "projection_corr_cmb_vs_best": primary.get("projection_corr_cmb_vs_best"),
                     "n_days": primary.get("n_days"),
                     "n_months": primary.get("n_months"),
                     "n_pairs": len(records),

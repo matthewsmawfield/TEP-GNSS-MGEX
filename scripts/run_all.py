@@ -41,6 +41,12 @@ from scripts.steps.step_2_6_geometry_control import Step26GeometryControl
 from scripts.steps.step_2_8_satellite_clock_analysis import Step28SatelliteClockAnalysis
 from scripts.steps.step_2_7_null_tests import Step27NullTests
 from scripts.steps.step_3_0_cross_constellation import Step30CrossConstellation
+from scripts.steps.step_3_1_per_center_scale import Step31PerCenterScale
+from scripts.steps.step_3_2_product_error_kernel import Step32ProductErrorKernel
+from scripts.steps.step_3_3_atmospheric_control import Step33AtmosphericControl
+from scripts.steps.step_3_4_hemisphere_phase_test import Step34HemispherePhaseTest
+from scripts.steps.step_3_5_estimator_decomposition import Step35EstimatorDecomposition
+from scripts.steps.step_3_6_amplitude_decomposition import Step36AmplitudeDecomposition
 
 STEP_REGISTRY = {
     0: ("1_0_data_acquisition", Step10DataAcquisition, "Data Acquisition (NASA CDDIS / IGS)"),
@@ -55,6 +61,12 @@ STEP_REGISTRY = {
     9: ("2_8_satellite", Step28SatelliteClockAnalysis, "Satellite-Clock Per-Constellation Analysis (SP3)"),
     10: ("2_7_null", Step27NullTests, "Null Control Tests"),
     11: ("3_0_cross", Step30CrossConstellation, "MGEX Validation Synthesis"),
+    12: ("3_1_per_center", Step31PerCenterScale, "Per-Analysis-Center Scale Comparison"),
+    13: ("3_2_kernel", Step32ProductErrorKernel, "Product-Error Kernel Forward Model"),
+    14: ("3_3_atmo", Step33AtmosphericControl, "Atmospheric-Channel Within-Product Control"),
+    15: ("3_4_hemi", Step34HemispherePhaseTest, "Hemisphere-Split Phase Test"),
+    16: ("3_5_estimator", Step35EstimatorDecomposition, "Estimator Decomposition of lambda_T"),
+    17: ("3_6_amplitude", Step36AmplitudeDecomposition, "Amplitude Statistic Decomposition"),
 }
 
 # Map step numbers to their module names for logger lookup
@@ -71,6 +83,12 @@ STEP_MODULE_MAP = {
     9: "scripts.steps.step_2_8_satellite_clock_analysis",
     10: "scripts.steps.step_2_7_null_tests",
     11: "scripts.steps.step_3_0_cross_constellation",
+    12: "scripts.steps.step_3_1_per_center_scale",
+    13: "scripts.steps.step_3_2_product_error_kernel",
+    14: "scripts.steps.step_3_3_atmospheric_control",
+    15: "scripts.steps.step_3_4_hemisphere_phase_test",
+    16: "scripts.steps.step_3_5_estimator_decomposition",
+    17: "scripts.steps.step_3_6_amplitude_decomposition",
 }
 
 
@@ -124,7 +142,7 @@ def run_pipeline(args: argparse.Namespace) -> dict:
     print_status("")
 
     start_step = args.start_step if args.start_step is not None else 0
-    stop_step = args.stop_step if args.stop_step is not None else 11
+    stop_step = args.stop_step if args.stop_step is not None else max(STEP_REGISTRY)
     skip_steps = set(args.skip_steps) if args.skip_steps else set()
 
     results = {
@@ -235,10 +253,13 @@ Pipeline Steps:
   9  - Satellite-Clock Per-Constellation Analysis (SP3)
   10 - Null Tests
   11 - Cross-Constellation Synthesis
+  12 - Per-Analysis-Center Scale Comparison
+  13 - Product-Error Kernel Forward Model
+  14 - Atmospheric-Channel Within-Product Control
         """
     )
-    parser.add_argument("--start-step", type=int, choices=range(0, 12), help="First step (0-11)")
-    parser.add_argument("--stop-step", type=int, choices=range(0, 12), help="Last step (0-11)")
+    parser.add_argument("--start-step", type=int, choices=range(0, 18), help="First step (0-17)")
+    parser.add_argument("--stop-step", type=int, choices=range(0, 18), help="Last step (0-17)")
     parser.add_argument("--skip-steps", type=lambda s: [int(x) for x in s.split(",")], help="Comma-separated skip list")
     parser.add_argument("--continue-on-error", action="store_true", help="Continue on step failure")
     parser.add_argument("--list-steps", action="store_true", help="List steps and exit")

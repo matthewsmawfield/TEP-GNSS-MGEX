@@ -13,7 +13,7 @@ class DevServer {
         this.liveServerProcess = null;
         this.watcherReady = false;
         this.watcherRestarting = false;
-        this.port = 51821; // Unique port for TEP-GNSS-MGEX
+        this.port = 55514; // Unique port for TEP-GNSS-MGEX (Paper 14)
     }
 
     async startLiveServer() {

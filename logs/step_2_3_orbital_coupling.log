@@ -1,18 +1,46 @@
-[00:37:15] [INFO] Step 2.3: Orbital-Velocity Coupling
-[00:37:18] [INFO]   combined: 1827555 records loaded
-[00:37:18] [INFO]   combined: 12 months with data
-[00:37:19] [INFO]     Month 01: λ=1965km, EW/NS ratio=1.10, PA_diff=-0.0734, speed=30.28km/s, v_proj=+24.54km/s
-[00:37:19] [INFO]     Month 02: λ=1613km, EW/NS ratio=1.38, PA_diff=-0.0990, speed=30.21km/s, v_proj=+12.59km/s
-[00:37:19] [INFO]     Month 03: λ=1373km, EW/NS ratio=0.91, PA_diff=-0.0825, speed=30.03km/s, v_proj=-1.73km/s
-[00:37:19] [INFO]     Month 04: λ=1738km, EW/NS ratio=1.64, PA_diff=-0.0306, speed=29.78km/s, v_proj=-16.25km/s
-[00:37:19] [INFO]     Month 05: λ=1529km, EW/NS ratio=0.94, PA_diff=0.0217, speed=29.53km/s, v_proj=-25.86km/s
-[00:37:19] [INFO]     Month 06: λ=2079km, EW/NS ratio=0.52, PA_diff=0.0500, speed=29.35km/s, v_proj=-28.67km/s
-[00:37:19] [INFO]     Month 07: λ=1440km, EW/NS ratio=1.10, PA_diff=0.0398, speed=29.28km/s, v_proj=-23.92km/s
-[00:37:19] [INFO]     Month 08: λ=2497km, EW/NS ratio=0.06, PA_diff=0.0179, speed=29.35km/s, v_proj=-12.56km/s
-[00:37:19] [INFO]     Month 09: λ=1607km, EW/NS ratio=1.37, PA_diff=-0.0459, speed=29.53km/s, v_proj=+2.40km/s
-[00:37:19] [INFO]     Month 10: λ=1726km, EW/NS ratio=1.20, PA_diff=-0.1593, speed=29.78km/s, v_proj=+16.52km/s
-[00:37:19] [INFO]     Month 11: λ=1868km, EW/NS ratio=1.14, PA_diff=-0.1222, speed=30.03km/s, v_proj=+26.75km/s
-[00:37:19] [INFO]     Month 12: λ=1452km, EW/NS ratio=0.85, PA_diff=-0.0329, speed=30.21km/s, v_proj=+29.59km/s
-[00:37:19] [INFO]   combined: 12 valid monthly fits, 12 valid PA_diff values
-[00:37:19] [INFO]     combined: λ–speed r=-0.279 (p=0.380, bonf=0.760), ratio–speed r=0.382 (p=0.220, bonf=0.440) | λ–v_proj r=-0.100 (p=0.757, bonf=1.000), ratio–v_proj r=0.256 (p=0.422, bonf=0.843) | PA_diff–speed r=-0.694 (p=0.0123), PA_diff–v_proj r=-0.784 (p=0.0026)
-[00:37:19] [INFO] Orbital coupling results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_3_orbital_coupling.json
+[17:59:52] [INFO] Step 2.3: Orbital-Velocity Coupling
+[17:59:54] [INFO]   combined: 1827555 records loaded
+[17:59:56] [INFO]   combined: 17 months with data
+[17:59:56] [INFO]     Month 2025-01: λ=1430km, EW/NS ratio=0.72, PA_diff=-0.1025, speed=30.28km/s, v_proj=+24.54km/s
+[17:59:56] [INFO]     Month 2025-02: λ=1483km, EW/NS ratio=1.13, PA_diff=-0.0872, speed=30.21km/s, v_proj=+12.59km/s
+[17:59:57] [INFO]     Month 2025-03: λ=2335km, EW/NS ratio=0.74, PA_diff=-0.0974, speed=30.03km/s, v_proj=-1.23km/s
+[17:59:57] [INFO]     Month 2025-04: λ=1085km, EW/NS ratio=1.89, PA_diff=-0.0144, speed=29.78km/s, v_proj=-15.84km/s
+[17:59:57] [INFO]     Month 2025-05: λ=1550km, EW/NS ratio=0.92, PA_diff=0.0219, speed=29.53km/s, v_proj=-25.64km/s
+[17:59:57] [INFO]     Month 2025-06: λ=2079km, EW/NS ratio=0.52, PA_diff=0.0500, speed=29.35km/s, v_proj=-28.71km/s
+[17:59:57] [INFO]     Month 2025-07: λ=1440km, EW/NS ratio=1.10, PA_diff=0.0398, speed=29.28km/s, v_proj=-24.19km/s
+[17:59:57] [INFO]     Month 2025-08: λ=2497km, EW/NS ratio=0.06, PA_diff=0.0179, speed=29.35km/s, v_proj=-13.00km/s
+[17:59:57] [INFO]     Month 2025-09: λ=1607km, EW/NS ratio=1.37, PA_diff=-0.0459, speed=29.53km/s, v_proj=+1.90km/s
+[17:59:57] [INFO]     Month 2025-10: λ=1726km, EW/NS ratio=1.20, PA_diff=-0.1593, speed=29.78km/s, v_proj=+16.10km/s
+[17:59:57] [INFO]     Month 2025-11: λ=1868km, EW/NS ratio=1.14, PA_diff=-0.1222, speed=30.03km/s, v_proj=+26.52km/s
+[17:59:57] [INFO]     Month 2025-12: λ=1452km, EW/NS ratio=0.85, PA_diff=-0.0329, speed=30.21km/s, v_proj=+29.62km/s
+[17:59:57] [INFO]     Month 2026-01: λ=1956km, EW/NS ratio=1.08, PA_diff=-0.0615, speed=30.28km/s, v_proj=+24.54km/s
+[17:59:57] [INFO]     Month 2026-02: λ=1993km, EW/NS ratio=0.99, PA_diff=-0.1067, speed=30.21km/s, v_proj=+12.59km/s
+[17:59:57] [INFO]     Month 2026-03: λ=1321km, EW/NS ratio=1.21, PA_diff=-0.0710, speed=30.03km/s, v_proj=-1.23km/s
+[17:59:57] [INFO]     Month 2026-04: λ=1799km, EW/NS ratio=1.93, PA_diff=-0.0430, speed=29.78km/s, v_proj=-15.84km/s
+[17:59:57] [INFO]   combined: 16 valid monthly fits, 16 valid PA_diff values
+[17:59:59] [INFO]     PA_diff operational controls: cell-matched r_speed=-0.586 (p=0.0170), r_vproj=-0.650 (p=0.0064); uniform-tracking r_speed=-0.685 (p=0.0034), r_vproj=-0.739 (p=0.0011)
+[17:59:59] [INFO]     combined: λ–speed r=-0.160 (p=0.554, bonf=1.000), ratio–speed r=0.138 (p=0.610, bonf=1.000) | λ–v_proj r=-0.051 (p=0.850, bonf=1.000), ratio–v_proj r=-0.031 (p=0.911, bonf=1.000) | PA_diff–speed r=-0.716 (p=0.0018, n_eff=6.9, p_eff=0.0721, p_AR1=0.0192, p_shift=0.1250), PA_diff–v_proj r=-0.767 (p=0.0005, n_eff=8.8, p_eff=0.0175, p_AR1=0.0034, p_shift=0.0625)
+[17:59:59] [INFO] Orbital coupling results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_3_orbital_coupling.json
+[04:44:31] [INFO] Step 2.3: Orbital-Velocity Coupling
+[04:44:34] [INFO]   combined: 1827555 records loaded
+[04:44:36] [INFO]   combined: 17 months with data
+[04:44:36] [INFO]     Month 2025-01: λ=1430km, EW/NS ratio=0.72, PA_diff=-0.1025, speed=30.28km/s, v_proj=+24.54km/s
+[04:44:36] [INFO]     Month 2025-02: λ=1483km, EW/NS ratio=1.13, PA_diff=-0.0872, speed=30.21km/s, v_proj=+12.59km/s
+[04:44:36] [INFO]     Month 2025-03: λ=2335km, EW/NS ratio=0.74, PA_diff=-0.0974, speed=30.03km/s, v_proj=-1.23km/s
+[04:44:36] [INFO]     Month 2025-04: λ=1085km, EW/NS ratio=1.89, PA_diff=-0.0144, speed=29.78km/s, v_proj=-15.84km/s
+[04:44:36] [INFO]     Month 2025-05: λ=1550km, EW/NS ratio=0.92, PA_diff=0.0219, speed=29.53km/s, v_proj=-25.64km/s
+[04:44:36] [INFO]     Month 2025-06: λ=2079km, EW/NS ratio=0.52, PA_diff=0.0500, speed=29.35km/s, v_proj=-28.71km/s
+[04:44:36] [INFO]     Month 2025-07: λ=1440km, EW/NS ratio=1.10, PA_diff=0.0398, speed=29.28km/s, v_proj=-24.19km/s
+[04:44:36] [INFO]     Month 2025-08: λ=2497km, EW/NS ratio=0.06, PA_diff=0.0179, speed=29.35km/s, v_proj=-13.00km/s
+[04:44:36] [INFO]     Month 2025-09: λ=1607km, EW/NS ratio=1.37, PA_diff=-0.0459, speed=29.53km/s, v_proj=+1.90km/s
+[04:44:36] [INFO]     Month 2025-10: λ=1726km, EW/NS ratio=1.20, PA_diff=-0.1593, speed=29.78km/s, v_proj=+16.10km/s
+[04:44:36] [INFO]     Month 2025-11: λ=1868km, EW/NS ratio=1.14, PA_diff=-0.1222, speed=30.03km/s, v_proj=+26.52km/s
+[04:44:36] [INFO]     Month 2025-12: λ=1452km, EW/NS ratio=0.85, PA_diff=-0.0329, speed=30.21km/s, v_proj=+29.62km/s
+[04:44:37] [INFO]     Month 2026-01: λ=1956km, EW/NS ratio=1.08, PA_diff=-0.0615, speed=30.28km/s, v_proj=+24.54km/s
+[04:44:37] [INFO]     Month 2026-02: λ=1993km, EW/NS ratio=0.99, PA_diff=-0.1067, speed=30.21km/s, v_proj=+12.59km/s
+[04:44:37] [INFO]     Month 2026-03: λ=1321km, EW/NS ratio=1.21, PA_diff=-0.0710, speed=30.03km/s, v_proj=-1.23km/s
+[04:44:37] [INFO]     Month 2026-04: λ=1799km, EW/NS ratio=1.93, PA_diff=-0.0430, speed=29.78km/s, v_proj=-15.84km/s
+[04:44:37] [INFO]   combined: 16 valid monthly fits, 16 valid PA_diff values
+[04:44:39] [INFO]     PA_diff operational controls: cell-matched r_speed=-0.586 (p=0.0170), r_vproj=-0.650 (p=0.0064); uniform-tracking r_speed=-0.685 (p=0.0034), r_vproj=-0.739 (p=0.0011)
+[04:44:39] [INFO]     combined: λ–speed r=-0.160 (p=0.554, bonf=1.000), ratio–speed r=0.138 (p=0.610, bonf=1.000) | λ–v_proj r=-0.051 (p=0.850, bonf=1.000), ratio–v_proj r=-0.031 (p=0.911, bonf=1.000) | PA_diff–speed r=-0.716 (p=0.0018, n_eff=6.9, p_eff=0.0721, p_AR1=0.0192, p_shift=0.1250), PA_diff–v_proj r=-0.767 (p=0.0005, n_eff=8.8, p_eff=0.0175, p_AR1=0.0034, p_shift=0.0625)
+[04:44:39] [INFO] Orbital coupling results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_3_orbital_coupling.json

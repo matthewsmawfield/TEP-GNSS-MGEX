@@ -10,32 +10,154 @@
         "lambda_km": 1861.6264165604869,
         "lambda_err_km": 111.74636818701192,
         "R2": 0.6989570008927708,
-        "min_distance_km": 50
+        "min_distance_km": 50,
+        "at_lambda_lower_bound": false
       },
       "min_200km": {
         "lambda_km": 1893.2262844649072,
         "lambda_err_km": 126.75461051414632,
         "R2": 0.7914513792013884,
-        "min_distance_km": 200
+        "min_distance_km": 200,
+        "at_lambda_lower_bound": false
       },
       "min_500km": {
         "lambda_km": 1819.0280981342983,
         "lambda_err_km": 125.74882715550008,
         "R2": 0.8477495829860383,
-        "min_distance_km": 500
+        "min_distance_km": 500,
+        "at_lambda_lower_bound": false
       },
       "min_1000km": {
         "lambda_km": 1849.6065099713185,
         "lambda_err_km": 154.96247272152402,
         "R2": 0.9165410369711707,
-        "min_distance_km": 1000
+        "min_distance_km": 1000,
+        "at_lambda_lower_bound": false
       },
       "min_2000km": {
         "lambda_km": 2000.0000000000002,
         "lambda_err_km": 230.20945252067804,
         "R2": 0.9123824845175158,
-        "min_distance_km": 2000
+        "min_distance_km": 2000,
+        "at_lambda_lower_bound": true
       }
+    },
+    "cluster_uncertainty": {
+      "n_days": 462,
+      "n_months": 17,
+      "n_bootstrap": 300,
+      "seed": 20260927,
+      "lambda_reaggregated_km": 1861.6264187094328,
+      "day_block_bootstrap": {
+        "n_fits": 300,
+        "sigma_lambda_km": 85.7424059984808,
+        "ci95_km": [
+          1639.23378823698,
+          1932.2799000408295
+        ],
+        "median_km": 1849.122239684469
+      },
+      "month_block_bootstrap": {
+        "n_fits": 300,
+        "sigma_lambda_km": 154.71082320404759,
+        "ci95_km": [
+          1363.3019515351086,
+          1970.6988828143108
+        ],
+        "median_km": 1836.2660491709948
+      },
+      "month_jackknife": {
+        "n_fits": 17,
+        "lambda_range_km": [
+          1794.025982258235,
+          1895.7755451764287
+        ],
+        "sigma_lambda_km": 94.30945072380851
+      }
+    },
+    "morphology_comparison": {
+      "exponential": {
+        "params": {
+          "A": 0.8272643235119875,
+          "lambda_km": 1861.626417561128,
+          "C0": -0.06496849062450646
+        },
+        "chi2": 1658.7314959879361,
+        "dof": 33,
+        "chi2_red": 50.264590787513214,
+        "aic": 1664.7314959879361,
+        "r_squared": 0.6989570011252407,
+        "success": true
+      },
+      "stretched_exponential": {
+        "params": {
+          "A": 0.8418903247770274,
+          "lambda_km": 1825.2314804300515,
+          "stretch_b": 0.9776492516579729,
+          "C0": -0.06567834204485809
+        },
+        "chi2": 1657.219150126359,
+        "dof": 32,
+        "chi2_red": 51.78809844144872,
+        "aic": 1665.219150126359,
+        "r_squared": 0.6920444724755628,
+        "success": true
+      },
+      "algebraic_free_k": {
+        "params": {
+          "A": 0.748629184378536,
+          "r_t_km": 1590.4859841044436,
+          "k": 1.780347770776382,
+          "C0": -0.08993271618145306
+        },
+        "chi2": 1885.7822895977995,
+        "dof": 32,
+        "chi2_red": 58.930696549931234,
+        "aic": 1893.7822895977995,
+        "r_squared": 0.7276139354895839,
+        "success": true
+      },
+      "algebraic_k4": {
+        "params": {
+          "A": 0.5026939104655453,
+          "r_t_km": 2285.2234846035135,
+          "C0": -0.05253802450095067
+        },
+        "chi2": 4202.960626215348,
+        "dof": 33,
+        "chi2_red": 127.36244321864692,
+        "aic": 4208.960626215348,
+        "r_squared": 0.6938894349220028,
+        "success": true
+      },
+      "algebraic_k43": {
+        "params": {
+          "A": 0.9150212009479752,
+          "r_t_km": 1248.94478434017,
+          "C0": -0.11934826813007976
+        },
+        "chi2": 2119.119097256694,
+        "dof": 33,
+        "chi2_red": 64.21573021989983,
+        "aic": 2125.119097256694,
+        "r_squared": 0.6494073798397164,
+        "success": true
+      },
+      "gaussian": {
+        "params": {
+          "A": 0.5456657699977367,
+          "lambda_km": 2665.449362161143,
+          "C0": -0.0518681410650836
+        },
+        "chi2": 3349.2088765245267,
+        "dof": 33,
+        "chi2_red": 101.4911780765008,
+        "aic": 3355.2088765245267,
+        "r_squared": 0.7296774934499145,
+        "success": true
+      },
+      "aic_winner": "exponential",
+      "n_bins": 36
     },
     "status": "success",
     "in_range": true,

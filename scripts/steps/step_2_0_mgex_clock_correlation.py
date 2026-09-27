@@ -225,6 +225,20 @@ class Step20MGEXClockCorrelation:
             if len(sta_series) < 2:
                 continue
 
+            # Normalize to the configured 300 s cadence: products delivered
+            # at finer native cadence (e.g. 30 s GRG receiver-clock records)
+            # are thinned to the 5-min UTC grid so that FS_HZ labels the
+            # frequency axis correctly for every product family. For
+            # natively 5-min products this is a no-op.
+            common_ts_arr = np.asarray(common_ts, dtype=float)
+            keep5 = (np.round(common_ts_arr).astype(np.int64) % 300) == 0
+            if not np.all(keep5):
+                common_ts = common_ts_arr[keep5]
+                if len(common_ts) < MIN_EPOCHS:
+                    continue
+                for sta in sta_series:
+                    sta_series[sta] = sta_series[sta][keep5]
+
             # Robust common-mode removal:
             # 1. Detrend each station to remove receiver-specific drift.
             # 2. Filter out stations with excessive residual variation

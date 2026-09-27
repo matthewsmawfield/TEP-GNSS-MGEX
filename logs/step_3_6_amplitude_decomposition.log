@@ -1,0 +1,99 @@
+[08:01:00] [INFO] Step 3.6: Amplitude Statistic Decomposition
+[08:01:00] [INFO]   Loaded 513 station coordinates
+[08:01:00] [INFO]   Day sample: 47 COD files (every 10th of 468) + 13 GRG files
+[08:01:27] [INFO] Step 3.6: Amplitude Statistic Decomposition
+[08:01:27] [INFO]   Loaded 513 station coordinates
+[08:01:27] [INFO]   Day sample: 47 COD files (every 10th of 468) + 13 GRG files
+[08:01:38] [INFO]   COD canonical            phase_alignment     : A=+0.789 lam=  1848 C0=-0.066 R2=0.74
+[08:01:38] [INFO]   COD canonical            real_coherency      : A=+0.250 lam=  1323 C0=+0.010 R2=0.66
+[08:01:38] [INFO]   COD canonical            magnitude_coherence : A=+0.072 lam=  2172 C0=+0.498 R2=0.60
+[08:01:38] [INFO]   COD no_common_mode       phase_alignment     : A=+0.752 lam=  1965 C0=-0.015 R2=0.69
+[08:01:38] [INFO]   COD no_common_mode       real_coherency      : A=+0.247 lam=  1422 C0=-0.000 R2=0.66
+[08:01:38] [INFO]   COD no_common_mode       magnitude_coherence : A=+0.072 lam=  2399 C0=+0.496 R2=0.59
+[08:01:38] [INFO]   COD no_flatline_filter   phase_alignment     : A=+0.436 lam=  2201 C0=-0.051 R2=0.34
+[08:01:38] [INFO]   COD no_flatline_filter   real_coherency      : A=+0.197 lam=  1032 C0=+0.018 R2=0.45
+[08:01:38] [INFO]   COD no_flatline_filter   magnitude_coherence : A=+0.067 lam=  1849 C0=+0.505 R2=0.37
+[08:01:38] [INFO]   COD p12_spec             phase_alignment     : A=+0.466 lam=  2322 C0=-0.031 R2=0.40
+[08:01:38] [INFO]   COD p12_spec             real_coherency      : A=+0.140 lam=  1656 C0=-0.000 R2=0.56
+[08:01:38] [INFO]   COD p12_spec             magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:01:38] [INFO]   COD p12_spec_filt        phase_alignment     : A=+0.726 lam=  1965 C0=-0.031 R2=0.70
+[08:01:38] [INFO]   COD p12_spec_filt        real_coherency      : A=+0.229 lam=  1352 C0=+0.000 R2=0.62
+[08:01:38] [INFO]   COD p12_spec_filt        magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:01:38] [INFO]   GRG canonical            phase_alignment     : A=+0.462 lam=  4766 C0=-0.108 R2=0.81
+[08:01:38] [INFO]   GRG canonical            real_coherency      : A=+0.139 lam=  3735 C0=-0.009 R2=0.47
+[08:01:38] [INFO]   GRG canonical            magnitude_coherence : A=+0.030 lam=  3419 C0=+0.629 R2=0.43
+[08:01:38] [INFO]   GRG no_common_mode       phase_alignment     : A=+0.408 lam=  3705 C0=-0.026 R2=0.76
+[08:01:38] [INFO]   GRG no_common_mode       real_coherency      : A=+0.128 lam=  3826 C0=-0.008 R2=0.40
+[08:01:38] [INFO]   GRG no_common_mode       magnitude_coherence : A=+0.033 lam=  3451 C0=+0.627 R2=0.41
+[08:01:38] [INFO]   GRG no_flatline_filter   phase_alignment     : A=+0.281 lam=  4959 C0=-0.066 R2=0.33
+[08:01:38] [INFO]   GRG no_flatline_filter   real_coherency      : A=+0.110 lam=  5091 C0=-0.011 R2=0.19
+[08:01:38] [INFO]   GRG no_flatline_filter   magnitude_coherence : A=+0.053 lam=  2023 C0=+0.626 R2=0.32
+[08:01:38] [INFO]   GRG p12_spec             phase_alignment     : A=+0.285 lam=  3145 C0=-0.015 R2=0.48
+[08:01:38] [INFO]   GRG p12_spec             real_coherency      : A=+0.092 lam=  4297 C0=-0.013 R2=0.22
+[08:01:38] [INFO]   GRG p12_spec             magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:01:38] [INFO]   GRG p12_spec_filt        phase_alignment     : A=+0.506 lam=  2103 C0=+0.001 R2=0.91
+[08:01:38] [INFO]   GRG p12_spec_filt        real_coherency      : A=+0.116 lam=  2563 C0=-0.002 R2=0.41
+[08:01:38] [INFO]   GRG p12_spec_filt        magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:01:38] [INFO]   Estimator transfer-function calibration (synthetic)...
+[08:01:39] [INFO]     rho=0.00: pa(full)=+0.014 pa(144)=+0.040 pa(96)=+0.029 ReG=+0.007
+[08:01:39] [INFO]     rho=0.02: pa(full)=+0.018 pa(144)=+0.073 pa(96)=+0.115 ReG=+0.017
+[08:01:39] [INFO]     rho=0.03: pa(full)=+0.010 pa(144)=+0.067 pa(96)=+0.095 ReG=+0.030
+[08:01:39] [INFO]     rho=0.05: pa(full)=+0.131 pa(144)=+0.209 pa(96)=+0.234 ReG=+0.052
+[08:01:40] [INFO]     rho=0.07: pa(full)=+0.157 pa(144)=+0.269 pa(96)=+0.302 ReG=+0.079
+[08:01:40] [INFO]     rho=0.10: pa(full)=+0.277 pa(144)=+0.323 pa(96)=+0.403 ReG=+0.100
+[08:01:40] [INFO]     rho=0.15: pa(full)=+0.373 pa(144)=+0.501 pa(96)=+0.536 ReG=+0.143
+[08:01:40] [INFO]     rho=0.20: pa(full)=+0.475 pa(144)=+0.603 pa(96)=+0.661 ReG=+0.190
+[08:01:40] [INFO]     rho=0.25: pa(full)=+0.583 pa(144)=+0.701 pa(96)=+0.777 ReG=+0.240
+[08:01:41] [INFO]     rho=0.30: pa(full)=+0.671 pa(144)=+0.800 pa(96)=+0.839 ReG=+0.275
+[08:01:41] [INFO]     rho=0.40: pa(full)=+0.816 pa(144)=+0.881 pa(96)=+0.907 ReG=+0.375
+[08:01:41] [INFO]     rho=0.50: pa(full)=+0.905 pa(144)=+0.949 pa(96)=+0.962 ReG=+0.482
+[08:01:41] [INFO] Amplitude decomposition written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_6_amplitude_decomposition.json
+[08:04:28] [INFO] Step 3.6: Amplitude Statistic Decomposition
+[08:04:28] [INFO]   Loaded 513 station coordinates
+[08:04:28] [INFO]   Day sample: 47 COD files (every 10th of 468) + 13 GRG files
+[08:04:39] [INFO]   COD canonical            phase_alignment     : A=+0.789 lam=  1848 C0=-0.066 R2=0.74
+[08:04:39] [INFO]   COD canonical            real_coherency      : A=+0.250 lam=  1323 C0=+0.010 R2=0.66
+[08:04:39] [INFO]   COD canonical            magnitude_coherence : A=+0.072 lam=  2172 C0=+0.498 R2=0.60
+[08:04:39] [INFO]   COD no_common_mode       phase_alignment     : A=+0.752 lam=  1965 C0=-0.015 R2=0.69
+[08:04:39] [INFO]   COD no_common_mode       real_coherency      : A=+0.247 lam=  1422 C0=-0.000 R2=0.66
+[08:04:39] [INFO]   COD no_common_mode       magnitude_coherence : A=+0.072 lam=  2399 C0=+0.496 R2=0.59
+[08:04:39] [INFO]   COD no_flatline_filter   phase_alignment     : A=+0.436 lam=  2201 C0=-0.051 R2=0.34
+[08:04:39] [INFO]   COD no_flatline_filter   real_coherency      : A=+0.197 lam=  1032 C0=+0.018 R2=0.45
+[08:04:39] [INFO]   COD no_flatline_filter   magnitude_coherence : A=+0.067 lam=  1849 C0=+0.505 R2=0.37
+[08:04:39] [INFO]   COD p12_spec             phase_alignment     : A=+0.466 lam=  2322 C0=-0.031 R2=0.40
+[08:04:39] [INFO]   COD p12_spec             real_coherency      : A=+0.140 lam=  1656 C0=-0.000 R2=0.56
+[08:04:39] [INFO]   COD p12_spec             magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:04:39] [INFO]   COD p12_spec_filt        phase_alignment     : A=+0.726 lam=  1965 C0=-0.031 R2=0.70
+[08:04:39] [INFO]   COD p12_spec_filt        real_coherency      : A=+0.229 lam=  1352 C0=+0.000 R2=0.62
+[08:04:39] [INFO]   COD p12_spec_filt        magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:04:39] [INFO]   GRG canonical            phase_alignment     : A=+0.462 lam=  4766 C0=-0.108 R2=0.81
+[08:04:39] [INFO]   GRG canonical            real_coherency      : A=+0.139 lam=  3735 C0=-0.009 R2=0.47
+[08:04:39] [INFO]   GRG canonical            magnitude_coherence : A=+0.030 lam=  3419 C0=+0.629 R2=0.43
+[08:04:39] [INFO]   GRG no_common_mode       phase_alignment     : A=+0.408 lam=  3705 C0=-0.026 R2=0.76
+[08:04:39] [INFO]   GRG no_common_mode       real_coherency      : A=+0.128 lam=  3826 C0=-0.008 R2=0.40
+[08:04:39] [INFO]   GRG no_common_mode       magnitude_coherence : A=+0.033 lam=  3451 C0=+0.627 R2=0.41
+[08:04:39] [INFO]   GRG no_flatline_filter   phase_alignment     : A=+0.281 lam=  4959 C0=-0.066 R2=0.33
+[08:04:39] [INFO]   GRG no_flatline_filter   real_coherency      : A=+0.110 lam=  5091 C0=-0.011 R2=0.19
+[08:04:39] [INFO]   GRG no_flatline_filter   magnitude_coherence : A=+0.053 lam=  2023 C0=+0.626 R2=0.32
+[08:04:39] [INFO]   GRG p12_spec             phase_alignment     : A=+0.285 lam=  3145 C0=-0.015 R2=0.48
+[08:04:39] [INFO]   GRG p12_spec             real_coherency      : A=+0.092 lam=  4297 C0=-0.013 R2=0.22
+[08:04:39] [INFO]   GRG p12_spec             magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:04:39] [INFO]   GRG p12_spec_filt        phase_alignment     : A=+0.506 lam=  2103 C0=+0.001 R2=0.91
+[08:04:39] [INFO]   GRG p12_spec_filt        real_coherency      : A=+0.116 lam=  2563 C0=-0.002 R2=0.41
+[08:04:39] [INFO]   GRG p12_spec_filt        magnitude_coherence : A=+0.000 lam= 26000 C0=+1.000 R2=0.00
+[08:04:39] [INFO]   Estimator transfer-function calibration (synthetic)...
+[08:04:39] [INFO]     rho=0.00: pa(full)=+0.014 pa(144)=+0.040 pa(96)=+0.029 ReG=+0.007
+[08:04:39] [INFO]     rho=0.02: pa(full)=+0.018 pa(144)=+0.073 pa(96)=+0.115 ReG=+0.017
+[08:04:40] [INFO]     rho=0.03: pa(full)=+0.010 pa(144)=+0.067 pa(96)=+0.095 ReG=+0.030
+[08:04:40] [INFO]     rho=0.05: pa(full)=+0.131 pa(144)=+0.209 pa(96)=+0.234 ReG=+0.052
+[08:04:40] [INFO]     rho=0.07: pa(full)=+0.157 pa(144)=+0.269 pa(96)=+0.302 ReG=+0.079
+[08:04:40] [INFO]     rho=0.10: pa(full)=+0.277 pa(144)=+0.323 pa(96)=+0.403 ReG=+0.100
+[08:04:41] [INFO]     rho=0.15: pa(full)=+0.373 pa(144)=+0.501 pa(96)=+0.536 ReG=+0.143
+[08:04:41] [INFO]     rho=0.20: pa(full)=+0.475 pa(144)=+0.603 pa(96)=+0.661 ReG=+0.190
+[08:04:41] [INFO]     rho=0.25: pa(full)=+0.583 pa(144)=+0.701 pa(96)=+0.777 ReG=+0.240
+[08:04:41] [INFO]     rho=0.30: pa(full)=+0.671 pa(144)=+0.800 pa(96)=+0.839 ReG=+0.275
+[08:04:41] [INFO]     rho=0.40: pa(full)=+0.816 pa(144)=+0.881 pa(96)=+0.907 ReG=+0.375
+[08:04:42] [INFO]     rho=0.50: pa(full)=+0.905 pa(144)=+0.949 pa(96)=+0.962 ReG=+0.482
+[08:04:42] [INFO]     rho=0.60: pa(full)=+0.939 pa(144)=+0.970 pa(96)=+0.976 ReG=+0.575
+[08:04:42] [INFO]     rho=0.70: pa(full)=+0.965 pa(144)=+0.982 pa(96)=+0.987 ReG=+0.681
+[08:04:42] [INFO] Amplitude decomposition written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_6_amplitude_decomposition.json

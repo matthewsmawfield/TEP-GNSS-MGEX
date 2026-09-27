@@ -2,12 +2,42 @@
 
 <p>
 The combined MGEX receiver-clock product shows a distance-dependent structure
-with $$\lambda = 1862 \pm 112$$ km. The estimate remains within 1,819–2,000 km
+with $$\lambda = 1862$$ km. The estimate remains within 1,819–2,000 km
 when the minimum baseline is raised from 50 to 2,000 km, while the binned-fit
 R² improves from 0.70 to about 0.92. It persists on quiet days and after
-distance matching, though those comparisons do not eliminate every product or
-network confound. The formal fit uncertainty does not represent all
-model-selection or network uncertainties. The result is nonetheless a useful
+distance matching, and it survives the two computed mundane channels rather
+than only label-permutation nulls: the forward-modelled shared
+satellite-error kernel is flat through the signal band and decays an order of
+magnitude more slowly than the measured profile; conditioning the same
+channel on the product's own ephemerides and satellite-clock content decays
+no faster than λ = 6,650 km (~3.6× the measured scale; Paper 1, Step 5.2);
+and the weather-organized
+partitions return the opposite of the atmospheric signature — cross-hemisphere
+pairs, which share no synoptic weather, carry the cleanest decay, and
+same-latitude-band pairs beyond 8,000 km return negative coherence where a
+zonal atmospheric kernel requires positive coherence. The ±112 km formal fit
+uncertainty treats 1.83 million pair-days as independent; cluster-robust
+resampling of whole epochs inflates the statistical error only modestly —
+±86 km under day-block bootstrap, ±155 km under month-block bootstrap, and
+±94 km under leave-one-month-out jackknife — so the within-product
+statistical precision is about ±8%. The dominant scale uncertainties are
+systematic rather than statistical: single-window realisations are
+epoch-dependent at the ~30–40% level, and the matched-day cross-center
+comparison contributes ~±600 km. A factorial decomposition on identical
+station-days (Step 3.5, §4.5b) shows that the estimator axes — Welch
+segment length and per-epoch common-mode removal — move the fitted scale
+by ≲±25%, so the residual offset to the IGS-final family
+(3,330–4,549 km, Papers 1–2) resides in the clock products rather than
+in the correlation estimator, and the same band-ordered profile (longest
+scale in the lowest resolved sub-band) is recovered in both product
+families. The amplitude is conditioned the same way and more strongly:
+the fitted A is a bounded, saturating phase-direction index (§4.5b, Step
+3.6) whose ~7× offset from the IGS-final family decomposes into a ~3×
+statistic nonlinearity, the documented estimator axes, and a
+product-level difference in the shared in-phase budget — the linear
+coherence measured on identical pair-days is A = 0.250, and the
+deeper negative MGEX asymptote is the signature of its own zero-sum
+datum, not a sign discrepancy. The result is nonetheless a useful
 cross-product corroboration of a correlation scale in the thousands-of-
 kilometres range, not a direct measurement-equivalence claim with the earlier
 GPS PPP products.
@@ -30,7 +60,15 @@ correction, unsurprising with only 16 complete chronological months and
 unstable monthly exponential fits. The model-free PA-difference statistic,
 monthly mean EW minus NS phase alignment, has r = −0.716 with orbital speed
 (p = 0.0018) and r = −0.767 with velocity projected onto the CMB dipole
-(p = 0.0005). These signs and magnitudes are consistent with the preceding
+(p = 0.0005). Because the nominal p-values assume independent monthly points,
+they are reported alongside autocorrelation-aware diagnostics: effective-
+degrees-of-freedom values p = 0.072 and p = 0.018, matched AR(1)-surrogate
+values p = 0.019 and p = 0.003, and circular-shift values p = 0.125 and
+p = 0.063 (the 1/16 floor for the projection channel). The association is
+therefore tempered but not erased, and it is the physically motivated
+velocity-projection channel that survives; leave-one-month-out correlations
+remain within r = −0.66 to −0.86, excluding single-month dominance. These
+signs and magnitudes are consistent with the preceding
 TEP-GNSS analyses, which motivated the physical prediction before this MGEX
 analysis. That history makes the result corroborative across products. However,
 PA difference was chosen here after the primary estimators were unstable, so it

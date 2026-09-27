@@ -1,0 +1,77 @@
+[05:58:13] [INFO]   Loaded 513 station coordinates
+[05:58:13] [INFO]   Day sample: 30 COD files (every 16th of 468) + 13 GRG files
+[05:58:14] [PROCESS]   Processed 10 COD + 0 GRG days
+[05:58:14] [PROCESS]   Processed 20 COD + 0 GRG days
+[05:58:20] [INFO]   Usable days: 27 COD, 2 GRG
+[05:58:21] [INFO]   mgex_canonical           lambda =   1784.0 km  R2 = 0.727  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   mgex_no_cm               lambda =   1865.9 km  R2 = 0.644  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   fullday_cm_fullband      lambda =   1786.9 km  R2 = 0.674  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   fullday_nocm_fullband    lambda =   1982.1 km  R2 = 0.656  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   fullday_cm_35uhz         lambda =   1424.2 km  R2 = 0.450  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   fullday_nocm_35uhz       lambda =   1451.1 km  R2 = 0.412  (29 days, 105,223 pairs)
+[05:58:21] [INFO]   GRG native_cfgfs_cm      lambda =   2718.6 km  R2 = 0.556
+[05:58:21] [INFO]   GRG native_truefs_cm     lambda =   2663.7 km  R2 = 0.162
+[05:58:21] [INFO]   GRG decim_cfgfs_cm       lambda =    962.3 km  R2 = 0.604
+[05:58:21] [SUCCESS]   Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_5_estimator_decomposition.json
+[06:04:51] [INFO]   Loaded 513 station coordinates
+[06:04:51] [INFO]   Day sample: 59 COD files (every 8th of 468) + 13 GRG files
+[06:04:52] [PROCESS]   Processed 10 COD + 0 GRG days
+[06:04:53] [PROCESS]   Processed 20 COD + 0 GRG days
+[06:04:54] [PROCESS]   Processed 30 COD + 0 GRG days
+[06:04:55] [PROCESS]   Processed 40 COD + 0 GRG days
+[06:04:55] [PROCESS]   Processed 50 COD + 0 GRG days
+[06:05:01] [INFO]   Usable days: 56 COD, 2 GRG
+[06:05:01] [INFO]   mgex_canonical           lambda =   1285.4 km  R2 = 0.318  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   mgex_no_cm               lambda =   1368.3 km  R2 = 0.304  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   fullday_cm_fullband      lambda =   1363.4 km  R2 = 0.413  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   fullday_nocm_fullband    lambda =   1598.4 km  R2 = 0.564  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   fullday_cm_35uhz         lambda =   1045.2 km  R2 = 0.162  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   fullday_nocm_35uhz       lambda =   1048.7 km  R2 = 0.106  (58 days, 211,012 pairs)
+[06:05:02] [INFO]   GRG native_cfgfs_cm      lambda =   2718.6 km  R2 = 0.556
+[06:05:02] [INFO]   GRG native_truefs_cm     lambda =   2663.7 km  R2 = 0.162
+[06:05:02] [INFO]   GRG decim_cfgfs_cm       lambda =    962.3 km  R2 = 0.604
+[06:05:02] [INFO]   pooled as_published     lambda =   1271.4 km (61 days)
+[06:05:02] [INFO]   pooled cadence_fixed    lambda =   1285.4 km (58 days)
+[06:05:02] [SUCCESS]   Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_5_estimator_decomposition.json
+[07:02:45] [INFO]   Loaded 513 station coordinates
+[07:02:45] [INFO]   Day sample: 59 COD files (every 8th of 468) + 13 GRG files
+[07:02:46] [PROCESS]   Processed 10 COD + 0 GRG days
+[07:02:47] [PROCESS]   Processed 20 COD + 0 GRG days
+[07:02:48] [PROCESS]   Processed 30 COD + 0 GRG days
+[07:02:49] [PROCESS]   Processed 40 COD + 0 GRG days
+[07:02:49] [PROCESS]   Processed 50 COD + 0 GRG days
+[07:03:13] [INFO]   Usable days: 56 COD, 2 GRG
+[07:03:13] [INFO]   mgex_canonical           lambda =   1285.4 km  R2 = 0.318  (58 days, 211,012 pairs)
+[07:03:13] [INFO]   mgex_no_cm               lambda =   1368.3 km  R2 = 0.304  (58 days, 211,012 pairs)
+[07:03:14] [INFO]   fullday_cm_fullband      lambda =   1363.4 km  R2 = 0.413  (58 days, 211,012 pairs)
+[07:03:14] [INFO]   fullday_nocm_fullband    lambda =   1598.4 km  R2 = 0.564  (58 days, 211,012 pairs)
+[07:03:14] [INFO]   fullday_cm_35uhz         lambda =   1045.2 km  R2 = 0.162  (58 days, 211,012 pairs)
+[07:03:14] [INFO]   fullday_nocm_35uhz       lambda =   1048.7 km  R2 = 0.106  (58 days, 211,012 pairs)
+[07:03:14] [INFO]   GRG native_cfgfs_cm      lambda =   2718.6 km  R2 = 0.556
+[07:03:14] [INFO]   GRG native_truefs_cm     lambda =   2663.7 km  R2 = 0.162
+[07:03:14] [INFO]   GRG decim_cfgfs_cm       lambda =    962.3 km  R2 = 0.604
+[07:03:14] [INFO]   GRG pair_aligned_5min    lambda =   2400.0 km  R2 = 0.145
+[07:03:14] [INFO]   pooled as_published     lambda =   1271.4 km (61 days)
+[07:03:14] [INFO]   pooled cadence_fixed    lambda =   1285.4 km (58 days)
+[07:03:14] [SUCCESS]   Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_5_estimator_decomposition.json
+[07:03:38] [INFO]   Loaded 513 station coordinates
+[07:03:38] [INFO]   Day sample: 59 COD files (every 8th of 468) + 13 GRG files
+[07:03:39] [PROCESS]   Processed 10 COD + 0 GRG days
+[07:03:39] [PROCESS]   Processed 20 COD + 0 GRG days
+[07:03:40] [PROCESS]   Processed 30 COD + 0 GRG days
+[07:03:41] [PROCESS]   Processed 40 COD + 0 GRG days
+[07:03:42] [PROCESS]   Processed 50 COD + 0 GRG days
+[07:04:05] [INFO]   Usable days: 56 COD, 2 GRG
+[07:04:06] [INFO]   mgex_canonical           lambda =   1285.4 km  R2 = 0.318  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   mgex_no_cm               lambda =   1368.3 km  R2 = 0.304  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   fullday_cm_fullband      lambda =   1363.4 km  R2 = 0.413  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   fullday_nocm_fullband    lambda =   1598.4 km  R2 = 0.564  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   fullday_cm_35uhz         lambda =   1045.2 km  R2 = 0.162  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   fullday_nocm_35uhz       lambda =   1048.7 km  R2 = 0.106  (58 days, 211,012 pairs)
+[07:04:06] [INFO]   GRG native_cfgfs_cm      lambda =   2718.6 km  R2 = 0.556
+[07:04:06] [INFO]   GRG native_truefs_cm     lambda =   2663.7 km  R2 = 0.162
+[07:04:06] [INFO]   GRG decim_cfgfs_cm       lambda =    962.3 km  R2 = 0.604
+[07:04:06] [INFO]   GRG pair_aligned_5min    lambda =   2400.0 km  R2 = 0.145
+[07:04:06] [INFO]   pooled as_published     lambda =   1271.4 km (61 days)
+[07:04:06] [INFO]   pooled cadence_fixed    lambda =   1285.4 km (58 days)
+[07:04:06] [SUCCESS]   Results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_5_estimator_decomposition.json

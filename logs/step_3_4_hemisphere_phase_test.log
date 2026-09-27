@@ -1,0 +1,27 @@
+[22:52:43] [INFO] Step 3.4: Hemisphere-Split Phase Test
+[22:52:43] [INFO]   Station latitudes: 513 (NH 341, SH 172)
+[22:52:45] [INFO]   Loaded 1827555 pair-day records
+[22:52:46] [INFO]   Classes: intra-NH 850240, intra-SH 322247, cross-hemisphere 655068
+[22:52:48] [INFO]   intra_NH: 462 months usable for pa_diff series
+[22:52:50] [INFO]   intra_SH: 462 months usable for pa_diff series
+[22:52:51] [INFO]   cross_hemi: 462 months usable for pa_diff series
+[22:52:51] [INFO]   Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_4_hemisphere_phase_test.json
+[22:52:51] [INFO]   Verdict: NH and SH pa_diff modulations share a common annual phase and a consistent orbital-velocity sign -- consistent with a global heliocentric driver, not hemisphere-local seasons.
+[22:56:21] [INFO] Step 3.4: Hemisphere-Split Phase Test
+[22:56:21] [INFO]   Station latitudes: 513 (NH 341, SH 172)
+[22:56:24] [INFO]   Loaded 1827555 pair-day records
+[22:56:25] [INFO]   Classes: intra-NH 850240, intra-SH 322247, cross-hemisphere 655068
+[22:56:27] [INFO]   intra_NH: 16 months usable for pa_diff series
+[22:56:29] [INFO]   intra_SH: 16 months usable for pa_diff series
+[22:56:30] [INFO]   cross_hemi: 16 months usable for pa_diff series
+[22:56:30] [INFO]   Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_4_hemisphere_phase_test.json
+[22:56:30] [INFO]   Verdict: NH and SH pa_diff modulations share a common annual phase and a consistent orbital-velocity sign -- consistent with a global heliocentric driver, not hemisphere-local seasons.
+[22:58:39] [INFO] Step 3.4: Hemisphere-Split Phase Test
+[22:58:39] [INFO]   Station latitudes: 513 (NH 341, SH 172)
+[22:58:41] [INFO]   Loaded 1827555 pair-day records
+[22:58:43] [INFO]   Classes: intra-NH 850240, intra-SH 322247, cross-hemisphere 655068
+[22:58:44] [INFO]   intra_NH: 16 months usable for pa_diff series
+[22:58:44] [INFO]   intra_SH: 16 months usable for pa_diff series
+[22:58:44] [INFO]   cross_hemi: 16 months usable for pa_diff series
+[22:58:44] [INFO]   Wrote /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_4_hemisphere_phase_test.json
+[22:58:44] [INFO]   Verdict: NH and SH pa_diff modulations share a common annual phase and a consistent orbital-velocity sign -- consistent with a global heliocentric driver, not hemisphere-local seasons.
