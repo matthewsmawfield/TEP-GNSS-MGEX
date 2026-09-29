@@ -19,29 +19,67 @@ abstract: >-
   globally distributed stations are read directly from daily 5-minute CLK files.
   The combined solution provides no per-constellation independence, but supplies
   a distinct product family and a largely held-out 2025–2026 epoch. The isotropic
-  correlation length is λ = 1862 ± 112 km (R² = 0.699; 1.83 million pair-day
-  observations). It is stable at 1,819–2,000 km across minimum-baseline cutoffs
+  correlation length is λ = 1862 km (R² = 0.699; 1.83 million pair-day
+  observations) with a formal within-fit error of ±112 km and a cluster-robust
+  statistical uncertainty of ±155 km obtained by resampling whole epochs
+  (month-block bootstrap over 17 calendar months; day-block ±86 km;
+  leave-one-month-out jackknife ±94 km). The scale is epoch- and
+  product-dependent at the ~30–40% level: single-window realisations span
+  1,050–1,935 km, and matched-day estimates are 2,744 km for CODE against
+  1,933 km for the software-independent GRG chain (same tracking network) — the
+  latter landing within 4% of the pooled scale — so the defensible content is
+  the thousands-of-kilometres coherence rather than the precise value. It is
+  stable at 1,819–2,000 km across minimum-baseline cutoffs
   of 50–2,000 km and persists on geomagnetically quiet days (λ = 1708 km). The
   full-range anisotropy is not robust (ratio 1.29, station-clustered p = 0.49);
   the longitude-matched subset is suggestive by pair bootstrap but not spatially
   clustered resampling. The primary monthly λ and EW/NS orbital metrics are null
   (Bonferroni p > 0.5). A model-free PA-difference statistic gives associations
   with orbital speed (r = −0.716, p = 0.0018) and CMB-dipole velocity projection
-  (r = −0.767, p = 0.0005) across 16 chronological full months. The physical
+  (r = −0.767, p = 0.0005) across 16 chronological full months.
+  Autocorrelation-aware corrections temper but do not erase the association:
+  the effective-degrees-of-freedom values are p = 0.072 (speed) and p = 0.018
+  (v_proj), matched AR(1) surrogates give p = 0.019 and p = 0.003, the
+  phase-preserving circular-shift null reaches its 1/16 resolution floor for
+  the projection channel, and leave-one-month-out correlations stay within
+  r = −0.66 to −0.86, so no single phase alignment dominates. The association
+  also survives operational-asymmetry controls: a composition-matched EW−NS
+  contrast over distance × latitude cells gives r = −0.65 (p = 0.006) for the
+  projection channel, and a uniformly-tracked-station subset gives r = −0.74
+  (p = 0.001). Hemisphere-split checks return the same signed anticorrelation
+  in northern, southern, and cross-hemisphere pair classes (r = −0.45, −0.88,
+  −0.49) at a common annual phase (Δφ = 22° ± 44°), favouring a global
+  heliocentric driver over hemisphere-local seasonal systematics. The physical
   hypothesis and sign were motivated by earlier TEP-GNSS papers, making this
   cross-product corroboration; the operationalisation remains exploratory within
   MGEX because it was selected after the primary estimators were unstable. A
   37 × 19 directional grid finds strong within-grid modulation (200-permutation
   plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole, but this
   does not contradict the CMB result: orbital velocity constrains only an axis’s
-  projection onto the orbital plane, and that projection is highly degenerate.
-  The direct CMB-projection association is therefore consistent but not a unique
-  three-dimensional axis localization. All four null controls pass under a robust
-  analysis. A supplementary satellite-clock analysis does not recover the
+  projection onto the orbital plane, and that projection is highly degenerate
+  (the CMB and nominal-maximum projected predictors correlate at r = 0.984, and
+  only 61 of 703 grid directions meet or exceed the direct-CMB |r|). The direct
+  CMB-projection association is therefore a directional consistency check rather
+  than an independent confirmation, and is not a unique three-dimensional axis
+  localization. All four null controls pass under the robust analysis (minimum
+  baseline 500 km); under the primary short-baseline parameters the
+  solar-rotation reassignment null retains R² = 0.50, traced to a small-sample
+  bin artifact at 100–152 km, so the robust analysis is reported as the clean
+  result (the fitted scale is stable, 1,862 vs 1,819 km). The two leading
+  mundane attribution channels are computed and excluded rather than assumed
+  absent: a forward-modelled shared satellite-error kernel is flat through the
+  signal band and decays only on the constellation-footprint scale, and the
+  weather-organized partitions contradict the atmospheric signature —
+  cross-hemisphere pairs retain the cleanest decay (λ = 2101 km) while
+  same-latitude-band pairs beyond 8,000 km return −0.118 rather than the
+  positive zonal coherence an atmospheric driver requires. A supplementary
+  satellite-clock analysis does not recover the
   exponential structure, consistent with the shared reference-time architecture
-  of the combined MGEX product.
-version: v0.2 (Suva)
-date-released: 2026-09-16
+  of the combined MGEX product: because satellite clocks are not independently
+  estimated in that product, it tests only the receiver-clock channel, and the
+  satellite-clock null is a product limitation rather than a prediction test.
+version: v0.3 (Suva)
+date-released: 2026-09-28
 doi: 10.5281/zenodo.20572726
 url: https://mlsmawfield.com/tep/gnss-mgex
 repository-code: https://github.com/matthewsmawfield/TEP-GNSS-MGEX
@@ -66,4 +104,4 @@ preferred-citation:
   journal: Zenodo
   doi: 10.5281/zenodo.20572726
   url: https://mlsmawfield.com/tep/gnss-mgex
-  note: Preprint v0.2 (Suva)
+  note: Preprint v0.3 (Suva)

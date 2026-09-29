@@ -197,7 +197,7 @@ class HTMLToMarkdownConverter {
         const version = versionMatch ? versionMatch[1]
             .replace(/<[^>]+>/g, '')
             .replace(/^Version:\s*/i, '')
-            .trim() : 'v0.2 (Suva)';
+            .trim() : 'v0.3 (Suva)';
         
         const dateMatch = html.match(/<div[^>]*class=["'][^"']*date[^"']*["'][^>]*>(.*?)<\/div>/i);
         const date = dateMatch ? dateMatch[1].replace(/<[^>]+>/g, '').trim() : 'First published: 7 June 2026';
@@ -243,14 +243,14 @@ class HTMLToMarkdownConverter {
             if (fs.existsSync(versionPath)) {
                 const versionData = JSON.parse(fs.readFileSync(versionPath, 'utf8'));
                 return {
-                    version: versionData.version || '0.2.0',
+                    version: versionData.version || '0.3.0',
                     codename: versionData.codename || 'Suva'
                 };
             }
         } catch (e) {
             console.warn('⚠️  Could not read VERSION.json, using defaults');
         }
-        return { version: '0.2.0', codename: 'Suva' };
+        return { version: '0.3.0', codename: 'Suva' };
     }
 
     /**

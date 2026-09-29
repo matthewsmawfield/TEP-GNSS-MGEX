@@ -1,7 +1,7 @@
 # Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026
 **Matthew Lukin Smawfield**
-Version: v0.2 (Suva)
-First published: 7 June 2026 · Last updated: 16 September 2026
+Version: v0.3 (Suva)
+First published: 7 June 2026 · Last updated: 28 September 2026
 DOI: 10.5281/zenodo.20572726
 
 ---

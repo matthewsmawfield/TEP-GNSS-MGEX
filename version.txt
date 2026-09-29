@@ -1,3 +1,15 @@
+v0.3 (Suva) — 28 September 2026 — Corpus-resolution audit: epoch/product dependence bounded, robustness controls added
+
+- λ uncertainty reframed: formal ±112 km, cluster-robust ±155 km (month-block bootstrap over 17 calendar months; day-block ±86 km; leave-one-month-out jackknife ±94 km); epoch- and product-dependence quantified at ~30–40% (single-window 1,050–1,935 km; matched-day CODE 2,744 km vs GRG 1,933 km); defensible content stated as thousands-of-kilometres coherence rather than a precise scale
+- Autocorrelation-aware corrections for the orbital/CMB associations: effective-dof p = 0.072 (speed) and 0.018 (v_proj); matched AR(1) surrogates p = 0.019/0.003; circular-shift null at its 1/16 floor; leave-one-month-out r = −0.66 to −0.86
+- Operational-asymmetry controls: composition-matched EW−NS contrast r = −0.65 (p = 0.006); uniformly-tracked-station subset r = −0.74 (p = 0.001)
+- Hemisphere-split checks return the same signed anticorrelation in N/S/cross pair classes (r = −0.45, −0.88, −0.49) at common annual phase (Δφ = 22° ± 44°)
+- CMB projection degeneracy quantified (projected predictors correlate r = 0.984; 61/703 grid directions ≥ direct-CMB |r|) — reframed as directional consistency check, not independent axis localization
+- Solar-rotation null failure under short-baseline parameters traced to a 100–152 km bin artifact; robust analysis (min baseline 500 km) reported as the clean result (λ stable: 1,862 vs 1,819 km)
+- Mundane attribution channels computed and excluded: forward-modelled shared satellite-error kernel flat through the signal band; weather-organized partitions contradict the atmospheric signature (cross-hemisphere λ = 2101 km; >8,000 km same-band pairs −0.118)
+- Satellite-clock null reframed as a product limitation (shared reference-time architecture; receiver-clock channel only)
+- New pipeline steps: hemisphere phase test (3.4), estimator decomposition (3.5), amplitude decomposition (3.6)
+
 v0.2 (Suva) — 16 September 2026 — Expanded dataset, sensitivity analyses, and editorial pass
 
 - Dataset expanded: 256 → 418 stations, 462 usable days; all results recomputed (1.83 million pair-day observations)
