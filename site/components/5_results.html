@@ -3,7 +3,7 @@
 <p>
 The analysis comprises 1,827,555 station-pair-day observations drawn from a network
 of 418 stations over 462 usable days. Because the MGEX product is a single combined solution, the
-results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, CMB-frame alignment, and ionospheric/geometric robustness controls. The correlation length and ionospheric persistence are observed; the longitude-matched anisotropy is not robust under spatially clustered resampling. The primary pre-specified monthly λ and EW/NS orbital metrics are null (Bonferroni p > 0.5). A model-free PA-difference metric (mean EW minus NS phase alignment) gives a suggestive orbital association across 16 chronological full months that survives autocorrelation-aware corrections for the CMB-projection channel (corrected p = 0.018; AR(1) p = 0.003; circular-shift floor), but it is exploratory within this MGEX study because it was adopted after the primary fits proved unstable. The direct CMB-projected association is consistent with that signal. The full-sky scan detects directional modulation, but orbital velocity constrains only a plane-projected direction, so its nominal sky axis is not uniquely localizable.
+results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, annual-phase templates, and ionospheric/geometric robustness controls. The correlation length and ionospheric persistence are observed; the longitude-matched anisotropy is not robust under spatially clustered resampling. The primary pre-specified monthly λ and EW/NS orbital metrics are null (Bonferroni p > 0.5). A model-free PA-difference metric (mean EW minus NS phase alignment) gives a suggestive orbital association across 16 chronological full months that survives autocorrelation-aware corrections for one CMB-labelled projection channel (corrected p = 0.018; AR(1) p = 0.003; circular-shift floor), but it is exploratory within this MGEX study because it was adopted after the primary fits proved unstable. The full-sky scan detects annual directional modulation, but orbital velocity constrains only a plane-projected phase: the nominal sky axis is not uniquely localizable and the CMB template is not uniquely selected.
 </p>
 
 <h3>4.1 Correlation Length</h3>
@@ -60,11 +60,11 @@ shortest baselines are excluded (R² = 0.699 at 50 km to approximately 0.92).
         <tr><td>200</td><td>1893</td><td>0.791</td></tr>
         <tr><td>500</td><td>1819</td><td>0.848</td></tr>
         <tr><td>1000</td><td>1850</td><td>0.917</td></tr>
-        <tr><td>2000</td><td>2000<sup>&dagger;</sup></td><td>0.912</td></tr>
+        <tr><td>2000</td><td>2000<sup>†</sup></td><td>0.912</td></tr>
     </tbody>
 </table>
 
-<p><em>&dagger; The 2,000 km cutoff row is a boundary contact: the fitted value
+<p><em>† The 2,000 km cutoff row is a boundary contact: the fitted value
 (2000.000 km) sits on the lower parameter bound ($$\lambda \geq$$ minimum
 baseline) rather than interior to it, so it indicates only that the data
 prefer $$\lambda \geq 2{,}000$$ km at that cutoff — it is flagged as pinned
@@ -87,8 +87,8 @@ windows returns λ = 1,050–1,935 km (R² from −0.18 to 0.80), with
 scale is epoch-dependent at the ~30–40% level, and any single ~1-year
 estimate — including the 1,396 km figure reported for the original
 ~1-year span — is an unstable realisation rather than a product-fixed
-value. Second, on strictly matched days the software-independent CNES (GRG)
-processing chain — a different code base on the same tracking network —
+value. Second, on strictly matched days the independently processed CNES (GRG)
+product chain — a different code base on the same tracking network —
 returns pooled λ = 1,933 km (R² = 0.58) against 2,744 km
 for the CODE product on verified-independent matched days (~44,000 pairs
 each; same-product fallback days excluded by epoch-aligned
@@ -146,7 +146,7 @@ p = 0.214). The 500–1,000 km stratum also shows the expected excess.
     </thead>
     <tbody>
         <tr><td>Full range</td><td>1810</td><td>1402</td><td>1.29</td><td>[0.18, 2.60] (station-boot)</td><td>0.49</td></tr>
-        <tr><td>Longitude-matched (&lt;30°)</td><td>1753</td><td>1327</td><td>1.32</td><td>[0.91, 2.65] (pair-boot, mean 1.71)</td><td>0.058</td></tr>
+        <tr><td>Longitude-matched ($\lt$ 30°)</td><td>1753</td><td>1327</td><td>1.32</td><td>[0.91, 2.65] (pair-boot, mean 1.71)</td><td>0.058</td></tr>
     </tbody>
 </table>
 
@@ -270,11 +270,12 @@ heliocentric driver.
     </tbody>
 </table>
 
-<h3>4.4 CMB-Frame Alignment</h3>
+<h3>4.4 Projection-Degenerate Annual-Direction Test</h3>
 
 <p>
-The CMB analysis uses the same PA-difference observable as Section 4.3 and is
-therefore a directional characterization, not an independent test. With 16
+This analysis uses the same PA-difference observable as Section 4.3 and is
+therefore a directional characterization, not an independent test of a cosmic
+rest frame. With 16
 chronological full-month observations, the direct CMB-projection correlation is
 r = −0.733, computed from daily EW−NS differences averaged equally within
 each calendar month. This differs from the −0.767 result in Section 4.3,
@@ -282,19 +283,18 @@ which averages all pair observations within each month (so months are
 pair-count weighted) before correlating PA difference with the CMB-projected
 velocity. The latter is the stronger weighted PA-difference result (p = 0.0005).
 A 37 × 19 scan gives a nominal maximum
-at RA = 230°, Dec = +60° (r = −0.745), 82.7° from the CMB dipole. This apparent
-angular discrepancy cannot reject CMB consistency: Earth’s orbital velocity
+at RA = 230°, Dec = +60° (r = −0.745), 82.7° from the CMB dipole. Earth’s orbital velocity
 samples essentially one plane, so the scan identifies only a direction’s
 projection onto that plane, not its full three-dimensional vector. The CMB and
 nominal maximum projections correlate at r = 0.984, and 61 of 703 grid
 directions have |r| at least as large as the direct CMB value. The 30°
 three-dimensional threshold is consequently not an identifiable test in this
 geometry. The grid detects directional annual modulation (plus-one permutation
-p = 0.005 from 200 complete-grid shuffles), while the pre-specified CMB
-projection remains compatible with it. Widening sectors to 60° gives r =
+p = 0.005 from 200 complete-grid shuffles), but it does not select the CMB
+projection over the many compatible annual templates. Widening sectors to 60° gives r =
 −0.791 at another member of the same projection-degenerate family. The short
-series further limits precision, so this is corroborative CMB consistency, not
-a unique sky-axis localization.
+series further limits precision, so this is evidence only for exploratory
+annual directional structure, not a CMB-frame detection or a unique sky-axis localization.
 </p>
 
 <table>
@@ -322,8 +322,8 @@ a unique three-dimensional direction from Earth-orbital velocity alone.
         <tr><th scope="col">Cadence</th><th scope="col">Sector width</th><th scope="col">Nominal RA (°)</th><th scope="col">Nominal Dec (°)</th><th scope="col">r</th><th scope="col">Δθ_CMB (°)</th><th scope="col">p (perm.)</th><th scope="col">Interpretation</th></tr>
     </thead>
     <tbody>
-        <tr><td>Monthly</td><td>45°</td><td>230</td><td>60</td><td>−0.745</td><td>82.7</td><td>0.005</td><td>Axis not uniquely identifiable; CMB projection consistent</td></tr>
-        <tr><td>Monthly</td><td>60°</td><td>230</td><td>60</td><td>−0.791</td><td>82.7</td><td>0.005</td><td>Axis not uniquely identifiable; CMB projection consistent</td></tr>
+        <tr><td>Monthly</td><td>45°</td><td>230</td><td>60</td><td>−0.745</td><td>82.7</td><td>0.005</td><td>Annual template detected; CMB not uniquely selected</td></tr>
+        <tr><td>Monthly</td><td>60°</td><td>230</td><td>60</td><td>−0.791</td><td>82.7</td><td>0.005</td><td>Annual template detected; CMB not uniquely selected</td></tr>
         <tr><td>Daily</td><td>45°</td><td>230</td><td>60</td><td>−0.505</td><td>82.7</td><td>—</td><td>Axis not uniquely identifiable</td></tr>
     </tbody>
 </table>
@@ -333,7 +333,7 @@ a unique three-dimensional direction from Earth-orbital velocity alone.
 <p>
 The correlation length persists on geomagnetically quiet days ($$\lambda = 1708$$ km,
 Kp ≤ 2, 712,186 pairs, R² = 0.743). Active days (Kp ≥ 5, 39,093 pairs) give a longer
-$$\lambda = 1931$$ km (R² = 0.295); the smaller sample increases the variance and the value awaits confirmation with additional active-period data. Storm-excluded days (Kp &lt; 5) give
+$$\lambda = 1931$$ km (R² = 0.295); the smaller sample increases the variance and the value awaits confirmation with additional active-period data. Storm-excluded days (Kp $\lt$ 5) give
 $$\lambda = 1858$$ km (R² = 0.705, 1,788,462 pairs), consistent with the base value. The distance-matched subset
 yields a comparable $$\lambda = 1889$$ km (R² = 0.599), indicating the signal is not a
 product of network geometry. Hemispheric $$\lambda$$ differs north to south, as expected
@@ -349,7 +349,7 @@ geometry-robust comparison.
         <tr><td>Base (all days)</td><td>1862</td><td>0.699</td></tr>
         <tr><td>Quiet days (Kp ≤ 2)</td><td>1708</td><td>0.743</td></tr>
         <tr><td>Active days (Kp ≥ 5)</td><td>1931</td><td>0.295</td></tr>
-        <tr><td>Storm-excluded (Kp &lt; 5)</td><td>1858</td><td>0.705</td></tr>
+        <tr><td>Storm-excluded (Kp $\lt$ 5)</td><td>1858</td><td>0.705</td></tr>
         <tr><td>Distance-matched</td><td>1889</td><td>0.599</td></tr>
         <tr><td>Northern hemisphere</td><td>1365</td><td>0.678</td></tr>
         <tr><td>Southern hemisphere</td><td>2353</td><td>0.038</td></tr>
@@ -394,12 +394,12 @@ $$\lambda = 1308$$ km (R² = 0.653). The intra-SH binned profile likewise
 decays monotonically (+0.63 to −0.14); its weak exponential-fit quality
 (R² = 0.032) reflects the long-baseline-dominated coverage of the
 southern network rather than absent structure. Second, at
-$$d > 4000$$ km, same-latitude-band pairs ($$|\Delta\mathrm{lat}| < 10°$$)
+$$d \gt 4000$$ km, same-latitude-band pairs ($$|\Delta\mathrm{lat}| \lt 10°$$)
 return mean phase alignment −0.096 while different-band pairs
-($$|\Delta\mathrm{lat}| > 30°$$) return −0.026 — the opposite ordering of
+($$|\Delta\mathrm{lat}| \gt 30°$$) return −0.026 — the opposite ordering of
 the zonal-teleconnection prediction, and not a distance artifact because
 the same-band subset is the closer one (median 7,963 vs 9,129 km).
-Third, the decisive cell: same-band pairs at $$d > 8000$$ km — where a
+Third, the decisive cell: same-band pairs at $$d \gt 8000$$ km — where a
 zonal atmospheric kernel must retain positive coherence — return mean
 phase alignment −0.118 on 107,013 pair-days, opposite in sign to the
 atmospheric requirement. The weather-organized component is therefore
@@ -424,9 +424,9 @@ cannot generate a distance-ordered pair correlation by construction.
         <tr><th scope="col">Latitude-band control</th><th scope="col">Mean PA</th><th scope="col">Pair-days</th><th scope="col">Median d (km)</th><th scope="col">Atmospheric requirement</th></tr>
     </thead>
     <tbody>
-        <tr><td>Same band, $$|\Delta\mathrm{lat}| &lt; 10°$$, $$d &gt; 4000$$ km</td><td>−0.096</td><td>217,430</td><td>7,963</td><td>Positive zonal coherence — contradicted</td></tr>
+        <tr><td>Same band, $$|\Delta\mathrm{lat}| \lt 10°$$, $$d \gt 4000$$ km</td><td>−0.096</td><td>217,430</td><td>7,963</td><td>Positive zonal coherence — contradicted</td></tr>
         <tr><td>Different band, $$|\Delta\mathrm{lat}| &gt; 30°$$, $$d &gt; 4000$$ km</td><td>−0.026</td><td>899,956</td><td>9,129</td><td>Lower coherence than same band — contradicted</td></tr>
-        <tr><td>Same band, $$|\Delta\mathrm{lat}| &lt; 10°$$, $$d &gt; 8000$$ km</td><td>−0.118</td><td>107,013</td><td>—</td><td>Positive coherence required — contradicted</td></tr>
+        <tr><td>Same band, $$|\Delta\mathrm{lat}| \lt 10°$$, $$d \gt 8000$$ km</td><td>−0.118</td><td>107,013</td><td>—</td><td>Positive coherence required — contradicted</td></tr>
     </tbody>
 </table>
 
@@ -449,7 +449,7 @@ the per-epoch common-mode removal (applied here; not applied in Papers
 On a 58-day sample spanning the archive (211,012 pair-days), the
 factorial decomposition returns: canonical settings
 $$\lambda = 1285 \pm 233$$ km (day-block bootstrap; the full-archive
-estimate on all 486 days is 1,862 km); common-mode removal switched off,
+estimate on all 462 usable days is 1,862 km); common-mode removal switched off,
 $$\lambda = 1368$$ km; full-day spectral resolution with common-mode,
 $$\lambda = 1363$$ km; and the Papers-1–2 estimator combination
 (full-day resolution, no common-mode removal), $$\lambda = 1598$$ km.
@@ -475,11 +475,11 @@ at intermediate frequencies (Paper 1 §3.5.1). Both products therefore
 return the same band-ordered, distance-structured correlation; the MGEX
 profile is a scaled-down version of the IGS-final one. The defensible
 cross-product statement is a thousands-of-km coherence scale with a
-shared band ordering — consistency with the geometric saturation anchor
-at the ~1.9–4.5×10<sup>3</sup> km precise-product family level (raw-SPP
-channels bound the scale from below at ~0.7–1.1×10<sup>3</sup> km and
-the raw ionofree channel returns 4,767 ± 835 km; Paper 3) — rather
-than a point-scale identification.
+shared band ordering. The fitted scale is product- and
+estimator-conditioned (product-level values ~1.0–4.8×10<sup>3</sup> km; raw-SPP
+channels ~0.7–1.1×10<sup>3</sup> km and the raw ionofree channel returns
+4,767 ± 835 km; Paper 3), and no point-scale identification with the
+geometric saturation radius is made.
 </p>
 
 <p>
@@ -524,9 +524,9 @@ COD 0.789. A labelled transfer calibration (Step 3.6; synthetic
 red-noise pairs, estimator calibration only) inverts the published
 amplitudes to underlying band coherences of ρ ≈ 0.30 (MGEX) and
 ρ ≈ 0.05 (IGS finals) under each family's own spectral window —
-a product-level difference in the shared in-phase budget, expected of a
-multi-GNSS combined solution relative to GPS-only finals, rather than a
-contradiction in the measured structure. The fitted offset shows the
+a product-level difference in the shared in-phase budget — not yet modelled
+from product construction, and not in contradiction with the measured
+structure. The fitted offset shows the
 same bookkeeping: all three product families return negative C₀, and the
 deeper MGEX asymptote is the zero-sum signature of its per-epoch median
 datum — toggling the common-mode subtraction on identical pair-days

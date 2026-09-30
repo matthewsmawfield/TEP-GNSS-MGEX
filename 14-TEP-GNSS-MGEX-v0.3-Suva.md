@@ -1,7 +1,7 @@
 # Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026
 **Matthew Lukin Smawfield**
 Version: v0.3 (Suva)
-First published: 7 June 2026 · Last updated: 28 September 2026
+First published: 7 June 2026 · Last updated: 30 September 2026
 DOI: 10.5281/zenodo.20572726
 
 ---
@@ -11,7 +11,9 @@ DOI: 10.5281/zenodo.20572726
 The Temporal Equivalence Principle (TEP) predicts correlated phase-coherent
 disturbances in GNSS timekeeping with a spatial correlation length of order
 thousands of kilometres, an east–west anisotropy, coupling to Earth orbital
-velocity, and a preferred axis near the CMB rest frame. Papers 1 and 2 examined
+velocity, and an annual-phase direction near Earth's aphelion velocity tangent.
+The directed CMB-apex template is anti-phase rather than detected as a rest
+frame. Papers 1 and 2 examined
 these signatures in GPS precise point-positioning products from three analysis
 centres spanning 2000–2025; Paper 3 used raw RINEX single-point positioning.
 
@@ -22,21 +24,21 @@ distributed stations are read directly from daily 5-minute CLK files. The
 combined solution provides no per-constellation independence, but supplies a
 distinct product family and a largely held-out 2025–2026 epoch.
 
-The isotropic correlation length is $\lambda = 1862$ km (R² = 0.699;
+The isotropic correlation length is $$\lambda = 1862$$ km (R² = 0.699;
 1.83 million pair-day observations) with a formal within-fit error of ±112 km
 and a cluster-robust statistical uncertainty of ±155 km obtained by resampling
 whole epochs (month-block bootstrap over 17 calendar months; day-block ±86 km;
 leave-one-month-out jackknife ±94 km). The scale is epoch- and
 product-dependent at the ~30–40% level: single-window realisations span
 1,050–1,935 km, and matched-day estimates are 2,744 km for CODE against
-1,933 km for the software-independent GRG chain (same tracking network) — the latter landing within 4% of
+1,933 km for the independently processed GRG product chain (same tracking network) — the latter landing within 4% of
 the pooled scale — so the defensible content is the
 thousands-of-kilometres coherence rather than the precise value. It is stable at 1,819–2,000 km across minimum-baseline
 cutoffs of 50–2,000 km and persists on geomagnetically quiet days
-($\lambda = 1708$ km). The full-range anisotropy is
+($$\lambda = 1708$$ km). The full-range anisotropy is
 not robust (ratio 1.29, station-clustered p = 0.49); the longitude-matched
 subset is suggestive by pair bootstrap but not spatially clustered resampling.
-The primary monthly $\lambda$ and EW/NS orbital metrics are null (Bonferroni
+The primary monthly $$\lambda$$ and EW/NS orbital metrics are null (Bonferroni
 p > 0.5). A model-free PA-difference statistic gives associations with orbital
 speed (r = −0.716, p = 0.0018) and CMB-dipole velocity projection
 (r = −0.767, p = 0.0005) across 16 chronological full months.
@@ -58,19 +60,19 @@ hypothesis and sign were motivated by earlier TEP-GNSS papers, making this
 cross-product corroboration; the operationalisation remains exploratory within
 MGEX because it was selected after the primary estimators were unstable.
 A 37 × 19 directional grid finds strong within-grid modulation (200-permutation
-plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole, but this
-does not contradict the CMB result: orbital velocity constrains only an axis’s
-projection onto the orbital plane, and that projection is highly degenerate
+plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole. Orbital
+velocity constrains only an axis’s projection onto the orbital plane, and that
+projection is highly degenerate
 (the CMB and nominal-maximum projected predictors correlate at r = 0.984, and
 only 61 of 703 grid directions meet or exceed the direct-CMB |r|).
-The direct CMB-projection association is therefore a directional consistency
-check rather than an independent confirmation, and is not a unique
-three-dimensional axis localization. All four null controls pass under the
+The CMB-labelled projection is therefore one member of a broad family of
+annual templates, not evidence for a CMB rest frame or a unique
+three-dimensional axis. All four null controls pass under the
 robust analysis (minimum baseline 500 km); under the primary short-baseline
 parameters the solar-rotation reassignment null retains R² = 0.50, traced to a
 small-sample bin artifact at 100–152 km, so the robust analysis is reported as
 the clean result (the fitted scale is stable, 1,862 vs 1,819 km). The two
-leading mundane attribution channels are computed and excluded rather than
+leading mundane attribution channels are explicitly modelled and strongly disfavoured by the tested controls rather than
 assumed absent: a forward-modelled shared satellite-error kernel is flat
 through the signal band and decays only on the constellation-footprint scale,
 and the weather-organized partitions contradict the atmospheric signature —
@@ -83,7 +85,7 @@ clocks are not independently estimated in that product, it tests only the
 receiver-clock channel, and the satellite-clock null is a product limitation
 rather than a prediction test.
 
-*Keywords:* Temporal Equivalence Principle, MGEX, multi-GNSS, receiver clock, correlation length, anisotropy, orbital velocity, ionosphere, CMB frame, temporal shear, temporal topology
+*Keywords:* Temporal Equivalence Principle, MGEX, multi-GNSS, receiver clock, correlation length, anisotropy, orbital velocity, annual phase, ionosphere, temporal shear, temporal topology
 
 ## 1. Introduction
 
@@ -91,8 +93,10 @@ Papers 1 and 2 of this series established correlated phase-coherent disturbances
 in GPS-only precise point positioning (PPP) products from CODE, IGS and ESA,
 spanning 2000–2025. The disturbances exhibit a spatial correlation length of
 order thousands of kilometres, an east–west anisotropy exceeding the north–south
-counterpart, coupling to Earth orbital velocity, and a preferred axis near the
-CMB dipole. Paper 3 moved to raw RINEX single-point positioning (SPP),
+counterpart, coupling to Earth orbital velocity, and a recovered annual-phase
+direction near Earth's aphelion velocity tangent. In the corrected directed
+convention, the CMB-apex template is anti-phase and is not a detected rest frame.
+Paper 3 moved to raw RINEX single-point positioning (SPP),
 demonstrating that the same signatures persist without reliance on
 analysis-centre orbit or clock products. Between them, those papers already
 provide multi-centre, multi-decade, raw-observation, and GPS-only product-family
@@ -123,7 +127,7 @@ outside the scope of this combined-product analysis. The independence offered
 here is temporal (a largely held-out epoch) and product-type (a combined multi-GNSS
 clock product line from the same analysis centre, CODE, whose IGS-final products anchor Papers 1–2), not per-constellation.
 
-The empirically derived spatial correlation length $\lambda \approx 1862$ km is consistent with the abstract environmental operator $\mathcal{S}_\Sigma(\mathcal{E})$ defined in the foundational TEP framework. In the near-Earth environment, this correlation length traces the macroscopic geometric signature of the continuous saturation of Temporal Topology, anchoring the differential clock correlations independently of the specific multi-GNSS processing strategy. The precise transfer map from the microscopic screening operator to the empirically fitted correlation length remains to be derived.
+The measured $\lambda \approx 1862$ km is a clock-sector covariance scale of $C_A$. It is not $\mathcal{S}_\Sigma$; in the near-Earth environment, this correlation length traces the macroscopic geometric signature of the continuous saturation of Temporal Topology, anchoring the differential clock correlations independently of the specific multi-GNSS processing strategy. The precise relationship of the covariance structure to the solved scalar field remains to be derived.
 
 ## 2. Data and Product Scope
 
@@ -171,12 +175,12 @@ share an error budget:
 | 1 | AC precise clocks | CODE final, IGS combined, ESA final (Bernese / IGS combination / NAPEOS) | 2023-01 to 2025-06 | 364 | CODE family shared with Papers 2, 14; AC ecosystem shared with Paper 33's centre arms |
 | 2 | AC precise clocks | CODE IGS-final 30 s clocks (Bernese) | 2000-03 to 2025-06 | 474 | Same CODE product family as Papers 1 and 14; epoch superset of Paper 1 |
 | 3 | Raw RINEX | Broadcast ephemerides + own RTKLIB SPP | 2022 to 2024 | 539 | Estimation-chain independent; shares the physical tracking network |
-| **14 (this study)** | AC combined clocks | CODE COD0MGXFIN (WUM/GRG fallback &asymp;6% of days) | 2025-01 to 2026-05 | 418 | Same CODE centre as Papers 1&ndash;2; epoch largely held out |
-| 33 | Mixed | Own RTKLib SPP arms + AC receiver clocks (COD/GFZ/GRG/JPL) | 2022 to 2025 | 5&ndash;160 per arm | AC arms share the IGS/MGEX ecosystem; SPP arms are estimation-independent |
+| **14 (this study)** | AC combined clocks | CODE COD0MGXFIN (WUM/GRG fallback ≃6% of days) | 2025-01 to 2026-05 | 418 | Same CODE centre as Papers 1–2; epoch largely held out |
+| 33 | Mixed | Own RTKLib SPP arms + AC receiver clocks (COD/GFZ/GRG/JPL) | 2022 to 2025 | 5–160 per arm | AC arms share the IGS/MGEX ecosystem; SPP arms are estimation-independent |
 
-Agreement with Papers 1&ndash;2 is therefore corroboration within a shared
-product ecosystem &mdash; a different product line and a largely held-out
-epoch over substantially the same tracking network &mdash; rather than
+Agreement with Papers 1–2 is therefore corroboration within a shared
+product ecosystem — a different product line and a largely held-out
+epoch over substantially the same tracking network — rather than
 replication on independent data. The GRG and WUM products used for fallback
 and matched-day comparison run different processing software on that same
 network, so they bound software- and implementation-specific artifacts but
@@ -189,7 +193,7 @@ its analysis-centre arms share this ecosystem.
 
 The analysis evaluates the following signatures, consistent with the approach
 in earlier papers: correlation length, azimuthal anisotropy, orbital-velocity
-coupling, CMB-frame alignment, ionospheric independence, and geometric robustness.
+coupling, annual-phase directional structure, fixed-frame controls, ionospheric independence, and geometric robustness.
 
 ## 3. Methods
 
@@ -203,16 +207,16 @@ performed and no coordinate residuals are computed; the receiver clock is the
 sole observable.
 
 Screening in TEP is represented at the theory level by the environmental operator
-*S*<sub>&Sigma;</sub>(*&Epsilon;*).
+$S_\Sigma(\mathcal{E})$.
 Quantities such as
-&rho;<sub>T</sub>,
-*R*<sub>T</sub>(*M*),
-*S*<sub>&oplus;</sub>(*r*),
-compactness &Phi;/*c*<sup>2</sup>,
+$\rho_T$,
+$R_T(M)$,
+$S_\oplus(r)$,
+compactness $\Phi/c^2$,
 local stellar density,
 geometric coherence length,
 and channel-specific response coefficients
-are domain-specific projections of *&Epsilon;*,
+are domain-specific projections of $\mathcal{E}$,
 not independent screening mechanisms
 and not interchangeable universal thresholds.
 Each is an observational transfer model
@@ -253,7 +257,7 @@ to 13,000 km, with a minimum of 10 pairs per bin.
 
 The distance-binned phase alignment is modelled as
 
-$C(r) = A \exp(-r / \lambda) + C_0 \tag{1}$
+$$C(r) = A \exp(-r / \lambda) + C_0 \tag{1}$$
 
 where A is the amplitude, λ is the correlation length, and C₀ is an incoherent
 offset. Fitting uses bounded non-linear least squares (Trust Region Reflective),
@@ -273,7 +277,7 @@ Gaussian. Sensitivity rows at raised minimum-baseline cutoffs are flagged
 when the fitted λ contacts the lower parameter bound (which equals the
 cutoff), since a boundary-pinned value is not an interior measurement.
 
-### 3.5 Anisotropy, Orbital, CMB, Ionospheric, and Null Tests
+### 3.5 Anisotropy, Orbital-Phase, Fixed-Frame, Ionospheric, and Null Tests
 
 The EW > NS test fits λ separately in eight 45°-wide azimuth sectors and compares
 the mean of the east and west sectors with the mean of the north and south
@@ -360,13 +364,13 @@ a conservative supplementary assessment of each result's stability.
 
 The analysis comprises 1,827,555 station-pair-day observations drawn from a network
 of 418 stations over 462 usable days. Because the MGEX product is a single combined solution, the
-results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, CMB-frame alignment, and ionospheric/geometric robustness controls. The correlation length and ionospheric persistence are observed; the longitude-matched anisotropy is not robust under spatially clustered resampling. The primary pre-specified monthly λ and EW/NS orbital metrics are null (Bonferroni p > 0.5). A model-free PA-difference metric (mean EW minus NS phase alignment) gives a suggestive orbital association across 16 chronological full months that survives autocorrelation-aware corrections for the CMB-projection channel (corrected p = 0.018; AR(1) p = 0.003; circular-shift floor), but it is exploratory within this MGEX study because it was adopted after the primary fits proved unstable. The direct CMB-projected association is consistent with that signal. The full-sky scan detects directional modulation, but orbital velocity constrains only a plane-projected direction, so its nominal sky axis is not uniquely localizable.
+results are reported once rather than per constellation. The analysis evaluates the core correlation-length signature, directional anisotropy, orbital-velocity coupling, annual-phase templates, and ionospheric/geometric robustness controls. The correlation length and ionospheric persistence are observed; the longitude-matched anisotropy is not robust under spatially clustered resampling. The primary pre-specified monthly λ and EW/NS orbital metrics are null (Bonferroni p > 0.5). A model-free PA-difference metric (mean EW minus NS phase alignment) gives a suggestive orbital association across 16 chronological full months that survives autocorrelation-aware corrections for one CMB-labelled projection channel (corrected p = 0.018; AR(1) p = 0.003; circular-shift floor), but it is exploratory within this MGEX study because it was adopted after the primary fits proved unstable. The full-sky scan detects annual directional modulation, but orbital velocity constrains only a plane-projected phase: the nominal sky axis is not uniquely localizable and the CMB template is not uniquely selected.
 
 ### 4.1 Correlation Length
 
 The isotropic fit gives a well-constrained correlation length.
 
-| $\lambda$ (km) | $\sigma_\lambda$ (km, formal) | A | C₀ | R² | Pair-day observations |
+| $$\lambda$$ (km) | $$\sigma_\lambda$$ (km, formal) | A | C₀ | R² | Pair-day observations |
 | --- | --- | --- | --- | --- | --- |
 | 1862 | 112 | 0.827 | −0.065 | 0.699 | 1,827,555 |
 
@@ -387,10 +391,10 @@ pair-day records as independent within-bin samples. Because pair-days share
 stations within each day and share orbit/product states across consecutive
 days, cluster-robust resampling of whole epochs was used to measure the true
 statistical scatter: a day-block bootstrap over the 462 days gives
-$\sigma_\lambda = \pm 86$ km (95% CI 1,639–1,932 km), a month-block
-bootstrap over the 17 calendar months gives $\sigma_\lambda = \pm 155$ km
+$$\sigma_\lambda = \pm 86$$ km (95% CI 1,639–1,932 km), a month-block
+bootstrap over the 17 calendar months gives $$\sigma_\lambda = \pm 155$$ km
 (95% CI 1,363–1,971 km), and a leave-one-month-out jackknife gives
-$\sigma_\lambda = \pm 94$ km with leave-out values confined to
+$$\sigma_\lambda = \pm 94$$ km with leave-out values confined to
 1,794–1,896 km. The within-product statistical precision is therefore about
 ±8%, only modestly above the formal error; the dominant scale uncertainties
 are the epoch and product systematics quantified below. A sensitivity analysis
@@ -398,23 +402,23 @@ demonstrates that the correlation length is stable across minimum-baseline
 cutoffs from 50 to 2,000 km, with fit quality improving substantially as the
 shortest baselines are excluded (R² = 0.699 at 50 km to approximately 0.92).
 
-| Min. baseline (km) | $\lambda$ (km) | R² |
+| Min. baseline (km) | $$\lambda$$ (km) | R² |
 | --- | --- | --- |
 | 50 (primary) | 1862 | 0.699 |
 | 200 | 1893 | 0.791 |
 | 500 | 1819 | 0.848 |
 | 1000 | 1850 | 0.917 |
-| 2000 | 2000&dagger; | 0.912 |
+| 2000 | 2000† | 0.912 |
 
-&dagger; The 2,000 km cutoff row is a boundary contact: the fitted value
-(2000.000 km) sits on the lower parameter bound ($\lambda \geq$ minimum
+† The 2,000 km cutoff row is a boundary contact: the fitted value
+(2000.000 km) sits on the lower parameter bound ($$\lambda \geq$$ minimum
 baseline) rather than interior to it, so it indicates only that the data
-prefer $\lambda \geq 2{,}000$ km at that cutoff — it is flagged as pinned
+prefer $$\lambda \geq 2{,}000$$ km at that cutoff — it is flagged as pinned
 in the archived output and is not an independent measurement of the
 scale.
 
 The correlation length varies by less than 8% across the full range of
-cutoffs ($\lambda$ = 1,819–2,000 km), while R² improves from 0.70 to
+cutoffs ($$\lambda$$ = 1,819–2,000 km), while R² improves from 0.70 to
 0.92. The stability of the fitted correlation length across these cutoffs
 demonstrates that the recovered distance-decay scale is not driven solely by
 the shortest-baseline bins.
@@ -426,8 +430,8 @@ windows returns λ = 1,050–1,935 km (R² from −0.18 to 0.80), with
 scale is epoch-dependent at the ~30–40% level, and any single ~1-year
 estimate — including the 1,396 km figure reported for the original
 ~1-year span — is an unstable realisation rather than a product-fixed
-value. Second, on strictly matched days the software-independent CNES (GRG)
-processing chain — a different code base on the same tracking network —
+value. Second, on strictly matched days the independently processed CNES (GRG)
+product chain — a different code base on the same tracking network —
 returns pooled λ = 1,933 km (R² = 0.58) against 2,744 km
 for the CODE product on verified-independent matched days (~44,000 pairs
 each; same-product fallback days excluded by epoch-aligned
@@ -449,18 +453,18 @@ statistical error of the pooled estimate.
 
 The choice of decay morphology is tested rather than assumed. On identical
 log-spaced bins and identical SEM weights, six functional forms are compared
-by AIC: the exponential (AIC = 1,664.7, $\lambda = 1{,}862$ km), a
+by AIC: the exponential (AIC = 1,664.7, $$\lambda = 1{,}862$$ km), a
 stretched exponential with free exponent (AIC = 1,665.2; the fit selects
-$b = 0.98$, i.e. the pure exponential is recovered rather than assumed),
-the algebraic suppressor family $A/[1+(r/r_t)^k]+C_0$ with free
-exponent (AIC = 1,893.8 at $k = 1.78$), the same family at the derived
-Paper-0 pairwise exponents $k=4$ (AIC = 4,209.0) and $k=4/3$
+$$b = 0.98$$, i.e. the pure exponential is recovered rather than assumed),
+the algebraic suppressor family $$A/[1+(r/r_t)^k]+C_0$$ with free
+exponent (AIC = 1,893.8 at $$k = 1.78$$), the same family at the derived
+Paper-0 pairwise exponents $$k=4$$ (AIC = 4,209.0) and $$k=4/3$$
 (AIC = 2,125.1), and a Gaussian (AIC = 3,355.2). The exponential is the
 AIC winner and the nested stretched-exponential family independently
-returns $b \approx 1$: the measured profile is a finite-range exponential
+returns $$b \approx 1$$: the measured profile is a finite-range exponential
 correlator — the two-point morphology of a screened spatial field — rather
 than an algebraic tail. The derived suppressor operators
-$\mathcal{S}_\Sigma$ and $y(s)$ describe the response as a function of
+$$\mathcal{S}_\Sigma$$ and $$y(s)$$ describe the response as a function of
 the ambient environment, a different observable; the correlation kernel
 measured here is the field's spatial covariance, and it is cleanly
 exponential.
@@ -474,10 +478,10 @@ matched in longitude (fitted ratio 1.32, bootstrap mean 1.71, pair-bootstrap p =
 significance dissolves under spatial-clustered resampling (95% CI [0.17, 13.28],
 p = 0.214). The 500–1,000 km stratum also shows the expected excess.
 
-| Subset | $\lambda_{EW}$ (km) | $\lambda_{NS}$ (km) | Ratio | 95% CI | p |
+| Subset | $$\lambda_{EW}$$ (km) | $$\lambda_{NS}$$ (km) | Ratio | 95% CI | p |
 | --- | --- | --- | --- | --- | --- |
 | Full range | 1810 | 1402 | 1.29 | [0.18, 2.60] (station-boot) | 0.49 |
-| Longitude-matched (<30°) | 1753 | 1327 | 1.32 | [0.91, 2.65] (pair-boot, mean 1.71) | 0.058 |
+| Longitude-matched ($\lt$ 30°) | 1753 | 1327 | 1.32 | [0.91, 2.65] (pair-boot, mean 1.71) | 0.058 |
 
 | Distance stratum | EW/NS ratio |
 | --- | --- |
@@ -493,7 +497,7 @@ therefore classified as not robust; the directional signal is
 interpreted as null in the combined MGEX product, consistent with the
 non-significant station-clustered bootstrap (p = 0.49).
 
-| Analysis | $\lambda_{EW}$ (km) | $\lambda_{NS}$ (km) | Ratio |
+| Analysis | $$\lambda_{EW}$$ (km) | $$\lambda_{NS}$$ (km) | Ratio |
 | --- | --- | --- | --- |
 | Primary (min 50 km) | 1810 | 1402 | 1.29 |
 | Min 200 km | 2098 | 1384 | 1.52 |
@@ -580,10 +584,11 @@ heliocentric driver.
 | PA_diff (uniform-tracking) vs speed | −0.685 | 0.0034 | — | Operational-asymmetry control; both endpoints above median participation |
 | PA_diff (uniform-tracking) vs v_proj | −0.739 | 0.0011 | — | Operational-asymmetry control; n_eff p = 0.029; AR(1) p = 0.007; shift p = 0.063 (floor) |
 
-### 4.4 CMB-Frame Alignment
+### 4.4 Projection-Degenerate Annual-Direction Test
 
-The CMB analysis uses the same PA-difference observable as Section 4.3 and is
-therefore a directional characterization, not an independent test. With 16
+This analysis uses the same PA-difference observable as Section 4.3 and is
+therefore a directional characterization, not an independent test of a cosmic
+rest frame. With 16
 chronological full-month observations, the direct CMB-projection correlation is
 r = −0.733, computed from daily EW−NS differences averaged equally within
 each calendar month. This differs from the −0.767 result in Section 4.3,
@@ -591,19 +596,18 @@ which averages all pair observations within each month (so months are
 pair-count weighted) before correlating PA difference with the CMB-projected
 velocity. The latter is the stronger weighted PA-difference result (p = 0.0005).
 A 37 × 19 scan gives a nominal maximum
-at RA = 230°, Dec = +60° (r = −0.745), 82.7° from the CMB dipole. This apparent
-angular discrepancy cannot reject CMB consistency: Earth’s orbital velocity
+at RA = 230°, Dec = +60° (r = −0.745), 82.7° from the CMB dipole. Earth’s orbital velocity
 samples essentially one plane, so the scan identifies only a direction’s
 projection onto that plane, not its full three-dimensional vector. The CMB and
 nominal maximum projections correlate at r = 0.984, and 61 of 703 grid
 directions have |r| at least as large as the direct CMB value. The 30°
 three-dimensional threshold is consequently not an identifiable test in this
 geometry. The grid detects directional annual modulation (plus-one permutation
-p = 0.005 from 200 complete-grid shuffles), while the pre-specified CMB
-projection remains compatible with it. Widening sectors to 60° gives r =
+p = 0.005 from 200 complete-grid shuffles), but it does not select the CMB
+projection over the many compatible annual templates. Widening sectors to 60° gives r =
 −0.791 at another member of the same projection-degenerate family. The short
-series further limits precision, so this is corroborative CMB consistency, not
-a unique sky-axis localization.
+series further limits precision, so this is evidence only for exploratory
+annual directional structure, not a CMB-frame detection or a unique sky-axis localization.
 
 | Min. baseline (km) | Direct r(CMB) | Months |
 | --- | --- | --- |
@@ -620,27 +624,27 @@ a unique three-dimensional direction from Earth-orbital velocity alone.
 
 | Cadence | Sector width | Nominal RA (°) | Nominal Dec (°) | r | Δθ_CMB (°) | p (perm.) | Interpretation |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Monthly | 45° | 230 | 60 | −0.745 | 82.7 | 0.005 | Axis not uniquely identifiable; CMB projection consistent |
-| Monthly | 60° | 230 | 60 | −0.791 | 82.7 | 0.005 | Axis not uniquely identifiable; CMB projection consistent |
+| Monthly | 45° | 230 | 60 | −0.745 | 82.7 | 0.005 | Annual template detected; CMB not uniquely selected |
+| Monthly | 60° | 230 | 60 | −0.791 | 82.7 | 0.005 | Annual template detected; CMB not uniquely selected |
 | Daily | 45° | 230 | 60 | −0.505 | 82.7 | — | Axis not uniquely identifiable |
 
 ### 4.5 Ionospheric and Geometry Controls
 
-The correlation length persists on geomagnetically quiet days ($\lambda = 1708$ km,
+The correlation length persists on geomagnetically quiet days ($$\lambda = 1708$$ km,
 Kp ≤ 2, 712,186 pairs, R² = 0.743). Active days (Kp ≥ 5, 39,093 pairs) give a longer
-$\lambda = 1931$ km (R² = 0.295); the smaller sample increases the variance and the value awaits confirmation with additional active-period data. Storm-excluded days (Kp < 5) give
-$\lambda = 1858$ km (R² = 0.705, 1,788,462 pairs), consistent with the base value. The distance-matched subset
-yields a comparable $\lambda = 1889$ km (R² = 0.599), indicating the signal is not a
-product of network geometry. Hemispheric $\lambda$ differs north to south, as expected
+$$\lambda = 1931$$ km (R² = 0.295); the smaller sample increases the variance and the value awaits confirmation with additional active-period data. Storm-excluded days (Kp $\lt$ 5) give
+$$\lambda = 1858$$ km (R² = 0.705, 1,788,462 pairs), consistent with the base value. The distance-matched subset
+yields a comparable $$\lambda = 1889$$ km (R² = 0.599), indicating the signal is not a
+product of network geometry. Hemispheric $$\lambda$$ differs north to south, as expected
 from the uneven station distribution; the distance-matched control is the
 geometry-robust comparison.
 
-| Control | $\lambda$ (km) | R² |
+| Control | $$\lambda$$ (km) | R² |
 | --- | --- | --- |
 | Base (all days) | 1862 | 0.699 |
 | Quiet days (Kp ≤ 2) | 1708 | 0.743 |
 | Active days (Kp ≥ 5) | 1931 | 0.295 |
-| Storm-excluded (Kp < 5) | 1858 | 0.705 |
+| Storm-excluded (Kp $\lt$ 5) | 1858 | 0.705 |
 | Distance-matched | 1889 | 0.599 |
 | Northern hemisphere | 1365 | 0.678 |
 | Southern hemisphere | 2353 | 0.038 |
@@ -660,7 +664,7 @@ The kernel is flat above 0.93 through the 0–2,000 km band where the
 measured coherence carries most of its structure, decays only on the
 constellation-footprint scale (0.70 at 3–5,000 km, 0.45 at 5–8,000 km,
 0.18 at 8–12,000 km — an effective scale an order of magnitude longer
-than the observed $\lambda = 1862$ km), and is everywhere non-negative
+than the observed $$\lambda = 1862$$ km), and is everywhere non-negative
 whereas the measured profile crosses zero. A shared satellite-error
 projection can weight this kernel but cannot steepen it, so the
 geometric product-error channel cannot supply the measured decay.
@@ -670,20 +674,22 @@ component — tropospheric delay terms absorbed into the per-station clock
 estimates. An atmospheric driver is weather-organized rather than
 distance-organized: synoptic fields are hemisphere-confined, and the
 large-scale modes (annular modes, jet-stream teleconnections) are
-coherent along latitude bands over $\sim 10^4$ km, not across them.
+coherent along latitude bands over $$\sim 10^4$$ km, not across them.
 Three within-product controls on true station latitudes (Step 3.3) test
 this directly. First, refitting the profile within hemisphere classes,
 the cross-hemisphere subset — pairs that cannot share any synoptic
 weather — returns the cleanest structure in the archive
-($\lambda = 2101$ km, R² = 0.769, 655,068 pair-days), against intra-NH
-$\lambda = 1308$ km (R² = 0.653). The intra-SH binned profile likewise
+($$\lambda = 2101$$ km, R² = 0.769, 655,068 pair-days), against intra-NH
+$$\lambda = 1308$$ km (R² = 0.653). The intra-SH binned profile likewise
 decays monotonically (+0.63 to −0.14); its weak exponential-fit quality
 (R² = 0.032) reflects the long-baseline-dominated coverage of the
 southern network rather than absent structure. Second, at
-$d > 4000$ km, same-latitude-band pairs ($|\Delta\mathrm{lat}|  30°$) return −0.026 — the opposite ordering of
+$$d \gt 4000$$ km, same-latitude-band pairs ($$|\Delta\mathrm{lat}| \lt 10°$$)
+return mean phase alignment −0.096 while different-band pairs
+($$|\Delta\mathrm{lat}| \gt 30°$$) return −0.026 — the opposite ordering of
 the zonal-teleconnection prediction, and not a distance artifact because
 the same-band subset is the closer one (median 7,963 vs 9,129 km).
-Third, the decisive cell: same-band pairs at $d > 8000$ km — where a
+Third, the decisive cell: same-band pairs at $$d \gt 8000$$ km — where a
 zonal atmospheric kernel must retain positive coherence — return mean
 phase alignment −0.118 on 107,013 pair-days, opposite in sign to the
 atmospheric requirement. The weather-organized component is therefore
@@ -691,7 +697,7 @@ excluded at the level of its required structure; what remains of the
 tropospheric channel is per-station incoherent residual error, which
 cannot generate a distance-ordered pair correlation by construction.
 
-| Control subset | $\lambda$ (km) | R² | Pair-days | Mundane prediction |
+| Control subset | $$\lambda$$ (km) | R² | Pair-days | Mundane prediction |
 | --- | --- | --- | --- | --- |
 | Intra-NH pairs | 1308 | 0.653 | 850,240 | Structure expected |
 | Intra-SH pairs (profile decays +0.63 → −0.14) | 2437 | 0.032 | 322,247 | Structure expected |
@@ -699,35 +705,35 @@ cannot generate a distance-ordered pair correlation by construction.
 
 | Latitude-band control | Mean PA | Pair-days | Median d (km) | Atmospheric requirement |
 | --- | --- | --- | --- | --- |
-| Same band, $|\Delta\mathrm{lat}| < 10°$, $d > 4000$ km | −0.096 | 217,430 | 7,963 | Positive zonal coherence — contradicted |
-| Different band, $|\Delta\mathrm{lat}| > 30°$, $d > 4000$ km | −0.026 | 899,956 | 9,129 | Lower coherence than same band — contradicted |
-| Same band, $|\Delta\mathrm{lat}| < 10°$, $d > 8000$ km | −0.118 | 107,013 | — | Positive coherence required — contradicted |
+| Same band, $$|\Delta\mathrm{lat}| \lt 10°$$, $$d \gt 4000$$ km | −0.096 | 217,430 | 7,963 | Positive zonal coherence — contradicted |
+| Different band, $$|\Delta\mathrm{lat}| > 30°$$, $$d > 4000$$ km | −0.026 | 899,956 | 9,129 | Lower coherence than same band — contradicted |
+| Same band, $$|\Delta\mathrm{lat}| \lt 10°$$, $$d \gt 8000$$ km | −0.118 | 107,013 | — | Positive coherence required — contradicted |
 
 ### 4.5b Estimator Decomposition of the Fitted Scale
 
-The pooled MGEX scale ($\lambda = 1862$ km) sits below the IGS-final
+The pooled MGEX scale ($$\lambda = 1862$$ km) sits below the IGS-final
 family reported in Papers 1–2 (3,330–4,549 km). Both analyses measure
 the same statistic — the cosine of the magnitude-weighted circular mean
 cross-spectral phase — so the offset can be decomposed
 estimator-axis by estimator-axis on identical real station-days
 (Step 3.5). Three documented settings differ between the pipelines: the
-Welch segment length (96 samples here, $\Delta f \approx 34.7$ µHz,
-versus a full-day segment in Papers 1–2, $\Delta f \approx 11.6$ µHz),
+Welch segment length (96 samples here, $$\Delta f \approx 34.7$$ µHz,
+versus a full-day segment in Papers 1–2, $$\Delta f \approx 11.6$$ µHz),
 the per-epoch common-mode removal (applied here; not applied in Papers
 1–2), and the clock products themselves.
 
 On a 58-day sample spanning the archive (211,012 pair-days), the
 factorial decomposition returns: canonical settings
-$\lambda = 1285 \pm 233$ km (day-block bootstrap; the full-archive
-estimate on all 486 days is 1,862 km); common-mode removal switched off,
-$\lambda = 1368$ km; full-day spectral resolution with common-mode,
-$\lambda = 1363$ km; and the Papers-1–2 estimator combination
-(full-day resolution, no common-mode removal), $\lambda = 1598$ km.
+$$\lambda = 1285 \pm 233$$ km (day-block bootstrap; the full-archive
+estimate on all 462 usable days is 1,862 km); common-mode removal switched off,
+$$\lambda = 1368$$ km; full-day spectral resolution with common-mode,
+$$\lambda = 1363$$ km; and the Papers-1–2 estimator combination
+(full-day resolution, no common-mode removal), $$\lambda = 1598$$ km.
 Restricting the full-day spectrum to the resolved MGEX floor
-($\geq 34.7$ µHz) returns $\lambda = 1045$–$1049$ km, confirming
+($$\geq 34.7$$ µHz) returns $$\lambda = 1045$$–$$1049$$ km, confirming
 that the two lowest resolved bins carry the longest-range content — as
 required if the correlation is band-ordered. The estimator axes thus
-move the fitted scale over $1.0$–$1.6 \times 10^3$ km on identical
+move the fitted scale over $$1.0$$–$$1.6 \times 10^3$$ km on identical
 data (≲±25% around the canonical value) and cannot supply the ~2×
 offset to the IGS-final family; the residual resides in the clock
 products themselves — their multi-GNSS combined construction, station
@@ -735,19 +741,19 @@ complement, and epoch coverage — rather than in the correlation
 estimator.
 
 The same ordering is recovered per sub-band: on the full-day matrix the
-fitted scale declines from $\lambda \approx 1.8$–$2.0 \times 10^3$ km
-below 30 µHz to $\approx 0.5$–$1.2 \times 10^3$ km above 50 µHz,
+fitted scale declines from $$\lambda \approx 1.8$$–$$2.0 \times 10^3$$ km
+below 30 µHz to $$\approx 0.5$$–$$1.2 \times 10^3$$ km above 50 µHz,
 mirroring the IGS-final profile, which declines from
 ≈3.9–5.9×10<sup>3</sup> km in the tidal bands to ≈1.0–1.4×10<sup>3</sup> km
 at intermediate frequencies (Paper 1 §3.5.1). Both products therefore
 return the same band-ordered, distance-structured correlation; the MGEX
 profile is a scaled-down version of the IGS-final one. The defensible
 cross-product statement is a thousands-of-km coherence scale with a
-shared band ordering — consistency with the geometric saturation anchor
-at the ~1.9–4.5×10<sup>3</sup> km precise-product family level (raw-SPP
-channels bound the scale from below at ~0.7–1.1×10<sup>3</sup> km and
-the raw ionofree channel returns 4,767 ± 835 km; Paper 3) — rather
-than a point-scale identification.
+shared band ordering. The fitted scale is product- and
+estimator-conditioned (product-level values ~1.0–4.8×10<sup>3</sup> km; raw-SPP
+channels ~0.7–1.1×10<sup>3</sup> km and the raw ionofree channel returns
+4,767 ± 835 km; Paper 3), and no point-scale identification with the
+geometric saturation radius is made.
 
 Two provenance details are bounded by the same diagnostic. First, GRG
 product-days are natively 30-s sampled, so on the configured
@@ -788,9 +794,9 @@ COD 0.789. A labelled transfer calibration (Step 3.6; synthetic
 red-noise pairs, estimator calibration only) inverts the published
 amplitudes to underlying band coherences of ρ ≈ 0.30 (MGEX) and
 ρ ≈ 0.05 (IGS finals) under each family's own spectral window —
-a product-level difference in the shared in-phase budget, expected of a
-multi-GNSS combined solution relative to GPS-only finals, rather than a
-contradiction in the measured structure. The fitted offset shows the
+a product-level difference in the shared in-phase budget — not yet modelled
+from product construction, and not in contradiction with the measured
+structure. The fitted offset shows the
 same bookkeeping: all three product families return negative C₀, and the
 deeper MGEX asymptote is the zero-sum signature of its per-epoch median
 datum — toggling the common-mode subtraction on identical pair-days
@@ -833,7 +839,7 @@ requires genuine spatial and temporal phase ordering.
 ## 5. Discussion
 
 The combined MGEX receiver-clock product shows a distance-dependent structure
-with $\lambda = 1862$ km. The estimate remains within 1,819–2,000 km
+with $$\lambda = 1862$$ km. The estimate remains within 1,819–2,000 km
 when the minimum baseline is raised from 50 to 2,000 km, while the binned-fit
 R² improves from 0.70 to about 0.92. It persists on quiet days and after
 distance matching, and it survives the two computed mundane channels rather
@@ -882,7 +888,7 @@ and station de-clustering makes a positive anisotropy conclusion unwarranted
 for this product.
 
 The orbital finding is more informative but has a narrower evidential status.
-The primary monthly $\lambda$ and EW/NS estimators are null after Bonferroni
+The primary monthly $$\lambda$$ and EW/NS estimators are null after Bonferroni
 correction, unsurprising with only 16 complete chronological months and
 unstable monthly exponential fits. The model-free PA-difference statistic,
 monthly mean EW minus NS phase alignment, has r = −0.716 with orbital speed
@@ -902,20 +908,20 @@ PA difference was chosen here after the primary estimators were unstable, so it
 is exploratory within this study and should not be counted as an independent
 confirmatory test or folded into confirmatory family-wise inference.
 
-The corrected CMB analysis keeps January 2025 through April 2026 as separate
+The annual-direction analysis keeps January 2025 through April 2026 as separate
 months. Its direct CMB-projection correlation is r = −0.733, consistent with
 the stronger weighted orbital result (r = −0.767, p = 0.0005). The full-sky
 scan has a nominal maximum at RA = 230°, Dec = +60° (r = −0.745), 82.7° from
-the CMB dipole. That angular separation must not be interpreted as a failed
-CMB test. Earth’s orbital velocity remains in the ecliptic plane, so dot-product
+the CMB dipole. Earth’s orbital velocity remains in the ecliptic plane, so dot-product
 regression identifies only an axis’s in-plane projection; directions separated
 substantially in three dimensions can give nearly identical annual predictors.
 Here the CMB and nominal-best projected predictors correlate at r = 0.984, and
 61 of 703 grid directions equal or exceed the direct-CMB |r|. The 30°
 three-dimensional rule is thus not an identifiable criterion for this design.
 The permutation result (plus-one p = 0.005 over 200 complete-grid shuffles)
-supports directional annual structure, while the direct CMB projection remains
-consistent with that structure. The 60° sensitivity result and daily analysis
+supports directional annual structure, while the direct CMB projection is only
+one non-unique member of that structure. It does not identify the CMB frame.
+The 60° sensitivity result and daily analysis
 are corroborative diagnostics, not independent confirmations. The 16-month
 series further limits precision; a preregistered multi-year analysis should
 lock the PA-difference definition and report an identifiable ecliptic-plane
@@ -941,7 +947,7 @@ localization.
 
 This product-type independence stress test uses the CODE COD0MGXFIN combined
 multi-GNSS receiver-clock product from 2025-01-01 to 2026-05-01. Its principal
-result is a distance-dependent correlation scale of $\lambda = 1862$
+result is a distance-dependent correlation scale of $$\lambda = 1862$$
 km (R² = 0.699; formal within-fit σ = ±112 km, cluster-robust
 σ = ±155 km from month-block epoch resampling), stable across the tested
 baseline cutoffs and present on quiet
@@ -969,14 +975,14 @@ products; because this operationalisation was selected after primary MGEX fits
 were unstable, it remains exploratory within this study and needs a
 prospective, longer-baseline replication.
 
-The CMB-projected orbital association is likewise consistent: the direct
+The CMB-labelled orbital template is correlated with the exploratory statistic: the direct
 monthly CMB projection has r = −0.733, while the weighted PA-difference test
 has r = −0.767 (p = 0.0005). The grid’s nominal RA = 230°, Dec = +60° maximum
-is 82.7° from the CMB dipole, but this is not contrary evidence because orbital
-velocity constrains only an axis’s ecliptic-plane projection. The grid cannot
+is 82.7° from the CMB dipole. Because orbital velocity constrains only an
+axis’s ecliptic-plane projection, the grid cannot
 uniquely localize a three-dimensional sky direction; its within-grid
 permutation statistic (plus-one p = 0.005 from 200 shuffles) measures annual
-directional structure. The satellite-clock analysis is limited by the combined
+directional structure; it does not detect a CMB rest frame. The satellite-clock analysis is limited by the combined
 product’s shared reference time and does not recover an exponential signal; the
 MGEX product therefore cannot test the satellite-clock channel at all, and a
 per-constellation solution with independently estimated satellite clocks would
@@ -1002,13 +1008,15 @@ Analysis code and pipeline outputs are available at
 
 ### 8.1 TEP Series
 
-- Smawfield, M. L. (2025). *Temporal Equivalence Principle: Dynamic Time & Emergent Light Speed*. v0.14 (Jakarta). DOI: 10.5281/zenodo.16921911.
+- Smawfield, M. L. (2025). *Temporal Equivalence Principle: Dynamic Time & Emergent Light Speed*. v0.15 (Jakarta). DOI: 10.5281/zenodo.16921911.
 
 - Smawfield, M. L. (2025). *Global Time Echoes: Distance-Structured Correlations in GNSS Clocks* (Paper 1, TEP-GNSS). DOI: 10.5281/zenodo.17127229.
 
-- Smawfield, M. L. (2025). *Global Time Echoes: 25-Year Temporal Evolution* (Paper 2, TEP-GNSS-II). DOI: 10.5281/zenodo.17517141.
+- Smawfield, M. L. (2025). *Global Time Echoes: 25-Year Analysis of CODE Precise Clock Products* (Paper 2, TEP-GNSS-II). DOI: 10.5281/zenodo.17517141.
 
-- Smawfield, M. L. (2025). *Global Time Echoes: Raw RINEX / SPP Consistency Test* (Paper 3, TEP-GNSS-RINEX).
+- Smawfield, M. L. (2026). *Global Time Echoes: Raw RINEX Consistency Test*. Preprint v0.8 (Kathmandu). Zenodo. DOI: [10.5281/zenodo.17860166](https://doi.org/10.5281/zenodo.17860166) (Paper 3)
+
+- Smawfield, M. L. (2026). *TEP-PPP: Operational Time Echoes — Phase-Resolved Spatial Clock Priors for GNSS Outage Bridging* (Paper 33, TEP-PPP). DOI: 10.5281/zenodo.18064582.
 
 ### 8.2 GNSS Data and Products
 
@@ -1028,7 +1036,7 @@ Analysis code and pipeline outputs are available at
 
 - Welch, P. D. 1967, "The use of fast Fourier transform for the estimation of power spectra: a method based on time averaging over short, modified periodograms", *IEEE Trans. Audio Electroacoust.*, AU-15, 70–73.
 
-Smawfield, M. L. 2026. Temporal Equivalence Principle series, Papers 0–25. Zenodo preprints and associated repositories.
+Smawfield, M. L. 2026. Temporal Equivalence Principle series, Papers 0–33. Zenodo preprints and associated repositories.
 
 ## 9. Reproducibility Statement
 

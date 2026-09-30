@@ -4,7 +4,9 @@
 The Temporal Equivalence Principle (TEP) predicts correlated phase-coherent
 disturbances in GNSS timekeeping with a spatial correlation length of order
 thousands of kilometres, an east–west anisotropy, coupling to Earth orbital
-velocity, and a preferred axis near the CMB rest frame. Papers 1 and 2 examined
+velocity, and an annual-phase direction near Earth's aphelion velocity tangent.
+The directed CMB-apex template is anti-phase rather than detected as a rest
+frame. Papers 1 and 2 examined
 these signatures in GPS precise point-positioning products from three analysis
 centres spanning 2000–2025; Paper 3 used raw RINEX single-point positioning.
 </p>
@@ -24,7 +26,7 @@ whole epochs (month-block bootstrap over 17 calendar months; day-block ±86 km;
 leave-one-month-out jackknife ±94 km). The scale is epoch- and
 product-dependent at the ~30–40% level: single-window realisations span
 1,050–1,935 km, and matched-day estimates are 2,744 km for CODE against
-1,933 km for the software-independent GRG chain (same tracking network) — the latter landing within 4% of
+1,933 km for the independently processed GRG product chain (same tracking network) — the latter landing within 4% of
 the pooled scale — so the defensible content is the
 thousands-of-kilometres coherence rather than the precise value. It is stable at 1,819–2,000 km across minimum-baseline
 cutoffs of 50–2,000 km and persists on geomagnetically quiet days
@@ -53,19 +55,19 @@ hypothesis and sign were motivated by earlier TEP-GNSS papers, making this
 cross-product corroboration; the operationalisation remains exploratory within
 MGEX because it was selected after the primary estimators were unstable.
 A 37 × 19 directional grid finds strong within-grid modulation (200-permutation
-plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole, but this
-does not contradict the CMB result: orbital velocity constrains only an axis’s
-projection onto the orbital plane, and that projection is highly degenerate
+plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole. Orbital
+velocity constrains only an axis’s projection onto the orbital plane, and that
+projection is highly degenerate
 (the CMB and nominal-maximum projected predictors correlate at r = 0.984, and
 only 61 of 703 grid directions meet or exceed the direct-CMB |r|).
-The direct CMB-projection association is therefore a directional consistency
-check rather than an independent confirmation, and is not a unique
-three-dimensional axis localization. All four null controls pass under the
+The CMB-labelled projection is therefore one member of a broad family of
+annual templates, not evidence for a CMB rest frame or a unique
+three-dimensional axis. All four null controls pass under the
 robust analysis (minimum baseline 500 km); under the primary short-baseline
 parameters the solar-rotation reassignment null retains R² = 0.50, traced to a
 small-sample bin artifact at 100–152 km, so the robust analysis is reported as
 the clean result (the fitted scale is stable, 1,862 vs 1,819 km). The two
-leading mundane attribution channels are computed and excluded rather than
+leading mundane attribution channels are explicitly modelled and strongly disfavoured by the tested controls rather than
 assumed absent: a forward-modelled shared satellite-error kernel is flat
 through the signal band and decays only on the constellation-footprint scale,
 and the weather-organized partitions contradict the atmospheric signature —
@@ -78,5 +80,5 @@ clocks are not independently estimated in that product, it tests only the
 receiver-clock channel, and the satellite-clock null is a product limitation
 rather than a prediction test.
 </p>
-<p><em>Keywords:</em> Temporal Equivalence Principle, MGEX, multi-GNSS, receiver clock, correlation length, anisotropy, orbital velocity, ionosphere, CMB frame, temporal shear, temporal topology</p>
+<p><em>Keywords:</em> Temporal Equivalence Principle, MGEX, multi-GNSS, receiver clock, correlation length, anisotropy, orbital velocity, annual phase, ionosphere, temporal shear, temporal topology</p>
 </div>

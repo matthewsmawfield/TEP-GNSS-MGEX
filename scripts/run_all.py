@@ -55,7 +55,7 @@ STEP_REGISTRY = {
     3: ("2_1_correlation", Step21CorrelationLength, "Correlation Length λ_T Fitting"),
     4: ("2_2_anisotropy", Step22EWNSAnisotropy, "EW > NS Anisotropy Test"),
     5: ("2_3_orbital", Step23OrbitalCoupling, "Orbital-Velocity Coupling"),
-    6: ("2_4_cmb", Step24CMBAlignment, "CMB-Frame Alignment Scan"),
+    6: ("2_4_cmb", Step24CMBAlignment, "Annual-Direction Scan"),
     7: ("2_5_iono", Step25IonosphericControl, "Ionospheric Control (Kp / storm exclusion)"),
     8: ("2_6_geometry", Step26GeometryControl, "Geometry Control (hemisphere / distance matched)"),
     9: ("2_8_satellite", Step28SatelliteClockAnalysis, "Satellite-Clock Per-Constellation Analysis (SP3)"),
@@ -247,7 +247,7 @@ Pipeline Steps:
   3  - Correlation Length
   4  - EW/NS Anisotropy
   5  - Orbital-Velocity Coupling
-  6  - CMB-Frame Alignment
+  6  - Annual-Direction Scan
   7  - Ionospheric Control
   8  - Geometry Control
   9  - Satellite-Clock Per-Constellation Analysis (SP3)

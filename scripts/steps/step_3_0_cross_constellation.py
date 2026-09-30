@@ -10,7 +10,7 @@ consistent with the TEP predictions established in TEP-GNSS-II (Cairo):
 - Correlation length λ in MGEX-appropriate range
 - EW/NS anisotropy (with effect-size threshold)
 - Orbital-velocity coupling (requires >1 month of data)
-- CMB-frame alignment
+- Annual-phase directional structure (with fixed-frame controls)
 - Ionospheric persistence (quiet Kp days)
 """
 
@@ -164,22 +164,23 @@ class Step30CrossConstellation:
         else:
             print_status("  Orbital: no data [FAIL]", "WARNING")
 
-        # --- CMB projection consistency (3-D sky axis is not identifiable) ---
-        cmb_projection_consistent = False
+        # --- Annual-direction result (3-D sky axis is not identifiable) ---
+        cmb_template_anticorrelated = False
         cmb_axis_identifiable = False
         cmb_sep = None
-        cmb_axis_detected = False
+        annual_direction_detected = False
         cmb_lee_p = None
         if rep in cmb and cmb[rep].get("status") == "success":
-            cmb_projection_consistent = bool(cmb[rep].get("cmb_projection_consistent", False))
+            cmb_template_anticorrelated = bool(cmb[rep].get("cmb_template_anticorrelated", False))
             cmb_axis_identifiable = bool(cmb[rep].get("grid_axis_identifiable", False) and cmb[rep].get("aligned", False))
             cmb_sep = cmb[rep].get("angular_separation_to_cmb_deg")
-            cmb_axis_detected = bool(cmb[rep].get("lee_corrected_p_value", 1.0) < SIGNIFICANCE_ALPHA)
+            annual_direction_detected = bool(cmb[rep].get("lee_corrected_p_value", 1.0) < SIGNIFICANCE_ALPHA)
             cmb_lee_p = cmb[rep].get("lee_corrected_p_value")
         print_status(
-            f"  CMB: sep={_fmt(cmb_sep, '.1f')}deg, LEE p={_fmt(cmb_lee_p, '.4f')} "
-            f"[{'PROJECTION CONSISTENT' if cmb_projection_consistent else 'NO PROJECTION SIGNAL'}]",
-            "SUCCESS" if cmb_projection_consistent else "WARNING"
+            f"  Annual-direction scan: nominal CMB separation={_fmt(cmb_sep, '.1f')}deg, "
+            f"permutation p={_fmt(cmb_lee_p, '.4f')} "
+            f"[{'CMB TEMPLATE ANTI-CORRELATED; FRAME NOT IDENTIFIED' if cmb_template_anticorrelated else 'NO CMB-TEMPLATE RESPONSE'}]",
+            "INFO"
         )
 
         # --- Ionospheric persistence ---
@@ -220,8 +221,9 @@ class Step30CrossConstellation:
 
         # --- Overall verdict ---
         # The primary MGEX checks are correlation scale, ionospheric persistence,
-        # directional anisotropy, the pre-specified orbital estimators, and CMB
-        # CMB projection consistency; the 3-D axis-identifiability result is
+        # directional anisotropy and the pre-specified orbital estimators. The
+        # annual-direction and fixed-frame controls are reported but not scored;
+        # the 3-D axis-identifiability result is
         # retained separately. The PA-difference result is retained separately as an
         # exploratory, cross-product-correlative finding rather than scored as a
         # confirmatory replication.
@@ -230,7 +232,6 @@ class Step30CrossConstellation:
             "ionospheric_persistence": iono_persist,
             "anisotropy_replicated": aniso_replicated,
             "orbital_coupling_confirmatory": orbital_confirmatory,
-            "cmb_projection_consistent": cmb_projection_consistent,
         }
         n_pass = sum(checks.values())
         n_total = len(checks)
@@ -269,9 +270,10 @@ class Step30CrossConstellation:
                 "orbital_coupling_confirmatory": orbital_confirmatory,
                 "orbital_coupling_exploratory": orbital_exploratory,
                 "cmb_separation_deg": cmb_sep,
-                "cmb_projection_consistent": cmb_projection_consistent,
+                "cmb_template_anticorrelated": cmb_template_anticorrelated,
                 "cmb_axis_identifiable": cmb_axis_identifiable,
-                "cmb_axis_detected": cmb_axis_detected,
+                "cmb_frame_detected": False,
+                "annual_direction_detected": annual_direction_detected,
                 "cmb_lee_p_value": cmb_lee_p,
                 "ionospheric_persistence": iono_persist,
                 "satellite_clock_analysis": sat_results,

@@ -9,7 +9,8 @@
     "status": "success",
     "aligned": false,
     "grid_axis_identifiable": false,
-    "cmb_projection_consistent": true,
+    "cmb_template_anticorrelated": true,
+    "cmb_frame_detected": false,
     "grid_directions_total": 703,
     "grid_directions_ge_direct_cmb": 61,
     "projection_corr_cmb_vs_best": 0.9842820728177543,
@@ -46,7 +47,8 @@
           "projection_corr_cmb_vs_best": 0.9842820728177543,
           "aligned": false,
           "grid_axis_identifiable": false,
-          "cmb_projection_consistent": true
+          "cmb_template_anticorrelated": true,
+          "cmb_frame_detected": false
         },
         "daily": {
           "n_days": 462,
@@ -67,7 +69,8 @@
         },
         "aligned": false,
         "grid_axis_identifiable": false,
-        "cmb_projection_consistent": true,
+        "cmb_template_anticorrelated": true,
+        "cmb_frame_detected": false,
         "angular_separation_to_cmb_deg": 82.70458940690735,
         "best_correlation_r": -0.7453117374592942,
         "raw_p_value": 0.004975124378109453,
@@ -107,7 +110,8 @@
           "projection_corr_cmb_vs_best": 0.9842820728177543,
           "aligned": false,
           "grid_axis_identifiable": false,
-          "cmb_projection_consistent": true
+          "cmb_template_anticorrelated": true,
+          "cmb_frame_detected": false
         },
         "daily": {
           "n_days": 462,
@@ -128,7 +132,8 @@
         },
         "aligned": false,
         "grid_axis_identifiable": false,
-        "cmb_projection_consistent": true,
+        "cmb_template_anticorrelated": true,
+        "cmb_frame_detected": false,
         "angular_separation_to_cmb_deg": 82.70458940690735,
         "best_correlation_r": -0.7909065935872358,
         "raw_p_value": 0.004975124378109453,

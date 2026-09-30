@@ -1,10 +1,10 @@
-v0.3 (Suva) — 28 September 2026 — Corpus-resolution audit: epoch/product dependence bounded, robustness controls added
+v0.3 (Suva) — 30 September 2026 — Corpus-resolution audit: epoch/product dependence bounded, robustness controls added
 
 - λ uncertainty reframed: formal ±112 km, cluster-robust ±155 km (month-block bootstrap over 17 calendar months; day-block ±86 km; leave-one-month-out jackknife ±94 km); epoch- and product-dependence quantified at ~30–40% (single-window 1,050–1,935 km; matched-day CODE 2,744 km vs GRG 1,933 km); defensible content stated as thousands-of-kilometres coherence rather than a precise scale
 - Autocorrelation-aware corrections for the orbital/CMB associations: effective-dof p = 0.072 (speed) and 0.018 (v_proj); matched AR(1) surrogates p = 0.019/0.003; circular-shift null at its 1/16 floor; leave-one-month-out r = −0.66 to −0.86
 - Operational-asymmetry controls: composition-matched EW−NS contrast r = −0.65 (p = 0.006); uniformly-tracked-station subset r = −0.74 (p = 0.001)
 - Hemisphere-split checks return the same signed anticorrelation in N/S/cross pair classes (r = −0.45, −0.88, −0.49) at common annual phase (Δφ = 22° ± 44°)
-- CMB projection degeneracy quantified (projected predictors correlate r = 0.984; 61/703 grid directions ≥ direct-CMB |r|) — reframed as directional consistency check, not independent axis localization
+- Projection degeneracy quantified (projected predictors correlate r = 0.984; 61/703 grid directions ≥ direct-CMB |r|) — the CMB-labelled template is not evidence for a CMB rest frame or an independent axis localization
 - Solar-rotation null failure under short-baseline parameters traced to a 100–152 km bin artifact; robust analysis (min baseline 500 km) reported as the clean result (λ stable: 1,862 vs 1,819 km)
 - Mundane attribution channels computed and excluded: forward-modelled shared satellite-error kernel flat through the signal band; weather-organized partitions contradict the atmospheric signature (cross-hemisphere λ = 2101 km; >8,000 km same-band pairs −0.118)
 - Satellite-clock null reframed as a product limitation (shared reference-time architecture; receiver-clock channel only)
@@ -18,7 +18,7 @@ v0.2 (Suva) — 16 September 2026 — Expanded dataset, sensitivity analyses, an
 - EW/NS anisotropy reclassified as not robust under conservative analysis choices
 - Chronological monthly binning restored: January 2025 through April 2026 are 16 distinct observations; the one-day May fragment is excluded
 - Orbital PA-difference association: r = −0.716 with speed (p = 0.0018) and r = −0.767 with CMB-projected velocity (p = 0.0005); exploratory within MGEX, corroborative with earlier TEP-GNSS papers
-- CMB projection consistent; 3-D axis not identifiable: grid maximum RA = 230°, Dec = +60°, 82.7° from the dipole; within-grid permutation p = 0.005
+- Annual-direction grid significant but 3-D axis not identifiable: maximum RA = 230°, Dec = +60°, 82.7° from the CMB dipole; within-grid permutation p = 0.005; no CMB-frame detection
 - Null tests: solar-rotation null fails under primary parameters (bin artifact); all four pass under robust analysis
 - New analyses: satellite-clock negative control (step 2.8), cross-constellation replication verdict (step 3.0), §9 Reproducibility Statement
 - Framing: recast as product-type independence stress test; impersonal voice; exploratory results explicitly labelled

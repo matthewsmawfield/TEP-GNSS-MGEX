@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Step 2.4: CMB-frame alignment via orbital-velocity geometry.
+"""Step 2.4: projection-degenerate annual-direction analysis.
 
-Frozen prediction: the EW/NS phase-alignment anisotropy correlates with
-Earth's orbital velocity projected onto the CMB dipole direction.
+The EW/NS phase-alignment anisotropy is compared with annual orbital-velocity
+templates. The CMB-labelled template is retained as a historical fixed-frame
+control, not treated as privileged evidence for a CMB rest frame.
 
 Methodology (from TEP-GNSS-II Cairo, revised):
     1. Aggregate pair phase_alignment values by day and by month into
@@ -13,8 +14,7 @@ Methodology (from TEP-GNSS-II Cairo, revised):
     3. For a proposed background direction (RA, Dec), compute predicted
        anisotropy = dot(v_orb, n_background).
     4. Correlate predicted vs observed EW−NS differences (Pearson r).
-    5. Grid-search background directions; evaluate alignment using the
-       direction (max +r or max −r) closest to the CMB dipole.
+    5. Grid-search template directions using a fixed signed convention.
     6. Permutation null test with full grid search per permutation.
 
 The difference metric pa_diff = ew_mean − ns_mean is used instead of
@@ -306,7 +306,7 @@ def _projection_series_correlation(day_keys, ra1, dec1, ra2, dec2):
 
 class Step24CMBAlignment:
     def run(self):
-        print_status("Step 2.4: CMB-Frame Alignment (Orbital-Velocity Geometry)", "INFO")
+        print_status("Step 2.4: Annual-Direction Scan (Projection-Degeneracy Audit)", "INFO")
         results = {}
         for const_name in ["combined"]:
             pair_file = OUTPUTS_DIR / "step_2_0_mgex_pairs.json"
@@ -472,7 +472,8 @@ class Step24CMBAlignment:
                             and lee_p_month < SIGNIFICANCE_ALPHA
                         ),
                         "grid_axis_identifiable": False,
-                        "cmb_projection_consistent": bool(r_cmb_month < 0),
+                        "cmb_template_anticorrelated": bool(r_cmb_month < 0),
+                        "cmb_frame_detected": False,
                     }
 
                 # --- Daily grid search (supplementary) ---
@@ -534,7 +535,8 @@ class Step24CMBAlignment:
                     "daily": daily_results,
                     "aligned": primary_aligned,
                     "grid_axis_identifiable": False,
-                    "cmb_projection_consistent": monthly_results.get("cmb_projection_consistent", False),
+                    "cmb_template_anticorrelated": monthly_results.get("cmb_template_anticorrelated", False),
+                    "cmb_frame_detected": False,
                     "angular_separation_to_cmb_deg": float(primary_sep),
                     "best_correlation_r": float(primary_r),
                     "raw_p_value": float(primary_p),
@@ -549,7 +551,7 @@ class Step24CMBAlignment:
                 print_status(
                     f"      Result (sectors {sector_width}°): "
                     f"Δθ_CMB={primary_sep:.1f}°, r={primary_r:.3f}, p={primary_p:.4f} "
-                    "[CMB projection consistent; sky axis not identifiable]",
+                    "[annual template detected; CMB frame not identifiable]",
                     "INFO"
                 )
 
@@ -608,7 +610,8 @@ class Step24CMBAlignment:
                     "status": "success",
                     "aligned": primary.get("aligned"),
                     "grid_axis_identifiable": primary.get("grid_axis_identifiable", False),
-                    "cmb_projection_consistent": primary.get("cmb_projection_consistent", False),
+                    "cmb_template_anticorrelated": primary.get("cmb_template_anticorrelated", False),
+                    "cmb_frame_detected": False,
                     "grid_directions_total": primary.get("grid_directions_total"),
                     "grid_directions_ge_direct_cmb": primary.get("grid_directions_ge_direct_cmb"),
                     "projection_corr_cmb_vs_best": primary.get("projection_corr_cmb_vs_best"),
@@ -629,5 +632,5 @@ class Step24CMBAlignment:
         out_file = OUTPUTS_DIR / "step_2_4_cmb_alignment.json"
         with open(out_file, 'w') as f:
             json.dump(results, f, indent=2)
-        print_status(f"CMB alignment results written to {out_file}", "INFO")
+        print_status(f"Annual-direction results written to {out_file}", "INFO")
         return {"status": "success", "results": str(out_file)}

@@ -4,12 +4,12 @@
   "version": "0.3",
   "codename": "Suva",
   "description": "Multi-Constellation Analysis of Public MGEX Clock Data",
-  "release_date": "2026-09-28",
-  "date": "2026-09-28",
+  "release_date": "2026-09-30",
+  "date": "2026-09-30",
   "doi": "10.5281/zenodo.20572726",
   "status": "preprint",
   "methodology": {
-    "based_on": "TEP-GNSS-RINEX v0.6 (Kathmandu)",
+    "based_on": "TEP-GNSS-RINEX v0.8 (Kathmandu)",
     "data_source": "Public MGEX combined CLK files (COD0MGXFIN from CODE, with WUM/GRG fallbacks) from NASA CDDIS",
     "constellations": [
       "GPS",

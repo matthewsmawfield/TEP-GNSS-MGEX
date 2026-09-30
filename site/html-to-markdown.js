@@ -38,13 +38,15 @@ class HTMLToMarkdownConverter {
         html = html.replace(/<(?:div|section)[^>]*class=["'][^"']*manuscript-section[^"']*["'][^>]*data-section=["']([^"']*)["'][^>]*>/gi, '\n\n## $1\n\n');
         
         // Convert headers
-        html = html.replace(/<h1[^>]*>(.*?)<\/h1>/gi, '\n# $1\n\n');
-        html = html.replace(/<h2[^>]*>(.*?)<\/h2>/gi, '\n## $1\n\n');
-        html = html.replace(/<h3[^>]*>(.*?)<\/h3>/gi, '\n### $1\n\n');
-        html = html.replace(/<h4[^>]*>(.*?)<\/h4>/gi, '\n#### $1\n\n');
+        html = html.replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, '\n# $1\n\n');
+        html = html.replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, '\n## $1\n\n');
+        html = html.replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, '\n### $1\n\n');
+        html = html.replace(/<h4[^>]*>([\s\S]*?)<\/h4>/gi, '\n#### $1\n\n');
+        html = html.replace(/<h5[^>]*>([\s\S]*?)<\/h5>/gi, '\n##### $1\n\n');
+        html = html.replace(/<h6[^>]*>([\s\S]*?)<\/h6>/gi, '\n###### $1\n\n');
         
         // Convert paragraphs
-        html = html.replace(/<p[^>]*>(.*?)<\/p>/gi, '$1\n\n');
+        html = html.replace(/<p\b[^>]*>(.*?)<\/p>/gi, '$1\n\n');
         
         // Convert strong/bold
         html = html.replace(/<(strong|b)[^>]*>(.*?)<\/(strong|b)>/gi, '**$2**');
@@ -66,7 +68,8 @@ class HTMLToMarkdownConverter {
         html = html.replace(/<blockquote[^>]*>(.*?)<\/blockquote>/gi, '\n> $1\n\n');
         
         // Convert code blocks
-        html = html.replace(/<pre[^>]*><code[^>]*>(.*?)<\/code><\/pre>/gi, '\n```\n$1\n```\n\n');
+        html = html.replace(/<pre[^>]*>\s*<code[^>]*>([\s\S]*?)<\/code>\s*<\/pre>/gi, '\n```\n$1\n```\n\n');
+        html = html.replace(/<pre[^>]*>([\s\S]*?)<\/pre>/gi, '\n```\n$1\n```\n\n');
         html = html.replace(/<code[^>]*>(.*?)<\/code>/gi, '`$1`');
         
         // Convert line breaks
@@ -109,15 +112,15 @@ class HTMLToMarkdownConverter {
         
         // Restore MathJax expressions
         mathExpressions.forEach((expr, index) => {
-            html = html.replace(`__MATH_EXPRESSION_${index}__`, expr);
+            html = html.replace(`__MATH_EXPRESSION_${index}__`, () => expr);
         });
 
         // Restore sub/sup tags
         subTags.forEach((inner, index) => {
-            html = html.replace(`__SUB_${index}__`, `<sub>${inner}</sub>`);
+            html = html.replace(`__SUB_${index}__`, () => `<sub>${inner}</sub>`);
         });
         supTags.forEach((inner, index) => {
-            html = html.replace(`__SUP_${index}__`, `<sup>${inner}</sup>`);
+            html = html.replace(`__SUP_${index}__`, () => `<sup>${inner}</sup>`);
         });
         
         // Decode HTML entities
@@ -331,15 +334,17 @@ class HTMLToMarkdownConverter {
      * Build the complete markdown document with metadata
      */
     buildMarkdownDocument(metadata, content) {
-        const timestamp = new Date().toISOString().split('T')[0];
-        
         // Clean up the title to remove the author part
         const cleanTitle = metadata.title.replace(' | Matthew Lukin Smawfield', '');
         
         // Clean up content - remove leading indentation from paragraphs
+        let inFence = false;
         const cleanedContent = content
             .split('\n')
-            .map(line => line.replace(/^[ \t]+/, ''))  // Remove leading whitespace from each line
+            .map((line) => {  // Remove leading whitespace from each line (outside code fences)
+                if (line.trimStart().startsWith('```')) inFence = !inFence;
+                return inFence ? line : line.replace(/^[ \t]+/, '');
+            })
             .join('\n')
             .replace(/\n{3,}/g, '\n\n');  // Collapse multiple blank lines to double newline
         

@@ -6,7 +6,7 @@
     "ionospheric_persistence": true,
     "anisotropy_replicated": false,
     "orbital_coupling_confirmatory": false,
-    "cmb_projection_consistent": true
+    "cmb_template_anticorrelated": true
   },
   "checks_passed": 3,
   "checks_total": 5,
@@ -28,9 +28,10 @@
     "orbital_coupling_confirmatory": false,
     "orbital_coupling_exploratory": true,
     "cmb_separation_deg": 82.70458940690735,
-    "cmb_projection_consistent": true,
+    "cmb_template_anticorrelated": true,
     "cmb_axis_identifiable": false,
-    "cmb_axis_detected": true,
+    "cmb_frame_detected": false,
+    "annual_direction_detected": true,
     "cmb_lee_p_value": 0.004975124378109453,
     "ionospheric_persistence": true,
     "satellite_clock_analysis": {

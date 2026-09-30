@@ -155,7 +155,22 @@ def build_metadata(cff_data):
 
     if date_pdf:
         metadata['CreationDate'] = f'{date_pdf} 00:00:00'
-        metadata['ModifyDate'] = f'{date_pdf} 00:00:00'
+
+    modify_date = ''
+    try:
+        version_path = Path(__file__).parent.parent.parent / 'VERSION.json'
+        if version_path.exists():
+            import json
+            with open(version_path) as f:
+                version_data = json.load(f)
+            modify_date = version_data.get('date', '')
+    except Exception:
+        pass
+    if not modify_date:
+        modify_date = date
+    if modify_date:
+        modify_pdf = str(modify_date).replace('-', ':')
+        metadata['ModifyDate'] = f'{modify_pdf} 00:00:00'
 
     metadata['XMP-dc:Creator'] = author_name
     metadata['XMP-dc:Title'] = title

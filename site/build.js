@@ -53,7 +53,7 @@ async function buildStaticSite() {
         const staticContent = indexContent
             .replace(
                 /<div id="loading".*?<\/div>\s*<div id="manuscript-content".*?<\/div>/s,
-                `<div id="manuscript-content">${componentsHtml}</div>`
+                () => `<div id="manuscript-content">${componentsHtml}</div>`
             )
             .replace(
                 /<!-- Component Loading Script -->[\s\S]*?<\/script>/,
@@ -79,6 +79,7 @@ async function buildStaticSite() {
             const copyRecursive = (src, dest) => {
                 if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
                 for (const entry of fs.readdirSync(src)) {
+                    if (entry === '.DS_Store') continue;
                     const srcPath = path.join(src, entry);
                     const destPath = path.join(dest, entry);
                     if (fs.statSync(srcPath).isDirectory()) {
@@ -98,6 +99,7 @@ async function buildStaticSite() {
             const copyRecursive = (src, dest) => {
                 if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
                 for (const entry of fs.readdirSync(src)) {
+                    if (entry === '.DS_Store') continue;
                     const srcPath = path.join(src, entry);
                     const destPath = path.join(dest, entry);
                     if (fs.statSync(srcPath).isDirectory()) {
@@ -116,6 +118,18 @@ async function buildStaticSite() {
         if (fs.existsSync(manifestSrc)) {
             fs.copyFileSync(manifestSrc, path.join(distDir, 'manifest.json'));
             console.log('📁 Copied manifest.json to dist/');
+        }
+
+        // Copy citation files to dist root
+        const citationFiles = ['CITATION.cff', 'CITATION.bib', 'citation.json', 'codemeta.json'];
+        const projectRoot = path.join(__dirname, '..');
+        for (const file of citationFiles) {
+            const src = [path.join(projectRoot, file), path.join(__dirname, file)]
+                .find((candidate) => fs.existsSync(candidate));
+            if (src) {
+                fs.copyFileSync(src, path.join(distDir, file));
+                console.log(`📁 Copied ${file} to dist root`);
+            }
         }
 
         // Copy robots.txt to dist root for SEO

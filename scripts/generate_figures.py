@@ -158,31 +158,52 @@ def plot_orbital_coupling(constellations=None):
 
 
 def plot_cmb_alignment(constellations=None):
-    """Figure 4: CMB-projection geometry and nominal angular separation."""
+    """Figure 4: show why the annual directional scan cannot identify CMB."""
     data = load_json("step_2_4_cmb_alignment.json")
     consts = constellations or (list(CONSTELLATIONS.keys()) if any(c in data for c in CONSTELLATIONS) else ["combined"])
 
-    fig, ax = plt.subplots(figsize=(8, 5))
-    labels = []
-    sep_vals = []
-    for c in consts:
-        if c in data and data[c].get("angular_separation_to_cmb_deg") is not None:
-            sep_vals.append(data[c]["angular_separation_to_cmb_deg"])
-            labels.append(c)
+    fig, (ax_corr, ax_deg) = plt.subplots(1, 2, figsize=(10, 4.8))
+    usable = [data[c] for c in consts if c in data and data[c].get("status") == "success"]
 
-    if sep_vals:
-        x = np.arange(len(labels))
-        ax.bar(x, sep_vals, color="#8e44ad", alpha=0.8)
-        ax.axhline(30, color="green", linestyle="--", alpha=0.5, label="30° threshold")
-        ax.set_xticks(x)
-        ax.set_xticklabels(labels)
-        ax.set_ylabel("Angular separation from CMB dipole (°)")
-        ax.set_title("Figure 4: CMB-projection geometry")
-        ax.legend()
+    if usable:
+        result = usable[0]
+        monthly = result.get("sector_sensitivity", {}).get("width_45deg", {}).get("monthly", {})
+        direct = abs(monthly.get("direct_cmb_r", 0.0))
+        nominal = abs(result.get("best_correlation_r", 0.0))
+        ax_corr.bar([0, 1], [direct, nominal], color=["#00a6a6", "#8e44ad"], alpha=0.85)
+        ax_corr.set_xticks([0, 1])
+        ax_corr.set_xticklabels(["CMB-labelled\ntemplate", "Nominal grid\nmaximum"])
+        ax_corr.set_ylabel("Absolute Pearson correlation, |r|")
+        ax_corr.set_ylim(0, max(0.85, nominal * 1.12))
+        ax_corr.set_title("Nearly indistinguishable fits")
+        for i, value in enumerate([direct, nominal]):
+            ax_corr.text(i, value + 0.02, f"{value:.3f}", ha="center")
+
+        total = int(result.get("grid_directions_total", 0))
+        competitive = int(result.get("grid_directions_ge_direct_cmb", 0))
+        projection_corr = float(result.get("projection_corr_cmb_vs_best", np.nan))
+        separation = float(result.get("angular_separation_to_cmb_deg", np.nan))
+        ax_deg.axis("off")
+        ax_deg.text(0.5, 0.78, f"{competitive} of {total}", ha="center", va="center",
+                    fontsize=22, fontweight="bold", color="#2c3e50")
+        ax_deg.text(0.5, 0.65, "grid directions match or exceed\nthe direct CMB-template |r|",
+                    ha="center", va="center", fontsize=10)
+        ax_deg.text(0.5, 0.40,
+                    f"CMB vs nominal predictor: r = {projection_corr:.3f}\n"
+                    f"Nominal 3-D separation: {separation:.1f}°",
+                    ha="center", va="center", fontsize=11)
+        ax_deg.text(0.5, 0.16, "Annual phase detected;\nCMB frame not identified",
+                    ha="center", va="center", fontsize=12, fontweight="bold",
+                    color="#b03a2e")
+        ax_deg.set_title("Projection degeneracy")
     else:
-        ax.text(0.5, 0.5, "No data available\nRun step 2.4 first", ha="center", va="center", transform=ax.transAxes)
-        ax.set_title("Figure 4: CMB-projection geometry (pending)")
+        for ax in (ax_corr, ax_deg):
+            ax.text(0.5, 0.5, "No data available\nRun step 2.4 first",
+                    ha="center", va="center", transform=ax.transAxes)
+        ax_corr.set_title("Annual-direction test (pending)")
+        ax_deg.set_title("Projection degeneracy (pending)")
 
+    fig.suptitle("Figure 4: Projection-degenerate annual-direction test")
     fig.tight_layout()
     out_path = FIGURES_DIR / "fig_4_cmb_alignment.png"
     fig.savefig(out_path, dpi=300)
