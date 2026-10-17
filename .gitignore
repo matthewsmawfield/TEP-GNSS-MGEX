@@ -57,3 +57,6 @@ site/package-lock.json
 
 
 manuscripts/
+
+# Editor workspace state
+*.code-workspace

@@ -263,7 +263,7 @@ class HTMLToMarkdownConverter {
         const { version, codename } = this.getVersionInfo();
         // Strip trailing .0 from version (e.g., 0.1.0 -> 0.1)
         const cleanVersion = version.replace(/\.0$/, '');
-        return `14-TEP-GNSS-MGEX-v${cleanVersion}-${codename}.md`;
+        return `B14-TEP-GNSS-MGEX-v${cleanVersion}-${codename}.md`;
     }
 
     /**

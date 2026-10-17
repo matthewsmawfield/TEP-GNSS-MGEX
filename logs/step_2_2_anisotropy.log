@@ -1,0 +1,16 @@
+[15:21:09] [INFO] Step 2.2: EW/NS Anisotropy
+[15:22:27] [INFO]     combined (lon_diff<30°) direct PA contrast: EW-NS=+0.0816, 95%CI=[-0.0444,+0.2043], p=0.1000 (clustered)
+[15:22:27] [INFO]     combined (lon_diff<30°): λ_EW=1753km, λ_NS=1327km, ratio=1.321, 95%CI=[0.17,13.28], p=0.2140 (clustered)
+[15:25:57] [INFO]     Sensitivity analysis (ratio vs min distance):
+[15:25:57] [INFO]       min_50km: ratio=1.291 (λ_EW=1810, λ_NS=1402)
+[15:25:57] [INFO]       min_200km: ratio=1.516 (λ_EW=2098, λ_NS=1384)
+[15:25:57] [INFO]       min_500km: ratio=1.084 (λ_EW=1880, λ_NS=1734)
+[15:25:57] [INFO]       min_1000km: ratio=0.892 (λ_EW=2211, λ_NS=2479)
+[15:25:57] [INFO]       min_2000km: ratio=0.934 (λ_EW=2496, λ_NS=2671)
+[15:25:59] [INFO]     De-clustered: ratio=0.985 (λ_EW=2274, λ_NS=2310)
+[15:25:59] [INFO]     Robust (min=500km, min_bin=50): ratio=1.084 (λ_EW=1878, λ_NS=1733)
+[15:25:59] [INFO]     combined: λ_EW=1810km, λ_NS=1402km, ratio=1.291, p=0.4940 [NOT_REPLICATED]
+[15:25:59] [INFO]       short: ew_mean=0.3200, ns_mean=0.4402, ratio=0.727
+[15:25:59] [INFO]       medium: ew_mean=0.5602, ns_mean=0.4046, ratio=1.385
+[15:25:59] [INFO]       long: λ_EW=2187km, λ_NS=2666km, ratio=0.820
+[15:25:59] [INFO] Anisotropy results written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_2_2_ew_ns_anisotropy.json

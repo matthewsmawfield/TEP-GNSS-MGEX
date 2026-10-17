@@ -1,0 +1,39 @@
+[15:18:18] [INFO] Step 3.0: MGEX Validation Synthesis
+[15:18:18] [INFO]   (MGEX is a single multi-GNSS solution; constellations are not independent)
+[15:18:18] [SUCCESS]   Lambda: 1862km [PASS] (range 1000-4000 km)
+[15:18:18] [WARNING]   Anisotropy: ratio=1.29, lon_diff_ratio=1.32 [FAIL]
+[15:18:18] [SUCCESS]   Orbital: PA_diff-vproj r=-0.767 (AR1 p=0.0034, circ p=0.0625), legacy λ-speed r=-0.160 (p=1.0000) [CONFIRMATORY PASS]
+[15:18:18] [INFO]   Annual-direction scan: nominal CMB separation=82.7deg, permutation p=0.0050 [CMB TEMPLATE ANTI-CORRELATED; FRAME NOT IDENTIFIED]
+[15:18:18] [SUCCESS]   Ionospheric persistence: [PASS]
+[15:18:18] [WARNING]   Satellite-clock GPS: λ=100000km, R²=0.127 (boundary convergence — unreliable)
+[15:18:18] [INFO]   Satellite-clock GLONASS: λ=6028km, R²=-0.773
+[15:18:18] [WARNING]   Satellite-clock Galileo: λ=99916km, R²=-0.073 (boundary convergence — unreliable)
+[15:18:18] [INFO]   Satellite-clock BeiDou: λ=59736km, R²=-0.383
+[15:18:18] [INFO] MGEX validation synthesis written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_0_cross_constellation.json
+[15:18:18] [INFO] Checks passed: 3/4 — Verdict: partial_or_null
+[15:26:08] [INFO] Step 3.0: MGEX Validation Synthesis
+[15:26:08] [INFO]   (MGEX is a single multi-GNSS solution; constellations are not independent)
+[15:26:08] [SUCCESS]   Lambda: 1862km [PASS] (range 1000-4000 km)
+[15:26:08] [WARNING]   Anisotropy: ratio=1.29, lon_diff_ratio=1.32 [FAIL]
+[15:26:08] [SUCCESS]   Orbital: PA_diff-vproj r=-0.767 (AR1 p=0.0034, circ p=0.0625), legacy λ-speed r=-0.160 (p=1.0000) [CONFIRMATORY PASS]
+[15:26:08] [INFO]   Annual-direction scan: nominal CMB separation=82.7deg, permutation p=0.0050 [CMB TEMPLATE ANTI-CORRELATED; FRAME NOT IDENTIFIED]
+[15:26:08] [SUCCESS]   Ionospheric persistence: [PASS]
+[15:26:08] [WARNING]   Satellite-clock GPS: λ=100000km, R²=0.127 (boundary convergence — unreliable)
+[15:26:08] [INFO]   Satellite-clock GLONASS: λ=6028km, R²=-0.773
+[15:26:08] [WARNING]   Satellite-clock Galileo: λ=99916km, R²=-0.073 (boundary convergence — unreliable)
+[15:26:08] [INFO]   Satellite-clock BeiDou: λ=59736km, R²=-0.383
+[15:26:08] [INFO] MGEX validation synthesis written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_0_cross_constellation.json
+[15:26:08] [INFO] Checks passed: 3/4 — Verdict: partial_or_null
+[22:44:12] [INFO] Step 3.0: MGEX Validation Synthesis
+[22:44:12] [INFO]   (MGEX is a single multi-GNSS solution; constellations are not independent)
+[22:44:12] [SUCCESS]   Lambda: 1862km [PASS] (range 1000-4000 km)
+[22:44:12] [WARNING]   Anisotropy: ratio=1.29, lon_diff_ratio=1.32 [FAIL]
+[22:44:12] [SUCCESS]   Orbital: PA_diff-vproj r=-0.767 (AR1 p=0.0034, circ p=0.0625), legacy λ-speed r=-0.160 (p=1.0000) [CONFIRMATORY PASS]
+[22:44:12] [INFO]   Annual-direction scan: nominal CMB separation=82.7deg, permutation p=0.0050 [CMB TEMPLATE ANTI-CORRELATED; FRAME NOT IDENTIFIED]
+[22:44:12] [SUCCESS]   Ionospheric persistence: [PASS]
+[22:44:12] [WARNING]   Satellite-clock GPS: λ=100000km, R²=0.127 (boundary convergence — unreliable)
+[22:44:12] [INFO]   Satellite-clock GLONASS: λ=6028km, R²=-0.773
+[22:44:12] [WARNING]   Satellite-clock Galileo: λ=99916km, R²=-0.073 (boundary convergence — unreliable)
+[22:44:12] [INFO]   Satellite-clock BeiDou: λ=59736km, R²=-0.383
+[22:44:12] [INFO] MGEX validation synthesis written to /Users/matthewsmawfield/www/Temporal Equivalence Principle/TEP-GNSS-MGEX/results/outputs/step_3_0_cross_constellation.json
+[22:44:12] [INFO] Checks passed: 3/4 — Verdict: supported_anisotropy_underpowered

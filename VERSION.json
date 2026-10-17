@@ -1,11 +1,11 @@
 {
   "project": "TEP-GNSS-MGEX",
   "paper": 14,
-  "version": "0.3",
+  "version": "0.4",
   "codename": "Suva",
   "description": "Multi-Constellation Analysis of Public MGEX Clock Data",
   "release_date": "2026-09-30",
-  "date": "2026-09-30",
+  "date": "2026-10-17",
   "doi": "10.5281/zenodo.20572726",
   "status": "preprint",
   "methodology": {
@@ -35,5 +35,5 @@
     "TEP-GNSS-II": "../TEP-GNSS-II",
     "TEP-GNSS-RINEX": "../TEP-GNSS-RINEX"
   },
-  "previous_version": "0.2"
+  "previous_version": "0.3"
 }

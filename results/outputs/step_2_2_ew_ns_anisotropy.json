@@ -148,6 +148,19 @@
         "ci_high": 13.275237463637865,
         "p_value": 0.214,
         "n_boot_valid": 500
+      },
+      "direct_pa_contrast": {
+        "method": "distance_matched_mean_phase_alignment_contrast",
+        "window": "lon_diff < 30 deg",
+        "contrast_ew_minus_ns": 0.08160482803230129,
+        "bootstrap_mean": 0.07720784745395277,
+        "bootstrap_std": 0.06333609022469977,
+        "ci_low": -0.044408886801832845,
+        "ci_high": 0.20433428023429817,
+        "p_value": 0.1,
+        "n_boot_valid": 500,
+        "n_pairs_ew": 43825,
+        "n_pairs_ns": 229306
       }
     },
     "longitude_stratified": {

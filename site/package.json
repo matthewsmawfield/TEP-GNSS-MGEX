@@ -1,6 +1,6 @@
 {
   "name": "tep-gnss-mgex-site",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Global Time Echoes: MGEX Multi-GNSS Clock Stress Test, 2025–2026",
   "main": "index.html",
   "scripts": {

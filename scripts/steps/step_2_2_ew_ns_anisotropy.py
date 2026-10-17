@@ -415,6 +415,99 @@ def _robust_ratio(dist, coh, az, sector_centers, sector_names,
     return {"status": "insufficient_sectors"}
 
 
+def _direct_pa_contrast_clustered(dist, coh, az, s1_idx, s2_idx, n_stations,
+                                  ew_sectors, ns_sectors, sector_centers,
+                                  sector_names, pair_mask, n_boot,
+                                  seed=BOOTSTRAP_SEED):
+    """Distance-matched direct EW - NS phase_alignment contrast with a
+    station-clustered (dyadic-vertex) bootstrap.
+
+    The lambda-ratio estimator fits two exponential decay scales per resample
+    and inherits large fit noise; the direct contrast of the signature metric
+    (mean phase_alignment in EW sectors minus NS sectors) is the pre-fit
+    observable the anisotropy prediction is written on.  The contrast is
+    formed per log-distance bin so the EW and NS samples are compared at
+    matched baselines, then combined with effective-count weights
+    w_i = We*Wn/(We+Wn).  Each bootstrap draw resamples stations with
+    replacement and weights every pair by the product of its endpoints'
+    multiplicities, exactly as in ``_bootstrap_ratio_clustered``.
+
+    ``pair_mask`` restricts the sample (e.g. the lon_diff < 30 deg
+    pre-specified TEP window).  Returns contrast, one-sided bootstrap
+    p_value = P(contrast <= 0), and a 95% CI, or None if under-sampled.
+    """
+    ew_sel = np.zeros(len(az), dtype=bool)
+    ns_sel = np.zeros(len(az), dtype=bool)
+    for sector, center in zip(sector_names, sector_centers):
+        sm = _sector_mask(az, center, width=SECTOR_WIDTH_DEG)
+        if sector in ew_sectors:
+            ew_sel |= sm
+        elif sector in ns_sectors:
+            ns_sel |= sm
+    ew_sel &= pair_mask
+    ns_sel &= pair_mask
+    if int(ew_sel.sum()) < MIN_PAIRS_ANALYSIS // 2 or int(ns_sel.sum()) < MIN_PAIRS_ANALYSIS // 2:
+        return None
+
+    edges = np.logspace(np.log10(MIN_DISTANCE_KM), np.log10(MAX_DISTANCE_KM), 9)
+
+    def _contrast(weights=None):
+        num, den = 0.0, 0.0
+        for i in range(len(edges) - 1):
+            dm = (dist >= edges[i]) & (dist < edges[i + 1]) & pair_mask
+            e = dm & ew_sel
+            n = dm & ns_sel
+            if weights is None:
+                we, wn = float(e.sum()), float(n.sum())
+                if we < 1 or wn < 1:
+                    continue
+                me = float(np.mean(coh[e]))
+                mn = float(np.mean(coh[n]))
+            else:
+                we = float(weights[e].sum())
+                wn = float(weights[n].sum())
+                if we <= 0 or wn <= 0:
+                    continue
+                me = float(np.sum(weights[e] * coh[e]) / we)
+                mn = float(np.sum(weights[n] * coh[n]) / wn)
+            wi = we * wn / (we + wn)
+            num += wi * (me - mn)
+            den += wi
+        return num / den if den > 0 else np.nan
+
+    observed = _contrast()
+    if not np.isfinite(observed):
+        return None
+
+    rng = np.random.default_rng(seed)
+    boot = []
+    for _ in range(n_boot):
+        draw = rng.integers(0, n_stations, size=n_stations)
+        counts = np.bincount(draw, minlength=n_stations).astype(np.float64)
+        pw = counts[s1_idx] * counts[s2_idx]
+        if pw.sum() <= 0:
+            continue
+        c = _contrast(pw)
+        if np.isfinite(c):
+            boot.append(c)
+    if len(boot) < max(10, n_boot // 10):
+        return None
+    arr = np.array(boot)
+    return {
+        "method": "distance_matched_mean_phase_alignment_contrast",
+        "window": "lon_diff < {:g} deg".format(LON_DIFF_THRESHOLD_DEG),
+        "contrast_ew_minus_ns": float(observed),
+        "bootstrap_mean": float(np.mean(arr)),
+        "bootstrap_std": float(np.std(arr)),
+        "ci_low": float(np.percentile(arr, 2.5)),
+        "ci_high": float(np.percentile(arr, 97.5)),
+        "p_value": float(np.mean(arr <= 0.0)),
+        "n_boot_valid": int(len(arr)),
+        "n_pairs_ew": int(ew_sel.sum()),
+        "n_pairs_ns": int(ns_sel.sum()),
+    }
+
+
 class Step22EWNSAnisotropy:
     def run(self):
         print_status("Step 2.2: EW/NS Anisotropy", "INFO")
@@ -629,6 +722,23 @@ class Step22EWNSAnisotropy:
                     )
                     if ld_boot_c is not None:
                         ld_result["bootstrap_station_clustered"] = ld_boot_c
+                    # Direct pre-fit contrast of the signature metric in the
+                    # same pre-specified window: higher-power estimator that
+                    # does not route through per-sector exponential fits.
+                    pa_contrast = _direct_pa_contrast_clustered(
+                        dist, coh, az, s1_idx, s2_idx, n_stations,
+                        ew_sectors, ns_sectors, sector_centers, sector_names,
+                        ld_mask, N_BOOTSTRAP
+                    )
+                    if pa_contrast is not None:
+                        ld_result["direct_pa_contrast"] = pa_contrast
+                        print_status(
+                            f"    {const_name} (lon_diff<30°) direct PA contrast: "
+                            f"EW-NS={pa_contrast['contrast_ew_minus_ns']:+.4f}, "
+                            f"95%CI=[{pa_contrast['ci_low']:+.4f},{pa_contrast['ci_high']:+.4f}], "
+                            f"p={pa_contrast['p_value']:.4f} (clustered)",
+                            "INFO"
+                        )
                     boot_str = (
                         f", 95%CI=[{ld_boot_c['ci_low']:.2f},{ld_boot_c['ci_high']:.2f}], "
                         f"p={ld_boot_c['p_value']:.4f} (clustered)" if ld_boot_c else ""

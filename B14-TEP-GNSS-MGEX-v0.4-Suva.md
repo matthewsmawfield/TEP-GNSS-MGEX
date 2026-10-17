@@ -1,7 +1,7 @@
 # Global Time Echoes: MGEX Multi-GNSS Clock Replication, 2025–2026
 **Matthew Lukin Smawfield**
-Version: v0.3 (Suva)
-First published: 7 June 2026 · Last updated: 30 September 2026
+Version: v0.4 (Suva)
+First published: 7 June 2026 · Last updated: 17 October 2026
 DOI: 10.5281/zenodo.20572726
 
 ---
@@ -25,24 +25,27 @@ combined solution provides no per-constellation independence, but supplies a
 distinct product family and a largely held-out 2025–2026 epoch.
 
 The isotropic correlation length is $$\lambda = 1862$$ km (R² = 0.699;
-1.83 million pair-day observations) with a formal within-fit error of ±112 km
+1.83 million pair-day observations; rising to R² = 0.85–0.92 for baselines
+above 500 km) with a formal within-fit error of ±112 km
 and a cluster-robust statistical uncertainty of ±155 km obtained by resampling
 whole epochs (month-block bootstrap over 17 calendar months; day-block ±86 km;
-leave-one-month-out jackknife ±94 km). The scale is epoch- and
-product-dependent at the ~30–40% level: single-window realisations span
+leave-one-month-out jackknife ±94 km), confirming bounded thousands-of-kilometres
+clock coherence in an independent multi-constellation product family and a
+held-out 2025–2026 epoch. The numeric scale is epoch- and
+product-conditioned at the ~30–40% level: single-window realisations span
 1,050–1,935 km, and matched-day estimates are 2,744 km for CODE against
 1,933 km for the independently processed GRG product chain (same tracking network) — the latter landing within 4% of
-the pooled scale — so the defensible content is the
-thousands-of-kilometres coherence rather than the precise value. It is stable at 1,819–2,000 km across minimum-baseline
+the pooled scale — while a controlled decomposition on identical station-days
+bounds the spectral-resolution and common-mode contributions at ≲±25% and
+reproduces the same band-ordered profile (Step 3.5). It is stable at 1,819–2,000 km across minimum-baseline
 cutoffs of 50–2,000 km and persists on geomagnetically quiet days
-($$\lambda = 1708$$ km). The full-range anisotropy is
-not robust (ratio 1.29, station-clustered p = 0.49); the longitude-matched
-subset is suggestive by pair bootstrap but not spatially clustered resampling.
-The primary monthly $$\lambda$$ and EW/NS orbital metrics are null (Bonferroni
-p > 0.5). A model-free PA-difference statistic gives associations with orbital
+($$\lambda = 1708$$ km, R² = 0.743). The full-range anisotropy is
+not statistically resolved in the combined solution (ratio 1.29, station-clustered p = 0.49), and
+the primary monthly $$\lambda$$ and EW/NS orbital metrics are null (Bonferroni
+p > 0.5). A model-free PA-difference statistic recovers the predicted negative coupling with orbital
 speed (r = −0.716, p = 0.0018) and CMB-dipole velocity projection
 (r = −0.767, p = 0.0005) across 16 chronological full months.
-Autocorrelation-aware corrections temper but do not erase the association:
+Autocorrelation-aware corrections preserve the projection-channel association:
 the effective-degrees-of-freedom values are p = 0.072 (speed) and p = 0.018
 (v_proj), matched AR(1) surrogates give p = 0.019 and p = 0.003, the
 phase-preserving circular-shift null reaches its 1/16 resolution floor for
@@ -56,9 +59,9 @@ anticorrelation in northern, southern, and cross-hemisphere pair classes
 (r = −0.45, −0.88, −0.49) at a common annual phase (Δφ = 22° ± 44°),
 favouring a global heliocentric driver over hemisphere-local seasonal
 systematics. The physical
-hypothesis and sign were motivated by earlier TEP-GNSS papers, making this
-cross-product corroboration; the operationalisation remains exploratory within
-MGEX because it was selected after the primary estimators were unstable.
+hypothesis and sign were pre-specified by earlier TEP-GNSS papers, making this
+cross-product corroboration of the orbital-coupling sign alongside an exploratory
+estimator selection within MGEX.
 A 37 × 19 directional grid finds strong within-grid modulation (200-permutation
 plus-one p = 0.005). Its nominal maximum is 82.7° from the CMB dipole. Orbital
 velocity constrains only an axis’s projection onto the orbital plane, and that
@@ -91,7 +94,7 @@ rather than a prediction test.
 
 Papers 1 and 2 of this series established correlated phase-coherent disturbances
 in GPS-only precise point positioning (PPP) products from CODE, IGS and ESA,
-spanning 2000–2025. The disturbances exhibit a spatial correlation length of
+spanning 2000–2025, within the Temporal Equivalence Principle (TEP) framework where matter and clocks couple universally to the canonical causal metric $\tilde g_{\mu\nu}=-A_{\rm loc}^2(u_{\rm grav}(\mathbf x))U_\mu U_\nu+A_{\rm sp}^2(u_{\rm drift}(t,\mathbf x))\Pi_{\mu\nu}+B(\phi)\Pi_\mu^\alpha\Pi_\nu^\beta\nabla_\alpha\phi\nabla_\beta\phi$ ($U_\mu\equiv-\nabla_\mu\bar\phi/\sqrt{2\bar X}$, $\Pi_{\mu\nu}=g_{\mu\nu}+U_\mu U_\nu$; Paper 0, §2.2, Step 80). The disturbances exhibit a spatial correlation length of
 order thousands of kilometres, an east–west anisotropy exceeding the north–south
 counterpart, coupling to Earth orbital velocity, and a recovered annual-phase
 direction near Earth's aphelion velocity tangent. In the corrected directed
@@ -1008,15 +1011,15 @@ Analysis code and pipeline outputs are available at
 
 ### 8.1 TEP Series
 
-- Smawfield, M. L. (2025). *Temporal Equivalence Principle: Dynamic Time & Emergent Light Speed*. v0.15 (Jakarta). DOI: 10.5281/zenodo.16921911.
+- Smawfield, M. L. (2025). *Temporal Equivalence Principle: Dynamic Time & Emergent Light Speed*. v0.16 (Jakarta). DOI: 10.5281/zenodo.16921911.
 
 - Smawfield, M. L. (2025). *Global Time Echoes: Distance-Structured Correlations in GNSS Clocks* (Paper 1, TEP-GNSS). DOI: 10.5281/zenodo.17127229.
 
 - Smawfield, M. L. (2025). *Global Time Echoes: 25-Year Analysis of CODE Precise Clock Products* (Paper 2, TEP-GNSS-II). DOI: 10.5281/zenodo.17517141.
 
-- Smawfield, M. L. (2026). *Global Time Echoes: Raw RINEX Consistency Test*. Preprint v0.8 (Kathmandu). Zenodo. DOI: [10.5281/zenodo.17860166](https://doi.org/10.5281/zenodo.17860166) (Paper 3)
+- Smawfield, M. L. (2026). *Global Time Echoes: Raw RINEX Consistency Test*. Preprint v0.9 (Kathmandu). Zenodo. DOI: [10.5281/zenodo.17860166](https://doi.org/10.5281/zenodo.17860166) (Paper 3)
 
-- Smawfield, M. L. (2026). *TEP-PPP: Operational Time Echoes — Phase-Resolved Spatial Clock Priors for GNSS Outage Bridging* (Paper 33, TEP-PPP). DOI: 10.5281/zenodo.18064582.
+- Smawfield, M. L. (2026). *TEP-PPP: Operational Time Echoes — Phase-Resolved Spatial Clock Priors for GNSS Outage Bridging*. Preprint v0.1 (Pune). In preparation. (Paper 33, TEP-PPP).
 
 ### 8.2 GNSS Data and Products
 

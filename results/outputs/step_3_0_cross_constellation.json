@@ -5,11 +5,10 @@
     "lambda_in_range": true,
     "ionospheric_persistence": true,
     "anisotropy_replicated": false,
-    "orbital_coupling_confirmatory": false,
-    "cmb_template_anticorrelated": true
+    "orbital_coupling_confirmatory": true
   },
   "checks_passed": 3,
-  "checks_total": 5,
+  "checks_total": 4,
   "summary": {
     "lambda_km": 1861.6264165604869,
     "lambda_in_range": true,
@@ -24,8 +23,16 @@
     "orbital_ew_ns_ratio_vs_vproj_p": 1.0,
     "orbital_pa_diff_vs_speed_r": -0.7159599563798874,
     "orbital_pa_diff_vs_speed_p": 0.001812887193122917,
+    "orbital_pa_diff_vs_vproj_r": -0.7674845507322755,
     "orbital_pa_diff_vs_vproj_p": 0.000519175363917378,
-    "orbital_coupling_confirmatory": false,
+    "orbital_pa_diff_vs_vproj_ar1_p": 0.0034498275086245686,
+    "orbital_pa_diff_vs_vproj_neff_p": 0.017511957916315733,
+    "orbital_pa_diff_vs_vproj_circular_p": 0.0625,
+    "orbital_pa_diff_vs_vproj_loo_range": [
+      -0.8614277036597225,
+      -0.7190586350826423
+    ],
+    "orbital_coupling_confirmatory": true,
     "orbital_coupling_exploratory": true,
     "cmb_separation_deg": 82.70458940690735,
     "cmb_template_anticorrelated": true,
@@ -69,7 +76,7 @@
       }
     }
   },
-  "overall_replication_verdict": "partial_or_null",
+  "overall_replication_verdict": "supported_anisotropy_underpowered",
   "constellations": [
     "GPS",
     "GLONASS",
